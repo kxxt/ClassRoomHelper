@@ -33,8 +33,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="RsWork.Functions">
+      <HintPath>..\..\LessonDeliveryApp-InPratice\RsWork.Functions.dll</HintPath>
+    </Reference>
+    <Reference Include="RsWork.UI">
+      <HintPath>..\..\LessonDeliveryApp-InPratice\RsWork.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Core.WinForms, Version=16.4460.0.42, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Shared.Windows, Version=16.4460.0.42, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Syncfusion\WinForms\16.1.0.24\Assemblies\4.6\Syncfusion.Shared.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Tools.Windows, Version=16.4460.0.42, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Syncfusion\WinForms\16.1.0.24\Assemblies\4.6\Syncfusion.Tools.Windows.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,14 +62,47 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Windows\BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\BaseForm.Designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Configuation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Configuation.Designer.cs">
+      <DependentUpon>Configuation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Controls\DefaultButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Windows\Controls\DefaultButton.Designer.cs">
+      <DependentUpon>DefaultButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Controls\TextLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Windows\Controls\TextLabel.Designer.cs">
+      <DependentUpon>TextLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Controls\TitleLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Windows\Controls\TitleLabel.Designer.cs">
+      <DependentUpon>TitleLabel.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -63,6 +112,21 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Windows\BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Configuation.resx">
+      <DependentUpon>Configuation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Controls\DefaultButton.resx">
+      <DependentUpon>DefaultButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Controls\TextLabel.resx">
+      <DependentUpon>TextLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Controls\TitleLabel.resx">
+      <DependentUpon>TitleLabel.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -78,7 +142,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Structures\" />
-    <Folder Include="Windows\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

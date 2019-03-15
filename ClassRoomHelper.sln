@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassRoomHelper", "ClassRoo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassRoomHelper.Library", "ClassRoomHelper.Library\ClassRoomHelper.Library.csproj", "{3BD4EF73-722B-4134-A02C-F7811C515565}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRHBackstageHelper", "CRHBackstageHelper\CRHBackstageHelper.csproj", "{ED7940DF-C673-49D7-A3A2-FE1009F908DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3BD4EF73-722B-4134-A02C-F7811C515565}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BD4EF73-722B-4134-A02C-F7811C515565}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3BD4EF73-722B-4134-A02C-F7811C515565}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED7940DF-C673-49D7-A3A2-FE1009F908DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED7940DF-C673-49D7-A3A2-FE1009F908DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED7940DF-C673-49D7-A3A2-FE1009F908DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED7940DF-C673-49D7-A3A2-FE1009F908DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

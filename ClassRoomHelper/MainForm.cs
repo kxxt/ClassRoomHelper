@@ -24,12 +24,23 @@ namespace ClassRoomHelper
 
 		private void SfButton2_Click(object sender, EventArgs e)
 		{
-			this.Close();
+			Environment.Exit(0);
 		}
 
 		private void DefaultButton6_Click(object sender, EventArgs e)
 		{
 			new Windows.DebugForm().Show();
+		}
+
+		private void DefaultButton1_Click(object sender, EventArgs e)
+		{
+			this.Close();
+		}
+
+		private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			this.BackgroundImage = null;
+			GC.Collect();
 		}
 	}
 }

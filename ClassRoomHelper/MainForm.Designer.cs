@@ -29,119 +29,50 @@
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-			this.sfButton2 = new ClassRoomHelper.Windows.Controls.DefaultButton();
-			this.titleLabel1 = new ClassRoomHelper.Windows.Controls.TitleLabel();
-			this.sfButton3 = new ClassRoomHelper.Windows.Controls.DefaultButton();
-			this.sfButton4 = new ClassRoomHelper.Windows.Controls.DefaultButton();
-			this.sfButton5 = new ClassRoomHelper.Windows.Controls.DefaultButton();
-			this.sfButton6 = new ClassRoomHelper.Windows.Controls.DefaultButton();
-			this.defaultButton1 = new ClassRoomHelper.Windows.Controls.DefaultButton();
+			this.defaultButton6 = new ClassRoomHelper.Windows.Controls.DefaultButton();
+			this.defaultButton5 = new ClassRoomHelper.Windows.Controls.DefaultButton();
 			this.defaultButton2 = new ClassRoomHelper.Windows.Controls.DefaultButton();
 			this.defaultButton3 = new ClassRoomHelper.Windows.Controls.DefaultButton();
 			this.defaultButton4 = new ClassRoomHelper.Windows.Controls.DefaultButton();
-			this.defaultButton5 = new ClassRoomHelper.Windows.Controls.DefaultButton();
-			this.defaultButton6 = new ClassRoomHelper.Windows.Controls.DefaultButton();
+			this.defaultButton1 = new ClassRoomHelper.Windows.Controls.DefaultButton();
+			this.sfButton6 = new ClassRoomHelper.Windows.Controls.DefaultButton();
+			this.sfButton5 = new ClassRoomHelper.Windows.Controls.DefaultButton();
+			this.sfButton4 = new ClassRoomHelper.Windows.Controls.DefaultButton();
+			this.sfButton3 = new ClassRoomHelper.Windows.Controls.DefaultButton();
+			this.titleLabel1 = new ClassRoomHelper.Windows.Controls.TitleLabel();
+			this.sfButton2 = new ClassRoomHelper.Windows.Controls.DefaultButton();
 			this.SuspendLayout();
 			// 
-			// sfButton2
+			// defaultButton6
 			// 
-			this.sfButton2.AccessibleName = "Button";
-			this.sfButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.sfButton2.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.sfButton2.Image = ((System.Drawing.Image)(resources.GetObject("sfButton2.Image")));
-			this.sfButton2.ImageSize = new System.Drawing.Size(35, 35);
-			this.sfButton2.Location = new System.Drawing.Point(543, 370);
-			this.sfButton2.Name = "sfButton2";
-			this.sfButton2.Size = new System.Drawing.Size(96, 73);
-			this.sfButton2.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-			this.sfButton2.TabIndex = 1;
-			this.sfButton2.Text = "退出";
-			this.sfButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-			this.sfButton2.Click += new System.EventHandler(this.SfButton2_Click);
+			this.defaultButton6.AccessibleName = "Button";
+			this.defaultButton6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.defaultButton6.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.defaultButton6.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton6.Image")));
+			this.defaultButton6.ImageSize = new System.Drawing.Size(35, 35);
+			this.defaultButton6.Location = new System.Drawing.Point(441, 370);
+			this.defaultButton6.Name = "defaultButton6";
+			this.defaultButton6.Size = new System.Drawing.Size(96, 73);
+			this.defaultButton6.Style.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton6.Style.Image")));
+			this.defaultButton6.TabIndex = 13;
+			this.defaultButton6.Text = "调试";
+			this.defaultButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+			this.defaultButton6.Click += new System.EventHandler(this.DefaultButton6_Click);
 			// 
-			// titleLabel1
+			// defaultButton5
 			// 
-			this.titleLabel1.AutoSize = true;
-			this.titleLabel1.BackColor = System.Drawing.Color.Transparent;
-			this.titleLabel1.Font = new System.Drawing.Font("黑体", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.titleLabel1.Location = new System.Drawing.Point(25, 25);
-			this.titleLabel1.Name = "titleLabel1";
-			this.titleLabel1.Size = new System.Drawing.Size(212, 48);
-			this.titleLabel1.TabIndex = 2;
-			this.titleLabel1.Text = "班级助手";
-			// 
-			// sfButton3
-			// 
-			this.sfButton3.AccessibleName = "Button";
-			this.sfButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.sfButton3.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.sfButton3.Location = new System.Drawing.Point(505, 189);
-			this.sfButton3.Name = "sfButton3";
-			this.sfButton3.Size = new System.Drawing.Size(116, 72);
-			this.sfButton3.TabIndex = 3;
-			this.sfButton3.Text = "退出";
-			// 
-			// sfButton4
-			// 
-			this.sfButton4.AccessibleName = "Button";
-			this.sfButton4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.sfButton4.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.sfButton4.Image = ((System.Drawing.Image)(resources.GetObject("sfButton4.Image")));
-			this.sfButton4.ImageSize = new System.Drawing.Size(35, 35);
-			this.sfButton4.Location = new System.Drawing.Point(350, 189);
-			this.sfButton4.Name = "sfButton4";
-			this.sfButton4.Size = new System.Drawing.Size(116, 72);
-			this.sfButton4.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-			this.sfButton4.TabIndex = 4;
-			this.sfButton4.Text = "编辑名单";
-			this.sfButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-			// 
-			// sfButton5
-			// 
-			this.sfButton5.AccessibleName = "Button";
-			this.sfButton5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.sfButton5.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.sfButton5.Image = ((System.Drawing.Image)(resources.GetObject("sfButton5.Image")));
-			this.sfButton5.ImageSize = new System.Drawing.Size(35, 35);
-			this.sfButton5.Location = new System.Drawing.Point(196, 189);
-			this.sfButton5.Name = "sfButton5";
-			this.sfButton5.Size = new System.Drawing.Size(116, 72);
-			this.sfButton5.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
-			this.sfButton5.TabIndex = 5;
-			this.sfButton5.Text = "暂停服务";
-			this.sfButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-			// 
-			// sfButton6
-			// 
-			this.sfButton6.AccessibleName = "Button";
-			this.sfButton6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.sfButton6.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.sfButton6.Image = ((System.Drawing.Image)(resources.GetObject("sfButton6.Image")));
-			this.sfButton6.ImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.sfButton6.ImageSize = new System.Drawing.Size(35, 35);
-			this.sfButton6.Location = new System.Drawing.Point(34, 189);
-			this.sfButton6.Name = "sfButton6";
-			this.sfButton6.Size = new System.Drawing.Size(116, 72);
-			this.sfButton6.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
-			this.sfButton6.TabIndex = 6;
-			this.sfButton6.Text = "设置";
-			this.sfButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-			this.sfButton6.UseVisualStyleBackColor = false;
-			// 
-			// defaultButton1
-			// 
-			this.defaultButton1.AccessibleName = "Button";
-			this.defaultButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.defaultButton1.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.defaultButton1.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton1.Image")));
-			this.defaultButton1.ImageSize = new System.Drawing.Size(35, 35);
-			this.defaultButton1.Location = new System.Drawing.Point(645, 370);
-			this.defaultButton1.Name = "defaultButton1";
-			this.defaultButton1.Size = new System.Drawing.Size(96, 73);
-			this.defaultButton1.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
-			this.defaultButton1.TabIndex = 7;
-			this.defaultButton1.Text = "最小化";
-			this.defaultButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+			this.defaultButton5.AccessibleName = "Button";
+			this.defaultButton5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.defaultButton5.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.defaultButton5.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton5.Image")));
+			this.defaultButton5.ImageSize = new System.Drawing.Size(35, 35);
+			this.defaultButton5.Location = new System.Drawing.Point(505, 95);
+			this.defaultButton5.Name = "defaultButton5";
+			this.defaultButton5.Size = new System.Drawing.Size(116, 72);
+			this.defaultButton5.Style.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton5.Style.Image")));
+			this.defaultButton5.TabIndex = 12;
+			this.defaultButton5.Text = "本月课件";
+			this.defaultButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
 			// 
 			// defaultButton2
 			// 
@@ -154,7 +85,7 @@
 			this.defaultButton2.Location = new System.Drawing.Point(34, 95);
 			this.defaultButton2.Name = "defaultButton2";
 			this.defaultButton2.Size = new System.Drawing.Size(116, 72);
-			this.defaultButton2.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
+			this.defaultButton2.Style.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton2.Style.Image")));
 			this.defaultButton2.TabIndex = 11;
 			this.defaultButton2.Text = "随机点名";
 			this.defaultButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -170,7 +101,7 @@
 			this.defaultButton3.Location = new System.Drawing.Point(196, 95);
 			this.defaultButton3.Name = "defaultButton3";
 			this.defaultButton3.Size = new System.Drawing.Size(116, 72);
-			this.defaultButton3.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image6")));
+			this.defaultButton3.Style.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton3.Style.Image")));
 			this.defaultButton3.TabIndex = 10;
 			this.defaultButton3.Text = "今日课件";
 			this.defaultButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -185,41 +116,111 @@
 			this.defaultButton4.Location = new System.Drawing.Point(350, 95);
 			this.defaultButton4.Name = "defaultButton4";
 			this.defaultButton4.Size = new System.Drawing.Size(116, 72);
-			this.defaultButton4.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image7")));
+			this.defaultButton4.Style.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton4.Style.Image")));
 			this.defaultButton4.TabIndex = 9;
 			this.defaultButton4.Text = "昨日课件";
 			this.defaultButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
 			// 
-			// defaultButton5
+			// defaultButton1
 			// 
-			this.defaultButton5.AccessibleName = "Button";
-			this.defaultButton5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.defaultButton5.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.defaultButton5.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton5.Image")));
-			this.defaultButton5.ImageSize = new System.Drawing.Size(35, 35);
-			this.defaultButton5.Location = new System.Drawing.Point(505, 95);
-			this.defaultButton5.Name = "defaultButton5";
-			this.defaultButton5.Size = new System.Drawing.Size(116, 72);
-			this.defaultButton5.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image8")));
-			this.defaultButton5.TabIndex = 12;
-			this.defaultButton5.Text = "本月课件";
-			this.defaultButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+			this.defaultButton1.AccessibleName = "Button";
+			this.defaultButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.defaultButton1.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.defaultButton1.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton1.Image")));
+			this.defaultButton1.ImageSize = new System.Drawing.Size(35, 35);
+			this.defaultButton1.Location = new System.Drawing.Point(645, 370);
+			this.defaultButton1.Name = "defaultButton1";
+			this.defaultButton1.Size = new System.Drawing.Size(96, 73);
+			this.defaultButton1.Style.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton1.Style.Image")));
+			this.defaultButton1.TabIndex = 7;
+			this.defaultButton1.Text = "最小化";
+			this.defaultButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+			this.defaultButton1.Click += new System.EventHandler(this.DefaultButton1_Click);
 			// 
-			// defaultButton6
+			// sfButton6
 			// 
-			this.defaultButton6.AccessibleName = "Button";
-			this.defaultButton6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.defaultButton6.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.defaultButton6.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton6.Image")));
-			this.defaultButton6.ImageSize = new System.Drawing.Size(35, 35);
-			this.defaultButton6.Location = new System.Drawing.Point(441, 370);
-			this.defaultButton6.Name = "defaultButton6";
-			this.defaultButton6.Size = new System.Drawing.Size(96, 73);
-			this.defaultButton6.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-			this.defaultButton6.TabIndex = 13;
-			this.defaultButton6.Text = "调试";
-			this.defaultButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-			this.defaultButton6.Click += new System.EventHandler(this.DefaultButton6_Click);
+			this.sfButton6.AccessibleName = "Button";
+			this.sfButton6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.sfButton6.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.sfButton6.Image = ((System.Drawing.Image)(resources.GetObject("sfButton6.Image")));
+			this.sfButton6.ImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.sfButton6.ImageSize = new System.Drawing.Size(35, 35);
+			this.sfButton6.Location = new System.Drawing.Point(34, 189);
+			this.sfButton6.Name = "sfButton6";
+			this.sfButton6.Size = new System.Drawing.Size(116, 72);
+			this.sfButton6.Style.Image = ((System.Drawing.Image)(resources.GetObject("sfButton6.Style.Image")));
+			this.sfButton6.TabIndex = 6;
+			this.sfButton6.Text = "设置";
+			this.sfButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+			this.sfButton6.UseVisualStyleBackColor = false;
+			// 
+			// sfButton5
+			// 
+			this.sfButton5.AccessibleName = "Button";
+			this.sfButton5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.sfButton5.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.sfButton5.Image = ((System.Drawing.Image)(resources.GetObject("sfButton5.Image")));
+			this.sfButton5.ImageSize = new System.Drawing.Size(35, 35);
+			this.sfButton5.Location = new System.Drawing.Point(196, 189);
+			this.sfButton5.Name = "sfButton5";
+			this.sfButton5.Size = new System.Drawing.Size(116, 72);
+			this.sfButton5.Style.Image = ((System.Drawing.Image)(resources.GetObject("sfButton5.Style.Image")));
+			this.sfButton5.TabIndex = 5;
+			this.sfButton5.Text = "暂停服务";
+			this.sfButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+			// 
+			// sfButton4
+			// 
+			this.sfButton4.AccessibleName = "Button";
+			this.sfButton4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.sfButton4.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.sfButton4.Image = ((System.Drawing.Image)(resources.GetObject("sfButton4.Image")));
+			this.sfButton4.ImageSize = new System.Drawing.Size(35, 35);
+			this.sfButton4.Location = new System.Drawing.Point(350, 189);
+			this.sfButton4.Name = "sfButton4";
+			this.sfButton4.Size = new System.Drawing.Size(116, 72);
+			this.sfButton4.Style.Image = ((System.Drawing.Image)(resources.GetObject("sfButton4.Style.Image")));
+			this.sfButton4.TabIndex = 4;
+			this.sfButton4.Text = "编辑名单";
+			this.sfButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+			// 
+			// sfButton3
+			// 
+			this.sfButton3.AccessibleName = "Button";
+			this.sfButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.sfButton3.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.sfButton3.Location = new System.Drawing.Point(505, 189);
+			this.sfButton3.Name = "sfButton3";
+			this.sfButton3.Size = new System.Drawing.Size(116, 72);
+			this.sfButton3.TabIndex = 3;
+			this.sfButton3.Text = "退出";
+			// 
+			// titleLabel1
+			// 
+			this.titleLabel1.AutoSize = true;
+			this.titleLabel1.BackColor = System.Drawing.Color.Transparent;
+			this.titleLabel1.Font = new System.Drawing.Font("黑体", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.titleLabel1.Location = new System.Drawing.Point(25, 25);
+			this.titleLabel1.Name = "titleLabel1";
+			this.titleLabel1.Size = new System.Drawing.Size(212, 48);
+			this.titleLabel1.TabIndex = 2;
+			this.titleLabel1.Text = "班级助手";
+			// 
+			// sfButton2
+			// 
+			this.sfButton2.AccessibleName = "Button";
+			this.sfButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.sfButton2.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.sfButton2.Image = ((System.Drawing.Image)(resources.GetObject("sfButton2.Image")));
+			this.sfButton2.ImageSize = new System.Drawing.Size(35, 35);
+			this.sfButton2.Location = new System.Drawing.Point(543, 370);
+			this.sfButton2.Name = "sfButton2";
+			this.sfButton2.Size = new System.Drawing.Size(96, 73);
+			this.sfButton2.Style.Image = ((System.Drawing.Image)(resources.GetObject("sfButton2.Style.Image")));
+			this.sfButton2.TabIndex = 1;
+			this.sfButton2.Text = "退出";
+			this.sfButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+			this.sfButton2.Click += new System.EventHandler(this.SfButton2_Click);
 			// 
 			// MainForm
 			// 
@@ -242,6 +243,7 @@
 			this.Name = "MainForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "班级助手";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

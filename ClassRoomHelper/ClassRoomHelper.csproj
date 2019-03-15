@@ -36,20 +36,16 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="RsWork.Functions">
       <HintPath>..\..\LessonDeliveryApp-InPratice\RsWork.Functions.dll</HintPath>
     </Reference>
     <Reference Include="RsWork.UI">
       <HintPath>..\..\LessonDeliveryApp-InPratice\RsWork.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.Core.WinForms, Version=16.4460.0.42, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
-    <Reference Include="Syncfusion.Shared.Windows, Version=16.4460.0.42, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+    <Reference Include="Syncfusion.Core.WinForms, Version=16.4460.0.42, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\Syncfusion\WinForms\16.1.0.24\Assemblies\4.6\Syncfusion.Shared.Windows.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Tools.Windows, Version=16.4460.0.42, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\Syncfusion\WinForms\16.1.0.24\Assemblies\4.6\Syncfusion.Tools.Windows.dll</HintPath>
+      <HintPath>D:\Syncfusion\WinForms\16.1.0.24\Assemblies\4.6\Syncfusion.Core.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -109,6 +105,12 @@
     <Compile Include="Windows\DebugForm.Designer.cs">
       <DependentUpon>DebugForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Windows\TrayWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\TrayWindow.Designer.cs">
+      <DependentUpon>TrayWindow.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -138,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\DebugForm.resx">
       <DependentUpon>DebugForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\TrayWindow.resx">
+      <DependentUpon>TrayWindow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">

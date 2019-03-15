@@ -14,6 +14,7 @@ namespace LessonUploaderTray
 {
 	public static  class AppStartDector
 	{
+		public static EventArrivedEventHandler ProcessStarted;
 		static ManagementEventWatcher w = null;
 		public static void Initilize()
 		{
@@ -33,8 +34,9 @@ namespace LessonUploaderTray
                 if(CentralSettings.DebugMode)File.AppendAllText("appdetect.errorlog", CrashHandle.GetExceptionInfo(e));
 			}
 		}
-		public static void ProcessStartEventArrived(object sender, EventArrivedEventArgs e)
+		/* public static void ProcessStartEventArrived(object sender, EventArrivedEventArgs e)
 		{
+			foreach(var handle in ProcessStarted)
 			//MessageInputBox.Show("", "");
 			try
 			{
@@ -78,8 +80,21 @@ namespace LessonUploaderTray
 				//MessageInputBox.Show("Error On Event Arrival", "b");
 			}
 			
+		}*/
+		public static List<string> GetProcessCommandLine(int processName){
+			List<string> results = new List<string>();
+			string wmiQuery = string.Format("select CommandLine from Win32_Process where Name='{0}'", processName);
+			using (ManagementObjectSearcher searcher = new ManagementObjectSearcher(wmiQuery))
+			{
+				using (ManagementObjectCollection retObjectCollection = searcher.Get()) {
+					foreach (ManagementObject retObject in retObjectCollection)
+					{
+						results.Add((string)retObject["CommandLine"]);
+					}
+				}
+			}
+			return results;
 		}
-
 		public static void Stop()
 		{
 			w.Stop();

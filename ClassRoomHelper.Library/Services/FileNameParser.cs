@@ -4,8 +4,8 @@ namespace ClassRoomHelper.Library.Services
     {
         public static string GetFilePath(string cmd)
 		{
-			if (String.IsNullOrEmpty(cmd)) return "";
-			int a=0, b=pptcmd.Length-1,x=0;
+			if (string.IsNullOrEmpty(cmd)) return "";
+			int a=0, b=cmd.Length-1,x=0;
 			for(int i = 0; i < cmd.Length; i++)
 			{
 				if (cmd[i] == '"')

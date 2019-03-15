@@ -26,5 +26,10 @@ namespace ClassRoomHelper
 		{
 			this.Close();
 		}
+
+		private void DefaultButton6_Click(object sender, EventArgs e)
+		{
+			new Windows.DebugForm().Show();
+		}
 	}
 }

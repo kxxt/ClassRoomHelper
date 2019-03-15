@@ -5,7 +5,6 @@ using System.Linq;
 using System.Management;
 using System.Text;
 using LessonUploaderTray;
-using RsWork.Functions.Log;
 
 using System.Threading;
 using System.Diagnostics;
@@ -31,8 +30,12 @@ namespace LessonUploaderTray
 			}
 			catch(Exception e)
 			{
-                if(CentralSettings.DebugMode)File.AppendAllText("appdetect.errorlog", CrashHandle.GetExceptionInfo(e));
+				//todo
 			}
+		}
+		public static void ProcessStartEventArrived(object sender, EventArrivedEventArgs e)
+		{
+			ProcessStarted?.Invoke(sender, e);
 		}
 		/* public static void ProcessStartEventArrived(object sender, EventArrivedEventArgs e)
 		{

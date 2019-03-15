@@ -1,8 +1,8 @@
 using System;
 using System.IO;
-using System.Diagnostic;
 using System.Threading;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace ClassRoomHelper.Library.NameSelector{
     public class NameSelector{
@@ -14,13 +14,13 @@ namespace ClassRoomHelper.Library.NameSelector{
             reflexs=new List<long>();
             foreach (var it in names)
             {
-                reflexs.AddItem(it.Key);
+                reflexs.Add(it.Key);
             }
-            studentNumber=names.Count();
+            studentNumber=names.Count;
         }
-        public (int,string) ChooseRandomly(){
+        public (long,string) ChooseRandomly(){
             Random r=new Random();
-            int key= reflexs[r.Next(0,studentNumber-1)];
+            long key= reflexs[r.Next(0,studentNumber-1)];
             return (key,names[key]);
         }
     }

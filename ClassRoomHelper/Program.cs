@@ -35,12 +35,14 @@ namespace ClassRoomHelper
 	{
 		public static MainForm MainForm;
 		public static ProcessStartInfo Helper;
+		public static Properties.Settings Settings;
 		/// <summary>
 		/// 应用程序的主入口点。
 		/// </summary>
 		[STAThread]
 		static void Main()
 		{
+
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			SingleInstanceManager manager = new SingleInstanceManager();

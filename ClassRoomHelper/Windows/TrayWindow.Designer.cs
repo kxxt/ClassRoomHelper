@@ -35,6 +35,7 @@
 			this.titleLabel2 = new ClassRoomHelper.Windows.Controls.TitleLabel();
 			this.Tray = new System.Windows.Forms.NotifyIcon(this.components);
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
+			this.titleLabel4 = new ClassRoomHelper.Windows.Controls.TitleLabel();
 			this.SuspendLayout();
 			// 
 			// titleLabel1
@@ -85,6 +86,18 @@
 			this.timer1.Interval = 3000;
 			this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
 			// 
+			// titleLabel4
+			// 
+			this.titleLabel4.AutoSize = true;
+			this.titleLabel4.BackColor = System.Drawing.Color.Transparent;
+			this.titleLabel4.Font = new System.Drawing.Font("黑体", 20F);
+			this.titleLabel4.ForeColor = System.Drawing.Color.Gold;
+			this.titleLabel4.Location = new System.Drawing.Point(12, 438);
+			this.titleLabel4.Name = "titleLabel4";
+			this.titleLabel4.Size = new System.Drawing.Size(152, 27);
+			this.titleLabel4.TabIndex = 3;
+			this.titleLabel4.Text = "考试测试版";
+			// 
 			// TrayWindow
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -92,6 +105,7 @@
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.ClientSize = new System.Drawing.Size(722, 474);
+			this.Controls.Add(this.titleLabel4);
 			this.Controls.Add(this.titleLabel2);
 			this.Controls.Add(this.titleLabel3);
 			this.Controls.Add(this.titleLabel1);
@@ -110,5 +124,6 @@
 		private Controls.TitleLabel titleLabel2;
 		private System.Windows.Forms.NotifyIcon Tray;
 		private System.Windows.Forms.Timer timer1;
+		private Controls.TitleLabel titleLabel4;
 	}
 }

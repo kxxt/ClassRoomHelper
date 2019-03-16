@@ -35,5 +35,23 @@
     <Setting Name="FirstUse" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="CleanMode" Type="ClassRoomHelper.Library.Services.CleanMode" Scope="User">
+      <Value Profile="(Default)">Never</Value>
+    </Setting>
+    <Setting Name="VoiceNameCallOut" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="NameCallOutPre" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="NameCallOutPost" Type="System.String" Scope="User">
+      <Value Profile="(Default)">同学 , 请回答问题</Value>
+    </Setting>
+    <Setting Name="DesktopTool_ShowNameSelector" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="FileExistedSolution" Type="ClassRoomHelper.Library.Services.FileExistedSolution" Scope="User">
+      <Value Profile="(Default)">Copy</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

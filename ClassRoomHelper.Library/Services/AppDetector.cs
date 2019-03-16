@@ -25,7 +25,7 @@ namespace LessonUploaderTray
 				q.EventClassName = "Win32_ProcessStartTrace";
 				w = new ManagementEventWatcher(q);
 				w.EventArrived += new EventArrivedEventHandler(ProcessStartEventArrived);
-				w.Start();
+				//w.Start();
 				//Console.ReadLine(); // block main thread for test purposes
 			}
 			catch(Exception e)
@@ -101,6 +101,10 @@ namespace LessonUploaderTray
 		public static void Stop()
 		{
 			w.Stop();
+		}
+		public static void Start()
+		{
+			w.Start();
 		}
 	}
 }

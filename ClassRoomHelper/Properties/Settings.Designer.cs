@@ -154,5 +154,77 @@ namespace ClassRoomHelper.Properties {
                 this["FirstUse"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Never")]
+        public global::ClassRoomHelper.Library.Services.CleanMode CleanMode {
+            get {
+                return ((global::ClassRoomHelper.Library.Services.CleanMode)(this["CleanMode"]));
+            }
+            set {
+                this["CleanMode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool VoiceNameCallOut {
+            get {
+                return ((bool)(this["VoiceNameCallOut"]));
+            }
+            set {
+                this["VoiceNameCallOut"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string NameCallOutPre {
+            get {
+                return ((string)(this["NameCallOutPre"]));
+            }
+            set {
+                this["NameCallOutPre"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("同学 , 请回答问题")]
+        public string NameCallOutPost {
+            get {
+                return ((string)(this["NameCallOutPost"]));
+            }
+            set {
+                this["NameCallOutPost"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool DesktopTool_ShowNameSelector {
+            get {
+                return ((bool)(this["DesktopTool_ShowNameSelector"]));
+            }
+            set {
+                this["DesktopTool_ShowNameSelector"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Copy")]
+        public global::ClassRoomHelper.Library.Services.FileExistedSolution FileExistedSolution {
+            get {
+                return ((global::ClassRoomHelper.Library.Services.FileExistedSolution)(this["FileExistedSolution"]));
+            }
+            set {
+                this["FileExistedSolution"] = value;
+            }
+        }
     }
 }

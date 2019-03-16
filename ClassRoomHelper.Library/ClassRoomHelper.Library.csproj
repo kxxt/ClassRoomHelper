@@ -42,7 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="XmlHelper.cs" />
+    <Compile Include="DictionaryEx.cs" />
     <Compile Include="DebugLevel.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="NameSelector\NameSelector.cs" />

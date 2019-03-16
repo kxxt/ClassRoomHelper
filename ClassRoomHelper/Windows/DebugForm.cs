@@ -25,5 +25,23 @@ namespace ClassRoomHelper.Windows
 				MessageBox.Show(a);
 			}
 		}
+
+		private void DefaultButton3_Click(object sender, EventArgs e)
+		{
+			var x = ActiveFileController.GetExcel();
+			foreach (var a in x)
+			{
+				MessageBox.Show(a);
+			}
+		}
+
+		private void DefaultButton2_Click(object sender, EventArgs e)
+		{
+			var x = ActiveFileController.GetPowerpoint();
+			foreach (var a in x)
+			{
+				MessageBox.Show(a);
+			}
+		}
 	}
 }

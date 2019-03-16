@@ -90,6 +90,7 @@
 			this.defaultButton2.Text = "随机点名";
 			this.defaultButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
 			this.defaultButton2.UseVisualStyleBackColor = false;
+			this.defaultButton2.Click += new System.EventHandler(this.DefaultButton2_Click);
 			// 
 			// defaultButton3
 			// 
@@ -105,6 +106,7 @@
 			this.defaultButton3.TabIndex = 10;
 			this.defaultButton3.Text = "今日课件";
 			this.defaultButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+			this.defaultButton3.Click += new System.EventHandler(this.DefaultButton3_Click);
 			// 
 			// defaultButton4
 			// 
@@ -153,6 +155,7 @@
 			this.sfButton6.Text = "设置";
 			this.sfButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
 			this.sfButton6.UseVisualStyleBackColor = false;
+			this.sfButton6.Click += new System.EventHandler(this.SfButton6_Click);
 			// 
 			// sfButton5
 			// 

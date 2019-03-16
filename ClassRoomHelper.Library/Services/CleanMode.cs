@@ -8,6 +8,6 @@ namespace ClassRoomHelper.Library.Services
 {
 	public enum CleanMode
 	{
-		Never,Yesterday,LastMonth,LastYear
+		Never,Daily,EveryTwoDays,LastMonth,LastYear
 	}
 }

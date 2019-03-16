@@ -20,7 +20,7 @@ namespace ClassRoomHelper.Windows
 
 		private void Timer1_Tick(object sender, EventArgs e)
 		{
-			MessageBox.Show(Environment.CurrentDirectory);
+			//MessageBox.Show(Environment.CurrentDirectory);
 			this.Hide();
 			this.BackgroundImage = null;
 			timer1.Dispose();
@@ -54,8 +54,12 @@ namespace ClassRoomHelper.Windows
 				Program.Helper = new System.Diagnostics.ProcessStartInfo();
 				Program.Helper.FileName = Environment.CurrentDirectory + "CRHBackstageHelper.exe";
 				Program.Helper.CreateNoWindow = true;
+				Program.Helper.UseShellExecute = true;
+				Program.Helper.WorkingDirectory = Environment.CurrentDirectory;
 				Program.Helper.WindowStyle=System.Diagnostics.ProcessWindowStyle.Hidden;
 				Thread.Sleep(1000);
+				Program.Settings = new Properties.Settings();
+				//Program.Settings.
 			});
 		}
 		private void BeginInvoke(Func<bool> p)

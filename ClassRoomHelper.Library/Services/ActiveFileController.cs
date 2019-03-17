@@ -15,9 +15,9 @@ namespace ClassRoomHelper.Library.Services
 {
 	public static class ActiveFileController
 	{
-		public static List<string> GetWord()
+		public static List<(string,string)> GetWord()
 		{
-			List<string> ret = new List<string>();
+			List<(string, string)> ret = new List<(string, string)>();
 			object oMissing = System.Reflection.Missing.Value;
 			Word.Application winObj;
 			try
@@ -32,13 +32,13 @@ namespace ClassRoomHelper.Library.Services
 			}
 			foreach(Word.Document x in winObj.Documents)
 			{
-				ret.Add(x.FullName);
+				ret.Add((x.Path,x.Name));
 			}
 			return ret;
 		}
-		public static List<String> GetPowerpoint()
+		public static List<(string, string)> GetPowerpoint()
 		{
-			var ret = new List<string>();
+			var ret = new List<(string, string)>();
 			object oMissing = System.Reflection.Missing.Value;
 			Powerpoint.Application winObj;
 			try
@@ -53,14 +53,14 @@ namespace ClassRoomHelper.Library.Services
 			}
 			foreach (Powerpoint.Presentation p in winObj.Presentations)
 			{
-				ret.Add(p.FullName);
+				ret.Add((p.Path,p.Name));
 			}
 			return ret;
 		}
 
-		public static List<String> GetExcel()
+		public static List<(string, string)> GetExcel()
 		{
-			var ret = new List<string>();
+			var ret = new List<(string, string)>();
 			object oMissing = System.Reflection.Missing.Value;
 			Excel.Application winObj;
 			try
@@ -76,7 +76,7 @@ namespace ClassRoomHelper.Library.Services
 			}
 			foreach (Excel.Workbook p in winObj.Workbooks)
 			{
-				ret.Add(p.FullName);
+				ret.Add((p.Path,p.Name));
 			}
 			return ret;
 		}

@@ -40,12 +40,12 @@ namespace ClassRoomHelper.Windows
 				Program.Helper.FileName = Environment.CurrentDirectory + "CRHBackstageHelper.exe";
 				return true;
 			};*/
-			await Load();
+			await LoadApp();
 			Timer1_Tick(null, null);
 			//timer1?.Start();
 		}
 		
-		private Task Load()
+		private Task LoadApp()
 		{
 			return Task.Run(()=>
 			{

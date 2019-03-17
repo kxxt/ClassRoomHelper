@@ -22,7 +22,7 @@ namespace ClassRoomHelper.Windows
 			var x=ActiveFileController.GetWord();
 			foreach(var a in x)
 			{
-				MessageBox.Show(a);
+				MessageBox.Show(a.Item1 + "\r\n" + a.Item2);
 			}
 		}
 
@@ -31,7 +31,7 @@ namespace ClassRoomHelper.Windows
 			var x = ActiveFileController.GetExcel();
 			foreach (var a in x)
 			{
-				MessageBox.Show(a);
+				MessageBox.Show(a.Item1+"\r\n"+a.Item2);
 			}
 		}
 
@@ -40,7 +40,7 @@ namespace ClassRoomHelper.Windows
 			var x = ActiveFileController.GetPowerpoint();
 			foreach (var a in x)
 			{
-				MessageBox.Show(a);
+				MessageBox.Show(a.Item1 + "\r\n" + a.Item2);
 			}
 		}
 	}

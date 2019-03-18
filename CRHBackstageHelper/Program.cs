@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using ClassRoomHelper.Library.Services;
+using System;
 using System.IO;
-using System.Threading.Tasks;
-using ClassRoomHelper.Library.Services;
 
 namespace CRHBackstageHelper
 {
@@ -51,7 +47,8 @@ namespace CRHBackstageHelper
 						break;
 				}
 			}
-			
+			try
+			{
 				switch (args[0].Trim().ToLower())
 				{
 					case "fetch-all":
@@ -64,16 +61,21 @@ namespace CRHBackstageHelper
 						break;
 					case "fetch-xls":
 						Debug("fetch-xls");
-					FetchXLS(args[1]);
-					break;
+						FetchXLS(args[1]);
+						break;
 					case "fetch-doc":
 						Debug("fetch-doc");
-					FetchDOC(args[1]);
-					break;
+						FetchDOC(args[1]);
+						break;
 				}
-			
+
+			}catch(Exception ex)
+			{
+				ClassRoomHelper.Library.Log.AppendException("service.error",ex);
+			}
+
 		}
-		static void Copy((string,string) info,string tdir)
+		static void Copy((string, string) info, string tdir)
 		{
 			if (tdir[tdir.Length - 1] != '\\')
 			{
@@ -82,22 +84,22 @@ namespace CRHBackstageHelper
 			var tarf = tdir + info.Item2;
 			var fi = new FileInfo(tarf);
 			var raw = new FileInfo(info.Item1 + "\\" + info.Item2);
-			if (File.Exists(tarf)&&fi.Length!=raw.Length)
+			if (File.Exists(tarf) && fi.Length != raw.Length)
 			{
 				switch (FileExistedSolution)
 				{
 					case FileExistedSolution.Copy:
-						var x=Directory.CreateDirectory(tdir +"文件历史 - "+ info.Item2);
+						var x = Directory.CreateDirectory(tdir + "文件历史 - " + info.Item2);
 						int i = 1;
-						for (;i<=10086 ; i++)
+						for (; i <= 10086; i++)
 						{
 							if (!File.Exists(x.FullName + "\\" + i + "-" + info.Item2)) break;
 						}
 						File.Move(tarf, x.FullName + "\\" + i + "-" + info.Item2);
-						File.Copy(info.Item1+"\\"+info.Item2, x.FullName + "\\" + (i + 1) + "-" + info.Item2);
+						File.Copy(info.Item1 + "\\" + info.Item2, x.FullName + "\\" + (i + 1) + "-" + info.Item2);
 						break;
 					case FileExistedSolution.Cover:
-						File.Copy(info.Item1 + "\\" + info.Item2,tdir+info.Item2,true);
+						File.Copy(info.Item1 + "\\" + info.Item2, tdir + info.Item2, true);
 						break;
 					case FileExistedSolution.Skip:
 						break;
@@ -121,8 +123,8 @@ namespace CRHBackstageHelper
 		}
 		static void FetchPPT(string sdir)
 		{
-			var r=ActiveFileController.GetPowerpoint();
-			foreach(var it in r)
+			var r = ActiveFileController.GetPowerpoint();
+			foreach (var it in r)
 			{
 				Debug(it.Item1 + "\\" + it.Item2);
 				Copy(it, sdir);

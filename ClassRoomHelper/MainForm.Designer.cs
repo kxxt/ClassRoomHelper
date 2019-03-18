@@ -38,9 +38,9 @@
 			this.sfButton6 = new ClassRoomHelper.Windows.Controls.DefaultButton();
 			this.sfButton5 = new ClassRoomHelper.Windows.Controls.DefaultButton();
 			this.sfButton4 = new ClassRoomHelper.Windows.Controls.DefaultButton();
-			this.sfButton3 = new ClassRoomHelper.Windows.Controls.DefaultButton();
 			this.titleLabel1 = new ClassRoomHelper.Windows.Controls.TitleLabel();
 			this.sfButton2 = new ClassRoomHelper.Windows.Controls.DefaultButton();
+			this.defaultButton7 = new ClassRoomHelper.Windows.Controls.DefaultButton();
 			this.SuspendLayout();
 			// 
 			// defaultButton6
@@ -187,17 +187,6 @@
 			this.sfButton4.Text = "编辑名单";
 			this.sfButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
 			// 
-			// sfButton3
-			// 
-			this.sfButton3.AccessibleName = "Button";
-			this.sfButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.sfButton3.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.sfButton3.Location = new System.Drawing.Point(505, 189);
-			this.sfButton3.Name = "sfButton3";
-			this.sfButton3.Size = new System.Drawing.Size(116, 72);
-			this.sfButton3.TabIndex = 3;
-			this.sfButton3.Text = "退出";
-			// 
 			// titleLabel1
 			// 
 			this.titleLabel1.AutoSize = true;
@@ -225,12 +214,28 @@
 			this.sfButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
 			this.sfButton2.Click += new System.EventHandler(this.SfButton2_Click);
 			// 
+			// defaultButton7
+			// 
+			this.defaultButton7.AccessibleName = "Button";
+			this.defaultButton7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.defaultButton7.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.defaultButton7.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton7.Image")));
+			this.defaultButton7.ImageSize = new System.Drawing.Size(35, 35);
+			this.defaultButton7.Location = new System.Drawing.Point(505, 189);
+			this.defaultButton7.Name = "defaultButton7";
+			this.defaultButton7.Size = new System.Drawing.Size(116, 72);
+			this.defaultButton7.Style.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton7.Style.Image")));
+			this.defaultButton7.TabIndex = 14;
+			this.defaultButton7.Text = "朗读文段";
+			this.defaultButton7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.ClientSize = new System.Drawing.Size(760, 455);
+			this.Controls.Add(this.defaultButton7);
 			this.Controls.Add(this.defaultButton6);
 			this.Controls.Add(this.defaultButton5);
 			this.Controls.Add(this.defaultButton2);
@@ -240,7 +245,6 @@
 			this.Controls.Add(this.sfButton6);
 			this.Controls.Add(this.sfButton5);
 			this.Controls.Add(this.sfButton4);
-			this.Controls.Add(this.sfButton3);
 			this.Controls.Add(this.titleLabel1);
 			this.Controls.Add(this.sfButton2);
 			this.Name = "MainForm";
@@ -255,7 +259,6 @@
 		#endregion
 		private ClassRoomHelper.Windows.Controls.DefaultButton sfButton2;
 		private Windows.Controls.TitleLabel titleLabel1;
-		private ClassRoomHelper.Windows.Controls.DefaultButton sfButton3;
 		private ClassRoomHelper.Windows.Controls.DefaultButton sfButton4;
 		private ClassRoomHelper.Windows.Controls.DefaultButton sfButton5;
 		private ClassRoomHelper.Windows.Controls.DefaultButton sfButton6;
@@ -265,6 +268,7 @@
 		private Windows.Controls.DefaultButton defaultButton4;
 		private Windows.Controls.DefaultButton defaultButton5;
 		private Windows.Controls.DefaultButton defaultButton6;
+		private Windows.Controls.DefaultButton defaultButton7;
 	}
 }
 

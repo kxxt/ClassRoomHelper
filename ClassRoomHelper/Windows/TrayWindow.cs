@@ -49,16 +49,7 @@ namespace ClassRoomHelper.Windows
 		{
 			return Task.Run(()=>
 			{
-				string s = Application.ExecutablePath;
-				Environment.CurrentDirectory = s.Substring(0, s.Length - 19);
-				Program.Helper = new System.Diagnostics.ProcessStartInfo();
-				Program.Helper.FileName = Environment.CurrentDirectory + "CRHBackstageHelper.exe";
-				Program.Helper.CreateNoWindow = true;
-				Program.Helper.UseShellExecute = true;
-				Program.Helper.WorkingDirectory = Environment.CurrentDirectory;
-				Program.Helper.WindowStyle=System.Diagnostics.ProcessWindowStyle.Hidden;
-				Thread.Sleep(1000);
-				Program.Settings = new Properties.Settings();
+				CoreInit.Load();
 				//Program.Settings.
 			});
 		}

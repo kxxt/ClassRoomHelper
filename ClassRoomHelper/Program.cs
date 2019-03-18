@@ -36,6 +36,7 @@ namespace ClassRoomHelper
 		public static MainForm MainForm;
 		public static ProcessStartInfo Helper;
 		public static Properties.Settings Settings;
+		public static bool IsCensorServiceRunning=false;
 		/// <summary>
 		/// 应用程序的主入口点。
 		/// </summary>

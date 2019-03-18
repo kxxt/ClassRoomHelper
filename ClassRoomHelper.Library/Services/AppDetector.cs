@@ -4,14 +4,13 @@ using System.IO;
 using System.Linq;
 using System.Management;
 using System.Text;
-using LessonUploaderTray;
 
 using System.Threading;
 using System.Diagnostics;
 
-namespace LessonUploaderTray
+namespace ClassRoomHelper.Library.Services
 {
-	public static  class AppStartDector
+	public static  class AppDetector
 	{
 		public static EventArrivedEventHandler ProcessStarted;
 		static ManagementEventWatcher w = null;

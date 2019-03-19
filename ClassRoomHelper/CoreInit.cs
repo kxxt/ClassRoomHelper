@@ -7,10 +7,11 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClassRoomHelper.Library.Services;
+using ClassRoomHelper.Library;
 
 namespace ClassRoomHelper
 {
-	public static class CoreInit
+	public  class CoreInit
 	{
 		public static void StartCensorService()
 		{
@@ -36,10 +37,17 @@ namespace ClassRoomHelper
 			Program.Helper.WorkingDirectory = Environment.CurrentDirectory;
 			Program.Helper.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
 		}
-		public static void Load()
+		public static  void Load()
 		{
 			LoadProperties();
-			StartCensorService();
+			try
+			{
+				StartCensorService();
+
+			}catch(System.Management.ManagementException ex)
+			{
+				MessageBox.Show(Log.GetExceptionInfo(ex));
+			}
 			Thread.Sleep(1000);
 			Program.Settings = new Properties.Settings();
 		}

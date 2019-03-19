@@ -228,6 +228,7 @@
 			this.defaultButton7.TabIndex = 14;
 			this.defaultButton7.Text = "朗读文段";
 			this.defaultButton7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+			this.defaultButton7.Click += new System.EventHandler(this.DefaultButton7_Click);
 			// 
 			// MainForm
 			// 

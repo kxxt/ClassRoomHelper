@@ -70,5 +70,10 @@ namespace ClassRoomHelper
 				//GC.Collect();
 			}
 		}
+
+		private void DefaultButton7_Click(object sender, EventArgs e)
+		{
+			new SpeechWindow().Show();
+		}
 	}
 }

@@ -108,6 +108,12 @@
     <Compile Include="Windows\DebugForm.Designer.cs">
       <DependentUpon>DebugForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Windows\SpeechWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\SpeechWindow.Designer.cs">
+      <DependentUpon>SpeechWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\TrayWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\DebugForm.resx">
       <DependentUpon>DebugForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\SpeechWindow.resx">
+      <DependentUpon>SpeechWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\TrayWindow.resx">
       <DependentUpon>TrayWindow.cs</DependentUpon>

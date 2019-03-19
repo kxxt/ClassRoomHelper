@@ -49,7 +49,7 @@ namespace ClassRoomHelper.Windows
 		{
 			return Task.Run(()=>
 			{
-				CoreInit.Load();
+				Core.Load();
 				//Program.Settings.
 			});
 		}

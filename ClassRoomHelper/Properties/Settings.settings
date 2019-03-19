@@ -53,5 +53,8 @@
     <Setting Name="FileExistedSolution" Type="ClassRoomHelper.Library.Services.FileExistedSolution" Scope="User">
       <Value Profile="(Default)">Copy</Value>
     </Setting>
+    <Setting Name="CollectMode" Type="ClassRoomHelper.Library.Services.CollectMode" Scope="User">
+      <Value Profile="(Default)">ALL</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

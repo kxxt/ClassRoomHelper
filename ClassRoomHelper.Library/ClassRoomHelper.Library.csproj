@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ProcessExtensions.cs" />
+    <Compile Include="Services\CollectMode.cs" />
     <Compile Include="XmlHelper.cs" />
     <Compile Include="DictionaryEx.cs" />
     <Compile Include="DebugLevel.cs" />

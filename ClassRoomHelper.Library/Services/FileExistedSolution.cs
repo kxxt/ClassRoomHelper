@@ -10,4 +10,21 @@ namespace ClassRoomHelper.Library.Services
 	{
 		Skip,Cover,Copy
 	}
+	public static class FileExistedSolutionEx
+	{
+		public static string ToArg(this FileExistedSolution mode)
+		{
+			switch (mode)
+			{
+				case FileExistedSolution.Copy:
+					return "copy";
+				case FileExistedSolution.Cover:
+					return "cover";
+				case FileExistedSolution.Skip:
+					return "skip";
+				default:
+					return "";
+			}
+		}
+	}
 }

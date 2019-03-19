@@ -29,9 +29,11 @@ namespace CRHBackstageHelper
 			rx = new Random();
 			FileExistedSolution = FileExistedSolution.Copy;
 			if (args.Length < 2) return;
+			Debug(args[0]);Debug(args[1]);
 			if (!Directory.Exists(args[1])) return;
 			if (args.Length >= 3)
 			{
+				Debug(args[2]);
 				switch (args[2].Trim().ToLower())
 				{
 					case "copy":
@@ -73,7 +75,7 @@ namespace CRHBackstageHelper
 			{
 				ClassRoomHelper.Library.Log.AppendException("service.error",ex);
 			}
-
+			Console.ReadLine();
 		}
 		static void Copy((string, string) info, string tdir)
 		{

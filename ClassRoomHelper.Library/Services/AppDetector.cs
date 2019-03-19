@@ -34,7 +34,16 @@ namespace ClassRoomHelper.Library.Services
 		}
 		public static void ProcessStartEventArrived(object sender, EventArrivedEventArgs e)
 		{
-			ProcessStarted?.Invoke(sender, e);
+			string name = e.NewEvent.Properties["ProcessName"].Value.ToString().ToLower();
+			switch (name)
+			{
+				case "powerpnt.exe":
+				case "winword.exe":
+				case "excel.exe":
+					ProcessStarted?.Invoke(sender, e);
+					break;
+			}
+			//ProcessStarted?.Invoke(sender, e);
 		}
 		/* public static void ProcessStartEventArrived(object sender, EventArrivedEventArgs e)
 		{

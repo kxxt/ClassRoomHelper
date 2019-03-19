@@ -226,5 +226,17 @@ namespace ClassRoomHelper.Properties {
                 this["FileExistedSolution"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ALL")]
+        public global::ClassRoomHelper.Library.Services.CollectMode CollectMode {
+            get {
+                return ((global::ClassRoomHelper.Library.Services.CollectMode)(this["CollectMode"]));
+            }
+            set {
+                this["CollectMode"] = value;
+            }
+        }
     }
 }

@@ -63,7 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CoreInit.cs" />
+    <Compile Include="Core.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

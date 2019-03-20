@@ -145,5 +145,50 @@ namespace ClassRoomHelper.Windows
 				Program.Settings.CleanMode = Library.Services.CleanMode.LastMonth;
 			}
 		}
+
+		private void Configuation_Load(object sender, EventArgs e)
+		{
+		checkBox1.Checked=Program.Settings.DesktopTool_AutoShow  ;
+		checkBox2.Checked=Program.Settings.DesktopTool_ShowCalc  ;
+		checkBox3.Checked=Program.Settings.DesktopTool_ShowScissors ;
+		checkBox8.Checked=Program.Settings.DesktopTool_ShowNameSelector ;
+		checkBox8.Checked=Program.Settings.StartAfterWindows ;
+		checkBox5.Checked=Program.Settings.DebugEnabled ;
+		checkBox9.Checked=Program.Settings.VoiceNameCallOut ;
+		checkBox7.Checked=Program.Settings.UMgr_Enabled ;
+		checkBox4.Checked=Program.Settings.UMgr_ShowDialog;
+		switch (Program.Settings.FileExistedSolution)
+		{
+				case Library.Services.FileExistedSolution.Copy:
+					radioButton3.Checked = true;
+					break;
+				case Library.Services.FileExistedSolution.Cover:
+					radioButton2.Checked = true;
+					break;
+				case Library.Services.FileExistedSolution.Skip:
+					radioButton1.Checked = true;
+					break;
+			default:
+					radioButton3.Select();
+					break;
+		}
+			switch (Program.Settings.ResortMode)
+			{
+				case Library.Services.ResortMode.AmPmSeparated:
+					radioButton6.Checked = true;
+					break;
+				case Library.Services.ResortMode.Daily:
+					radioButton5.Checked = true;
+					break;
+				case Library.Services.ResortMode.Monthly:
+					radioButton4.Checked = true;
+					break;
+				default:
+					radioButton5.Select();
+					break;
+			}
+			//System.Speech.Synthesis.TtsEngine.
+		}
+		
 	}
 }

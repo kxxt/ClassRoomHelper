@@ -43,5 +43,10 @@ namespace ClassRoomHelper.Windows
 				MessageBox.Show(a.Item1 + "\r\n" + a.Item2);
 			}
 		}
+
+		private void DefaultButton4_Click(object sender, EventArgs e)
+		{
+			CSCreateLowIntegrityProcess.Tool.CreateLowIntegrityProcess("CRHBackstageHelper.exe fetch-all D:\\Sync copy");
+		}
 	}
 }

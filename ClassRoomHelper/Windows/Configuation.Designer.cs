@@ -35,6 +35,7 @@
 			this.checkBox2 = new System.Windows.Forms.CheckBox();
 			this.checkBox1 = new System.Windows.Forms.CheckBox();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.checkBox10 = new System.Windows.Forms.CheckBox();
 			this.checkBox5 = new System.Windows.Forms.CheckBox();
 			this.checkBox6 = new System.Windows.Forms.CheckBox();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -54,6 +55,10 @@
 			this.checkBox4 = new System.Windows.Forms.CheckBox();
 			this.checkBox7 = new System.Windows.Forms.CheckBox();
 			this.groupBox7 = new System.Windows.Forms.GroupBox();
+			this.textLabel5 = new ClassRoomHelper.Windows.Controls.TextLabel();
+			this.textBox3 = new System.Windows.Forms.TextBox();
+			this.textLabel4 = new ClassRoomHelper.Windows.Controls.TextLabel();
+			this.textBox2 = new System.Windows.Forms.TextBox();
 			this.checkBox9 = new System.Windows.Forms.CheckBox();
 			this.groupBox8 = new System.Windows.Forms.GroupBox();
 			this.textLabel3 = new ClassRoomHelper.Windows.Controls.TextLabel();
@@ -61,11 +66,7 @@
 			this.radioButton9 = new System.Windows.Forms.RadioButton();
 			this.radioButton8 = new System.Windows.Forms.RadioButton();
 			this.radioButton7 = new System.Windows.Forms.RadioButton();
-			this.textBox2 = new System.Windows.Forms.TextBox();
-			this.textLabel4 = new ClassRoomHelper.Windows.Controls.TextLabel();
-			this.textLabel5 = new ClassRoomHelper.Windows.Controls.TextLabel();
-			this.textBox3 = new System.Windows.Forms.TextBox();
-			this.checkBox10 = new System.Windows.Forms.CheckBox();
+			this.groupBox9 = new System.Windows.Forms.GroupBox();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.groupBox3.SuspendLayout();
@@ -146,6 +147,16 @@
 			this.groupBox2.TabIndex = 3;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "服务";
+			// 
+			// checkBox10
+			// 
+			this.checkBox10.AutoSize = true;
+			this.checkBox10.Location = new System.Drawing.Point(6, 87);
+			this.checkBox10.Name = "checkBox10";
+			this.checkBox10.Size = new System.Drawing.Size(178, 42);
+			this.checkBox10.TabIndex = 2;
+			this.checkBox10.Text = "只拷贝课件,忽略\r\n文档和工作表";
+			this.checkBox10.UseVisualStyleBackColor = true;
 			// 
 			// checkBox5
 			// 
@@ -373,6 +384,42 @@
 			this.groupBox7.TabStop = false;
 			this.groupBox7.Text = "点名设置";
 			// 
+			// textLabel5
+			// 
+			this.textLabel5.AutoSize = true;
+			this.textLabel5.BackColor = System.Drawing.Color.Transparent;
+			this.textLabel5.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.textLabel5.Location = new System.Drawing.Point(6, 109);
+			this.textLabel5.Name = "textLabel5";
+			this.textLabel5.Size = new System.Drawing.Size(40, 16);
+			this.textLabel5.TabIndex = 10;
+			this.textLabel5.Text = "后缀";
+			// 
+			// textBox3
+			// 
+			this.textBox3.Location = new System.Drawing.Point(6, 132);
+			this.textBox3.Name = "textBox3";
+			this.textBox3.Size = new System.Drawing.Size(187, 29);
+			this.textBox3.TabIndex = 9;
+			// 
+			// textLabel4
+			// 
+			this.textLabel4.AutoSize = true;
+			this.textLabel4.BackColor = System.Drawing.Color.Transparent;
+			this.textLabel4.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.textLabel4.Location = new System.Drawing.Point(6, 54);
+			this.textLabel4.Name = "textLabel4";
+			this.textLabel4.Size = new System.Drawing.Size(40, 16);
+			this.textLabel4.TabIndex = 8;
+			this.textLabel4.Text = "前缀";
+			// 
+			// textBox2
+			// 
+			this.textBox2.Location = new System.Drawing.Point(6, 77);
+			this.textBox2.Name = "textBox2";
+			this.textBox2.Size = new System.Drawing.Size(187, 29);
+			this.textBox2.TabIndex = 7;
+			// 
 			// checkBox9
 			// 
 			this.checkBox9.AutoSize = true;
@@ -459,57 +506,22 @@
 			this.radioButton7.UseVisualStyleBackColor = true;
 			this.radioButton7.CheckedChanged += new System.EventHandler(this.RadioButton7_CheckedChanged);
 			// 
-			// textBox2
+			// groupBox9
 			// 
-			this.textBox2.Location = new System.Drawing.Point(6, 77);
-			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(187, 29);
-			this.textBox2.TabIndex = 7;
-			// 
-			// textLabel4
-			// 
-			this.textLabel4.AutoSize = true;
-			this.textLabel4.BackColor = System.Drawing.Color.Transparent;
-			this.textLabel4.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.textLabel4.Location = new System.Drawing.Point(6, 54);
-			this.textLabel4.Name = "textLabel4";
-			this.textLabel4.Size = new System.Drawing.Size(40, 16);
-			this.textLabel4.TabIndex = 8;
-			this.textLabel4.Text = "前缀";
-			// 
-			// textLabel5
-			// 
-			this.textLabel5.AutoSize = true;
-			this.textLabel5.BackColor = System.Drawing.Color.Transparent;
-			this.textLabel5.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.textLabel5.Location = new System.Drawing.Point(6, 109);
-			this.textLabel5.Name = "textLabel5";
-			this.textLabel5.Size = new System.Drawing.Size(40, 16);
-			this.textLabel5.TabIndex = 10;
-			this.textLabel5.Text = "后缀";
-			// 
-			// textBox3
-			// 
-			this.textBox3.Location = new System.Drawing.Point(6, 132);
-			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(187, 29);
-			this.textBox3.TabIndex = 9;
-			// 
-			// checkBox10
-			// 
-			this.checkBox10.AutoSize = true;
-			this.checkBox10.Location = new System.Drawing.Point(6, 87);
-			this.checkBox10.Name = "checkBox10";
-			this.checkBox10.Size = new System.Drawing.Size(178, 42);
-			this.checkBox10.TabIndex = 2;
-			this.checkBox10.Text = "只拷贝课件,忽略\r\n文档和工作表";
-			this.checkBox10.UseVisualStyleBackColor = true;
+			this.groupBox9.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.groupBox9.Location = new System.Drawing.Point(526, 404);
+			this.groupBox9.Name = "groupBox9";
+			this.groupBox9.Size = new System.Drawing.Size(292, 126);
+			this.groupBox9.TabIndex = 4;
+			this.groupBox9.TabStop = false;
+			this.groupBox9.Text = "杂项";
 			// 
 			// Configuation
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(865, 536);
+			this.ClientSize = new System.Drawing.Size(829, 535);
+			this.Controls.Add(this.groupBox9);
 			this.Controls.Add(this.groupBox8);
 			this.Controls.Add(this.groupBox7);
 			this.Controls.Add(this.groupBox4);
@@ -520,6 +532,7 @@
 			this.Name = "Configuation";
 			this.Text = "设置";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Configuation_FormClosing);
+			this.Load += new System.EventHandler(this.Configuation_Load);
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
 			this.groupBox2.ResumeLayout(false);
@@ -578,5 +591,6 @@
 		private Controls.TextLabel textLabel4;
 		private System.Windows.Forms.TextBox textBox2;
 		private System.Windows.Forms.CheckBox checkBox10;
+		private System.Windows.Forms.GroupBox groupBox9;
 	}
 }

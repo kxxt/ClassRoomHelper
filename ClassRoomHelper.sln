@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassRoomHelper.Library", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRHBackstageHelper", "CRHBackstageHelper\CRHBackstageHelper.csproj", "{ED7940DF-C673-49D7-A3A2-FE1009F908DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "班级助手", "班级助手\班级助手.csproj", "{CAB2C2BD-D2AB-43CD-902F-A8BE99835DFC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{ED7940DF-C673-49D7-A3A2-FE1009F908DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED7940DF-C673-49D7-A3A2-FE1009F908DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED7940DF-C673-49D7-A3A2-FE1009F908DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAB2C2BD-D2AB-43CD-902F-A8BE99835DFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAB2C2BD-D2AB-43CD-902F-A8BE99835DFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAB2C2BD-D2AB-43CD-902F-A8BE99835DFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAB2C2BD-D2AB-43CD-902F-A8BE99835DFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -42,8 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminChecker.cs" />
     <Compile Include="ProcessExtensions.cs" />
     <Compile Include="Services\CollectMode.cs" />
+    <Compile Include="Services\IPCInfoStruct.cs" />
+    <Compile Include="Services\WorkingState.cs" />
     <Compile Include="XmlHelper.cs" />
     <Compile Include="DictionaryEx.cs" />
     <Compile Include="DebugLevel.cs" />

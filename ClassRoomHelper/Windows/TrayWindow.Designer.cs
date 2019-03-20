@@ -110,6 +110,7 @@
 			this.Controls.Add(this.titleLabel3);
 			this.Controls.Add(this.titleLabel1);
 			this.Name = "TrayWindow";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "TrayWindow";
 			this.Shown += new System.EventHandler(this.TrayWindow_Shown);
 			this.ResumeLayout(false);

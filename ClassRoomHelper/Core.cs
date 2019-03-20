@@ -29,6 +29,12 @@ namespace ClassRoomHelper
 			Process.Start(Program.Helper);
 			//Process.Start("explorer",Program.Settings.TargetDir);
 		}
+		public static void ConfigureSharedMemory()
+		{
+			// 0 : Working State
+			// 1 :
+			Program.InfoPipe = new SharedMemory.SharedArray<IPCInfoStruct>("crh-ipc",1);
+		}
 		public static void StartCensorService()
 		{
 			//if(Program.Settings.FirstUse)
@@ -60,6 +66,7 @@ namespace ClassRoomHelper
 		public static  void Load()
 		{
 			LoadProperties();
+			ConfigureSharedMemory();
 			try
 			{
 				StartCensorService();

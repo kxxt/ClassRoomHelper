@@ -6,13 +6,14 @@ using System.Windows.Forms;
 using ClassRoomHelper.Windows;
 using Microsoft.VisualBasic.ApplicationServices;
 using System.Diagnostics;
+using ClassRoomHelper.Library.Services;
 
 namespace ClassRoomHelper
 {
 	public class SingleInstanceManager : WindowsFormsApplicationBase
 	{
 		TrayWindow app;
-
+		
 		public SingleInstanceManager()
 		{
 			this.IsSingleInstance = true;
@@ -33,6 +34,7 @@ namespace ClassRoomHelper
 	}
 	static class Program
 	{
+		public static SharedMemory.SharedArray<IPCInfoStruct> InfoPipe;
 		public static MainForm MainForm;
 		public static ProcessStartInfo Helper;
 		public static Properties.Settings Settings;

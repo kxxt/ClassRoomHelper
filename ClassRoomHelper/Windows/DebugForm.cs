@@ -48,5 +48,24 @@ namespace ClassRoomHelper.Windows
 		{
 			CSCreateLowIntegrityProcess.Tool.CreateLowIntegrityProcess("CRHBackstageHelper.exe fetch-all D:\\Sync copy");
 		}
+
+		private void DefaultButton5_Click(object sender, EventArgs e)
+		{
+			IPCInfoStruct data;
+			data.WorkingState = (int)WorkingState.ToRun;
+			//data.Target = "M:\\投稿用途";
+			data.CollectMode = (int)CollectMode.ALL;
+			data.FileExistedSolution =(int) FileExistedSolution.Copy;
+			Program.InfoPipe.Write(ref data, 0);
+		}
+
+		private void DefaultButton6_Click(object sender, EventArgs e)
+		{
+			IPCInfoStruct data;
+			data.WorkingState = (int)WorkingState.ToExit;
+			data.CollectMode = (int)CollectMode.ALL;
+			data.FileExistedSolution = (int)FileExistedSolution.Copy;
+			Program.InfoPipe.Write(ref data, 0);
+		}
 	}
 }

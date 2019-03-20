@@ -43,6 +43,9 @@
     <Reference Include="RsWork.UI">
       <HintPath>..\..\LessonDeliveryApp-InPratice\RsWork.UI.dll</HintPath>
     </Reference>
+    <Reference Include="SharedMemory, Version=2.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharedMemory.2.1.1\lib\net47\SharedMemory.dll</HintPath>
+    </Reference>
     <Reference Include="Syncfusion.Core.WinForms, Version=16.4460.0.42, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>D:\Syncfusion\WinForms\16.1.0.24\Assemblies\4.6\Syncfusion.Core.WinForms.dll</HintPath>
@@ -159,6 +162,7 @@
       <DependentUpon>TrayWindow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

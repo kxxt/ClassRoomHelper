@@ -1,6 +1,11 @@
 ﻿using ClassRoomHelper.Library.Services;
+using ClassRoomHelper.Library;
 using System;
 using System.IO;
+using System.IO.Pipes;
+using System.Windows.Forms;
+using System.Diagnostics;
+using System.Threading;
 
 namespace CRHBackstageHelper
 {
@@ -18,7 +23,7 @@ namespace CRHBackstageHelper
 		/// TargetDir
 		/// FileExistedSolution
 		/// #2
-		/// 
+		/// server
 		/// 
 		/// 
 		/// 
@@ -26,9 +31,29 @@ namespace CRHBackstageHelper
 		/// <param name="args"></param>
 		static void Main(string[] args)
 		{
+			if (AdminChecker.IsAdministrator())
+			{
+				MessageBox.Show("请不要以管理员权限启动此程序", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+				return;
+			}
 			rx = new Random();
 			FileExistedSolution = FileExistedSolution.Copy;
-			if (args.Length < 2) return;
+			if (args.Length < 2)
+			{
+				Server();
+				return;
+				/*ProcessStartInfo main = new ProcessStartInfo();
+				main.Verb = "runas";
+				main.FileName = "ClassRoomHelper.exe";
+				var ret=Process.Start(main);
+				ret.WaitForExit();
+				return;*/
+			};
+			if (args[0].Trim().ToLower() == "serve")
+			{
+				Server();
+				return;
+			}
 			Debug(args[0]);Debug(args[1]);
 			if (!Directory.Exists(args[1])) return;
 			if (args.Length >= 3)
@@ -77,6 +102,35 @@ namespace CRHBackstageHelper
 			}
 			Console.ReadLine();
 		}
+
+		private static void Server()
+		{
+			SharedMemory.SharedArray<IPCInfoStruct> x = new SharedMemory.SharedArray<IPCInfoStruct>("crh-ipc");
+			while (true)
+			{
+				IPCInfoStruct data;
+				x.Read(out data,0);
+				if ((WorkingState)data.WorkingState == WorkingState.ToRun)
+				{
+					data.WorkingState = (int)WorkingState.Idle;
+					x.Write(ref data, 0);
+					Debug("Message Received");
+					Debug(((FileExistedSolution)data.FileExistedSolution).ToArg());
+					Debug(((CollectMode)(data.CollectMode)).ToArg());
+					//Debug(data.Target);
+					Debug("---end---");
+				}else if ((WorkingState)data.WorkingState == WorkingState.ToExit)
+				{
+					data.WorkingState = (int)WorkingState.Idle;
+					x.Write(ref data, 0);
+					Debug("Soon Exit");
+					Console.ReadLine();
+					Environment.Exit(0);
+				}
+				Thread.Sleep(1000);
+			}
+		}
+
 		static void Copy((string, string) info, string tdir)
 		{
 			if (tdir[tdir.Length - 1] != '\\')

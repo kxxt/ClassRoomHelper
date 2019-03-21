@@ -5,6 +5,7 @@ using System.Text;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 using ClassRoomHelper;
 using ClassRoomHelper.Library;
 
@@ -27,6 +28,7 @@ namespace 班级助手
 			sub.FileName = "CRHBackstageHelper.exe";
 			sub.Arguments = "service";
 			Process.Start(main);
+			Thread.Sleep(1000);
 			Process.Start(sub);
 		}
 	}

@@ -31,11 +31,7 @@ namespace CRHBackstageHelper
 		/// <param name="args"></param>
 		static void Main(string[] args)
 		{
-			if (AdminChecker.IsAdministrator())
-			{
-				MessageBox.Show("请不要以管理员权限启动此程序", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-				return;
-			}
+			
 			rx = new Random();
 			FileExistedSolution = FileExistedSolution.Copy;
 			if (args.Length < 2)
@@ -74,6 +70,24 @@ namespace CRHBackstageHelper
 						break;
 				}
 			}
+			if (args.Length >= 4)
+			{
+				if (args[4] != "force-admin-run")
+				{
+					if (AdminChecker.IsAdministrator())
+					{
+						MessageBox.Show("请不要以管理员权限启动此程序", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+						return;
+					}
+				}
+			}
+			else {
+				if (AdminChecker.IsAdministrator())
+				{
+					MessageBox.Show("请不要以管理员权限启动此程序", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+					return;
+				}
+			}
 			try
 			{
 				switch (args[0].Trim().ToLower())
@@ -98,7 +112,7 @@ namespace CRHBackstageHelper
 
 			}catch(Exception ex)
 			{
-				ClassRoomHelper.Library.Log.AppendException("service.error",ex);
+				Log.AppendException("Logs\\service.error",ex);
 			}
 			Console.ReadLine();
 		}
@@ -119,6 +133,40 @@ namespace CRHBackstageHelper
 					Debug(((CollectMode)(data.CollectMode)).ToArg());
 					//Debug(data.Target);
 					Debug("---end---");
+					var cm = (CollectMode)(data.CollectMode);
+					FileExistedSolution = (FileExistedSolution)data.FileExistedSolution;
+					string dir = "";
+					try
+					{
+						dir= File.ReadAllText(".target");
+						if (!Directory.Exists(dir)) throw new DirectoryNotFoundException();
+					}catch(Exception ex)
+					{
+						Log.AppendException("Logs\\serviceserver.err", ex);
+						continue;
+					}
+					try
+					{
+						switch (cm)
+						{
+							case CollectMode.ALL:
+								FetchALL(dir);
+								break;
+							case CollectMode.DOC:
+								FetchDOC(dir);
+								break;
+							case CollectMode.PPT:
+								FetchPPT(dir);
+								break;
+							case CollectMode.XLS:
+								FetchXLS(dir);
+								break;
+						}
+					}catch(Exception ex)
+					{
+						Log.AppendException("Logs\\fetch.service.err", ex);
+					}
+					
 				}else if ((WorkingState)data.WorkingState == WorkingState.ToExit)
 				{
 					data.WorkingState = (int)WorkingState.Idle;

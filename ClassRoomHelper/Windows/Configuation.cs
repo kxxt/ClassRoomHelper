@@ -148,6 +148,8 @@ namespace ClassRoomHelper.Windows
 
 		private void Configuation_Load(object sender, EventArgs e)
 		{
+			textBox2.Text = Program.Settings.NameCallOutPre;
+			textBox3.Text = Program.Settings.NameCallOutPost;
 		checkBox1.Checked=Program.Settings.DesktopTool_AutoShow  ;
 		checkBox2.Checked=Program.Settings.DesktopTool_ShowCalc  ;
 		checkBox3.Checked=Program.Settings.DesktopTool_ShowScissors ;
@@ -189,6 +191,11 @@ namespace ClassRoomHelper.Windows
 			}
 			//System.Speech.Synthesis.TtsEngine.
 		}
-		
+
+		private void DefaultButton1_Click(object sender, EventArgs e)
+		{
+			fb.ShowDialog();
+			textBox1.Text = fb.SelectedPath;
+		}
 	}
 }

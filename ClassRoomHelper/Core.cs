@@ -9,12 +9,13 @@ using System.Windows.Forms;
 using ClassRoomHelper.Library.Services;
 using ClassRoomHelper.Library;
 using System.IO;
+using System.Management;
 
 namespace ClassRoomHelper
 {
 	public  class Core
 	{
-		public static void StartService()
+		public static void StartService(CollectMode mode)
 		{
 			if (!Directory.Exists(Program.Settings.TargetDir))
 			{
@@ -22,11 +23,19 @@ namespace ClassRoomHelper
 				MessageBox.Show("您所指定的保存目录不存在,\r\n已自动为您将保存目录重置为程序目录下Files文件夹 .\r\n您可以到\"设置\"中更改 .","提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
 				Program.Settings.Save();
 			}
-			string mode = Program.Settings.CollectMode.ToArg();
+			string modex = mode.ToArg();
 			string existedsl = Program.Settings.FileExistedSolution.ToArg();
-			Program.Helper.Arguments = mode+" \""+Program.Settings.TargetDir+"\" "+existedsl;
+			Program.Helper.Arguments = modex+" \""+Program.Settings.TargetDir+"\" "+existedsl+" force-admin-run";
 			if (Program.Settings.DebugEnabled) Program.Helper.WindowStyle = ProcessWindowStyle.Normal;
-			Process.Start(Program.Helper);
+			try
+			{
+				Process.Start(Program.Helper);
+
+			}
+			catch(Exception ex)
+			{
+				Log.AppendException("Logs\\bgservice.starterr",ex);
+			}
 			//Process.Start("explorer",Program.Settings.TargetDir);
 		}
 		public static void ConfigureSharedMemory()
@@ -35,22 +44,110 @@ namespace ClassRoomHelper
 			// 1 :
 			Program.InfoPipe = new SharedMemory.SharedArray<IPCInfoStruct>("crh-ipc",1);
 		}
+		/// <summary>
+		/// With Admin
+		/// </summary>
+		/// <param name="mode"></param>
+		public static void ServiceWayOne(CollectMode mode)
+		{
+			MessageBox.Show("WayOne");
+			StartService(mode);
+		}
+		static DateTime lastrun=new DateTime(1900,1,1);
+		static TimeSpan timeSpan = new TimeSpan(0, 0, 1);
+		/// <summary>
+		/// Without Admin
+		/// </summary>
+		/// <param name="mode"></param>
+		public static void ServiceWayTwo(CollectMode mode)
+		{
+			if (DateTime.Now - lastrun < timeSpan)
+			{
+				return;
+			}
+			else
+			{
+				lastrun = DateTime.Now;
+			}
+			MessageBox.Show("WayTwo");
+			try
+			{
+				var ps = Process.GetProcessesByName("CRHBackstageHelper");
+				if (ps.Length <= 0)
+				{
+					Log.Append("Logs\\bgservice.hang.err",DateTime.Now+" Service Not Found .\r\n");
+				}
+				else
+				{
+					IPCInfoStruct data;
+					data.WorkingState = (int)WorkingState.ToRun;
+					//data.Target = "M:\\投稿用途";
+					data.CollectMode = (int)mode;
+					data.FileExistedSolution = (int)Program.Settings.FileExistedSolution;
+					File.WriteAllText(".target",Program.Settings.TargetDir);
+					Program.InfoPipe.Write(ref data, 0);
+				}
+			}
+			catch(Exception ex)
+			{
+				Log.AppendException("Logs\\service.without.err",ex);
+			}
+		}
+		public static void ServiceHook(object sender,EventArrivedEventArgs e)
+		{
+			try
+			{
+				var ppt = Process.GetProcessesByName("powerpnt.exe");
+				if (ppt.Length > 0)
+				{
+					if (ppt[0].IsAdminGroupMember())
+					{
+						ServiceWayOne(CollectMode.PPT);
+					}
+				}
+				else
+				{
+					ServiceWayTwo(CollectMode.PPT);
+				}
+				if (Program.Settings.CollectMode == CollectMode.PPT) return;
+				var word = Process.GetProcessesByName("winword.exe");
+				var excel = Process.GetProcessesByName("excel.exe");
+				if (word.Length > 0)
+				{
+					if (word[0].IsAdminGroupMember())
+					{
+						ServiceWayOne(CollectMode.DOC);
+					}
+				}
+				else
+				{
+					ServiceWayTwo(CollectMode.DOC);
+				}
+				if (excel.Length > 0)
+				{
+					if (excel[0].IsAdminGroupMember())
+					{
+						ServiceWayOne(CollectMode.XLS);
+					}
+				}
+				else
+				{
+					ServiceWayTwo(CollectMode.XLS);
+				}
+				//StartService();
+			}
+			catch (Exception ex)
+			{
+				Log.AppendException("logs\\bgservice.start", ex);
+			}
+		}
 		public static void StartCensorService()
 		{
 			//if(Program.Settings.FirstUse)
 			Program.IsCensorServiceRunning = true;
 			AppDetector.Initilize();
 			AppDetector.Start();
-			AppDetector.ProcessStarted += new System.Management.EventArrivedEventHandler((_,__)=>
-			{
-				try
-				{
-					StartService();
-				}catch(Exception ex)
-				{
-					Log.AppendException("logs\\bgservice.start",ex);
-				}
-			});
+			AppDetector.ProcessStarted += new System.Management.EventArrivedEventHandler(ServiceHook);
 		}
 		public static void LoadProperties()
 		{

@@ -67,6 +67,7 @@
 			this.radioButton8 = new System.Windows.Forms.RadioButton();
 			this.radioButton7 = new System.Windows.Forms.RadioButton();
 			this.groupBox9 = new System.Windows.Forms.GroupBox();
+			this.fb = new System.Windows.Forms.FolderBrowserDialog();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.groupBox3.SuspendLayout();
@@ -305,6 +306,7 @@
 			this.defaultButton1.Size = new System.Drawing.Size(40, 28);
 			this.defaultButton1.Style.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton1.Style.Image")));
 			this.defaultButton1.TabIndex = 2;
+			this.defaultButton1.Click += new System.EventHandler(this.DefaultButton1_Click);
 			// 
 			// textLabel1
 			// 
@@ -520,7 +522,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(829, 535);
+			this.ClientSize = new System.Drawing.Size(842, 534);
 			this.Controls.Add(this.groupBox9);
 			this.Controls.Add(this.groupBox8);
 			this.Controls.Add(this.groupBox7);
@@ -592,5 +594,6 @@
 		private System.Windows.Forms.TextBox textBox2;
 		private System.Windows.Forms.CheckBox checkBox10;
 		private System.Windows.Forms.GroupBox groupBox9;
+		private System.Windows.Forms.FolderBrowserDialog fb;
 	}
 }

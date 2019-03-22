@@ -97,7 +97,7 @@ namespace ClassRoomHelper
 		{
 			try
 			{
-				var ppt = Process.GetProcessesByName("powerpnt.exe");
+				var ppt = Process.GetProcessesByName("powerpnt");
 				if (ppt.Length > 0)
 				{
 					if (ppt[0].IsAdminGroupMember())
@@ -110,8 +110,8 @@ namespace ClassRoomHelper
 					ServiceWayTwo(CollectMode.PPT);
 				}
 				if (Program.Settings.CollectMode == CollectMode.PPT) return;
-				var word = Process.GetProcessesByName("winword.exe");
-				var excel = Process.GetProcessesByName("excel.exe");
+				var word = Process.GetProcessesByName("winword");
+				var excel = Process.GetProcessesByName("excel");
 				if (word.Length > 0)
 				{
 					if (word[0].IsAdminGroupMember())

@@ -8,7 +8,7 @@ namespace ClassRoomHelper.Library.Services
 {
 	public enum FileExistedSolution
 	{
-		Skip,Cover,Copy
+		Skip=1,Cover=2,Copy=3
 	}
 	public static class FileExistedSolutionEx
 	{

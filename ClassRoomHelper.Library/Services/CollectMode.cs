@@ -8,7 +8,7 @@ namespace ClassRoomHelper.Library.Services
 {
 	public enum CollectMode
 	{
-		PPT,DOC,XLS,ALL
+		PPT=1,DOC=2,XLS=3,ALL=4
 	}
 	public static class CollectModeEx
 	{

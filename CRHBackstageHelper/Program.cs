@@ -135,7 +135,7 @@ namespace CRHBackstageHelper
 					Debug("---end---");
 					var cm = (CollectMode)(data.CollectMode);
 					FileExistedSolution = (FileExistedSolution)data.FileExistedSolution;
-					string dir = "";
+					string dir;
 					try
 					{
 						dir= File.ReadAllText(".target");
@@ -181,6 +181,11 @@ namespace CRHBackstageHelper
 
 		static void Copy((string, string) info, string tdir)
 		{
+			if (String.IsNullOrEmpty(tdir))
+			{
+				Debug("Empty Target Dir");
+				return;
+			}
 			if (tdir[tdir.Length - 1] != '\\')
 			{
 				tdir += '\\';

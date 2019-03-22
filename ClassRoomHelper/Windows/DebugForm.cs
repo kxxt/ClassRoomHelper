@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClassRoomHelper.Library;
 using ClassRoomHelper.Library.Services;
 namespace ClassRoomHelper.Windows
 {
@@ -66,6 +68,22 @@ namespace ClassRoomHelper.Windows
 			data.CollectMode = (int)CollectMode.ALL;
 			data.FileExistedSolution = (int)FileExistedSolution.Copy;
 			Program.InfoPipe.Write(ref data, 0);
+		}
+
+		private void DefaultButton7_Click(object sender, EventArgs e)
+		{
+			var word = Process.GetProcessesByName("winword");
+			if (word.Length > 0)
+			{
+				if (word[0].IsAdminGroupMember())
+				{
+					MessageBox.Show("Yes");
+				}
+				else
+				{
+					MessageBox.Show("No");
+				}
+			}
 		}
 	}
 }

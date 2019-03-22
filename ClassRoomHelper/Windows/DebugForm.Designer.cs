@@ -34,6 +34,7 @@
 			this.defaultButton3 = new ClassRoomHelper.Windows.Controls.DefaultButton();
 			this.defaultButton2 = new ClassRoomHelper.Windows.Controls.DefaultButton();
 			this.defaultButton1 = new ClassRoomHelper.Windows.Controls.DefaultButton();
+			this.defaultButton7 = new ClassRoomHelper.Windows.Controls.DefaultButton();
 			this.SuspendLayout();
 			// 
 			// defaultButton6
@@ -102,12 +103,24 @@
 			this.defaultButton1.Text = "Detect Word";
 			this.defaultButton1.Click += new System.EventHandler(this.DefaultButton1_Click);
 			// 
+			// defaultButton7
+			// 
+			this.defaultButton7.AccessibleName = "Button";
+			this.defaultButton7.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.defaultButton7.Location = new System.Drawing.Point(12, 217);
+			this.defaultButton7.Name = "defaultButton7";
+			this.defaultButton7.Size = new System.Drawing.Size(204, 28);
+			this.defaultButton7.TabIndex = 6;
+			this.defaultButton7.Text = "Check Word Admin";
+			this.defaultButton7.Click += new System.EventHandler(this.DefaultButton7_Click);
+			// 
 			// DebugForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.White;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.defaultButton7);
 			this.Controls.Add(this.defaultButton6);
 			this.Controls.Add(this.defaultButton5);
 			this.Controls.Add(this.defaultButton4);
@@ -128,5 +141,6 @@
 		private Controls.DefaultButton defaultButton4;
 		private Controls.DefaultButton defaultButton5;
 		private Controls.DefaultButton defaultButton6;
+		private Controls.DefaultButton defaultButton7;
 	}
 }

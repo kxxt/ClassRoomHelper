@@ -1,20 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClassRoomHelper.Windows;
-using ClassRoomHelper.Library.NameSelector;
 using System.Speech.Synthesis;
 
 namespace ClassRoomHelper
 {
 	public partial class MainForm : RsWork.UI.Windows.BasicNoneBorderWinForm
 	{
+		SpeechSynthesizer speech=new SpeechSynthesizer();
 		public MainForm()
 		{
 			InitializeComponent();
@@ -27,7 +20,8 @@ namespace ClassRoomHelper
 
 		private void SfButton2_Click(object sender, EventArgs e)
 		{
-			Environment.Exit(0);
+			Application.Exit();
+			//Environment.Exit(0);
 		}
 
 		private void DefaultButton6_Click(object sender, EventArgs e)
@@ -37,6 +31,7 @@ namespace ClassRoomHelper
 
 		private void DefaultButton1_Click(object sender, EventArgs e)
 		{
+			speech.Dispose();
 			this.Close();
 		}
 
@@ -48,7 +43,10 @@ namespace ClassRoomHelper
 
 		private void SfButton6_Click(object sender, EventArgs e)
 		{
-			new Configuation().ShowDialog();
+			var x = new Configuation();
+				x.ShowDialog();
+			x.Dispose();
+			GC.Collect(3);
 		}
 
 		private void DefaultButton3_Click(object sender, EventArgs e)
@@ -58,14 +56,19 @@ namespace ClassRoomHelper
 
 		private void DefaultButton2_Click(object sender, EventArgs e)
 		{
-			var nc = new NameSelector();
-			nc.Test_AddExampleData();
+			
+			//nc.Test_AddExampleData();
 			//nc.Load();
-			var t = nc.ChooseRandomly();
+			var t = Program.NameSelector.ChooseRandomly();
+			if (t == null)
+			{
+				MessageBox.Show("没有可用的学生信息");
+				return;
+			}
 			if (Properties.Settings.Default.VoiceNameCallOut)
 			{
-				var speech = new SpeechSynthesizer();
-				speech.SpeakAsync(Program.Settings.NameCallOutPre+$"{t.Item2}"+Program.Settings.NameCallOutPost);
+				//var speech = new SpeechSynthesizer();
+				speech.SpeakAsync(Program.Settings.NameCallOutPre+t+Program.Settings.NameCallOutPost);
 				//speech.Dispose();
 				//GC.Collect();
 			}
@@ -73,7 +76,21 @@ namespace ClassRoomHelper
 
 		private void DefaultButton7_Click(object sender, EventArgs e)
 		{
-			new SpeechWindow().Show();
+			var x = new SpeechWindow();
+				x.Show();
+			
+		}
+
+		private void SfButton4_Click(object sender, EventArgs e)
+		{
+			var x = new EditStudentListWindow();
+			x.ShowDialog();
+			x.Dispose();
+		}
+
+		private void DefaultButton8_Click(object sender, EventArgs e)
+		{
+			GC.Collect(3);
 		}
 	}
 }

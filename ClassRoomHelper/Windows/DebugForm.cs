@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClassRoomHelper.Library;
 using ClassRoomHelper.Library.Services;
@@ -53,21 +46,19 @@ namespace ClassRoomHelper.Windows
 
 		private void DefaultButton5_Click(object sender, EventArgs e)
 		{
-			IPCInfoStruct data;
+			/*IPCInfoStruct data;
 			data.WorkingState = (int)WorkingState.ToRun;
+			data.
 			//data.Target = "M:\\投稿用途";
-			data.CollectMode = (int)CollectMode.ALL;
+			data.CollectMode = (int)CollectMode.DOC;
 			data.FileExistedSolution =(int) FileExistedSolution.Copy;
-			Program.InfoPipe.Write(ref data, 0);
+			Program.InfoPipe.Write(ref data, 0);*/
+			Core.SendMessage(CollectMode.DOC);
 		}
 
 		private void DefaultButton6_Click(object sender, EventArgs e)
 		{
-			IPCInfoStruct data;
-			data.WorkingState = (int)WorkingState.ToExit;
-			data.CollectMode = (int)CollectMode.ALL;
-			data.FileExistedSolution = (int)FileExistedSolution.Copy;
-			Program.InfoPipe.Write(ref data, 0);
+			Core.SendExitMessage();
 		}
 
 		private void DefaultButton7_Click(object sender, EventArgs e)
@@ -84,6 +75,12 @@ namespace ClassRoomHelper.Windows
 					MessageBox.Show("No");
 				}
 			}
+		}
+
+		private void DefaultButton8_Click(object sender, EventArgs e)
+		{
+			TargetDirParser tdp = new TargetDirParser(Program.Settings.TargetDir, ResortMode.Weekly);
+			MessageBox.Show(tdp.Get());
 		}
 	}
 }

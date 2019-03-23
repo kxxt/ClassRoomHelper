@@ -25,7 +25,7 @@ namespace ClassRoomHelper
 			}
 			string modex = mode.ToArg();
 			string existedsl = Program.Settings.FileExistedSolution.ToArg();
-			Program.Helper.Arguments = modex+" \""+Program.Settings.TargetDir+"\" "+existedsl+" force-admin-run";
+			Program.Helper.Arguments = modex+" \""+Program.TargetDirParser.Get()+"\" "+existedsl+" force-admin-run";
 			if (Program.Settings.DebugEnabled) Program.Helper.WindowStyle = ProcessWindowStyle.Normal;
 			try
 			{
@@ -50,11 +50,56 @@ namespace ClassRoomHelper
 		/// <param name="mode"></param>
 		public static void ServiceWayOne(CollectMode mode)
 		{
-			MessageBox.Show("WayOne");
+			//MessageBox.Show("WayOne");
 			StartService(mode);
 		}
 		static DateTime lastrun=new DateTime(1900,1,1);
 		static TimeSpan timeSpan = new TimeSpan(0, 0, 1);
+		public static void SendMessage(CollectMode collectMode,ResortMode? resortMode=null,FileExistedSolution? fileExistedSolution=null)
+		{
+			if (fileExistedSolution == null) fileExistedSolution = Program.Settings.FileExistedSolution;
+			if (resortMode == null) resortMode = Program.Settings.ResortMode;
+			IPCInfoStruct data;
+			Program.InfoPipe.Read(out data, 0);
+			if (data.WorkingState == (int)WorkingState.InvalidTargetDir)
+			{
+				OnTargetDirInvalid();
+			}
+			data.WorkingState = (int)WorkingState.ToRun;
+
+			data.CollectMode = (int)collectMode;
+			data.ResortMode = (int)resortMode;
+			data.FileExistedSolution = (int)fileExistedSolution;
+			//File.WriteAllText(".target", Program.Settings.TargetDir);
+			Program.InfoPipe.Write(ref data, 0);
+		}
+
+		private static void OnTargetDirInvalid()
+		{
+			//throw new NotImplementedException();
+			MessageBox.Show("工作目录无效 , 这可能是由于你选择了U盘作为工作目录,而现在拔出了U盘.\r\n已重置为班级助手目录下的\"Files\"目录 .\r\n如有需要,请前往设置更改 .","班级助手",MessageBoxButtons.OK,MessageBoxIcon.Information);
+			Program.Settings.TargetDir = Environment.CurrentDirectory + "\\Files";
+			Program.Settings.Save();
+			try
+			{
+				File.WriteAllText(".config", Program.Settings.TargetDir);
+			}
+			catch(Exception ex)
+			{
+				MessageBox.Show("重置失败","错误",MessageBoxButtons.OK,MessageBoxIcon.Error);
+				Log.AppendException("Logs\\workdir.reset.err",ex);
+			}
+		}
+
+		public static void SendExitMessage()
+		{
+			IPCInfoStruct data;
+			data.WorkingState = (int)WorkingState.ToExit;
+			data.CollectMode = 0;
+			data.ResortMode = 0;
+			data.FileExistedSolution = 0;
+			Program.InfoPipe.Write(ref data, 0);
+		}
 		/// <summary>
 		/// Without Admin
 		/// </summary>
@@ -69,7 +114,7 @@ namespace ClassRoomHelper
 			{
 				lastrun = DateTime.Now;
 			}
-			MessageBox.Show("WayTwo");
+			//MessageBox.Show("WayTwo");
 			try
 			{
 				var ps = Process.GetProcessesByName("CRHBackstageHelper");
@@ -79,13 +124,7 @@ namespace ClassRoomHelper
 				}
 				else
 				{
-					IPCInfoStruct data;
-					data.WorkingState = (int)WorkingState.ToRun;
-					//data.Target = "M:\\投稿用途";
-					data.CollectMode = (int)mode;
-					data.FileExistedSolution = (int)Program.Settings.FileExistedSolution;
-					File.WriteAllText(".target",Program.Settings.TargetDir);
-					Program.InfoPipe.Write(ref data, 0);
+					SendMessage(mode);
 				}
 			}
 			catch(Exception ex)
@@ -95,46 +134,22 @@ namespace ClassRoomHelper
 		}
 		public static void ServiceHook(object sender,EventArrivedEventArgs e)
 		{
+			Thread.Sleep(2000);
 			try
 			{
-				var ppt = Process.GetProcessesByName("powerpnt");
-				if (ppt.Length > 0)
-				{
-					if (ppt[0].IsAdminGroupMember())
-					{
-						ServiceWayOne(CollectMode.PPT);
-					}
-				}
-				else
+				if (Program.Settings.CollectMode == CollectMode.PPT)
 				{
 					ServiceWayTwo(CollectMode.PPT);
-				}
-				if (Program.Settings.CollectMode == CollectMode.PPT) return;
-				var word = Process.GetProcessesByName("winword");
-				var excel = Process.GetProcessesByName("excel");
-				if (word.Length > 0)
-				{
-					if (word[0].IsAdminGroupMember())
-					{
-						ServiceWayOne(CollectMode.DOC);
-					}
+					Thread.Sleep(2000);
+
+					ServiceWayOne(CollectMode.PPT);
 				}
 				else
 				{
-					ServiceWayTwo(CollectMode.DOC);
+					ServiceWayTwo(CollectMode.ALL);
+					Thread.Sleep(2000);
+					ServiceWayOne(CollectMode.ALL);
 				}
-				if (excel.Length > 0)
-				{
-					if (excel[0].IsAdminGroupMember())
-					{
-						ServiceWayOne(CollectMode.XLS);
-					}
-				}
-				else
-				{
-					ServiceWayTwo(CollectMode.XLS);
-				}
-				//StartService();
 			}
 			catch (Exception ex)
 			{
@@ -153,27 +168,47 @@ namespace ClassRoomHelper
 		{
 			string s = Application.ExecutablePath;
 			Environment.CurrentDirectory = s.Substring(0, s.Length - 19);
-			Program.Helper = new System.Diagnostics.ProcessStartInfo();
+			Program.Settings = new Properties.Settings();
+			Program.Helper = new ProcessStartInfo();
 			Program.Helper.FileName = Environment.CurrentDirectory + "\\CRHBackstageHelper.exe";
 			Program.Helper.CreateNoWindow = true;
 			Program.Helper.UseShellExecute = true;
 			Program.Helper.WorkingDirectory = Environment.CurrentDirectory;
-			Program.Helper.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+			Program.Helper.WindowStyle = ProcessWindowStyle.Hidden;
+			Program.TargetDirParser = new TargetDirParser(Program.Settings.TargetDir, Program.Settings.ResortMode);
+		}
+		public static void LoadStudentList()
+		{
+			Program.NameSelector = new Library.NameSelector.NameSelector();
+			if (File.Exists("student.names"))
+			{
+				try
+				{
+					Program.NameSelector.Load("student.names");
+
+				}
+				catch 
+				{
+					MessageBox.Show("学生名单加载失败","错误",MessageBoxButtons.OK,MessageBoxIcon.Error);
+				}
+			}
 		}
 		public static  void Load()
 		{
 			LoadProperties();
 			ConfigureSharedMemory();
+			LoadStudentList();
 			try
 			{
 				StartCensorService();
 
 			}catch(System.Management.ManagementException ex)
 			{
-				MessageBox.Show(Log.GetExceptionInfo(ex));
+				Log.AppendException("Logs\\wmi.err", ex);
+				//MessageBox.Show(Log.GetExceptionInfo(ex));
 			}
-			Thread.Sleep(1000);
-			Program.Settings = new Properties.Settings();
+			Thread.Sleep(1500);
+			
 		}
 	}
 }

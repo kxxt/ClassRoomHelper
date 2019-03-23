@@ -31,6 +31,8 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SpeechWindow));
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+			this.textLabel1 = new ClassRoomHelper.Windows.Controls.TextLabel();
+			this.defaultButton2 = new ClassRoomHelper.Windows.Controls.DefaultButton();
 			this.defaultButton1 = new ClassRoomHelper.Windows.Controls.DefaultButton();
 			this.defaultButton4 = new ClassRoomHelper.Windows.Controls.DefaultButton();
 			this.defaultButton3 = new ClassRoomHelper.Windows.Controls.DefaultButton();
@@ -47,7 +49,7 @@
 			this.textBox1.Location = new System.Drawing.Point(0, 0);
 			this.textBox1.Multiline = true;
 			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(822, 399);
+			this.textBox1.Size = new System.Drawing.Size(939, 390);
 			this.textBox1.TabIndex = 0;
 			this.textBox1.Text = "在此处输入文段 ...";
 			// 
@@ -64,13 +66,43 @@
 			// 
 			// splitContainer1.Panel2
 			// 
+			this.splitContainer1.Panel2.Controls.Add(this.textLabel1);
+			this.splitContainer1.Panel2.Controls.Add(this.defaultButton2);
 			this.splitContainer1.Panel2.Controls.Add(this.defaultButton1);
 			this.splitContainer1.Panel2.Controls.Add(this.defaultButton4);
 			this.splitContainer1.Panel2.Controls.Add(this.defaultButton3);
-			this.splitContainer1.Size = new System.Drawing.Size(822, 444);
-			this.splitContainer1.SplitterDistance = 399;
+			this.splitContainer1.Size = new System.Drawing.Size(939, 435);
+			this.splitContainer1.SplitterDistance = 390;
 			this.splitContainer1.SplitterWidth = 1;
 			this.splitContainer1.TabIndex = 1;
+			// 
+			// textLabel1
+			// 
+			this.textLabel1.AutoSize = true;
+			this.textLabel1.BackColor = System.Drawing.Color.Transparent;
+			this.textLabel1.Dock = System.Windows.Forms.DockStyle.Left;
+			this.textLabel1.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.textLabel1.ForeColor = System.Drawing.Color.Red;
+			this.textLabel1.Location = new System.Drawing.Point(619, 0);
+			this.textLabel1.Name = "textLabel1";
+			this.textLabel1.Size = new System.Drawing.Size(272, 32);
+			this.textLabel1.TabIndex = 5;
+			this.textLabel1.Text = "* : 此朗读功能为机器提供 , 不适用\r\n于阅读古诗文等 ,适用于阅读公告.";
+			// 
+			// defaultButton2
+			// 
+			this.defaultButton2.AccessibleName = "Button";
+			this.defaultButton2.Dock = System.Windows.Forms.DockStyle.Left;
+			this.defaultButton2.Font = new System.Drawing.Font("黑体", 17F);
+			this.defaultButton2.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton2.Image")));
+			this.defaultButton2.ImageSize = new System.Drawing.Size(35, 35);
+			this.defaultButton2.Location = new System.Drawing.Point(463, 0);
+			this.defaultButton2.Name = "defaultButton2";
+			this.defaultButton2.Size = new System.Drawing.Size(156, 44);
+			this.defaultButton2.Style.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton2.Style.Image")));
+			this.defaultButton2.TabIndex = 4;
+			this.defaultButton2.Text = "导出wav";
+			this.defaultButton2.Click += new System.EventHandler(this.DefaultButton2_Click);
 			// 
 			// defaultButton1
 			// 
@@ -122,16 +154,18 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.Window;
-			this.ClientSize = new System.Drawing.Size(826, 448);
+			this.ClientSize = new System.Drawing.Size(943, 439);
 			this.Controls.Add(this.splitContainer1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "SpeechWindow";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Style.BackColor = System.Drawing.SystemColors.Window;
 			this.Text = "朗读文段 ( 中英文均可 )";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SpeechWindow_FormClosing);
 			this.splitContainer1.Panel1.ResumeLayout(false);
 			this.splitContainer1.Panel1.PerformLayout();
 			this.splitContainer1.Panel2.ResumeLayout(false);
+			this.splitContainer1.Panel2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
 			this.splitContainer1.ResumeLayout(false);
 			this.ResumeLayout(false);
@@ -145,5 +179,7 @@
 		private Controls.DefaultButton defaultButton1;
 		private Controls.DefaultButton defaultButton4;
 		private Controls.DefaultButton defaultButton3;
+		private Controls.DefaultButton defaultButton2;
+		private Controls.TextLabel textLabel1;
 	}
 }

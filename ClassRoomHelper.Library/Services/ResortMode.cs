@@ -8,6 +8,6 @@ namespace ClassRoomHelper.Library.Services
 {
 	public enum ResortMode
 	{
-		Monthly,Daily,AmPmSeparated
+		Monthly=4,Daily=2,AmPmSeparated=1,Weekly=3
 	}
 }

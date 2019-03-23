@@ -36,6 +36,7 @@
 			this.Tray = new System.Windows.Forms.NotifyIcon(this.components);
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			this.titleLabel4 = new ClassRoomHelper.Windows.Controls.TitleLabel();
+			this.timer2 = new System.Windows.Forms.Timer(this.components);
 			this.SuspendLayout();
 			// 
 			// titleLabel1
@@ -98,6 +99,10 @@
 			this.titleLabel4.TabIndex = 3;
 			this.titleLabel4.Text = "考试测试版";
 			// 
+			// timer2
+			// 
+			this.timer2.Tick += new System.EventHandler(this.Timer2_Tick);
+			// 
 			// TrayWindow
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -112,6 +117,8 @@
 			this.Name = "TrayWindow";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "TrayWindow";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TrayWindow_FormClosing);
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TrayWindow_FormClosed);
 			this.Shown += new System.EventHandler(this.TrayWindow_Shown);
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -126,5 +133,6 @@
 		private System.Windows.Forms.NotifyIcon Tray;
 		private System.Windows.Forms.Timer timer1;
 		private Controls.TitleLabel titleLabel4;
+		private System.Windows.Forms.Timer timer2;
 	}
 }

@@ -44,12 +44,11 @@
   <ItemGroup>
     <Compile Include="AdminChecker.cs" />
     <Compile Include="ProcessEX.cs" />
-    <Compile Include="ProcessExtensions.cs" />
     <Compile Include="Services\CollectMode.cs" />
     <Compile Include="Services\IPCInfoStruct.cs" />
+    <Compile Include="Services\TargetDirParser.cs" />
     <Compile Include="Services\WorkingState.cs" />
     <Compile Include="Win32API.cs" />
-    <Compile Include="XmlHelper.cs" />
     <Compile Include="DictionaryEx.cs" />
     <Compile Include="DebugLevel.cs" />
     <Compile Include="Log.cs" />

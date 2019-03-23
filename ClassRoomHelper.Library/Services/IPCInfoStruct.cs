@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-using ClassRoomHelper.Library;
-
-namespace ClassRoomHelper.Library.Services
+﻿namespace ClassRoomHelper.Library.Services
 {
-	[StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
+	//[StructLayout(LayoutKind.Sequential)]
 	public struct IPCInfoStruct
 	{
 		//[Flags]
+		public int ResortMode;
 		//[MarshalAs(UnmanagedType.I8)]
 		public int FileExistedSolution;
 		//[MarshalAs(UnmanagedType.ByValTStr,SizeConst =256)]

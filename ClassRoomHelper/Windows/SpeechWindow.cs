@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Speech.Synthesis;
 using Syncfusion.WinForms.Controls;
@@ -14,11 +7,18 @@ namespace ClassRoomHelper.Windows
 {
 	public partial class SpeechWindow : SfForm
 	{
+		string name="";
 		SpeechSynthesizer speech = new SpeechSynthesizer();
-
+		SpeechSynthesizer speechx = new SpeechSynthesizer();
 		public SpeechWindow()
 		{
 			InitializeComponent();
+			speechx.SpeakCompleted += new EventHandler<SpeakCompletedEventArgs>((_, __) =>
+			{
+				MessageBox.Show("导出完成 , 已保存到桌面的 " + name, "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				name = "";
+			});
+
 		}
 
 		private void DefaultButton1_Click(object sender, EventArgs e)
@@ -55,6 +55,28 @@ namespace ClassRoomHelper.Windows
 		private void SpeechWindow_FormClosing(object sender, FormClosingEventArgs e)
 		{
 			speech.Dispose();
+			speechx.Dispose();
+			foreach(Control x in Controls)
+			{
+				x.Dispose();
+			}
+		}
+
+		private void DefaultButton2_Click(object sender, EventArgs e)
+		{
+			if (name != "")
+			{
+				MessageBox.Show("每次只能进行一个文件的的输出 , 请等待当前文件输出结束 .","提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
+			}
+			name = DateTime.Now.ToString("yyyy-MM-dd-hh-mm-ss") + ".wav";
+			var filename = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + name;
+			
+			//speechx.SpeakAsyncCancelAll();
+			//Thread.Sleep(1000);
+			speechx.SetOutputToWaveFile(filename);
+			speechx.SpeakAsync(textBox1.Text);
+			
+			//speechx.Dispose();
 		}
 	}
 }

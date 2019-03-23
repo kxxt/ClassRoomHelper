@@ -8,6 +8,6 @@ namespace ClassRoomHelper.Library.Services
 {
 	public enum WorkingState
 	{
-		Idle,ToRun,ToExit
+		Idle,ToRun,ToExit,InvalidTargetDir
 	}
 }

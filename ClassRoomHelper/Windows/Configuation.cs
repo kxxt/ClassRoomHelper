@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 namespace ClassRoomHelper.Windows
@@ -15,6 +9,7 @@ namespace ClassRoomHelper.Windows
 		public Configuation()
 		{
 			InitializeComponent();
+
 		}
 
 		private void Configuation_FormClosing(object sender, FormClosingEventArgs e)
@@ -23,6 +18,7 @@ namespace ClassRoomHelper.Windows
 			Program.Settings.NameCallOutPre = textBox2.Text;
 			Program.Settings.NameCallOutPost = textBox3.Text;
 			Program.Settings.Save();
+			File.WriteAllText(".config",Program.Settings.TargetDir);
 			MessageBox.Show("设置已保存 .","提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
 		}
 
@@ -148,6 +144,7 @@ namespace ClassRoomHelper.Windows
 
 		private void Configuation_Load(object sender, EventArgs e)
 		{
+			textBox1.Text = Program.Settings.TargetDir;
 			textBox2.Text = Program.Settings.NameCallOutPre;
 			textBox3.Text = Program.Settings.NameCallOutPost;
 		checkBox1.Checked=Program.Settings.DesktopTool_AutoShow  ;
@@ -185,6 +182,9 @@ namespace ClassRoomHelper.Windows
 				case Library.Services.ResortMode.Monthly:
 					radioButton4.Checked = true;
 					break;
+				case Library.Services.ResortMode.Weekly:
+					radioButton11.Checked = true;
+					break;
 				default:
 					radioButton5.Select();
 					break;
@@ -196,6 +196,14 @@ namespace ClassRoomHelper.Windows
 		{
 			fb.ShowDialog();
 			textBox1.Text = fb.SelectedPath;
+		}
+
+		private void RadioButton11_CheckedChanged(object sender, EventArgs e)
+		{
+			if (radioButton11.Checked)
+			{
+				Program.Settings.ResortMode = Library.Services.ResortMode.Weekly;
+			}
 		}
 	}
 }

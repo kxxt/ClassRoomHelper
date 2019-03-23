@@ -3,7 +3,7 @@ using ClassRoomHelper.Library;
 using System;
 using System.IO;
 using System.IO.Pipes;
-using System.Windows.Forms;
+
 using System.Diagnostics;
 using System.Threading;
 
@@ -11,11 +11,12 @@ namespace CRHBackstageHelper
 {
 	class Program
 	{
-		static void Debug(string x)
+		static TargetDirParser targetdp;
+		static void Debug(object x)
 		{
 			Console.WriteLine(x);
 		}
-		static Random rx;
+	
 		static FileExistedSolution FileExistedSolution;
 		/// <summary>
 		/// #1
@@ -32,8 +33,9 @@ namespace CRHBackstageHelper
 		static void Main(string[] args)
 		{
 			
-			rx = new Random();
+			
 			FileExistedSolution = FileExistedSolution.Copy;
+			targetdp = new TargetDirParser("", ResortMode.Daily);
 			if (args.Length < 2)
 			{
 				Server();
@@ -72,11 +74,11 @@ namespace CRHBackstageHelper
 			}
 			if (args.Length >= 4)
 			{
-				if (args[4] != "force-admin-run")
+				if (args[3] != "force-admin-run")
 				{
 					if (AdminChecker.IsAdministrator())
 					{
-						MessageBox.Show("请不要以管理员权限启动此程序", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+						//MessageBox.Show("请不要以管理员权限启动此程序", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 						return;
 					}
 				}
@@ -84,7 +86,7 @@ namespace CRHBackstageHelper
 			else {
 				if (AdminChecker.IsAdministrator())
 				{
-					MessageBox.Show("请不要以管理员权限启动此程序", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+					//MessageBox.Show("请不要以管理员权限启动此程序", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 					return;
 				}
 			}
@@ -114,12 +116,23 @@ namespace CRHBackstageHelper
 			{
 				Log.AppendException("Logs\\service.error",ex);
 			}
-			Console.ReadLine();
+			//Console.ReadLine();
 		}
 
 		private static void Server()
 		{
-			SharedMemory.SharedArray<IPCInfoStruct> x = new SharedMemory.SharedArray<IPCInfoStruct>("crh-ipc");
+			
+			SharedMemory.SharedArray<IPCInfoStruct> x = null;
+			try
+			{
+				x	 = new SharedMemory.SharedArray<IPCInfoStruct>("crh-ipc");
+
+			}
+			catch
+			{
+				//Log.AppendException("Logs\\service.host-not-found",ex);
+				return;
+			}
 			while (true)
 			{
 				IPCInfoStruct data;
@@ -127,22 +140,30 @@ namespace CRHBackstageHelper
 				if ((WorkingState)data.WorkingState == WorkingState.ToRun)
 				{
 					data.WorkingState = (int)WorkingState.Idle;
-					x.Write(ref data, 0);
+					
 					Debug("Message Received");
+					Debug("- Raw Message -");
+					Debug(data.FileExistedSolution);
+					Debug(data.CollectMode);
 					Debug(((FileExistedSolution)data.FileExistedSolution).ToArg());
 					Debug(((CollectMode)(data.CollectMode)).ToArg());
 					//Debug(data.Target);
 					Debug("---end---");
 					var cm = (CollectMode)(data.CollectMode);
+					targetdp.Mode = (ResortMode)data.ResortMode;
+					
 					FileExistedSolution = (FileExistedSolution)data.FileExistedSolution;
 					string dir;
 					try
 					{
-						dir= File.ReadAllText(".target");
-						if (!Directory.Exists(dir)) throw new DirectoryNotFoundException();
+						targetdp.Root = File.ReadAllText(".config");
+						dir = targetdp.Get();
+						if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);
 					}catch(Exception ex)
 					{
 						Log.AppendException("Logs\\serviceserver.err", ex);
+						data.WorkingState = (int)WorkingState.InvalidTargetDir;
+						x.Write(ref data, 0);
 						continue;
 					}
 					try
@@ -166,15 +187,16 @@ namespace CRHBackstageHelper
 					{
 						Log.AppendException("Logs\\fetch.service.err", ex);
 					}
-					
+					GC.Collect(2);
 				}else if ((WorkingState)data.WorkingState == WorkingState.ToExit)
 				{
 					data.WorkingState = (int)WorkingState.Idle;
 					x.Write(ref data, 0);
 					Debug("Soon Exit");
-					Console.ReadLine();
+					//Console.ReadLine();
 					Environment.Exit(0);
 				}
+				x.Write(ref data, 0);
 				Thread.Sleep(1000);
 			}
 		}
@@ -193,6 +215,33 @@ namespace CRHBackstageHelper
 			var tarf = tdir + info.Item2;
 			var fi = new FileInfo(tarf);
 			var raw = new FileInfo(info.Item1 + "\\" + info.Item2);
+			var rdir= tdir + "文件历史 - " + info.Item2;
+			if (Directory.Exists(rdir))
+			{
+				var di = new DirectoryInfo(rdir);
+				bool repeated = false;
+				foreach(var file in di.GetFiles())
+				{
+					if (file.Length == raw.Length)
+					{
+						repeated = true;
+						Debug("Ignoring"+info.Item1+"\\"+info.Item2);
+						break;
+					}
+				}
+				if (!repeated)
+				{
+					int i = 1;
+					for (; i <= 10086; i++)
+					{
+						if (!File.Exists(rdir+ "\\" + i + "-" + info.Item2)) break;
+					}
+					//File.Move(tarf, rdir+ "\\" + i + "-" + info.Item2);
+					File.Copy(info.Item1 + "\\" + info.Item2, rdir + "\\" + i + "-" + info.Item2);
+					
+				}
+				return;
+			}
 			if (File.Exists(tarf) && fi.Length != raw.Length)
 			{
 				switch (FileExistedSolution)
@@ -227,6 +276,11 @@ namespace CRHBackstageHelper
 			foreach (var it in r)
 			{
 				Debug(it.Item1 + "\\" + it.Item2);
+				if (it.Item1.Contains(targetdp.Root))
+				{
+					Debug("Ignoring "+it.Item1 + "\\" + it.Item2);
+					continue;
+				}
 				Copy(it, sdir);
 			}
 		}
@@ -236,6 +290,11 @@ namespace CRHBackstageHelper
 			foreach (var it in r)
 			{
 				Debug(it.Item1 + "\\" + it.Item2);
+				if (it.Item1.Contains(targetdp.Root))
+				{
+					Debug("Ignoring " + it.Item1 + "\\" + it.Item2);
+					continue;
+				}
 				Copy(it, sdir);
 			}
 		}
@@ -245,6 +304,11 @@ namespace CRHBackstageHelper
 			foreach (var it in r)
 			{
 				Debug(it.Item1 + "\\" + it.Item2);
+				if (it.Item1.Contains(targetdp.Root))
+				{
+					Debug("Ignoring " + it.Item1 + "\\" + it.Item2);
+					continue;
+				}
 				Copy(it, sdir);
 			}
 		}
@@ -254,6 +318,11 @@ namespace CRHBackstageHelper
 			foreach (var it in r)
 			{
 				Debug(it.Item1 + "\\" + it.Item2);
+				if (it.Item1.Contains(targetdp.Root))
+				{
+					Debug("Ignoring " + it.Item1 + "\\" + it.Item2);
+					continue;
+				}
 				Copy(it, sdir);
 			}
 		}

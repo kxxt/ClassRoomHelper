@@ -41,6 +41,7 @@
 			this.titleLabel1 = new ClassRoomHelper.Windows.Controls.TitleLabel();
 			this.sfButton2 = new ClassRoomHelper.Windows.Controls.DefaultButton();
 			this.defaultButton7 = new ClassRoomHelper.Windows.Controls.DefaultButton();
+			this.defaultButton8 = new ClassRoomHelper.Windows.Controls.DefaultButton();
 			this.SuspendLayout();
 			// 
 			// defaultButton6
@@ -186,6 +187,7 @@
 			this.sfButton4.TabIndex = 4;
 			this.sfButton4.Text = "编辑名单";
 			this.sfButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+			this.sfButton4.Click += new System.EventHandler(this.SfButton4_Click);
 			// 
 			// titleLabel1
 			// 
@@ -230,12 +232,29 @@
 			this.defaultButton7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
 			this.defaultButton7.Click += new System.EventHandler(this.DefaultButton7_Click);
 			// 
+			// defaultButton8
+			// 
+			this.defaultButton8.AccessibleName = "Button";
+			this.defaultButton8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.defaultButton8.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.defaultButton8.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton8.Image")));
+			this.defaultButton8.ImageSize = new System.Drawing.Size(35, 35);
+			this.defaultButton8.Location = new System.Drawing.Point(339, 370);
+			this.defaultButton8.Name = "defaultButton8";
+			this.defaultButton8.Size = new System.Drawing.Size(96, 73);
+			this.defaultButton8.Style.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton8.Style.Image")));
+			this.defaultButton8.TabIndex = 15;
+			this.defaultButton8.Text = "GC.Collect";
+			this.defaultButton8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+			this.defaultButton8.Click += new System.EventHandler(this.DefaultButton8_Click);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.ClientSize = new System.Drawing.Size(760, 455);
+			this.Controls.Add(this.defaultButton8);
 			this.Controls.Add(this.defaultButton7);
 			this.Controls.Add(this.defaultButton6);
 			this.Controls.Add(this.defaultButton5);
@@ -270,6 +289,7 @@
 		private Windows.Controls.DefaultButton defaultButton5;
 		private Windows.Controls.DefaultButton defaultButton6;
 		private Windows.Controls.DefaultButton defaultButton7;
+		private Windows.Controls.DefaultButton defaultButton8;
 	}
 }
 

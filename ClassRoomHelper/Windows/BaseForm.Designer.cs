@@ -33,9 +33,8 @@
 			// BaseForm
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.ClientSize = new System.Drawing.Size(773, 454);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.ClientSize = new System.Drawing.Size(786, 453);
+			this.Font = new System.Drawing.Font("黑体", 15F);
 			this.MaximizeBox = false;
 			this.Name = "BaseForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

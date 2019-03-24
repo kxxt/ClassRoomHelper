@@ -2,12 +2,13 @@
 using System.Windows.Forms;
 using ClassRoomHelper.Windows;
 using System.Speech.Synthesis;
-
+using ClassRoomHelper.Library;
 namespace ClassRoomHelper
 {
 	public partial class MainForm : RsWork.UI.Windows.BasicNoneBorderWinForm
 	{
-		SpeechSynthesizer speech=new SpeechSynthesizer();
+		Configuation configuation;
+		//public SpeechSynthesizer speech=new SpeechSynthesizer();
 		public MainForm()
 		{
 			InitializeComponent();
@@ -31,7 +32,7 @@ namespace ClassRoomHelper
 
 		private void DefaultButton1_Click(object sender, EventArgs e)
 		{
-			speech.Dispose();
+			//speech.Dispose();
 			this.Close();
 		}
 
@@ -43,35 +44,27 @@ namespace ClassRoomHelper
 
 		private void SfButton6_Click(object sender, EventArgs e)
 		{
-			var x = new Configuation();
-				x.ShowDialog();
-			x.Dispose();
-			GC.Collect(3);
+			using (var configuationx = new Configuation())
+			{
+				configuationx.ShowDialog();
+				configuationx.Dispose();
+				//configuationx = null;
+				//GC.Collect();
+			}
+			FreeMemory.ClearMemory();
 		}
 
 		private void DefaultButton3_Click(object sender, EventArgs e)
 		{
-
+			
 		}
 
 		private void DefaultButton2_Click(object sender, EventArgs e)
 		{
-			
+			Service.ChooseNameRandomly();
 			//nc.Test_AddExampleData();
 			//nc.Load();
-			var t = Program.NameSelector.ChooseRandomly();
-			if (t == null)
-			{
-				MessageBox.Show("没有可用的学生信息");
-				return;
-			}
-			if (Properties.Settings.Default.VoiceNameCallOut)
-			{
-				//var speech = new SpeechSynthesizer();
-				speech.SpeakAsync(Program.Settings.NameCallOutPre+t+Program.Settings.NameCallOutPost);
-				//speech.Dispose();
-				//GC.Collect();
-			}
+
 		}
 
 		private void DefaultButton7_Click(object sender, EventArgs e)
@@ -90,7 +83,28 @@ namespace ClassRoomHelper
 
 		private void DefaultButton8_Click(object sender, EventArgs e)
 		{
-			GC.Collect(3);
+			GC.Collect();
+		}
+
+		private void TitleLabel1_MouseDown(object sender, MouseEventArgs e)
+		{
+			ReleaseCapture();
+			SendMessage(this.Handle, WM_SYSCOMMAND, SC_MOVE + HTCAPTION, 0);
+
+		}
+
+		private void MainForm_Load(object sender, EventArgs e)
+		{
+			if (!Program.Settings.DebugEnabled)
+			{
+				defaultButton8.Visible = false;
+				defaultButton6.Visible = false;
+			}
+		}
+
+		private void DefaultButton5_Click(object sender, EventArgs e)
+		{
+			string x = Program.TargetDirParser.Get();
 		}
 	}
 }

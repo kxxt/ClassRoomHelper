@@ -49,14 +49,14 @@
 			this.textBox1.Location = new System.Drawing.Point(0, 0);
 			this.textBox1.Multiline = true;
 			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(939, 390);
+			this.textBox1.Size = new System.Drawing.Size(995, 389);
 			this.textBox1.TabIndex = 0;
-			this.textBox1.Text = "在此处输入文段 ...";
+			this.textBox1.Text = "在此处输入文段...";
 			// 
 			// splitContainer1
 			// 
 			this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.splitContainer1.Location = new System.Drawing.Point(2, 2);
+			this.splitContainer1.Location = new System.Drawing.Point(0, 0);
 			this.splitContainer1.Name = "splitContainer1";
 			this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
 			// 
@@ -71,8 +71,8 @@
 			this.splitContainer1.Panel2.Controls.Add(this.defaultButton1);
 			this.splitContainer1.Panel2.Controls.Add(this.defaultButton4);
 			this.splitContainer1.Panel2.Controls.Add(this.defaultButton3);
-			this.splitContainer1.Size = new System.Drawing.Size(939, 435);
-			this.splitContainer1.SplitterDistance = 390;
+			this.splitContainer1.Size = new System.Drawing.Size(995, 435);
+			this.splitContainer1.SplitterDistance = 389;
 			this.splitContainer1.SplitterWidth = 1;
 			this.splitContainer1.TabIndex = 1;
 			// 
@@ -98,8 +98,8 @@
 			this.defaultButton2.ImageSize = new System.Drawing.Size(35, 35);
 			this.defaultButton2.Location = new System.Drawing.Point(463, 0);
 			this.defaultButton2.Name = "defaultButton2";
-			this.defaultButton2.Size = new System.Drawing.Size(156, 44);
-			this.defaultButton2.Style.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton2.Style.Image")));
+			this.defaultButton2.Size = new System.Drawing.Size(156, 45);
+			this.defaultButton2.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
 			this.defaultButton2.TabIndex = 4;
 			this.defaultButton2.Text = "导出wav";
 			this.defaultButton2.Click += new System.EventHandler(this.DefaultButton2_Click);
@@ -113,8 +113,8 @@
 			this.defaultButton1.ImageSize = new System.Drawing.Size(35, 35);
 			this.defaultButton1.Location = new System.Drawing.Point(338, 0);
 			this.defaultButton1.Name = "defaultButton1";
-			this.defaultButton1.Size = new System.Drawing.Size(125, 44);
-			this.defaultButton1.Style.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton1.Style.Image")));
+			this.defaultButton1.Size = new System.Drawing.Size(125, 45);
+			this.defaultButton1.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
 			this.defaultButton1.TabIndex = 3;
 			this.defaultButton1.Text = "停止";
 			this.defaultButton1.Click += new System.EventHandler(this.DefaultButton1_Click_1);
@@ -128,8 +128,8 @@
 			this.defaultButton4.ImageSize = new System.Drawing.Size(35, 35);
 			this.defaultButton4.Location = new System.Drawing.Point(138, 0);
 			this.defaultButton4.Name = "defaultButton4";
-			this.defaultButton4.Size = new System.Drawing.Size(200, 44);
-			this.defaultButton4.Style.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton4.Style.Image")));
+			this.defaultButton4.Size = new System.Drawing.Size(200, 45);
+			this.defaultButton4.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
 			this.defaultButton4.TabIndex = 2;
 			this.defaultButton4.Text = "从剪贴板粘贴";
 			this.defaultButton4.Click += new System.EventHandler(this.DefaultButton4_Click);
@@ -143,8 +143,8 @@
 			this.defaultButton3.ImageSize = new System.Drawing.Size(35, 35);
 			this.defaultButton3.Location = new System.Drawing.Point(0, 0);
 			this.defaultButton3.Name = "defaultButton3";
-			this.defaultButton3.Size = new System.Drawing.Size(138, 44);
-			this.defaultButton3.Style.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton3.Style.Image")));
+			this.defaultButton3.Size = new System.Drawing.Size(138, 45);
+			this.defaultButton3.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
 			this.defaultButton3.TabIndex = 1;
 			this.defaultButton3.Text = "朗读";
 			this.defaultButton3.Click += new System.EventHandler(this.DefaultButton1_Click);
@@ -154,12 +154,13 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.Window;
-			this.ClientSize = new System.Drawing.Size(943, 439);
+			this.ClientSize = new System.Drawing.Size(995, 435);
+			this.ControlBox = true;
 			this.Controls.Add(this.splitContainer1);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "SpeechWindow";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Style.BackColor = System.Drawing.SystemColors.Window;
 			this.Text = "朗读文段 ( 中英文均可 )";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SpeechWindow_FormClosing);
 			this.splitContainer1.Panel1.ResumeLayout(false);

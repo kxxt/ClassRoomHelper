@@ -4,7 +4,7 @@ using Syncfusion.WinForms.Controls;
 
 namespace ClassRoomHelper.Windows
 {
-	public partial class EditStudentListWindow : SfForm
+	public partial class EditStudentListWindow : RsWork.UI.Windows.BasicNoneBorderWinForm
 	{
 		BindingSource bs = new BindingSource();
 		public EditStudentListWindow()
@@ -58,6 +58,33 @@ namespace ClassRoomHelper.Windows
 			{
 				MessageBox.Show("保存失败");
 			}
+		}
+
+		private void TitleLabel1_MouseDown(object sender, MouseEventArgs e)
+		{
+			ReleaseCapture();
+			SendMessage(this.Handle, WM_SYSCOMMAND, SC_MOVE + HTCAPTION, 0);
+		}
+
+		private void DefaultButton5_Click(object sender, EventArgs e)
+		{
+
+			this.Close();
+		}
+
+		private void EditStudentListWindow_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			try
+			{
+				Program.NameSelector.Save("student.names");
+
+			}
+			catch
+			{
+				MessageBox.Show("保存失败");
+				return;
+			}
+			MessageBox.Show("已保存","提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
 		}
 	}
 }

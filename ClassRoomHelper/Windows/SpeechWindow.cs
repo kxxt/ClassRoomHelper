@@ -5,10 +5,10 @@ using Syncfusion.WinForms.Controls;
 
 namespace ClassRoomHelper.Windows
 {
-	public partial class SpeechWindow : SfForm
+	public partial class SpeechWindow : RsWork.UI.Windows.BasicNoneBorderWinForm
 	{
 		string name="";
-		SpeechSynthesizer speech = new SpeechSynthesizer();
+		//SpeechSynthesizer speech = new SpeechSynthesizer();
 		SpeechSynthesizer speechx = new SpeechSynthesizer();
 		public SpeechWindow()
 		{
@@ -23,20 +23,20 @@ namespace ClassRoomHelper.Windows
 
 		private void DefaultButton1_Click(object sender, EventArgs e)
 		{
-			speech.SpeakStarted += new EventHandler<SpeakStartedEventArgs>((_,__)=>
+			Service.speech.SpeakStarted += new EventHandler<SpeakStartedEventArgs>((_,__)=>
 			{
 				defaultButton3.Enabled = false;
 			});
-			speech.SpeakCompleted += new EventHandler<SpeakCompletedEventArgs>((_,__)=>
+			Service.speech.SpeakCompleted += new EventHandler<SpeakCompletedEventArgs>((_,__)=>
 			{
 				defaultButton3.Enabled = true;
 			});
-			speech.SpeakAsync(textBox1.Text);
+			Service.speech.SpeakAsync(textBox1.Text);
 		}
 
 		private void DefaultButton1_Click_1(object sender, EventArgs e)
 		{
-			speech.SpeakAsyncCancelAll();
+			Service.speech.SpeakAsyncCancelAll();
 		}
 
 		private void DefaultButton4_Click(object sender, EventArgs e)
@@ -54,7 +54,7 @@ namespace ClassRoomHelper.Windows
 
 		private void SpeechWindow_FormClosing(object sender, FormClosingEventArgs e)
 		{
-			speech.Dispose();
+			//speech.Dispose();
 			speechx.Dispose();
 			foreach(Control x in Controls)
 			{
@@ -77,6 +77,11 @@ namespace ClassRoomHelper.Windows
 			speechx.SpeakAsync(textBox1.Text);
 			
 			//speechx.Dispose();
+		}
+
+		private void DefaultButton5_Click(object sender, EventArgs e)
+		{
+			this.Close();
 		}
 	}
 }

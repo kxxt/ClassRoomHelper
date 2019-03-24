@@ -1,6 +1,6 @@
 ﻿namespace ClassRoomHelper
 {
-	public partial class BaseForm : Syncfusion.WinForms.Controls.SfForm
+	public partial class BaseForm : RsWork.UI.Windows.BasicNoneBorderWinForm
 	{
 		public BaseForm()
 		{

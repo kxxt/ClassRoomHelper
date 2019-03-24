@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClassRoomHelper.Library;
 using RsWork.UI.Windows;
 namespace ClassRoomHelper.Windows
 {
@@ -36,6 +37,8 @@ namespace ClassRoomHelper.Windows
 					case DBT_DEVICEARRIVAL:
 						try
 						{
+							if (!Program.Settings.UMgr_Enabled)break;
+
 							DriveInfo[] s = DriveInfo.GetDrives();
 							foreach (DriveInfo drive in s)
 							{
@@ -50,7 +53,7 @@ namespace ClassRoomHelper.Windows
 									}*/
 
 									Process.Start("explorer.exe", drive.RootDirectory.FullName);
-
+									if(Program.Settings.UMgr_ShowDialog)
 									new OpenUDiskWindow().Show();
 								}
 							}
@@ -90,7 +93,20 @@ namespace ClassRoomHelper.Windows
 			titleLabel1.Dispose();
 			titleLabel2.Dispose();
 			titleLabel3.Dispose();
-			GC.Collect();	
+			GC.Collect();
+			Program.HelperWindow = new HelperWindow();
+			if (Program.Settings.ShowHelperWindow)
+			{
+				if (Program.Settings.FirstUse)
+				{
+					this.Tray.BalloonTipText = "您可以拖动悬浮球和桌面小工具,我们将记住它的位置";
+					Tray.BalloonTipTitle = "班级助手";
+					Tray.BalloonTipIcon = ToolTipIcon.Info;
+					Tray.ShowBalloonTip(4);
+				}
+				Program.HelperWindow.Show();
+				
+			}
 		}
 
 		private async void TrayWindow_Shown(object sender, EventArgs e)
@@ -131,6 +147,7 @@ namespace ClassRoomHelper.Windows
 				Program.MainForm.Close();
 				Program.MainForm = null;
 				GC.Collect(2);
+				FreeMemory.ClearMemory();
 			}
 			
 		}

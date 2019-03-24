@@ -1,16 +1,18 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
-
+using RsWork.UI.Windows;
 namespace ClassRoomHelper.Windows
 {
-	public partial class Configuation : BaseForm
+	public partial class Configuation : BasicNoneBorderWinForm
 	{
+		bool StartAfterWindows;
 		public Configuation()
 		{
 			InitializeComponent();
-
+			StartAfterWindows = Program.Settings.StartAfterWindows;
 		}
+		
 
 		private void Configuation_FormClosing(object sender, FormClosingEventArgs e)
 		{
@@ -18,8 +20,11 @@ namespace ClassRoomHelper.Windows
 			Program.Settings.NameCallOutPre = textBox2.Text;
 			Program.Settings.NameCallOutPost = textBox3.Text;
 			Program.Settings.Save();
+			Program.TargetDirParser.Root = Program.Settings.TargetDir;
+			Program.TargetDirParser.Mode = Program.Settings.ResortMode;
 			File.WriteAllText(".config",Program.Settings.TargetDir);
 			MessageBox.Show("设置已保存 .","提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
+			
 		}
 
 		private void CheckBox1_CheckedChanged(object sender, EventArgs e)
@@ -156,6 +161,7 @@ namespace ClassRoomHelper.Windows
 		checkBox9.Checked=Program.Settings.VoiceNameCallOut ;
 		checkBox7.Checked=Program.Settings.UMgr_Enabled ;
 		checkBox4.Checked=Program.Settings.UMgr_ShowDialog;
+			checkBox12.Checked = Program.Settings.ShowHelperWindow;
 		switch (Program.Settings.FileExistedSolution)
 		{
 				case Library.Services.FileExistedSolution.Copy:
@@ -189,6 +195,16 @@ namespace ClassRoomHelper.Windows
 					radioButton5.Select();
 					break;
 			}
+			switch (Program.Settings.CollectMode)
+			{
+				case Library.Services.CollectMode.PPT:
+					checkBox10.Checked = true;
+					break;
+				default:
+					checkBox10.Checked = false;
+
+					break;
+			}
 			//System.Speech.Synthesis.TtsEngine.
 		}
 
@@ -203,6 +219,37 @@ namespace ClassRoomHelper.Windows
 			if (radioButton11.Checked)
 			{
 				Program.Settings.ResortMode = Library.Services.ResortMode.Weekly;
+			}
+		}
+
+		private void DefaultButton2_Click(object sender, EventArgs e)
+		{
+			this.Close();
+		}
+
+		private void CheckBox10_CheckedChanged(object sender, EventArgs e)
+		{
+			if (checkBox10.Checked)
+			{
+				Program.Settings.CollectMode = Library.Services.CollectMode.PPT;
+			}
+			else
+			{
+				Program.Settings.CollectMode = Library.Services.CollectMode.ALL;
+
+			}
+		}
+
+		private void CheckBox12_CheckedChanged(object sender, EventArgs e)
+		{
+			if (checkBox12.Checked)
+			{
+				Program.Settings.ShowHelperWindow =true;
+			}
+			else
+			{
+				Program.Settings.ShowHelperWindow = false;
+
 			}
 		}
 	}

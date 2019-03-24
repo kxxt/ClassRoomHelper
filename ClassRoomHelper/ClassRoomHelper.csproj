@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -48,17 +49,14 @@
     <Reference Include="SharedMemory, Version=2.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SharedMemory.2.1.1\lib\net47\SharedMemory.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.Core.WinForms, Version=16.4460.0.42, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\Syncfusion\WinForms\16.1.0.24\Assemblies\4.6\Syncfusion.Core.WinForms.dll</HintPath>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-    </Reference>
+    <Reference Include="Syncfusion.Core.WinForms, Version=16.4460.0.42, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
     <Reference Include="Syncfusion.Shared.Base, Version=16.4460.0.42, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Management" />
@@ -78,7 +76,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="Windows\ActionSelectionWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\ActionSelectionWindow.Designer.cs">
+      <DependentUpon>ActionSelectionWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +95,12 @@
     </Compile>
     <Compile Include="Windows\Configuation.Designer.cs">
       <DependentUpon>Configuation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Controls\ActionLine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Windows\Controls\ActionLine.Designer.cs">
+      <DependentUpon>ActionLine.cs</DependentUpon>
     </Compile>
     <Compile Include="Windows\Controls\DefaultButton.cs">
       <SubType>Component</SubType>
@@ -121,6 +132,24 @@
     <Compile Include="Windows\EditStudentListWindow.Designer.cs">
       <DependentUpon>EditStudentListWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Windows\HelperWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\HelperWindow.Designer.cs">
+      <DependentUpon>HelperWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\NameSelectedWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\NameSelectedWindow.Designer.cs">
+      <DependentUpon>NameSelectedWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\OOBE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\OOBE.Designer.cs">
+      <DependentUpon>OOBE.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\OpenUDiskWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +168,12 @@
     <Compile Include="Windows\TrayWindow.Designer.cs">
       <DependentUpon>TrayWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Vote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Vote.Designer.cs">
+      <DependentUpon>Vote.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,11 +186,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Windows\ActionSelectionWindow.resx">
+      <DependentUpon>ActionSelectionWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Windows\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\Configuation.resx">
       <DependentUpon>Configuation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Controls\ActionLine.resx">
+      <DependentUpon>ActionLine.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\Controls\DefaultButton.resx">
       <DependentUpon>DefaultButton.cs</DependentUpon>
@@ -172,6 +213,15 @@
     <EmbeddedResource Include="Windows\EditStudentListWindow.resx">
       <DependentUpon>EditStudentListWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Windows\HelperWindow.resx">
+      <DependentUpon>HelperWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\NameSelectedWindow.resx">
+      <DependentUpon>NameSelectedWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\OOBE.resx">
+      <DependentUpon>OOBE.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Windows\OpenUDiskWindow.resx">
       <DependentUpon>OpenUDiskWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -180,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\TrayWindow.resx">
       <DependentUpon>TrayWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Vote.resx">
+      <DependentUpon>Vote.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="packages.config" />
@@ -192,6 +245,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\Psd\1.psd" />
+    <None Include="Resources\Psd\2.psd" />
+    <None Include="Resources\Psd\welcome.psd" />
     <None Include="student.names">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -201,13 +257,48 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\DataSources\" />
-    <Folder Include="Structures\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ClassRoomHelper.Library\ClassRoomHelper.Library.csproj">
       <Project>{3bd4ef73-722b-4134-a02c-f7811c515565}</Project>
       <Name>ClassRoomHelper.Library</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="IWshRuntimeLibrary">
+      <Guid>{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="TaskScheduler">
+      <Guid>{E34CB9F1-C7F7-424C-BE29-027DCC09363A}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Pic-Big\0-big.png" />
+    <Content Include="Resources\Pic\0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pic\1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pic-Big\2-big.png" />
+    <Content Include="Resources\Pic\2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Raw\1.jpg" />
+    <Content Include="Resources\Raw\2.jpg" />
+    <Content Include="Resources\Raw\welcome.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

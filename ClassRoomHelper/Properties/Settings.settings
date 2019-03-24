@@ -56,5 +56,11 @@
     <Setting Name="CollectMode" Type="ClassRoomHelper.Library.Services.CollectMode" Scope="User">
       <Value Profile="(Default)">ALL</Value>
     </Setting>
+    <Setting Name="HelperWindowLocation" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">0, 0</Value>
+    </Setting>
+    <Setting Name="ShowHelperWindow" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

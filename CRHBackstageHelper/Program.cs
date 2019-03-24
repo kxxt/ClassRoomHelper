@@ -9,7 +9,7 @@ using System.Threading;
 
 namespace CRHBackstageHelper
 {
-	class Program
+	public class Program
 	{
 		static TargetDirParser targetdp;
 		static void Debug(object x)
@@ -30,16 +30,12 @@ namespace CRHBackstageHelper
 		/// 
 		/// </summary>
 		/// <param name="args"></param>
-		static void Main(string[] args)
+		public static int Main(string[] args)
 		{
-			
-			
-			FileExistedSolution = FileExistedSolution.Copy;
-			targetdp = new TargetDirParser("", ResortMode.Daily);
 			if (args.Length < 2)
 			{
 				Server();
-				return;
+				return 0;
 				/*ProcessStartInfo main = new ProcessStartInfo();
 				main.Verb = "runas";
 				main.FileName = "ClassRoomHelper.exe";
@@ -50,10 +46,14 @@ namespace CRHBackstageHelper
 			if (args[0].Trim().ToLower() == "serve")
 			{
 				Server();
-				return;
+				return 0;
 			}
+
+			FileExistedSolution = FileExistedSolution.Copy;
+			targetdp = new TargetDirParser("", ResortMode.Daily);
+			
 			Debug(args[0]);Debug(args[1]);
-			if (!Directory.Exists(args[1])) return;
+			if (!Directory.Exists(args[1])) return -1;
 			if (args.Length >= 3)
 			{
 				Debug(args[2]);
@@ -79,7 +79,7 @@ namespace CRHBackstageHelper
 					if (AdminChecker.IsAdministrator())
 					{
 						//MessageBox.Show("请不要以管理员权限启动此程序", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-						return;
+						return 0;
 					}
 				}
 			}
@@ -87,7 +87,7 @@ namespace CRHBackstageHelper
 				if (AdminChecker.IsAdministrator())
 				{
 					//MessageBox.Show("请不要以管理员权限启动此程序", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-					return;
+					return 0;
 				}
 			}
 			try
@@ -116,12 +116,18 @@ namespace CRHBackstageHelper
 			{
 				Log.AppendException("Logs\\service.error",ex);
 			}
+			return 0;
 			//Console.ReadLine();
 		}
-
-		private static void Server()
+		public static void init()
+		{
+			FileExistedSolution = FileExistedSolution.Copy;
+			targetdp = new TargetDirParser("", ResortMode.Daily);
+		}
+		public  static int Server()
 		{
 			
+			Debug("Sever Started");
 			SharedMemory.SharedArray<IPCInfoStruct> x = null;
 			try
 			{
@@ -130,8 +136,9 @@ namespace CRHBackstageHelper
 			}
 			catch
 			{
+				Debug("HOST NOT FOUND");
 				//Log.AppendException("Logs\\service.host-not-found",ex);
-				return;
+				return -1;
 			}
 			while (true)
 			{
@@ -199,6 +206,7 @@ namespace CRHBackstageHelper
 				x.Write(ref data, 0);
 				Thread.Sleep(1000);
 			}
+			return 0;
 		}
 
 		static void Copy((string, string) info, string tdir)
@@ -270,9 +278,9 @@ namespace CRHBackstageHelper
 		}
 		static void FetchALL(string sdir)
 		{
-			var r = ActiveFileController.GetPowerpoint();
-			r.AddRange(ActiveFileController.GetWord());
-			r.AddRange(ActiveFileController.GetExcel());
+			var r = LateBindingOfficeDynamic.GetPowerpoint();
+			r.AddRange(LateBindingOfficeDynamic.GetWord());
+			r.AddRange(LateBindingOfficeDynamic.GetExcel());
 			foreach (var it in r)
 			{
 				Debug(it.Item1 + "\\" + it.Item2);
@@ -286,7 +294,7 @@ namespace CRHBackstageHelper
 		}
 		static void FetchPPT(string sdir)
 		{
-			var r = ActiveFileController.GetPowerpoint();
+			var r = LateBindingOfficeDynamic.GetPowerpoint();
 			foreach (var it in r)
 			{
 				Debug(it.Item1 + "\\" + it.Item2);
@@ -300,7 +308,7 @@ namespace CRHBackstageHelper
 		}
 		static void FetchDOC(string sdir)
 		{
-			var r = ActiveFileController.GetWord();
+			var r = LateBindingOfficeDynamic.GetWord();
 			foreach (var it in r)
 			{
 				Debug(it.Item1 + "\\" + it.Item2);
@@ -314,7 +322,7 @@ namespace CRHBackstageHelper
 		}
 		static void FetchXLS(string sdir)
 		{
-			var r = ActiveFileController.GetExcel();
+			var r = LateBindingOfficeDynamic.GetExcel();
 			foreach (var it in r)
 			{
 				Debug(it.Item1 + "\\" + it.Item2);

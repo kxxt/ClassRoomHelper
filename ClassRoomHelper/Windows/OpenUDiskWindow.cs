@@ -33,7 +33,7 @@ namespace ClassRoomHelper.Windows
 			{
 				this.Close();
 			}
-
+			
 
 		}
 	}

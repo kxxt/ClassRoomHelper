@@ -7,6 +7,7 @@ namespace ClassRoomHelper.Windows
 {
 	public partial class DebugForm : Form
 	{
+		short score = 100;
 		public DebugForm()
 		{
 			InitializeComponent();
@@ -81,6 +82,84 @@ namespace ClassRoomHelper.Windows
 		{
 			TargetDirParser tdp = new TargetDirParser(Program.Settings.TargetDir, ResortMode.Weekly);
 			MessageBox.Show(tdp.Get());
+		}
+
+		private void DefaultButton9_Click(object sender, EventArgs e)
+		{
+			var t = new HelperWindow();
+			t.Show();
+		}
+
+		private void DefaultButton10_Click(object sender, EventArgs e)
+		{
+			Core.SetStartUp();
+		}
+
+		private void DefaultButton11_Click(object sender, EventArgs e)
+		{
+			Core.SetSkipUAC();
+		}
+
+		private void DefaultButton12_Click(object sender, EventArgs e)
+		{
+			Core.RemoveSkipUAC();
+		}
+
+		private void DefaultButton13_Click(object sender, EventArgs e)
+		{
+			Core.RemoveStartup();
+		}
+
+		private void DefaultButton15_Click(object sender, EventArgs e)
+		{
+			Core.SetStartByTaskSch();
+		}
+
+		private void DefaultButton14_Click(object sender, EventArgs e)
+		{
+			Core.RemoveStartByTaskSch();
+		}
+
+		private void DefaultButton16_Click(object sender, EventArgs e)
+		{
+			new OOBE().ShowDialog();
+		}
+
+		private void DefaultButton19_Click(object sender, EventArgs e)
+		{
+			var x = LateBindingOfficeDynamic.GetWord();
+			foreach (var a in x)
+			{
+				MessageBox.Show(a.Item1 + "\r\n" + a.Item2);
+			}
+		}
+
+		private void DefaultButton17_Click(object sender, EventArgs e)
+		{
+			var x = LateBindingOfficeDynamic.GetExcel();
+			foreach (var a in x)
+			{
+				MessageBox.Show(a.Item1 + "\r\n" + a.Item2);
+			}
+		}
+
+		private void DefaultButton18_Click(object sender, EventArgs e)
+		{
+			var x = LateBindingOfficeDynamic.GetPowerpoint();
+			foreach (var a in x)
+			{
+				MessageBox.Show(a.Item1 + "\r\n" + a.Item2);
+			}
+		}
+
+		private void DebugForm_Load(object sender, EventArgs e)
+		{
+			//actionLine1.Set("测试人员", ref score);
+		}
+
+		private void DefaultButton20_Click(object sender, EventArgs e)
+		{
+			MessageBox.Show(score.ToString());
 		}
 	}
 }

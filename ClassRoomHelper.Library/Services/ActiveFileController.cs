@@ -18,7 +18,6 @@ namespace ClassRoomHelper.Library.Services
 		public static List<(string,string)> GetWord()
 		{
 			List<(string, string)> ret = new List<(string, string)>();
-			object oMissing = System.Reflection.Missing.Value;
 			Word.Application winObj;
 			try
 			{
@@ -32,6 +31,7 @@ namespace ClassRoomHelper.Library.Services
 			}
 			foreach(Word.Document x in winObj.Documents)
 			{
+				//winObj.Documents.
 				ret.Add((x.Path,x.Name));
 			}
 			return ret;
@@ -39,7 +39,6 @@ namespace ClassRoomHelper.Library.Services
 		public static List<(string, string)> GetPowerpoint()
 		{
 			var ret = new List<(string, string)>();
-			object oMissing = System.Reflection.Missing.Value;
 			Powerpoint.Application winObj;
 			try
 			{
@@ -61,7 +60,6 @@ namespace ClassRoomHelper.Library.Services
 		public static List<(string, string)> GetExcel()
 		{
 			var ret = new List<(string, string)>();
-			object oMissing = System.Reflection.Missing.Value;
 			Excel.Application winObj;
 			try
 			{

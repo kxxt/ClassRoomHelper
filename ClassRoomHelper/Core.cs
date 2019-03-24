@@ -10,11 +10,148 @@ using ClassRoomHelper.Library.Services;
 using ClassRoomHelper.Library;
 using System.IO;
 using System.Management;
+using Microsoft.Win32;
+using TaskScheduler;
 
 namespace ClassRoomHelper
 {
 	public  class Core
 	{
+		public static void RemoveSkipUAC()
+		{
+			try
+			{
+				var scheduler = new TaskScheduler.TaskScheduler();
+				scheduler.Connect();
+				//var task = scheduler.GetFolder("\\").GetTask("ClassRoomHelperSkipUAC");
+				scheduler.GetFolder("\\").DeleteTask("ClassRoomHelperSkipUAC", 0);
+			}
+			catch
+			{
+
+			}
+			
+		}
+		public static void RemoveStartByTaskSch()
+		{
+			try
+			{
+				var scheduler = new TaskScheduler.TaskScheduler();
+				scheduler.Connect();
+				//var task = scheduler.GetFolder("\\").GetTask("ClassRoomHelperSkipUAC");
+				scheduler.GetFolder("\\").DeleteTask("ClassRoomHelperStartUp", 0);
+			}
+			catch
+			{
+
+			}
+		}
+		public static void SetStartByTaskSch()
+		{
+			var scheduler = new TaskScheduler.TaskScheduler();
+			scheduler.Connect(); //连接, 还有一些登录参数可选.
+			var task = scheduler.NewTask(0); //官方文档上, 这个参数后面加了注释reserved.
+			task.RegistrationInfo.Author = "Believers in Science Studio";
+			task.RegistrationInfo.Description = "班级助手";
+			task.Settings.Enabled = true; //or false, 开关.
+										  //在启动的时候执行, 一开始只写了Logon, 不过发现开机的时候登录并没有触发.
+										  //task.Triggers.Create(_TASK_TRIGGER_TYPE2.TASK_TRIGGER_BOOT);
+										  //注销后登录什么的.
+			task.Triggers.Create(_TASK_TRIGGER_TYPE2.TASK_TRIGGER_LOGON);
+			var action = task.Actions.Create(_TASK_ACTION_TYPE.TASK_ACTION_EXEC) as IExecAction;
+			//上面的Triggers.Create也会像Actions.Create一样分别返回类型为IBootTrigger, ILogonTrigger的对象(自己as或者强制转换一下).
+			//可以做更多设置.
+			//这里就是设置为用户能达到的最高权限.
+			task.Principal.RunLevel = _TASK_RUNLEVEL.TASK_RUNLEVEL_LUA;
+			action.Path = Environment.CurrentDirectory + "\\班级助手.exe"; //需要启动的程序路径.
+			action.WorkingDirectory = Environment.CurrentDirectory;
+			action.Arguments = "autorun"; //参数.
+			var folder = scheduler.GetFolder(@"\"); //这里是Task的根文件夹, 还可以用folder.CreateFolder来创建自己的目录.
+													//注册任务. 这里的TASK_LOGON_INTERACTIVE_TOKEN就是说使用用户当前的登录信息(如果已经登录).
+			folder.RegisterTaskDefinition("ClassRoomHelperStartUp", task, (int)_TASK_CREATION.TASK_CREATE_OR_UPDATE, null, null, _TASK_LOGON_TYPE.TASK_LOGON_INTERACTIVE_TOKEN);		
+		}
+		public static void SetSkipUAC()
+		{
+				var scheduler = new TaskScheduler.TaskScheduler();
+				scheduler.Connect(); //连接, 还有一些登录参数可选.
+				var task = scheduler.NewTask(0); //官方文档上, 这个参数后面加了注释reserved.
+				task.RegistrationInfo.Author = "Believers in Science Studio";
+				task.RegistrationInfo.Description = "班级助手跳过UAC";
+				task.Settings.Enabled = true; //or false, 开关.
+											  //在启动的时候执行, 一开始只写了Logon, 不过发现开机的时候登录并没有触发.
+											  //task.Triggers.Create(_TASK_TRIGGER_TYPE2.TASK_TRIGGER_BOOT);
+											  //注销后登录什么的.
+				task.Triggers.Create(_TASK_TRIGGER_TYPE2.TASK_TRIGGER_LOGON);
+				var action = task.Actions.Create(_TASK_ACTION_TYPE.TASK_ACTION_EXEC) as IExecAction;
+				//上面的Triggers.Create也会像Actions.Create一样分别返回类型为IBootTrigger, ILogonTrigger的对象(自己as或者强制转换一下).
+				//可以做更多设置.
+				//这里就是设置为用户能达到的最高权限.
+				task.Principal.RunLevel = _TASK_RUNLEVEL.TASK_RUNLEVEL_HIGHEST;
+				action.Path = Environment.CurrentDirectory + "\\班级助手.exe"; //需要启动的程序路径.
+				action.WorkingDirectory = Environment.CurrentDirectory;
+				action.Arguments = "skipuac"; //参数.
+				var folder = scheduler.GetFolder(@"\"); //这里是Task的根文件夹, 还可以用folder.CreateFolder来创建自己的目录.
+														//注册任务. 这里的TASK_LOGON_INTERACTIVE_TOKEN就是说使用用户当前的登录信息(如果已经登录).
+				folder.RegisterTaskDefinition("ClassRoomHelperSkipUAC", task, (int)_TASK_CREATION.TASK_CREATE_OR_UPDATE, null, null, _TASK_LOGON_TYPE.TASK_LOGON_INTERACTIVE_TOKEN);
+				//注册成功, 删除注册表内的启动项, 这里的SetRegister是我自己写的, 替换掉即可.
+				//SetRegistry(dir, “Pacgen”, null);
+		}
+		public static void RemoveStartup()
+		{
+			if (!CheckStartup()) { MessageBox.Show("Not Start Up"); return; };
+			File.Delete(Environment.GetFolderPath(Environment.SpecialFolder.Startup) + "\\" + "班级助手.lnk");
+		}
+		public static bool CheckStartup()
+		{
+			if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.Startup) + "\\" + "班级助手.lnk")) return true;
+			else return false;
+		}
+		public static void SetStartUp()
+		{
+			if (CheckStartup()) { MessageBox.Show("Start Up");return; };
+			var Startup = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
+			MessageBox.Show(Startup);
+			IWshRuntimeLibrary.WshShell wsh= new IWshRuntimeLibrary.WshShell();
+			IWshRuntimeLibrary.IWshShortcut shortcut = wsh.CreateShortcut(
+			Startup + "\\班级助手.lnk") as IWshRuntimeLibrary.IWshShortcut;
+			shortcut.Arguments = "";
+			shortcut.TargetPath = Environment.CurrentDirectory+"\\班级助手.exe";
+			// not sure about what this is for
+			//shortcut.WindowStyle = 1;
+			shortcut.Description = "班级助手";
+			shortcut.Arguments = "autorun";
+			shortcut.WindowStyle =(int) IWshRuntimeLibrary.WshWindowStyle.WshNormalFocus;
+			shortcut.WorkingDirectory = Environment.CurrentDirectory;
+			shortcut.Save();
+		}
+		public static void RemoveAutoRun()
+		{
+			RegistryKey rkApp = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+
+			if (CheckAutoRun())
+				// Remove the value from the registry so that the application doesn't start
+				rkApp.DeleteValue("ClassRoomHelper", false);
+		}
+		public static bool CheckAutoRun()
+		{
+			// The path to the key where Windows looks for startup applications
+			RegistryKey rkApp = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+
+			if (rkApp.GetValue("ClassRoomHelper") == null)
+				// The value doesn't exist, the application is not set to run at startup
+				return false;
+			else
+				// The value exists, the application is set to run at startup
+				return true;
+		}
+		public static void SetAutoRun()
+		{
+			RegistryKey rkApp = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+
+			if (!CheckAutoRun())
+				// Add the value in the registry so that the application runs at startup
+				rkApp.SetValue("ClassRoomHelper", Environment.CurrentDirectory+"\\"+"班级助手.exe");
+		}
 		public static void StartService(CollectMode mode)
 		{
 			if (!Directory.Exists(Program.Settings.TargetDir))
@@ -115,7 +252,7 @@ namespace ClassRoomHelper
 				lastrun = DateTime.Now;
 			}
 			//MessageBox.Show("WayTwo");
-			try
+			/*try
 			{
 				var ps = Process.GetProcessesByName("CRHBackstageHelper");
 				if (ps.Length <= 0)
@@ -130,7 +267,7 @@ namespace ClassRoomHelper
 			catch(Exception ex)
 			{
 				Log.AppendException("Logs\\service.without.err",ex);
-			}
+			}*/
 		}
 		public static void ServiceHook(object sender,EventArrivedEventArgs e)
 		{

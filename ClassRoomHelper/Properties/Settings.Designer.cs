@@ -238,5 +238,29 @@ namespace ClassRoomHelper.Properties {
                 this["CollectMode"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point HelperWindowLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["HelperWindowLocation"]));
+            }
+            set {
+                this["HelperWindowLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ShowHelperWindow {
+            get {
+                return ((bool)(this["ShowHelperWindow"]));
+            }
+            set {
+                this["ShowHelperWindow"] = value;
+            }
+        }
     }
 }

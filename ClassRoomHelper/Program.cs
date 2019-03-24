@@ -33,6 +33,7 @@ namespace ClassRoomHelper
 	}
 	static class Program
 	{
+		public static HelperWindow HelperWindow;
 		public static NameSelector NameSelector;
 		public static TargetDirParser TargetDirParser;//= new TargetDirParser("", ResortMode.Daily);
 		public static SharedMemory.SharedArray<IPCInfoStruct> InfoPipe;
@@ -63,6 +64,7 @@ namespace ClassRoomHelper
 			//bg.Show();
 			//Application.Run(new MainFrm());
 			manager.Run(new string[] { });
+			Program.Settings.Save();
 		}
 	}
 }

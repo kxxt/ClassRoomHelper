@@ -46,7 +46,7 @@
 			// splitContainer1
 			// 
 			this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.splitContainer1.Location = new System.Drawing.Point(2, 2);
+			this.splitContainer1.Location = new System.Drawing.Point(0, 0);
 			this.splitContainer1.Name = "splitContainer1";
 			// 
 			// splitContainer1.Panel1
@@ -61,8 +61,8 @@
 			// splitContainer1.Panel2
 			// 
 			this.splitContainer1.Panel2.Controls.Add(this.listBox1);
-			this.splitContainer1.Size = new System.Drawing.Size(726, 508);
-			this.splitContainer1.SplitterDistance = 239;
+			this.splitContainer1.Size = new System.Drawing.Size(730, 512);
+			this.splitContainer1.SplitterDistance = 178;
 			this.splitContainer1.TabIndex = 1;
 			// 
 			// defaultButton4
@@ -74,7 +74,7 @@
 			this.defaultButton4.ImageSize = new System.Drawing.Size(40, 40);
 			this.defaultButton4.Location = new System.Drawing.Point(0, 256);
 			this.defaultButton4.Name = "defaultButton4";
-			this.defaultButton4.Size = new System.Drawing.Size(239, 68);
+			this.defaultButton4.Size = new System.Drawing.Size(178, 68);
 			this.defaultButton4.Style.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton4.Style.Image")));
 			this.defaultButton4.TabIndex = 6;
 			this.defaultButton4.Click += new System.EventHandler(this.DefaultButton4_Click);
@@ -88,7 +88,7 @@
 			this.defaultButton3.ImageSize = new System.Drawing.Size(40, 40);
 			this.defaultButton3.Location = new System.Drawing.Point(0, 188);
 			this.defaultButton3.Name = "defaultButton3";
-			this.defaultButton3.Size = new System.Drawing.Size(239, 68);
+			this.defaultButton3.Size = new System.Drawing.Size(178, 68);
 			this.defaultButton3.Style.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton3.Style.Image")));
 			this.defaultButton3.TabIndex = 5;
 			this.defaultButton3.Click += new System.EventHandler(this.DefaultButton3_Click);
@@ -99,7 +99,7 @@
 			this.textBox1.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
 			this.textBox1.Location = new System.Drawing.Point(0, 158);
 			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(239, 30);
+			this.textBox1.Size = new System.Drawing.Size(178, 30);
 			this.textBox1.TabIndex = 4;
 			// 
 			// textLabel1
@@ -108,6 +108,7 @@
 			this.textLabel1.BackColor = System.Drawing.Color.Transparent;
 			this.textLabel1.Dock = System.Windows.Forms.DockStyle.Top;
 			this.textLabel1.Font = new System.Drawing.Font("黑体", 16F);
+			this.textLabel1.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.textLabel1.Location = new System.Drawing.Point(0, 136);
 			this.textLabel1.Name = "textLabel1";
 			this.textLabel1.Size = new System.Drawing.Size(76, 22);
@@ -123,7 +124,7 @@
 			this.defaultButton2.ImageSize = new System.Drawing.Size(40, 40);
 			this.defaultButton2.Location = new System.Drawing.Point(0, 68);
 			this.defaultButton2.Name = "defaultButton2";
-			this.defaultButton2.Size = new System.Drawing.Size(239, 68);
+			this.defaultButton2.Size = new System.Drawing.Size(178, 68);
 			this.defaultButton2.Style.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton2.Style.Image")));
 			this.defaultButton2.TabIndex = 1;
 			this.defaultButton2.Click += new System.EventHandler(this.DefaultButton2_Click);
@@ -137,7 +138,7 @@
 			this.defaultButton1.ImageSize = new System.Drawing.Size(40, 40);
 			this.defaultButton1.Location = new System.Drawing.Point(0, 0);
 			this.defaultButton1.Name = "defaultButton1";
-			this.defaultButton1.Size = new System.Drawing.Size(239, 68);
+			this.defaultButton1.Size = new System.Drawing.Size(178, 68);
 			this.defaultButton1.Style.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton1.Style.Image")));
 			this.defaultButton1.TabIndex = 0;
 			this.defaultButton1.Click += new System.EventHandler(this.DefaultButton1_Click);
@@ -150,7 +151,7 @@
 			this.listBox1.ItemHeight = 20;
 			this.listBox1.Location = new System.Drawing.Point(0, 0);
 			this.listBox1.Name = "listBox1";
-			this.listBox1.Size = new System.Drawing.Size(483, 508);
+			this.listBox1.Size = new System.Drawing.Size(548, 512);
 			this.listBox1.TabIndex = 0;
 			this.listBox1.SelectedIndexChanged += new System.EventHandler(this.ListBox1_SelectedIndexChanged);
 			// 
@@ -160,11 +161,14 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(730, 512);
+			this.ControlBox = true;
 			this.Controls.Add(this.splitContainer1);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "EditStudentListWindow";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "编辑学生信息";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EditStudentListWindow_FormClosing);
 			this.splitContainer1.Panel1.ResumeLayout(false);
 			this.splitContainer1.Panel1.PerformLayout();
 			this.splitContainer1.Panel2.ResumeLayout(false);

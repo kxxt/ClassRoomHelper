@@ -43,11 +43,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminChecker.cs" />
+    <Compile Include="FreeMemory.cs" />
     <Compile Include="ProcessEX.cs" />
     <Compile Include="Services\CollectMode.cs" />
     <Compile Include="Services\IPCInfoStruct.cs" />
+    <Compile Include="Services\LateBindingOfficeDynamic.cs" />
+    <Compile Include="Services\LateBindingOffice.cs" />
     <Compile Include="Services\TargetDirParser.cs" />
     <Compile Include="Services\WorkingState.cs" />
+    <Compile Include="VoteData.cs" />
     <Compile Include="Win32API.cs" />
     <Compile Include="DictionaryEx.cs" />
     <Compile Include="DebugLevel.cs" />

@@ -16,7 +16,7 @@ namespace 班级助手
 	class Program
 	{
 		static void ForceAdminRun(){
-			
+
 		}
 		static void Debug(object x)
 		{
@@ -56,7 +56,7 @@ namespace 班级助手
 			if (args.Length==0)
 			if (AdminChecker.IsAdministrator())
 			{
-				MessageBox.Show("请不要以管理员权限启动此程序","提示",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
+				MessageBox.Show("请不要以管理员权限启动此程序,\r\n但是您需要在接下来的 UAC弹窗中授予程序管理员权限,\r\n如果您还是无法启动程序,请强制以管理员身份启动程序。\r\n单击\"是\"退出程序。\r\n单击\"否\"将强制以管理员模式运行程序。,"提示",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
 				return;
 			}
 			if (args.Length == 1)

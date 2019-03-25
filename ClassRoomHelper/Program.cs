@@ -40,7 +40,8 @@ namespace ClassRoomHelper
 		public static MainForm MainForm;
 		public static ProcessStartInfo Helper;
 		public static Properties.Settings Settings;
-		public static bool IsCensorServiceRunning=false;
+		public static bool WorkAsAdministrator=false;
+		//public static bool IsCensorServiceRunning=false;
 		/// <summary>
 		/// 应用程序的主入口点。
 		/// </summary>
@@ -65,6 +66,7 @@ namespace ClassRoomHelper
 			//Application.Run(new MainFrm());
 			manager.Run(new string[] { });
 			Program.Settings.Save();
+			Core.ActionsBeforeAppExit();
 		}
 	}
 }

@@ -31,23 +31,23 @@ namespace ClassRoomHelper.Library.Services
 				default:return "未知";
 			}
 		}
-		private string Get_Weekly()
+		public string Get_Weekly()
 		{
 			return Get_Monthly()
 				+"\\"+"第"+ChineseNumber((int)Math.Ceiling(DateTime.Now.Day/7.0))+"周";
 		}
-		private string Get_Monthly()
+		public string Get_Monthly()
 		{
 			return Root + "\\" + DateTime.Now.ToString("yyyy") + "年"
 				+ "\\" + DateTime.Now.Month + "月";
 		}
-		private string Get_Daily()
+		public string Get_Daily()
 		{
 			return Get_Monthly()
 				+ "\\"+DateTime.Now.ToString("dd");
 
 		}
-		private string Get_AmPmSeparated()
+		public string Get_AmPmSeparated()
 		{
 			return Get_Daily()
 				+"\\"+(DateTime.Now.Hour<=12?"上午":"下午");

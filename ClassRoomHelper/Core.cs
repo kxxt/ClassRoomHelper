@@ -76,9 +76,16 @@ namespace ClassRoomHelper
 			folder.RegisterTaskDefinition("ClassRoomHelperStartUp", task, (int)_TASK_CREATION.TASK_CREATE_OR_UPDATE, null, null, _TASK_LOGON_TYPE.TASK_LOGON_INTERACTIVE_TOKEN);		
 		}
 
-		
+        internal static void ActionsBeforeAppExit()
+        {
+           try{
+			   File.Delete("AdminMode");
+		   }catch{
 
-		public static void SetSkipUAC()
+		   }
+        }
+
+        public static void SetSkipUAC()
 		{
 				var scheduler = new TaskScheduler.TaskScheduler();
 				scheduler.Connect(); //连接, 还有一些登录参数可选.
@@ -286,16 +293,13 @@ namespace ClassRoomHelper
 			{
 				if (Program.Settings.CollectMode == CollectMode.PPT)
 				{
+					if(Program.WorkAsAdministrator)ServiceWayOne(CollectMode.PPT);
 					ServiceWayTwo(CollectMode.PPT);
-					Thread.Sleep(2000);
-
-					ServiceWayOne(CollectMode.PPT);
 				}
 				else
 				{
+					if(Program.WorkAsAdministrator)ServiceWayOne(CollectMode.ALL);
 					ServiceWayTwo(CollectMode.ALL);
-					Thread.Sleep(2000);
-					ServiceWayOne(CollectMode.ALL);
 				}
 			}
 			catch (Exception ex)
@@ -306,7 +310,7 @@ namespace ClassRoomHelper
 		public static void StartCensorService()
 		{
 			//if(Program.Settings.FirstUse)
-			Program.IsCensorServiceRunning = true;
+			//Program.IsCensorServiceRunning = true;
 			AppDetector.Initilize();
 			AppDetector.Start();
 			AppDetector.ProcessStarted += new System.Management.EventArrivedEventHandler(ServiceHook);
@@ -345,10 +349,15 @@ namespace ClassRoomHelper
 			LoadProperties();
 			ConfigureSharedMemory();
 			LoadStudentList();
+			try{
+				Program.WorkAsAdministrator=File.Exists("AdminMode");
+			}catch{
+				Program.WorkAsAdministrator=false;
+			}
 			try
 			{
 				StartCensorService();
-
+				
 			}catch(System.Management.ManagementException ex)
 			{
 				Log.AppendException("Logs\\wmi.err", ex);

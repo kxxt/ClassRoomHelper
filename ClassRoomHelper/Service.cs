@@ -1,7 +1,10 @@
 ﻿using ClassRoomHelper.Windows;
 using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
+using ClassRoomHelper.Library.Services;
 using System.Text;
 using System.Speech.Synthesis;
 using System.Threading.Tasks;
@@ -11,6 +14,11 @@ namespace ClassRoomHelper
 {
 	public static class Service
 	{
+		static Service(){
+			explorer=new ProcessStartInfo("explorer");
+
+		}
+		private static ProcessStartInfo explorer;
 		public static SpeechSynthesizer speech = new SpeechSynthesizer();
 		public static void ChooseNameRandomly()
 		{
@@ -35,6 +43,57 @@ namespace ClassRoomHelper
 			x = null;
 			//GC.Collect();
 			
+		}
+		public static void OpenRecently(){
+			OpenExplorer(Program.TargetDirParser.Get());
+		}
+		public static void OpenWeek(){
+			if(Program.Settings.ResortMode==ResortMode.Monthly){
+				MessageBox.Show("您现在处于按月整理模式，我们将为您打开本月的课件文件夹。","提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
+				OpenExplorer(Program.TargetDirParser.Get_Monthly());
+			}else if(Program.Settings.ResortMode==ResortMode.Daily){
+				MessageBox.Show("您现在处于按天整理模式，我们将为您打开本月的课件文件夹。","提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
+				OpenExplorer(Program.TargetDirParser.Get_Monthly());
+			}
+			else if(Program.Settings.ResortMode==ResortMode.AmPmSeparated){
+				MessageBox.Show("您现在处于按每天上下午整理模式，我们将为您打开本月的课件文件夹。","提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
+				OpenExplorer(Program.TargetDirParser.Get_Monthly());
+			}else
+				OpenExplorer(Program.TargetDirParser.Get_Weekly());
+		}
+		public static void OpenMonth(){
+			OpenExplorer(Program.TargetDirParser.Get_Monthly);
+		}
+		public static void OpenToday(){
+			if(Program.Settings.ResortMode==ResortMode.Monthly){
+				MessageBox.Show("您现在处于按月整理模式，我们将为您打开本月的课件文件夹。","提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
+				OpenExplorer(Program.TargetDirParser.Get_Monthly());
+			}else if(Program.Settings.ResortMode==ResortMode.Weekly){
+				MessageBox.Show("您现在处于按周整理模式，我们将为您打开本周的课件文件夹。","提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
+				OpenExplorer(Program.TargetDirParser.Get_Monthly());
+				
+			}else 
+			OpenExplorer(Program.TargetDirParser.Get_Daily());
+		}
+		public static void OpenExplorer(string dir){
+			
+			if(!Directory.Exists(dir)){
+				try{
+					Directory.CreateDirectory(dir);
+
+				}catch{
+					MessageBox.Show("操作失败。","错误",MessageBoxButtons.OK,MessageBoxIcon.Error);
+				}
+			}
+			try{
+				explorer.Arguments=dir;
+				Process.Start(explorer);
+			}catch{
+				MessageBox.Show("操作失败。","错误",MessageBoxButtons.OK,MessageBoxIcon.Error);
+			}
 		}
 	}
 }

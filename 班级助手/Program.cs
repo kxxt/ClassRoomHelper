@@ -16,6 +16,9 @@ namespace 班级助手
 {
 	class Program
 	{
+		static void ForceAdminRun(){
+
+		}
 		static void Debug(object x)
 		{
 			Console.WriteLine(x);

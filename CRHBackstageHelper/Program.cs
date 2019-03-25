@@ -116,8 +116,9 @@ namespace CRHBackstageHelper
 			{
 				Log.AppendException("Logs\\service.error",ex);
 			}
+			Console.ReadLine();
 			return 0;
-			//Console.ReadLine();
+			//
 		}
 		public static void init()
 		{

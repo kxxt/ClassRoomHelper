@@ -17,6 +17,7 @@ namespace ClassRoomHelper
 {
 	public  class Core
 	{
+		#region StartUp
 		public static void RemoveSkipUAC()
 		{
 			try
@@ -152,6 +153,7 @@ namespace ClassRoomHelper
 				// Add the value in the registry so that the application runs at startup
 				rkApp.SetValue("ClassRoomHelper", Environment.CurrentDirectory+"\\"+"班级助手.exe");
 		}
+		#endregion
 		public static void StartService(CollectMode mode)
 		{
 			if (!Directory.Exists(Program.Settings.TargetDir))

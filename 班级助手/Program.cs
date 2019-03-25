@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using System.IO;
 using ClassRoomHelper;
 using ClassRoomHelper.Library;
 using System.ComponentModel;
@@ -53,7 +54,9 @@ namespace 班级助手
 			if (args.Length==0)
 			if (AdminChecker.IsAdministrator())
 			{
-				MessageBox.Show("请不要以管理员权限启动此程序","提示",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
+				File.Create("AdminMode");
+					_ = Process.Start(main);
+				//MessageBox.Show("请不要以管理员权限启动此程序","提示",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
 				return;
 			}
 			if (args.Length == 1)

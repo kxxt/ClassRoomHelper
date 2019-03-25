@@ -9,18 +9,40 @@
     internal sealed partial class Settings {
         
         public Settings() {
-            // // 若要为保存和更改设置添加事件处理程序，请取消注释下列行: 
-            //
-            // this.SettingChanging += this.SettingChangingEventHandler;
+			// // 若要为保存和更改设置添加事件处理程序，请取消注释下列行: 
+			//
+			this.PropertyChanged += this.Settings_PropertyChanged;
+            //this.SettingChanging += this.SettingChangingEventHandler;
             //
             // this.SettingsSaving += this.SettingsSavingEventHandler;
             //
         }
-        
-        private void SettingChangingEventHandler(object sender, System.Configuration.SettingChangingEventArgs e) {
+
+		private void Settings_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+		{
+			if (e.PropertyName == "TargetDir")
+			{
+				Program.TargetDirParser.Root = Program.Settings.TargetDir;
+				try
+				{
+					System.IO.File.WriteAllText(".target", Program.Settings.TargetDir);
+				}
+				catch
+				{
+
+				}
+			}else if (e.PropertyName == "CollectMode")
+			{
+				Program.TargetDirParser.Mode = Program.Settings.ResortMode;
+			}else if (e.PropertyName == "StartAfterWindows")
+			{
+				Core.SetUp();
+			}
+			//throw new System.NotImplementedException();
+		}
+
+		private void SettingChangingEventHandler(object sender, System.Configuration.SettingChangingEventArgs e) {
 			// 在此处添加用于处理 SettingChangingEvent 事件的代码。
-			Program.TargetDirParser.Root = Program.Settings.TargetDir;
-			Program.TargetDirParser.Mode = Program.Settings.ResortMode;
 		}
         
         private void SettingsSavingEventHandler(object sender, System.ComponentModel.CancelEventArgs e) {

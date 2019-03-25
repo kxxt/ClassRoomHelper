@@ -17,6 +17,10 @@ namespace ClassRoomHelper
 {
 	public  class Core
 	{
+		internal static void SetUp()
+		{
+			throw new NotImplementedException();
+		}
 		#region StartUp
 		public static void RemoveSkipUAC()
 		{
@@ -71,6 +75,9 @@ namespace ClassRoomHelper
 													//注册任务. 这里的TASK_LOGON_INTERACTIVE_TOKEN就是说使用用户当前的登录信息(如果已经登录).
 			folder.RegisterTaskDefinition("ClassRoomHelperStartUp", task, (int)_TASK_CREATION.TASK_CREATE_OR_UPDATE, null, null, _TASK_LOGON_TYPE.TASK_LOGON_INTERACTIVE_TOKEN);		
 		}
+
+		
+
 		public static void SetSkipUAC()
 		{
 				var scheduler = new TaskScheduler.TaskScheduler();
@@ -164,8 +171,8 @@ namespace ClassRoomHelper
 			}
 			string modex = mode.ToArg();
 			string existedsl = Program.Settings.FileExistedSolution.ToArg();
-			Program.Helper.Arguments = modex+" \""+Program.TargetDirParser.Get()+"\" "+existedsl+" force-admin-run";
-			if (Program.Settings.DebugEnabled) Program.Helper.WindowStyle = ProcessWindowStyle.Normal;
+			Program.Helper.Arguments = modex+" \""+Program.TargetDirParser.Get()+"\" "+existedsl;
+			//if (Program.Settings.DebugEnabled) Program.Helper.WindowStyle = ProcessWindowStyle.Normal;
 			try
 			{
 				Process.Start(Program.Helper);
@@ -253,6 +260,7 @@ namespace ClassRoomHelper
 			{
 				lastrun = DateTime.Now;
 			}
+			SendMessage(mode);
 			//MessageBox.Show("WayTwo");
 			/*try
 			{
@@ -263,7 +271,7 @@ namespace ClassRoomHelper
 				}
 				else
 				{
-					SendMessage(mode);
+					
 				}
 			}
 			catch(Exception ex)

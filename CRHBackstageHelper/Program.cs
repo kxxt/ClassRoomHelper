@@ -11,6 +11,7 @@ namespace CRHBackstageHelper
 {
 	public class Program
 	{
+		static bool inited;
 		static TargetDirParser targetdp;
 		static void Debug(object x)
 		{
@@ -32,7 +33,6 @@ namespace CRHBackstageHelper
 		/// <param name="args"></param>
 		public static int Main(string[] args)
 		{
-			init();
 			if (args.Length < 2)
 			{
 				Server();
@@ -50,8 +50,7 @@ namespace CRHBackstageHelper
 				return 0;
 			}
 
-			FileExistedSolution = FileExistedSolution.Copy;
-			targetdp = new TargetDirParser("", ResortMode.Daily);
+			init();
 			
 			Debug(args[0]);Debug(args[1]);
 			if (!Directory.Exists(args[1])) return -1;
@@ -73,7 +72,7 @@ namespace CRHBackstageHelper
 						break;
 				}
 			}
-			if (args.Length >= 4)
+			/*if (args.Length >= 4)
 			{
 				if (args[3] != "force-admin-run")
 				{
@@ -90,7 +89,7 @@ namespace CRHBackstageHelper
 					//MessageBox.Show("请不要以管理员权限启动此程序", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 					return 0;
 				}
-			}
+			}*/
 			try
 			{
 				switch (args[0].Trim().ToLower())
@@ -128,7 +127,11 @@ namespace CRHBackstageHelper
 		}
 		public  static int Server()
 		{
-			
+			if (!inited)
+			{
+				inited = true;
+				init();
+			}
 			Debug("Sever Started");
 			SharedMemory.SharedArray<IPCInfoStruct> x = null;
 			try

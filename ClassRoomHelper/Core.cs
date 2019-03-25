@@ -75,14 +75,43 @@ namespace ClassRoomHelper
 													//注册任务. 这里的TASK_LOGON_INTERACTIVE_TOKEN就是说使用用户当前的登录信息(如果已经登录).
 			folder.RegisterTaskDefinition("ClassRoomHelperStartUp", task, (int)_TASK_CREATION.TASK_CREATE_OR_UPDATE, null, null, _TASK_LOGON_TYPE.TASK_LOGON_INTERACTIVE_TOKEN);		
 		}
-
-        internal static void ActionsBeforeAppExit()
+		public static void SetStartByTaskSchAdmin()
+		{
+			var scheduler = new TaskScheduler.TaskScheduler();
+			scheduler.Connect(); //连接, 还有一些登录参数可选.
+			//if(scheduler.GetFolder("\\").GetTask())
+			var task = scheduler.NewTask(0); //官方文档上, 这个参数后面加了注释reserved.
+			task.RegistrationInfo.Author = "Believers in Science Studio";
+			task.RegistrationInfo.Description = "班级助手";
+			task.Settings.Enabled = true; //or false, 开关.
+										  //在启动的时候执行, 一开始只写了Logon, 不过发现开机的时候登录并没有触发.
+										  //task.Triggers.Create(_TASK_TRIGGER_TYPE2.TASK_TRIGGER_BOOT);
+										  //注销后登录什么的.
+			task.Triggers.Create(_TASK_TRIGGER_TYPE2.TASK_TRIGGER_LOGON);
+			var action = task.Actions.Create(_TASK_ACTION_TYPE.TASK_ACTION_EXEC) as IExecAction;
+			//上面的Triggers.Create也会像Actions.Create一样分别返回类型为IBootTrigger, ILogonTrigger的对象(自己as或者强制转换一下).
+			//可以做更多设置.
+			//这里就是设置为用户能达到的最高权限.
+			task.Principal.RunLevel = _TASK_RUNLEVEL.TASK_RUNLEVEL_HIGHEST;
+			action.Path = Environment.CurrentDirectory + "\\班级助手.exe"; //需要启动的程序路径.
+			action.WorkingDirectory = Environment.CurrentDirectory;
+			action.Arguments = "autorun"; //参数.
+			var folder = scheduler.GetFolder(@"\"); //这里是Task的根文件夹, 还可以用folder.CreateFolder来创建自己的目录.
+													//注册任务. 这里的TASK_LOGON_INTERACTIVE_TOKEN就是说使用用户当前的登录信息(如果已经登录).
+			folder.RegisterTaskDefinition("ClassRoomHelperStartUp", task, (int)_TASK_CREATION.TASK_CREATE_OR_UPDATE, null, null, _TASK_LOGON_TYPE.TASK_LOGON_INTERACTIVE_TOKEN);
+		}
+		internal static void ActionsBeforeAppExit()
         {
            try{
 			   File.Delete("AdminMode");
 		   }catch{
 
 		   }
+			if (Program.Settings.FirstUse)
+			{
+				Program.Settings.FirstUse = false;
+				Program.Settings.Save();
+			}
         }
 
         public static void SetSkipUAC()
@@ -322,11 +351,12 @@ namespace ClassRoomHelper
 			Program.Settings = new Properties.Settings();
 			Program.Helper = new ProcessStartInfo();
 			Program.Helper.FileName = Environment.CurrentDirectory + "\\CRHBackstageHelper.exe";
-			Program.Helper.CreateNoWindow = true;
+			//Program.Helper.CreateNoWindow = true;
 			Program.Helper.UseShellExecute = true;
 			Program.Helper.WorkingDirectory = Environment.CurrentDirectory;
-			Program.Helper.WindowStyle = ProcessWindowStyle.Hidden;
+			//Program.Helper.WindowStyle = ProcessWindowStyle.Hidden;
 			Program.TargetDirParser = new TargetDirParser(Program.Settings.TargetDir, Program.Settings.ResortMode);
+			
 		}
 		public static void LoadStudentList()
 		{

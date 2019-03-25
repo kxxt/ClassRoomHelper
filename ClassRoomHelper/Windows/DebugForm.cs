@@ -42,7 +42,7 @@ namespace ClassRoomHelper.Windows
 
 		private void DefaultButton4_Click(object sender, EventArgs e)
 		{
-			CSCreateLowIntegrityProcess.Tool.CreateLowIntegrityProcess("CRHBackstageHelper.exe fetch-all D:\\Sync copy");
+			//CSCreateLowIntegrityProcess.Tool.CreateLowIntegrityProcess("CRHBackstageHelper.exe fetch-all D:\\Sync copy");
 		}
 
 		private void DefaultButton5_Click(object sender, EventArgs e)

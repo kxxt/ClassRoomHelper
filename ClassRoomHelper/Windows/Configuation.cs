@@ -32,24 +32,11 @@ namespace ClassRoomHelper.Windows
 			Program.Settings.DesktopTool_AutoShow = checkBox1.Checked;
 		}
 
-		private void CheckBox2_CheckedChanged(object sender, EventArgs e)
-		{
-			Program.Settings.DesktopTool_ShowCalc = checkBox2.Checked;
-		}
-
-		private void CheckBox3_CheckedChanged(object sender, EventArgs e)
-		{
-			Program.Settings.DesktopTool_ShowScissors = checkBox3.Checked;
-		}
-
-		private void CheckBox8_CheckedChanged(object sender, EventArgs e)
-		{
-			Program.Settings.DesktopTool_ShowNameSelector = checkBox8.Checked;
-		}
+		
 
 		private void CheckBox6_CheckedChanged(object sender, EventArgs e)
 		{
-			Program.Settings.StartAfterWindows = checkBox8.Checked;
+			Program.Settings.StartAfterWindows = checkBox6.Checked;
 		}
 
 		private void CheckBox5_CheckedChanged(object sender, EventArgs e)
@@ -153,10 +140,7 @@ namespace ClassRoomHelper.Windows
 			textBox2.Text = Program.Settings.NameCallOutPre;
 			textBox3.Text = Program.Settings.NameCallOutPost;
 		checkBox1.Checked=Program.Settings.DesktopTool_AutoShow  ;
-		checkBox2.Checked=Program.Settings.DesktopTool_ShowCalc  ;
-		checkBox3.Checked=Program.Settings.DesktopTool_ShowScissors ;
-		checkBox8.Checked=Program.Settings.DesktopTool_ShowNameSelector ;
-		checkBox8.Checked=Program.Settings.StartAfterWindows ;
+		checkBox6.Checked=Program.Settings.StartAfterWindows ;
 		checkBox5.Checked=Program.Settings.DebugEnabled ;
 		checkBox9.Checked=Program.Settings.VoiceNameCallOut ;
 		checkBox7.Checked=Program.Settings.UMgr_Enabled ;

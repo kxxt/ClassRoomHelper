@@ -28,7 +28,7 @@ namespace ClassRoomHelper.Library
 			}
 			TableReflexes.Add(classname);
 		}
-		public void Initilize(NameSelector ns)
+		public void Initilize(NameSelector.NameSelector ns)
 		{
 			TableReflexes=new List<string>();
 			foreach(var item in ns.Names){

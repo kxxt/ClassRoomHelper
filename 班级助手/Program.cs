@@ -32,7 +32,7 @@ namespace 班级助手
 			catch (Win32Exception ex)
 			{
 				//if(ex.HResult==)
-				var re = MessageBox.Show("程序启动失败 , 下次启动时 ,\r\n 请在弹出的窗口中允许程序以管理员身份运行\r\n单击\"确定\"以重启应用程序,单击\"取消\"退出程序.", "错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+				var re = MessageBox.Show("程序启动失败 , 下次启动时 ,\r\n 请在弹出的窗口中允许程序以管理员身份运行\r\n单击\"确定\"以重启应用程序,单击\"取消\"退出程序.", "错误", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				if (re == DialogResult.OK)
 				{
 					Main(null);

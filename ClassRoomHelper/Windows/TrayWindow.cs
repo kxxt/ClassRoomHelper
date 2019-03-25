@@ -94,6 +94,13 @@ namespace ClassRoomHelper.Windows
 			titleLabel2.Dispose();
 			titleLabel3.Dispose();
 			GC.Collect();
+			if (Program.Settings.FirstUse)
+			{
+				using (var oobe =new OOBE())
+				{
+					oobe.ShowDialog();
+				}
+			}
 			Program.HelperWindow = new HelperWindow();
 			if (Program.Settings.ShowHelperWindow)
 			{

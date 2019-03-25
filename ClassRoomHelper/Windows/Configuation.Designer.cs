@@ -32,9 +32,6 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Configuation));
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.checkBox8 = new System.Windows.Forms.CheckBox();
-			this.checkBox3 = new System.Windows.Forms.CheckBox();
-			this.checkBox2 = new System.Windows.Forms.CheckBox();
 			this.checkBox1 = new System.Windows.Forms.CheckBox();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.checkBox10 = new System.Windows.Forms.CheckBox();
@@ -54,6 +51,8 @@
 			this.textLabel1 = new ClassRoomHelper.Windows.Controls.TextLabel();
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.groupBox4 = new System.Windows.Forms.GroupBox();
+			this.groupBox10 = new System.Windows.Forms.GroupBox();
+			this.checkBox12 = new System.Windows.Forms.CheckBox();
 			this.groupBox5 = new System.Windows.Forms.GroupBox();
 			this.checkBox4 = new System.Windows.Forms.CheckBox();
 			this.checkBox7 = new System.Windows.Forms.CheckBox();
@@ -75,26 +74,21 @@
 			this.fb = new System.Windows.Forms.FolderBrowserDialog();
 			this.titleLabel1 = new ClassRoomHelper.Windows.Controls.TitleLabel();
 			this.defaultButton2 = new ClassRoomHelper.Windows.Controls.DefaultButton();
-			this.groupBox10 = new System.Windows.Forms.GroupBox();
-			this.checkBox12 = new System.Windows.Forms.CheckBox();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.groupBox3.SuspendLayout();
 			this.groupBox6.SuspendLayout();
 			this.groupBox4.SuspendLayout();
+			this.groupBox10.SuspendLayout();
 			this.groupBox5.SuspendLayout();
 			this.groupBox7.SuspendLayout();
 			this.groupBox8.SuspendLayout();
 			this.flowLayoutPanel1.SuspendLayout();
-			this.groupBox10.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// groupBox1
 			// 
 			this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-			this.groupBox1.Controls.Add(this.checkBox8);
-			this.groupBox1.Controls.Add(this.checkBox3);
-			this.groupBox1.Controls.Add(this.checkBox2);
 			this.groupBox1.Controls.Add(this.checkBox1);
 			this.groupBox1.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
 			this.groupBox1.Location = new System.Drawing.Point(14, 53);
@@ -103,39 +97,6 @@
 			this.groupBox1.TabIndex = 0;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "桌面部件";
-			// 
-			// checkBox8
-			// 
-			this.checkBox8.AutoSize = true;
-			this.checkBox8.Location = new System.Drawing.Point(6, 116);
-			this.checkBox8.Name = "checkBox8";
-			this.checkBox8.Size = new System.Drawing.Size(148, 23);
-			this.checkBox8.TabIndex = 3;
-			this.checkBox8.Text = "显示\"点名器\"";
-			this.checkBox8.UseVisualStyleBackColor = true;
-			this.checkBox8.CheckedChanged += new System.EventHandler(this.CheckBox8_CheckedChanged);
-			// 
-			// checkBox3
-			// 
-			this.checkBox3.AutoSize = true;
-			this.checkBox3.Location = new System.Drawing.Point(6, 87);
-			this.checkBox3.Name = "checkBox3";
-			this.checkBox3.Size = new System.Drawing.Size(168, 23);
-			this.checkBox3.TabIndex = 2;
-			this.checkBox3.Text = "显示\"截图工具\"";
-			this.checkBox3.UseVisualStyleBackColor = true;
-			this.checkBox3.CheckedChanged += new System.EventHandler(this.CheckBox3_CheckedChanged);
-			// 
-			// checkBox2
-			// 
-			this.checkBox2.AutoSize = true;
-			this.checkBox2.Location = new System.Drawing.Point(6, 58);
-			this.checkBox2.Name = "checkBox2";
-			this.checkBox2.Size = new System.Drawing.Size(148, 23);
-			this.checkBox2.TabIndex = 1;
-			this.checkBox2.Text = "显示\"计算器\"";
-			this.checkBox2.UseVisualStyleBackColor = true;
-			this.checkBox2.CheckedChanged += new System.EventHandler(this.CheckBox2_CheckedChanged);
 			// 
 			// checkBox1
 			// 
@@ -368,6 +329,28 @@
 			this.groupBox4.TabStop = false;
 			this.groupBox4.Text = "效率";
 			// 
+			// groupBox10
+			// 
+			this.groupBox10.Controls.Add(this.checkBox12);
+			this.groupBox10.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.groupBox10.Location = new System.Drawing.Point(6, 124);
+			this.groupBox10.Name = "groupBox10";
+			this.groupBox10.Size = new System.Drawing.Size(284, 90);
+			this.groupBox10.TabIndex = 5;
+			this.groupBox10.TabStop = false;
+			this.groupBox10.Text = "悬浮窗";
+			// 
+			// checkBox12
+			// 
+			this.checkBox12.AutoSize = true;
+			this.checkBox12.Location = new System.Drawing.Point(7, 29);
+			this.checkBox12.Name = "checkBox12";
+			this.checkBox12.Size = new System.Drawing.Size(128, 23);
+			this.checkBox12.TabIndex = 0;
+			this.checkBox12.Text = "显示悬浮窗";
+			this.checkBox12.UseVisualStyleBackColor = true;
+			this.checkBox12.CheckedChanged += new System.EventHandler(this.CheckBox12_CheckedChanged);
+			// 
 			// groupBox5
 			// 
 			this.groupBox5.Controls.Add(this.checkBox4);
@@ -597,28 +580,6 @@
 			this.defaultButton2.Text = "保存并关闭";
 			this.defaultButton2.Click += new System.EventHandler(this.DefaultButton2_Click);
 			// 
-			// groupBox10
-			// 
-			this.groupBox10.Controls.Add(this.checkBox12);
-			this.groupBox10.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.groupBox10.Location = new System.Drawing.Point(6, 124);
-			this.groupBox10.Name = "groupBox10";
-			this.groupBox10.Size = new System.Drawing.Size(284, 90);
-			this.groupBox10.TabIndex = 5;
-			this.groupBox10.TabStop = false;
-			this.groupBox10.Text = "悬浮窗";
-			// 
-			// checkBox12
-			// 
-			this.checkBox12.AutoSize = true;
-			this.checkBox12.Location = new System.Drawing.Point(7, 29);
-			this.checkBox12.Name = "checkBox12";
-			this.checkBox12.Size = new System.Drawing.Size(128, 23);
-			this.checkBox12.TabIndex = 0;
-			this.checkBox12.Text = "显示悬浮窗";
-			this.checkBox12.UseVisualStyleBackColor = true;
-			this.checkBox12.CheckedChanged += new System.EventHandler(this.CheckBox12_CheckedChanged);
-			// 
 			// Configuation
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -651,6 +612,8 @@
 			this.groupBox6.ResumeLayout(false);
 			this.groupBox6.PerformLayout();
 			this.groupBox4.ResumeLayout(false);
+			this.groupBox10.ResumeLayout(false);
+			this.groupBox10.PerformLayout();
 			this.groupBox5.ResumeLayout(false);
 			this.groupBox5.PerformLayout();
 			this.groupBox7.ResumeLayout(false);
@@ -659,8 +622,6 @@
 			this.groupBox8.PerformLayout();
 			this.flowLayoutPanel1.ResumeLayout(false);
 			this.flowLayoutPanel1.PerformLayout();
-			this.groupBox10.ResumeLayout(false);
-			this.groupBox10.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -669,8 +630,6 @@
 		#endregion
 
 		private System.Windows.Forms.GroupBox groupBox1;
-		private System.Windows.Forms.CheckBox checkBox3;
-		private System.Windows.Forms.CheckBox checkBox2;
 		private System.Windows.Forms.CheckBox checkBox1;
 		private System.Windows.Forms.GroupBox groupBox2;
 		private System.Windows.Forms.CheckBox checkBox5;
@@ -691,7 +650,6 @@
 		private System.Windows.Forms.RadioButton radioButton6;
 		private System.Windows.Forms.RadioButton radioButton5;
 		private System.Windows.Forms.RadioButton radioButton4;
-		private System.Windows.Forms.CheckBox checkBox8;
 		private System.Windows.Forms.GroupBox groupBox7;
 		private System.Windows.Forms.GroupBox groupBox8;
 		private System.Windows.Forms.RadioButton radioButton7;

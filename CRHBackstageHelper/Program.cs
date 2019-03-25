@@ -6,6 +6,7 @@ using System.IO.Pipes;
 
 using System.Diagnostics;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace CRHBackstageHelper
 {
@@ -51,9 +52,19 @@ namespace CRHBackstageHelper
 			}
 
 			init();
-			
+			targetdp.Root = args[1];
 			Debug(args[0]);Debug(args[1]);
-			if (!Directory.Exists(args[1])) return -1;
+			if (!Directory.Exists(args[1]))
+			{
+				try
+				{
+					Directory.CreateDirectory(args[1]);
+				}
+				catch
+				{
+					return 0;
+				}
+			} 
 			if (args.Length >= 3)
 			{
 				Debug(args[2]);
@@ -221,6 +232,11 @@ namespace CRHBackstageHelper
 				Debug("Empty Target Dir");
 				return;
 			}
+			if (!File.Exists(info.Item1+"\\"+info.Item2))
+			{
+				Debug("Unsaved File");
+				return;
+			}
 			if (tdir[tdir.Length - 1] != '\\')
 			{
 				tdir += '\\';
@@ -231,6 +247,7 @@ namespace CRHBackstageHelper
 			var rdir= tdir + "文件历史 - " + info.Item2;
 			if (Directory.Exists(rdir))
 			{
+				//MessageBox.Show("Fuck");
 				var di = new DirectoryInfo(rdir);
 				bool repeated = false;
 				foreach(var file in di.GetFiles())

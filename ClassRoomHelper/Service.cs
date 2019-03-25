@@ -65,7 +65,7 @@ namespace ClassRoomHelper
 				OpenExplorer(Program.TargetDirParser.Get_Weekly());
 		}
 		public static void OpenMonth(){
-			OpenExplorer(Program.TargetDirParser.Get_Monthly);
+			OpenExplorer(Program.TargetDirParser.Get_Monthly());
 		}
 		public static void OpenToday(){
 			if(Program.Settings.ResortMode==ResortMode.Monthly){

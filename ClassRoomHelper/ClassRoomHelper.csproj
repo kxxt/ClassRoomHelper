@@ -292,6 +292,11 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="FirstRun">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Content Include="Intro.txt" />
+    <Content Include="require.txt" />
     <Content Include="Resources\Pic-Big\0-big.png" />
     <Content Include="Resources\Pic\0.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

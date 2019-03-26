@@ -44,6 +44,26 @@ namespace ClassRoomHelper
 			//GC.Collect();
 			
 		}
+
+		internal static void OpenYesterDay()
+		{
+			switch (Program.Settings.ResortMode)
+			{
+				case ResortMode.AmPmSeparated:
+				case ResortMode.Daily:
+					OpenExplorer(Program.TargetDirParser.Get_Yesterday());
+					break;
+				case ResortMode.Weekly:
+					MessageBox.Show("由于您当前的工作模式不是按天整理,\r\n我们将为您打开本周的课件文件夹", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					OpenWeek();
+					break;
+				case ResortMode.Monthly:
+					MessageBox.Show("由于您当前的工作模式不是按天整理,\r\n我们将为您打开本月的课件文件夹","提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
+					OpenWeek();
+					break;
+			}
+		}
+
 		public static void OpenRecently(){
 			OpenExplorer(Program.TargetDirParser.Get());
 		}

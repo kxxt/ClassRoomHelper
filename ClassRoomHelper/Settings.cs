@@ -22,6 +22,8 @@
 		{
 			if (e.PropertyName == "TargetDir")
 			{
+
+				if (Program.TargetDirParser == null) return;
 				Program.TargetDirParser.Root = Program.Settings.TargetDir;
 				try
 				{
@@ -33,6 +35,8 @@
 				}
 			}else if (e.PropertyName == "CollectMode")
 			{
+				if (Program.TargetDirParser == null) return;
+
 				Program.TargetDirParser.Mode = Program.Settings.ResortMode;
 			}else if (e.PropertyName == "StartAfterWindows")
 			{

@@ -94,25 +94,13 @@ namespace ClassRoomHelper.Windows
 			titleLabel2.Dispose();
 			titleLabel3.Dispose();
 			GC.Collect();
-			if (Program.Settings.FirstUse)
+		
+			if (Program.FirstUse)
 			{
-				using (var oobe =new OOBE())
-				{
-					oobe.ShowDialog();
-				}
-			}
-			Program.HelperWindow = new HelperWindow();
-			if (Program.Settings.ShowHelperWindow)
-			{
-				if (Program.Settings.FirstUse)
-				{
-					this.Tray.BalloonTipText = "您可以拖动悬浮球和桌面小工具,我们将记住它的位置";
-					Tray.BalloonTipTitle = "班级助手";
-					Tray.BalloonTipIcon = ToolTipIcon.Info;
-					Tray.ShowBalloonTip(4);
-				}
-				Program.HelperWindow.Show();
-				
+				this.Tray.BalloonTipText = "您可以拖动悬浮球和桌面小工具,我们将记住它的位置\r\n班级助手仍在后台运行,单击托盘区的图标来打开主界面";
+				Tray.BalloonTipTitle = "班级助手";
+				Tray.BalloonTipIcon = ToolTipIcon.Info;
+				Tray.ShowBalloonTip(7);
 			}
 		}
 
@@ -128,6 +116,17 @@ namespace ClassRoomHelper.Windows
 			};*/
 			timer2.Start();
 			await LoadApp();
+			if (Program.Settings.ShowHelperWindow)
+			{
+				Program.ShowingHelperWindow = true;
+				Program.HelperWindow.Show();
+
+			}
+			if (Program.Settings.DesktopTool_AutoShow)
+			{
+				Program.ShowingDesktopTool = true;
+				Program.Widget.Show();
+			}
 			Timer1_Tick(null, null);
 			//timer1?.Start();
 		}
@@ -153,8 +152,8 @@ namespace ClassRoomHelper.Windows
 			{
 				Program.MainForm.Close();
 				Program.MainForm = null;
-				GC.Collect(2);
-				FreeMemory.ClearMemory();
+				//GC.Collect();
+				//FreeMemory.ClearMemory();
 			}
 			
 		}

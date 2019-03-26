@@ -5,6 +5,7 @@ using Microsoft.VisualBasic.ApplicationServices;
 using System.Diagnostics;
 using ClassRoomHelper.Library.Services;
 using ClassRoomHelper.Library.NameSelector;
+using System.IO;
 
 namespace ClassRoomHelper
 {
@@ -33,6 +34,7 @@ namespace ClassRoomHelper
 	}
 	static class Program
 	{
+		public static bool FirstUse=false;
 		public static bool ShowingDesktopTool;
 		public static bool ShowingHelperWindow;
 		public static Widget Widget;
@@ -60,6 +62,14 @@ namespace ClassRoomHelper
 			{
 				MessageBox.Show("请启动班级助手程序,而不是此程序.", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
+			}
+			try
+			{
+				Program.FirstUse = File.Exists("FirstRun");
+			}
+			catch
+			{
+				Program.FirstUse = true;
 			}
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);

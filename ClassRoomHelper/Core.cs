@@ -12,6 +12,7 @@ using System.IO;
 using System.Management;
 using Microsoft.Win32;
 using TaskScheduler;
+using ClassRoomHelper.Windows;
 
 namespace ClassRoomHelper
 {
@@ -107,10 +108,16 @@ namespace ClassRoomHelper
 		   }catch{
 
 		   }
-			if (Program.Settings.FirstUse)
+			if (Program.FirstUse)
 			{
-				Program.Settings.FirstUse = false;
-				Program.Settings.Save();
+				try
+				{
+					File.Delete("FirstRun");
+				}
+				catch
+				{
+
+				}
 			}
         }
 
@@ -315,6 +322,24 @@ namespace ClassRoomHelper
 				Log.AppendException("Logs\\service.without.err",ex);
 			}*/
 		}
+		public static void RecoverDefaultSettings()
+		{
+			Program.Settings.FirstUse = true;
+			Program.Settings.DebugEnabled = false;
+			Program.Settings.CollectMode = CollectMode.ALL;
+			Program.Settings.TargetDir = Environment.CurrentDirectory + "\\Files";
+			Program.Settings.ResortMode = ResortMode.Daily;
+			Program.Settings.FileExistedSolution = FileExistedSolution.Copy;
+			Program.Settings.ShowHelperWindow = true;
+			Program.Settings.UMgr_Enabled = true;
+			Program.Settings.UMgr_ShowDialog = true;
+			Program.Settings.VoiceNameCallOut = true;
+			Program.Settings.NameCallOutPre = "";
+			Program.Settings.NameCallOutPost = "同学,请回答问题";
+			Program.Settings.HelperWindowLocation = new System.Drawing.Point(200, 200);
+			Program.Settings.DesktopTool_AutoShow = true;
+			Program.Settings.Save();
+		}
 		public static void ServiceHook(object sender,EventArrivedEventArgs e)
 		{
 			Thread.Sleep(2000);
@@ -349,6 +374,11 @@ namespace ClassRoomHelper
 			string s = Application.ExecutablePath;
 			Environment.CurrentDirectory = s.Substring(0, s.Length - 19);
 			Program.Settings = new Properties.Settings();
+			if (Program.FirstUse)
+			{
+				//MessageBox.Show("HI");
+				Core.RecoverDefaultSettings();
+			}
 			Program.Helper = new ProcessStartInfo();
 			Program.Helper.FileName = Environment.CurrentDirectory + "\\CRHBackstageHelper.exe";
 			Program.Helper.CreateNoWindow = true;
@@ -357,6 +387,7 @@ namespace ClassRoomHelper
 			Program.Helper.WindowStyle = ProcessWindowStyle.Hidden;
 			Program.TargetDirParser = new TargetDirParser(Program.Settings.TargetDir, Program.Settings.ResortMode);
 			Program.HelperWindow = new Windows.HelperWindow();
+			Program.Widget = new Windows.Widget();
 			Program.ShowingHelperWindow = false;
 			Program.ShowingDesktopTool = false;
 		}
@@ -381,7 +412,19 @@ namespace ClassRoomHelper
 			LoadProperties();
 			ConfigureSharedMemory();
 			LoadStudentList();
-			try{
+			if (Program.FirstUse)
+			{
+				using (var oobe = new OOBE())
+				{
+					oobe.ShowDialog();
+				}
+			}
+			//Program.HelperWindow = new Windows.HelperWindow();
+			//Program.Widget = new Windows.Widget();
+			//Program.HelperWindow = new HelperWindow();
+			
+			try
+			{
 				Program.WorkAsAdministrator=File.Exists("AdminMode");
 			}catch{
 				Program.WorkAsAdministrator=false;

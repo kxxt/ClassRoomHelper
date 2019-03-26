@@ -241,7 +241,7 @@ namespace ClassRoomHelper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("200, 200")]
         public global::System.Drawing.Point HelperWindowLocation {
             get {
                 return ((global::System.Drawing.Point)(this["HelperWindowLocation"]));
@@ -260,6 +260,18 @@ namespace ClassRoomHelper.Properties {
             }
             set {
                 this["ShowHelperWindow"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("300, 300")]
+        public global::System.Drawing.Point DesktopToolLoc {
+            get {
+                return ((global::System.Drawing.Point)(this["DesktopToolLoc"]));
+            }
+            set {
+                this["DesktopToolLoc"] = value;
             }
         }
     }

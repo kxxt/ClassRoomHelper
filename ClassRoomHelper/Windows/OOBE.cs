@@ -94,6 +94,19 @@ namespace ClassRoomHelper.Windows
 					default:
 						break;
 				}
+				var ret=MessageBox.Show("您是否要进行一次详尽的个性化设置?\r\n选择\"取消\"以使用默认设置,您可以稍后在设置中更改.","为第一次使用做准备",MessageBoxButtons.OKCancel,MessageBoxIcon.Information);
+				switch (ret)
+				{
+					case DialogResult.OK:
+						using (var con=new Configuation())
+						{
+							con.ShowDialog();
+						}
+						break;
+					default:
+						MessageBox.Show("已为您采用默认设置 .\r\n自动整理的课件将保存到程序目录下的\"Files\"文件夹中","设置完成",MessageBoxButtons.OK,MessageBoxIcon.Information);
+						break;
+				}
 				this.Close();
 				return;
 			}

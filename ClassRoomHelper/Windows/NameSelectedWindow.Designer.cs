@@ -31,10 +31,10 @@
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NameSelectedWindow));
 			this.panel1 = new System.Windows.Forms.Panel();
-			this.timer2 = new System.Windows.Forms.Timer(this.components);
 			this.titleLabel3 = new ClassRoomHelper.Windows.Controls.TitleLabel();
 			this.titleLabel2 = new ClassRoomHelper.Windows.Controls.TitleLabel();
 			this.titleLabel1 = new ClassRoomHelper.Windows.Controls.TitleLabel();
+			this.timer2 = new System.Windows.Forms.Timer(this.components);
 			this.panel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -49,10 +49,6 @@
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(1161, 867);
 			this.panel1.TabIndex = 3;
-			// 
-			// timer2
-			// 
-			this.timer2.Tick += new System.EventHandler(this.Timer2_Tick);
 			// 
 			// titleLabel3
 			// 
@@ -72,7 +68,7 @@
 			this.titleLabel2.BackColor = System.Drawing.Color.Transparent;
 			this.titleLabel2.Font = new System.Drawing.Font("黑体", 160F);
 			this.titleLabel2.ForeColor = System.Drawing.Color.Black;
-			this.titleLabel2.Location = new System.Drawing.Point(-7, 249);
+			this.titleLabel2.Location = new System.Drawing.Point(84, 250);
 			this.titleLabel2.Name = "titleLabel2";
 			this.titleLabel2.Size = new System.Drawing.Size(732, 214);
 			this.titleLabel2.TabIndex = 1;
@@ -89,6 +85,10 @@
 			this.titleLabel1.Size = new System.Drawing.Size(410, 120);
 			this.titleLabel1.TabIndex = 0;
 			this.titleLabel1.Text = "已选中";
+			// 
+			// timer2
+			// 
+			this.timer2.Tick += new System.EventHandler(this.Timer2_Tick);
 			// 
 			// NameSelectedWindow
 			// 

@@ -56,7 +56,16 @@ namespace ClassRoomHelper
 
 		private void DefaultButton3_Click(object sender, EventArgs e)
 		{
-			
+			if (!Program.ShowingDesktopTool)
+			{
+				Program.ShowingDesktopTool = true;
+				Program.Widget.Show();
+			}
+			else
+			{
+				Program.ShowingDesktopTool = false;
+				Program.Widget.Hide();
+			}
 		}
 
 		private void DefaultButton2_Click(object sender, EventArgs e)
@@ -104,12 +113,26 @@ namespace ClassRoomHelper
 
 		private void DefaultButton5_Click(object sender, EventArgs e)
 		{
-			string x = Program.TargetDirParser.Get();
+			Service.OpenMonth();
 		}
 
 		private void SfButton5_Click(object sender, EventArgs e)
 		{
+			if (!Program.ShowingHelperWindow)
+			{
+				Program.ShowingHelperWindow= true;
+				Program.HelperWindow.Show();
+			}
+			else
+			{
+				Program.ShowingHelperWindow = false;
+				Program.HelperWindow.Hide();
+			}
+		}
 
+		private void DefaultButton4_Click(object sender, EventArgs e)
+		{
+			Service.OpenRecently();
 		}
 	}
 }

@@ -57,10 +57,13 @@
       <Value Profile="(Default)">ALL</Value>
     </Setting>
     <Setting Name="HelperWindowLocation" Type="System.Drawing.Point" Scope="User">
-      <Value Profile="(Default)">0, 0</Value>
+      <Value Profile="(Default)">200, 200</Value>
     </Setting>
     <Setting Name="ShowHelperWindow" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="DesktopToolLoc" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">300, 300</Value>
     </Setting>
   </Settings>
 </SettingsFile>

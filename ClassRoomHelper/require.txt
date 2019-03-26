@@ -1,0 +1,7 @@
+运行条件:
+* Windows 7 Service Pack 1 及以上的系统
+* 安装有 .Net Framework 4.7
+* 如需要使用课件整理功能,需要安装有 Microsoft Office 的 2007 或更高版本
+  未测试过非 Microsoft 办公套件( 如 Google Docs,金山 WPS,LibreOffice )是否可行
+* 为了获得更好的使用体验,请允许应用程序开机自启动
+* 建议在正版的 Windows 系统上运行程序 , 并使用正版 Office ( 绿色版/绿化版 不行 )

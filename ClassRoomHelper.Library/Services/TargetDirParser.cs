@@ -43,9 +43,20 @@ namespace ClassRoomHelper.Library.Services
 		}
 		public string Get_Daily()
 		{
+			
 			return Get_Monthly()
 				+ "\\"+DateTime.Now.ToString("dd");
 
+		}
+		public string Get_LastMonth()
+		{
+			return Root + "\\" + DateTime.Now.ToString("yyyy") + "年"
+				+ "\\" + (DateTime.Now.Month-1) + "月";
+		}
+		public string Get_Yesterday()
+		{
+			return  Get_Monthly()
+				+ "\\" + (DateTime.Now-new TimeSpan(1,0,0,0,0)).ToString("dd");
 		}
 		public string Get_AmPmSeparated()
 		{

@@ -75,7 +75,7 @@
 			this.defaultButton4.Location = new System.Drawing.Point(0, 256);
 			this.defaultButton4.Name = "defaultButton4";
 			this.defaultButton4.Size = new System.Drawing.Size(178, 68);
-			this.defaultButton4.Style.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton4.Style.Image")));
+			this.defaultButton4.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
 			this.defaultButton4.TabIndex = 6;
 			this.defaultButton4.Click += new System.EventHandler(this.DefaultButton4_Click);
 			// 
@@ -89,7 +89,7 @@
 			this.defaultButton3.Location = new System.Drawing.Point(0, 188);
 			this.defaultButton3.Name = "defaultButton3";
 			this.defaultButton3.Size = new System.Drawing.Size(178, 68);
-			this.defaultButton3.Style.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton3.Style.Image")));
+			this.defaultButton3.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
 			this.defaultButton3.TabIndex = 5;
 			this.defaultButton3.Click += new System.EventHandler(this.DefaultButton3_Click);
 			// 
@@ -125,7 +125,7 @@
 			this.defaultButton2.Location = new System.Drawing.Point(0, 68);
 			this.defaultButton2.Name = "defaultButton2";
 			this.defaultButton2.Size = new System.Drawing.Size(178, 68);
-			this.defaultButton2.Style.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton2.Style.Image")));
+			this.defaultButton2.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
 			this.defaultButton2.TabIndex = 1;
 			this.defaultButton2.Click += new System.EventHandler(this.DefaultButton2_Click);
 			// 
@@ -139,7 +139,7 @@
 			this.defaultButton1.Location = new System.Drawing.Point(0, 0);
 			this.defaultButton1.Name = "defaultButton1";
 			this.defaultButton1.Size = new System.Drawing.Size(178, 68);
-			this.defaultButton1.Style.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton1.Style.Image")));
+			this.defaultButton1.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
 			this.defaultButton1.TabIndex = 0;
 			this.defaultButton1.Click += new System.EventHandler(this.DefaultButton1_Click);
 			// 

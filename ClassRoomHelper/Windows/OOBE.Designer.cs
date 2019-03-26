@@ -31,9 +31,9 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OOBE));
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.defaultButton3 = new ClassRoomHelper.Windows.Controls.DefaultButton();
 			this.defaultButton1 = new ClassRoomHelper.Windows.Controls.DefaultButton();
-			this.textBox1 = new System.Windows.Forms.TextBox();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
@@ -72,34 +72,6 @@
 			this.splitContainer1.SplitterDistance = 450;
 			this.splitContainer1.TabIndex = 1;
 			// 
-			// defaultButton3
-			// 
-			this.defaultButton3.AccessibleName = "Button";
-			this.defaultButton3.Dock = System.Windows.Forms.DockStyle.Right;
-			this.defaultButton3.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.defaultButton3.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton3.Image")));
-			this.defaultButton3.ImageSize = new System.Drawing.Size(40, 40);
-			this.defaultButton3.Location = new System.Drawing.Point(804, 0);
-			this.defaultButton3.Name = "defaultButton3";
-			this.defaultButton3.Size = new System.Drawing.Size(96, 86);
-			this.defaultButton3.Style.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton3.Style.Image")));
-			this.defaultButton3.TabIndex = 3;
-			this.defaultButton3.Click += new System.EventHandler(this.DefaultButton3_Click);
-			// 
-			// defaultButton1
-			// 
-			this.defaultButton1.AccessibleName = "Button";
-			this.defaultButton1.Dock = System.Windows.Forms.DockStyle.Left;
-			this.defaultButton1.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.defaultButton1.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton1.Image")));
-			this.defaultButton1.ImageSize = new System.Drawing.Size(40, 40);
-			this.defaultButton1.Location = new System.Drawing.Point(0, 0);
-			this.defaultButton1.Name = "defaultButton1";
-			this.defaultButton1.Size = new System.Drawing.Size(96, 86);
-			this.defaultButton1.Style.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton1.Style.Image")));
-			this.defaultButton1.TabIndex = 0;
-			this.defaultButton1.Click += new System.EventHandler(this.DefaultButton1_Click);
-			// 
 			// textBox1
 			// 
 			this.textBox1.BackColor = System.Drawing.Color.White;
@@ -113,6 +85,34 @@
 			this.textBox1.TabIndex = 4;
 			this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
+			// defaultButton3
+			// 
+			this.defaultButton3.AccessibleName = "Button";
+			this.defaultButton3.Dock = System.Windows.Forms.DockStyle.Right;
+			this.defaultButton3.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.defaultButton3.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton3.Image")));
+			this.defaultButton3.ImageSize = new System.Drawing.Size(40, 40);
+			this.defaultButton3.Location = new System.Drawing.Point(804, 0);
+			this.defaultButton3.Name = "defaultButton3";
+			this.defaultButton3.Size = new System.Drawing.Size(96, 86);
+			this.defaultButton3.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+			this.defaultButton3.TabIndex = 3;
+			this.defaultButton3.Click += new System.EventHandler(this.DefaultButton3_Click);
+			// 
+			// defaultButton1
+			// 
+			this.defaultButton1.AccessibleName = "Button";
+			this.defaultButton1.Dock = System.Windows.Forms.DockStyle.Left;
+			this.defaultButton1.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.defaultButton1.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton1.Image")));
+			this.defaultButton1.ImageSize = new System.Drawing.Size(40, 40);
+			this.defaultButton1.Location = new System.Drawing.Point(0, 0);
+			this.defaultButton1.Name = "defaultButton1";
+			this.defaultButton1.Size = new System.Drawing.Size(96, 86);
+			this.defaultButton1.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+			this.defaultButton1.TabIndex = 0;
+			this.defaultButton1.Click += new System.EventHandler(this.DefaultButton1_Click);
+			// 
 			// OOBE
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -122,6 +122,7 @@
 			this.Margin = new System.Windows.Forms.Padding(5);
 			this.Name = "OOBE";
 			this.Text = "欢迎使用";
+			this.TopMost = true;
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.splitContainer1.Panel1.ResumeLayout(false);
 			this.splitContainer1.Panel2.ResumeLayout(false);

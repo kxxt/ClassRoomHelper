@@ -44,6 +44,10 @@ namespace ClassRoomHelper.Windows
 			if (listBox1.SelectedIndex < 0) return;
 			//MessageBox.Show(listBox1.SelectedIndex.ToString());
 			//MessageBox.Show(Program.NameSelector.Names.ToString());
+			if(textBox1.Text.Contains(",")){
+				MessageBox.Show();
+				//todo
+			}
 			Program.NameSelector.Names[listBox1.SelectedIndex] = textBox1.Text;
 		}
 

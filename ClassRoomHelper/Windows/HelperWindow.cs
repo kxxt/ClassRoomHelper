@@ -75,7 +75,7 @@ namespace ClassRoomHelper.Windows
 			path.AddEllipse(0, 0, 100, 100);
 			this.Region = new Region(path);*/
 			
-			System.IntPtr ptr = CreateRoundRectRgn(0, 0, this.Width, this.Height, 10, 10);
+			System.IntPtr ptr = CreateRoundRectRgn(0, 0, this.Width, this.Height, 20, 20);
 			this.Region = System.Drawing.Region.FromHrgn(ptr);
 			DeleteObject(ptr);
 		}

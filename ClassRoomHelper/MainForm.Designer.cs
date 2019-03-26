@@ -67,7 +67,7 @@
 			this.defaultButton5.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
 			this.defaultButton5.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton5.Image")));
 			this.defaultButton5.ImageSize = new System.Drawing.Size(35, 35);
-			this.defaultButton5.Location = new System.Drawing.Point(505, 95);
+			this.defaultButton5.Location = new System.Drawing.Point(352, 95);
 			this.defaultButton5.Name = "defaultButton5";
 			this.defaultButton5.Size = new System.Drawing.Size(116, 72);
 			this.defaultButton5.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
@@ -101,12 +101,12 @@
 			this.defaultButton3.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
 			this.defaultButton3.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton3.Image")));
 			this.defaultButton3.ImageSize = new System.Drawing.Size(35, 35);
-			this.defaultButton3.Location = new System.Drawing.Point(196, 95);
+			this.defaultButton3.Location = new System.Drawing.Point(497, 95);
 			this.defaultButton3.Name = "defaultButton3";
-			this.defaultButton3.Size = new System.Drawing.Size(116, 72);
-			this.defaultButton3.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
+			this.defaultButton3.Size = new System.Drawing.Size(227, 72);
+			this.defaultButton3.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
 			this.defaultButton3.TabIndex = 10;
-			this.defaultButton3.Text = "今日课件";
+			this.defaultButton3.Text = "显示/隐藏桌面小工具";
 			this.defaultButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
 			this.defaultButton3.Click += new System.EventHandler(this.DefaultButton3_Click);
 			// 
@@ -117,12 +117,12 @@
 			this.defaultButton4.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
 			this.defaultButton4.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton4.Image")));
 			this.defaultButton4.ImageSize = new System.Drawing.Size(35, 35);
-			this.defaultButton4.Location = new System.Drawing.Point(350, 95);
+			this.defaultButton4.Location = new System.Drawing.Point(197, 95);
 			this.defaultButton4.Name = "defaultButton4";
 			this.defaultButton4.Size = new System.Drawing.Size(116, 72);
 			this.defaultButton4.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
 			this.defaultButton4.TabIndex = 9;
-			this.defaultButton4.Text = "昨日课件";
+			this.defaultButton4.Text = "查看课件";
 			this.defaultButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
 			// 
 			// defaultButton1
@@ -152,7 +152,7 @@
 			this.sfButton6.Location = new System.Drawing.Point(34, 189);
 			this.sfButton6.Name = "sfButton6";
 			this.sfButton6.Size = new System.Drawing.Size(116, 72);
-			this.sfButton6.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image6")));
+			this.sfButton6.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
 			this.sfButton6.TabIndex = 6;
 			this.sfButton6.Text = "设置";
 			this.sfButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -166,13 +166,14 @@
 			this.sfButton5.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
 			this.sfButton5.Image = ((System.Drawing.Image)(resources.GetObject("sfButton5.Image")));
 			this.sfButton5.ImageSize = new System.Drawing.Size(35, 35);
-			this.sfButton5.Location = new System.Drawing.Point(196, 189);
+			this.sfButton5.Location = new System.Drawing.Point(497, 189);
 			this.sfButton5.Name = "sfButton5";
-			this.sfButton5.Size = new System.Drawing.Size(116, 72);
-			this.sfButton5.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image7")));
+			this.sfButton5.Size = new System.Drawing.Size(227, 72);
+			this.sfButton5.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
 			this.sfButton5.TabIndex = 5;
-			this.sfButton5.Text = "暂停服务";
+			this.sfButton5.Text = "显示/隐藏悬浮窗";
 			this.sfButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+			this.sfButton5.Click += new System.EventHandler(this.SfButton5_Click);
 			// 
 			// sfButton4
 			// 
@@ -181,10 +182,10 @@
 			this.sfButton4.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
 			this.sfButton4.Image = ((System.Drawing.Image)(resources.GetObject("sfButton4.Image")));
 			this.sfButton4.ImageSize = new System.Drawing.Size(35, 35);
-			this.sfButton4.Location = new System.Drawing.Point(350, 189);
+			this.sfButton4.Location = new System.Drawing.Point(197, 189);
 			this.sfButton4.Name = "sfButton4";
 			this.sfButton4.Size = new System.Drawing.Size(116, 72);
-			this.sfButton4.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image8")));
+			this.sfButton4.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image7")));
 			this.sfButton4.TabIndex = 4;
 			this.sfButton4.Text = "编辑名单";
 			this.sfButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -225,10 +226,10 @@
 			this.defaultButton7.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
 			this.defaultButton7.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton7.Image")));
 			this.defaultButton7.ImageSize = new System.Drawing.Size(35, 35);
-			this.defaultButton7.Location = new System.Drawing.Point(505, 189);
+			this.defaultButton7.Location = new System.Drawing.Point(352, 189);
 			this.defaultButton7.Name = "defaultButton7";
 			this.defaultButton7.Size = new System.Drawing.Size(116, 72);
-			this.defaultButton7.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image10")));
+			this.defaultButton7.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image8")));
 			this.defaultButton7.TabIndex = 14;
 			this.defaultButton7.Text = "朗读文段";
 			this.defaultButton7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;

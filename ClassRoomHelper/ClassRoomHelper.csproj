@@ -172,6 +172,12 @@
     <Compile Include="Windows\Vote.Designer.cs">
       <DependentUpon>Vote.cs</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Widget.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Widget.Designer.cs">
+      <DependentUpon>Widget.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -231,6 +237,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\Vote.resx">
       <DependentUpon>Vote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Widget.resx">
+      <DependentUpon>Widget.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="packages.config" />

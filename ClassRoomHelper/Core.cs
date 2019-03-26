@@ -351,12 +351,14 @@ namespace ClassRoomHelper
 			Program.Settings = new Properties.Settings();
 			Program.Helper = new ProcessStartInfo();
 			Program.Helper.FileName = Environment.CurrentDirectory + "\\CRHBackstageHelper.exe";
-			//Program.Helper.CreateNoWindow = true;
+			Program.Helper.CreateNoWindow = true;
 			Program.Helper.UseShellExecute = true;
 			Program.Helper.WorkingDirectory = Environment.CurrentDirectory;
-			//Program.Helper.WindowStyle = ProcessWindowStyle.Hidden;
+			Program.Helper.WindowStyle = ProcessWindowStyle.Hidden;
 			Program.TargetDirParser = new TargetDirParser(Program.Settings.TargetDir, Program.Settings.ResortMode);
-			
+			Program.HelperWindow = new Windows.HelperWindow();
+			Program.ShowingHelperWindow = false;
+			Program.ShowingDesktopTool = false;
 		}
 		public static void LoadStudentList()
 		{

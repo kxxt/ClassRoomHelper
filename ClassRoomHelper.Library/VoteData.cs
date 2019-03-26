@@ -7,8 +7,8 @@ using ClassRoomHelper.Library.NameSelector;
 namespace ClassRoomHelper.Library
 {
 	public struct VotePersonInfo{
-		short RemainingVotingCount;
-		short Weight;
+		public short RemainingVotingCount;
+		public short Weight;
 	}
 	public class VoteData:IDisposable
 	{
@@ -23,16 +23,17 @@ namespace ClassRoomHelper.Library
 			}
 			TableHead+=Environment.NewLine;
 		}
-		public void PrivilegedVote(string student,string classname,int weight){
-			Data[student].Value[classname].Value+=weight;
+		public void PrivilegedVote(string student,string classname,short weight){
+			Data[student].Item2[classname]+=weight;
 
 		}
 		private string BuildInfoPiece(KeyValuePair<string, (VotePersonInfo,Dictionary<string,short>)> info){
 			string ret="";
 			ret+=info.Key+",";
 			for(int i=0;i<=TableReflexes.Count;i++){
-				ret=ret+info.Value.item2[TableReflexes[i]].Value.ToString()+",";
+				ret=ret+info.Value.Item2[TableReflexes[i]].ToString()+",";
 			}
+			return ret;
 		}
 		public void ExportCSV(string filename){
 			string csv="";
@@ -42,11 +43,12 @@ namespace ClassRoomHelper.Library
 			}
 		}
 
-		public bool Vote(string actor,string student,string classname,int weight){
+		public bool Vote(string actor,string student,string classname,short weight){
 			
-			if(Data[actor].Value.Item1.RemainingVotingCount>0){
-				Data[actor].Value.Item1.RemainingVotingCount--;
-				Data[student].Value[classname].Value+=weight;
+			if(Data[actor].Item1.RemainingVotingCount>0){
+				//todo
+				//this.Data[actor].Item1.RemainingVotingCount--;
+				Data[student].Item2[classname]+=weight;
 				return true;
 			}else{
 				return false;
@@ -55,7 +57,7 @@ namespace ClassRoomHelper.Library
 		}
 		public void AddSelectionClass(string classname){
 			foreach(var item in Data){
-				item.Value.Add(classname,0);
+				item.Value.Item2.Add(classname,0);
 			}
 			TableReflexes.Add(classname);
 		}
@@ -63,9 +65,10 @@ namespace ClassRoomHelper.Library
 		{
 			TableReflexes=new List<string>();
 			foreach(var item in ns.Names){
-				var data=new (VotePersonInfo,Dictionary<string,short>)();
+				//todo
+				/*var data=(VotePersonInfo,Dictionary<string,short>())();
 				data.Item1.RemainingVotingCount=votingcnt;
-				Data.Add(item,data );
+				Data.Add(item,data );*/
 			}
 		}
 

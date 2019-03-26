@@ -33,6 +33,9 @@ namespace ClassRoomHelper
 	}
 	static class Program
 	{
+		public static bool ShowingDesktopTool;
+		public static bool ShowingHelperWindow;
+		public static Widget Widget;
 		public static HelperWindow HelperWindow;
 		public static NameSelector NameSelector;
 		public static TargetDirParser TargetDirParser;//= new TargetDirParser("", ResortMode.Daily);

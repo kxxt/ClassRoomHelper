@@ -45,7 +45,9 @@ namespace ClassRoomHelper.Windows
 			//MessageBox.Show(listBox1.SelectedIndex.ToString());
 			//MessageBox.Show(Program.NameSelector.Names.ToString());
 			if(textBox1.Text.Contains(",")){
-				MessageBox.Show();
+				MessageBox.Show("学生姓名不能含有逗号.");
+				textBox1.Text=Program.NameSelector.Names[listBox1.SelectedIndex];
+				return;
 				//todo
 			}
 			Program.NameSelector.Names[listBox1.SelectedIndex] = textBox1.Text;

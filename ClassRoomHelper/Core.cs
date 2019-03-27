@@ -452,28 +452,29 @@ namespace ClassRoomHelper
 				}
 			}
 		}
-		public static  void Load()
+		public static void preLoad()
 		{
 			LoadProperties();
 			ConfigureSharedMemory();
 			LoadStudentList();
-			if (Program.FirstUse)
+			try
 			{
-				using (var oobe = new OOBE())
-				{
-					oobe.ShowDialog();
-				}
+				Program.WorkAsAdministrator = File.Exists("AdminMode");
 			}
+			catch
+			{
+				Program.WorkAsAdministrator = false;
+			}
+		}
+		public static  void postLoad()
+		{
+			
+			
 			//Program.HelperWindow = new Windows.HelperWindow();
 			//Program.Widget = new Windows.Widget();
 			//Program.HelperWindow = new HelperWindow();
 			
-			try
-			{
-				Program.WorkAsAdministrator=File.Exists("AdminMode");
-			}catch{
-				Program.WorkAsAdministrator=false;
-			}
+			
 			try
 			{
 				StartCensorService();

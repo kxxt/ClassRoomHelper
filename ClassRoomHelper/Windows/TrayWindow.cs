@@ -115,7 +115,23 @@ namespace ClassRoomHelper.Windows
 				return true;
 			};*/
 			timer2.Start();
-			await LoadApp();
+			await Task.Run(() =>
+			{
+				Core.preLoad();
+				//Program.Settings.
+			});
+			if (Program.FirstUse)
+			{
+				using (var oobe = new OOBE())
+				{
+					oobe.ShowDialog();
+				}
+			}
+			await Task.Run(() =>
+			{
+				Core.postLoad();
+				//Program.Settings.
+			});
 			if (Program.Settings.ShowHelperWindow)
 			{
 				Program.ShowingHelperWindow = true;
@@ -131,14 +147,14 @@ namespace ClassRoomHelper.Windows
 			//timer1?.Start();
 		}
 		
-		private Task LoadApp()
+		/*private Task LoadApp()
 		{
 			return Task.Run(()=>
 			{
 				Core.Load();
 				//Program.Settings.
 			});
-		}
+		}*/
 		
 
 		public void Tray_MouseClick(object sender, MouseEventArgs e)

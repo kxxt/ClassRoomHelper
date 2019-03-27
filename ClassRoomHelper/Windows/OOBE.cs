@@ -64,7 +64,7 @@ namespace ClassRoomHelper.Windows
 							try
 							{
 								Core.SetStartByTaskSchAdmin();
-
+								Program.Settings.StartAfterWindows = true;
 							}
 							catch
 							{
@@ -74,6 +74,7 @@ namespace ClassRoomHelper.Windows
 						}
 						else
 						{
+							Program.Settings.StartAfterWindows = false;
 							try
 							{
 								Core.RemoveStartByTaskSch();
@@ -88,7 +89,7 @@ namespace ClassRoomHelper.Windows
 							{
 								Core.SetSkipUAC();
 								Core.SetStartByTaskSch();
-
+								Program.Settings.StartAfterWindows = true;
 							}
 							catch
 							{
@@ -103,10 +104,7 @@ namespace ClassRoomHelper.Windows
 				switch (ret)
 				{
 					case DialogResult.OK:
-						using (var con=new Configuation())
-						{
-							con.ShowDialog();
-						}
+						new Configuation().ShowDialog();
 						break;
 					default:
 						MessageBox.Show("已为您采用默认设置 .\r\n自动整理的课件将保存到程序目录下的\"Files\"文件夹中","设置完成",MessageBoxButtons.OK,MessageBoxIcon.Information);

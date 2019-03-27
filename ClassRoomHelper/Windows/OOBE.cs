@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -109,6 +110,14 @@ namespace ClassRoomHelper.Windows
 						break;
 					default:
 						MessageBox.Show("已为您采用默认设置 .\r\n自动整理的课件将保存到程序目录下的\"Files\"文件夹中","设置完成",MessageBoxButtons.OK,MessageBoxIcon.Information);
+						try
+						{
+							Directory.CreateDirectory(Program.TargetDirParser.Get());
+						}
+						catch
+						{
+
+						}
 						break;
 				}
 				this.Close();

@@ -11,7 +11,7 @@ namespace ClassRoomHelper
 {
 	public class SingleInstanceManager : WindowsFormsApplicationBase
 	{
-		TrayWindow app;
+		public TrayWindow app;
 		
 		public SingleInstanceManager()
 		{
@@ -34,6 +34,7 @@ namespace ClassRoomHelper
 	}
 	static class Program
 	{
+		public static SingleInstanceManager manager;
 		public static bool FirstUse=false;
 		public static bool ShowingDesktopTool;
 		public static bool ShowingHelperWindow;
@@ -73,7 +74,7 @@ namespace ClassRoomHelper
 			}
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			SingleInstanceManager manager = new SingleInstanceManager();
+			manager = new SingleInstanceManager();
 			//bg = new BlackBackground();
 			//bg.Show();
 			//Application.Run(new MainFrm());

@@ -156,7 +156,13 @@ namespace ClassRoomHelper.Windows
 			});
 		}*/
 		
-
+		public void Pop(string text,string title)
+		{
+			Tray.BalloonTipText = text;
+			Tray.BalloonTipTitle = title;
+			Tray.BalloonTipIcon = ToolTipIcon.Info;
+			Tray.ShowBalloonTip(5);
+		}
 		public void Tray_MouseClick(object sender, MouseEventArgs e)
 		{
 			if (Program.MainForm == null)

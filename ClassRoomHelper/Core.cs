@@ -311,7 +311,8 @@ namespace ClassRoomHelper
 		private static void OnTargetDirInvalid()
 		{
 			//throw new NotImplementedException();
-			MessageBox.Show("工作目录无效 , 这可能是由于你选择了U盘作为工作目录,而现在拔出了U盘.\r\n已重置为班级助手目录下的\"Files\"目录 .\r\n如有需要,请前往设置更改 .","班级助手",MessageBoxButtons.OK,MessageBoxIcon.Information);
+			Program.manager.app.Pop("工作目录无效 , 这可能是由于你选择了U盘作为工作目录,而现在拔出了U盘.\r\n已重置为班级助手目录下的\"Files\"目录 .\r\n如有需要,请前往设置更改 .", "班级助手");
+			//MessageBox.Show("工作目录无效 , 这可能是由于你选择了U盘作为工作目录,而现在拔出了U盘.\r\n已重置为班级助手目录下的\"Files\"目录 .\r\n如有需要,请前往设置更改 .","班级助手",MessageBoxButtons.OK,MessageBoxIcon.Information);
 			Program.Settings.TargetDir = Environment.CurrentDirectory + "\\Files";
 			Program.Settings.Save();
 			try
@@ -484,8 +485,15 @@ namespace ClassRoomHelper
 				Log.AppendException("Logs\\wmi.err", ex);
 				//MessageBox.Show(Log.GetExceptionInfo(ex));
 			}
+			SystemEvents.SessionEnding += SystemEvents_SessionEnding;
 			Thread.Sleep(1500);
 			
+		}
+
+		private static void SystemEvents_SessionEnding(object sender, SessionEndingEventArgs e)
+		{
+			ActionsBeforeAppExit();
+			Application.Exit();
 		}
 	}
 }

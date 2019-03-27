@@ -601,6 +601,7 @@
 			this.Name = "Configuation";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "设置";
+			this.TopMost = true;
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Configuation_FormClosing);
 			this.Load += new System.EventHandler(this.Configuation_Load);
 			this.groupBox1.ResumeLayout(false);

@@ -255,9 +255,9 @@
     <None Include="Resources\Psd\1.psd" />
     <None Include="Resources\Psd\2.psd" />
     <None Include="Resources\Psd\welcome.psd" />
-    <None Include="student.names">
+    <Content Include="stulist.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

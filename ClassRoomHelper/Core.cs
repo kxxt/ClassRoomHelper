@@ -20,7 +20,52 @@ namespace ClassRoomHelper
 	{
 		internal static void SetUp()
 		{
-			throw new NotImplementedException();
+			if (Program.WorkAsAdministrator)
+			{
+				try
+				{
+					Core.RemoveStartByTaskSch();
+					Core.RemoveStartByTaskSch();
+					Core.RemoveSkipUAC();
+				}
+				catch
+				{
+
+				}
+				try
+				{
+					Core.SetStartByTaskSchAdmin();
+
+				}
+				catch
+				{
+					MessageBox.Show("失败", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+				}
+			}
+			else
+			{
+				try
+				{
+					Core.RemoveStartByTaskSch();
+					Core.RemoveStartByTaskSch();
+					Core.RemoveSkipUAC();
+				}
+				catch
+				{
+
+				}
+				try
+				{
+					Core.SetSkipUAC();
+					Core.SetStartByTaskSch();
+
+				}
+				catch
+				{
+					MessageBox.Show("失败", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+			}
 		}
 		#region StartUp
 		public static void RemoveSkipUAC()
@@ -394,11 +439,11 @@ namespace ClassRoomHelper
 		public static void LoadStudentList()
 		{
 			Program.NameSelector = new Library.NameSelector.NameSelector();
-			if (File.Exists("student.names"))
+			if (File.Exists("stulist.txt"))
 			{
 				try
 				{
-					Program.NameSelector.Load("student.names");
+					Program.NameSelector.Load("stulist.txt");
 
 				}
 				catch 

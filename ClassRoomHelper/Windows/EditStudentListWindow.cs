@@ -6,7 +6,7 @@ namespace ClassRoomHelper.Windows
 {
 	public partial class EditStudentListWindow : RsWork.UI.Windows.BasicNoneBorderWinForm
 	{
-		BindingSource bs = new BindingSource();
+		
 		public EditStudentListWindow()
 		{
 			InitializeComponent();
@@ -57,7 +57,7 @@ namespace ClassRoomHelper.Windows
 		{
 			try
 			{
-				Program.NameSelector.Save("student.names");
+				Program.NameSelector.Save("stulist.txt");
 
 			}
 			catch
@@ -82,7 +82,7 @@ namespace ClassRoomHelper.Windows
 		{
 			try
 			{
-				Program.NameSelector.Save("student.names");
+				Program.NameSelector.Save("stulist.txt");
 
 			}
 			catch

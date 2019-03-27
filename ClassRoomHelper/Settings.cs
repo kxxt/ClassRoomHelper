@@ -40,7 +40,27 @@
 				Program.TargetDirParser.Mode = Program.Settings.ResortMode;
 			}else if (e.PropertyName == "StartAfterWindows")
 			{
-				Core.SetUp();
+				if(this.StartAfterWindows)
+					Core.SetUp();
+				else
+				{
+					try
+					{
+						Core.RemoveSkipUAC();
+					}
+					catch
+					{
+
+					}
+					try
+					{
+						Core.RemoveStartByTaskSch();
+					}
+					catch
+					{
+
+					}
+				}
 			}
 			//throw new System.NotImplementedException();
 		}

@@ -134,5 +134,28 @@ namespace ClassRoomHelper
 		{
 			Service.OpenRecently();
 		}
+
+		private void DefaultButton9_Click(object sender, EventArgs e)
+		{
+			
+			MessageBox.Show("\"班级助手\"是我设计用来在教室电脑上使用的一套程序."+"\r\n"+
+"当初, 我是为了收集并整理老师上课使用的课件才设计了这款程序."+"\r\n"+
+"那时, 我还将微软 Office 365 的 OneDrive 网盘服务接入了程序, 使得新课件自动上传到网盘上, "+"\r\n"+
+"不仅如此, 借助 OneIndex 项目和 Zeit 的 Serverless Hosting免费云程序托管服务, "+"\r\n"+
+"我还成功建立了一个网站, 让同学们可以无需登录网盘即可访问离线的教室电脑上的所有课件."+"\r\n"+
+"出于某些原因, (如云服务暴露身份, 需要 Office 365 订阅等),参赛程序不包含云服务组件."+"\r\n"+
+ " 现在,将近半年过去了,它的功能也丰富了." + "\r\n" +
+ "它现在不仅可以整理课件,还可以随机选同学起来回答问," + "\r\n" +
+"还可以朗读中英文段,甚至将来还可以在教室进行电子投票," + "\r\n" +
+"这结束了画\"正\"字投票的时代,开辟了一条高效投票的新途径," + "\r\n" +
+"大大节省了同学们的时间.","关于");
+			MessageBox.Show("运行条件:" + "\r\n" +
+"*Windows 7 Service Pack 1 及以上的系统" + "\r\n" +
+"* 安装有.Net Framework 4.7" + "\r\n" +
+"* 如需要使用课件整理功能, 需要安装有 Microsoft Office 的 2007 或更高版本" + "\r\n" +
+"  未测试过非 Microsoft 办公套件(如 Google Docs, 金山 WPS, LibreOffice)是否可行" + "\r\n" +
+"* 为了获得更好的使用体验, 请允许应用程序开机自启动" + "\r\n" +
+"* 建议在正版的 Windows 系统上运行程序, 并使用正版 Office(绿色版 / 绿化版 不行)", "运行条件");
+		}
 	}
 }

@@ -37,6 +37,7 @@
 			this.defaultButton2 = new ClassRoomHelper.Windows.Controls.DefaultButton();
 			this.defaultButton1 = new ClassRoomHelper.Windows.Controls.DefaultButton();
 			this.listBox1 = new System.Windows.Forms.ListBox();
+			this.textLabel2 = new ClassRoomHelper.Windows.Controls.TextLabel();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
@@ -51,6 +52,7 @@
 			// 
 			// splitContainer1.Panel1
 			// 
+			this.splitContainer1.Panel1.Controls.Add(this.textLabel2);
 			this.splitContainer1.Panel1.Controls.Add(this.defaultButton4);
 			this.splitContainer1.Panel1.Controls.Add(this.defaultButton3);
 			this.splitContainer1.Panel1.Controls.Add(this.textBox1);
@@ -155,6 +157,19 @@
 			this.listBox1.TabIndex = 0;
 			this.listBox1.SelectedIndexChanged += new System.EventHandler(this.ListBox1_SelectedIndexChanged);
 			// 
+			// textLabel2
+			// 
+			this.textLabel2.AutoSize = true;
+			this.textLabel2.BackColor = System.Drawing.Color.Transparent;
+			this.textLabel2.Dock = System.Windows.Forms.DockStyle.Top;
+			this.textLabel2.Font = new System.Drawing.Font("黑体", 16F);
+			this.textLabel2.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.textLabel2.Location = new System.Drawing.Point(0, 324);
+			this.textLabel2.Name = "textLabel2";
+			this.textLabel2.Size = new System.Drawing.Size(164, 154);
+			this.textLabel2.TabIndex = 7;
+			this.textLabel2.Text = "您也可以编辑\r\n程序目录下的\r\nstulist.txt\r\n文件来导入\r\n学生信息.\r\n( 文件格式:\r\n每行一个名字 )\r\n";
+			// 
 			// EditStudentListWindow
 			// 
 			this.AcceptButton = this.defaultButton3;
@@ -187,5 +202,6 @@
 		private Controls.DefaultButton defaultButton4;
 		private Controls.DefaultButton defaultButton3;
 		private System.Windows.Forms.TextBox textBox1;
+		private Controls.TextLabel textLabel2;
 	}
 }

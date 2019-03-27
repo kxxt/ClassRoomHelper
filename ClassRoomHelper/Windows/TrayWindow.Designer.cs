@@ -100,11 +100,16 @@
 			this.Controls.Add(this.titleLabel2);
 			this.Controls.Add(this.titleLabel3);
 			this.Controls.Add(this.titleLabel1);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "TrayWindow";
+			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "TrayWindow";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TrayWindow_FormClosing);
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TrayWindow_FormClosed);
+			this.Load += new System.EventHandler(this.TrayWindow_Load);
 			this.Shown += new System.EventHandler(this.TrayWindow_Shown);
 			this.ResumeLayout(false);
 			this.PerformLayout();

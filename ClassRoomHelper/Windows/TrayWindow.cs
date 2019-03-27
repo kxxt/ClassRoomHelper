@@ -146,7 +146,8 @@ namespace ClassRoomHelper.Windows
 			if (Program.MainForm == null)
 			{
 				Program.MainForm = new MainForm();
-				Program.MainForm.ShowDialog();
+				Program.MainForm.Show();
+				Program.MainForm.Activate();
 			}
 			else
 			{
@@ -172,6 +173,11 @@ namespace ClassRoomHelper.Windows
 		{
 			if(Opacity>=0.1)
 				this.Opacity -= 0.03;
+		}
+
+		private void TrayWindow_Load(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

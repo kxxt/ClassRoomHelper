@@ -65,9 +65,9 @@
 			this.modernButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.modernButton1.Font = new System.Drawing.Font("黑体", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
 			this.modernButton1.ForeColor = System.Drawing.Color.White;
-			this.modernButton1.Location = new System.Drawing.Point(12, 91);
+			this.modernButton1.Location = new System.Drawing.Point(12, 73);
 			this.modernButton1.Name = "modernButton1";
-			this.modernButton1.Size = new System.Drawing.Size(432, 93);
+			this.modernButton1.Size = new System.Drawing.Size(381, 73);
 			this.modernButton1.TabIndex = 2;
 			this.modernButton1.Text = "最近使用过的课件";
 			this.modernButton1.UseVisualStyleBackColor = false;
@@ -89,9 +89,9 @@
 			this.modernButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.modernButton2.Font = new System.Drawing.Font("黑体", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
 			this.modernButton2.ForeColor = System.Drawing.Color.White;
-			this.modernButton2.Location = new System.Drawing.Point(12, 190);
+			this.modernButton2.Location = new System.Drawing.Point(12, 165);
 			this.modernButton2.Name = "modernButton2";
-			this.modernButton2.Size = new System.Drawing.Size(432, 93);
+			this.modernButton2.Size = new System.Drawing.Size(381, 73);
 			this.modernButton2.TabIndex = 3;
 			this.modernButton2.Text = "昨天使用过的课件";
 			this.modernButton2.UseVisualStyleBackColor = false;
@@ -113,9 +113,9 @@
 			this.modernButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.modernButton3.Font = new System.Drawing.Font("黑体", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
 			this.modernButton3.ForeColor = System.Drawing.Color.White;
-			this.modernButton3.Location = new System.Drawing.Point(12, 289);
+			this.modernButton3.Location = new System.Drawing.Point(12, 257);
 			this.modernButton3.Name = "modernButton3";
-			this.modernButton3.Size = new System.Drawing.Size(432, 93);
+			this.modernButton3.Size = new System.Drawing.Size(381, 73);
 			this.modernButton3.TabIndex = 4;
 			this.modernButton3.Text = "随机点名";
 			this.modernButton3.UseVisualStyleBackColor = false;
@@ -137,9 +137,9 @@
 			this.modernButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.modernButton4.Font = new System.Drawing.Font("黑体", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
 			this.modernButton4.ForeColor = System.Drawing.Color.White;
-			this.modernButton4.Location = new System.Drawing.Point(12, 388);
+			this.modernButton4.Location = new System.Drawing.Point(12, 349);
 			this.modernButton4.Name = "modernButton4";
-			this.modernButton4.Size = new System.Drawing.Size(432, 93);
+			this.modernButton4.Size = new System.Drawing.Size(381, 73);
 			this.modernButton4.TabIndex = 5;
 			this.modernButton4.Text = "显示/隐藏悬浮窗";
 			this.modernButton4.UseVisualStyleBackColor = false;
@@ -150,18 +150,19 @@
 			this.textLabel1.AutoSize = true;
 			this.textLabel1.BackColor = System.Drawing.Color.Transparent;
 			this.textLabel1.Font = new System.Drawing.Font("黑体", 13F);
-			this.textLabel1.Location = new System.Drawing.Point(9, 510);
+			this.textLabel1.Location = new System.Drawing.Point(86, 471);
 			this.textLabel1.Name = "textLabel1";
-			this.textLabel1.Size = new System.Drawing.Size(440, 18);
+			this.textLabel1.Size = new System.Drawing.Size(233, 36);
 			this.textLabel1.TabIndex = 6;
-			this.textLabel1.Text = "班级助手程序仍在运行中,您可以在系统托盘区找到它.";
+			this.textLabel1.Text = "班级助手程序仍在运行中,\r\n您可以在系统托盘区找到它.";
+			this.textLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// Widget
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.ClientSize = new System.Drawing.Size(456, 562);
+			this.ClientSize = new System.Drawing.Size(405, 527);
 			this.Controls.Add(this.textLabel1);
 			this.Controls.Add(this.modernButton4);
 			this.Controls.Add(this.modernButton3);

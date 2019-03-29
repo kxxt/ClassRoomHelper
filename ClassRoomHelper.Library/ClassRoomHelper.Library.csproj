@@ -44,6 +44,8 @@
   <ItemGroup>
     <Compile Include="AdminChecker.cs" />
     <Compile Include="FreeMemory.cs" />
+    <Compile Include="Poll\Idea.cs" />
+    <Compile Include="Poll\PollManager.cs" />
     <Compile Include="ProcessEX.cs" />
     <Compile Include="Services\CollectMode.cs" />
     <Compile Include="Services\IPCInfoStruct.cs" />

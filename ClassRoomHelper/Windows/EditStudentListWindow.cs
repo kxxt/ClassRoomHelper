@@ -6,7 +6,12 @@ namespace ClassRoomHelper.Windows
 {
 	public partial class EditStudentListWindow : RsWork.UI.Windows.BasicNoneBorderWinForm
 	{
-		
+		public void AsListEditor(string title,string hint, System.ComponentModel.BindingList<string> data)
+		{
+			listBox1.DataSource = data;
+			Text = title;
+			textLabel2.Text = hint;
+		}
 		public EditStudentListWindow()
 		{
 			InitializeComponent();

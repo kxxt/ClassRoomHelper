@@ -186,6 +186,12 @@
     <Compile Include="Windows\OpenUDiskWindow.Designer.cs">
       <DependentUpon>OpenUDiskWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Windows\SingleVoteWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\SingleVoteWindow.Designer.cs">
+      <DependentUpon>SingleVoteWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\SpeechWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -260,6 +266,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\OpenUDiskWindow.resx">
       <DependentUpon>OpenUDiskWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\SingleVoteWindow.resx">
+      <DependentUpon>SingleVoteWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\SpeechWindow.resx">
       <DependentUpon>SpeechWindow.cs</DependentUpon>

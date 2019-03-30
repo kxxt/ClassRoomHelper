@@ -16,5 +16,19 @@ namespace ClassRoomHelper.Windows
 		{
 			InitializeComponent();
 		}
+
+		private void ModernButton1_Click(object sender, EventArgs e)
+		{
+			BindingList<string> data = new BindingList<string>();
+			EditStudentListWindow window = new EditStudentListWindow();
+			window.AsListEditor("编辑选项","编辑选项",data);
+			window.ShowDialog();
+			if (data.Count <= 1)
+			{
+				MessageBox.Show("由于选项不足,投票已取消.","取消投票",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
+				return;
+			}
+
+		}
 	}
 }

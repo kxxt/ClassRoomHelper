@@ -37,6 +37,9 @@
 			// 
 			// modernButton1
 			// 
+			this.modernButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.modernButton1.BackColor = System.Drawing.Color.Transparent;
 			this.modernButton1.BorderColor = System.Drawing.Color.White;
 			this.modernButton1.DisabledBorderColor = System.Drawing.Color.DarkGray;
@@ -54,6 +57,7 @@
 			this.modernButton1.TabIndex = 0;
 			this.modernButton1.Text = "单选投票\r\n\r\n单选题";
 			this.modernButton1.UseVisualStyleBackColor = false;
+			this.modernButton1.Click += new System.EventHandler(this.ModernButton1_Click);
 			// 
 			// titleLabel1
 			// 
@@ -69,6 +73,9 @@
 			// 
 			// modernButton2
 			// 
+			this.modernButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.modernButton2.BackColor = System.Drawing.Color.Transparent;
 			this.modernButton2.BorderColor = System.Drawing.Color.White;
 			this.modernButton2.DisabledBorderColor = System.Drawing.Color.DarkGray;
@@ -89,6 +96,9 @@
 			// 
 			// modernButton3
 			// 
+			this.modernButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.modernButton3.BackColor = System.Drawing.Color.Transparent;
 			this.modernButton3.BorderColor = System.Drawing.Color.White;
 			this.modernButton3.DisabledBorderColor = System.Drawing.Color.DarkGray;
@@ -109,6 +119,9 @@
 			// 
 			// modernButton4
 			// 
+			this.modernButton4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.modernButton4.BackColor = System.Drawing.Color.Transparent;
 			this.modernButton4.BorderColor = System.Drawing.Color.White;
 			this.modernButton4.DisabledBorderColor = System.Drawing.Color.DarkGray;

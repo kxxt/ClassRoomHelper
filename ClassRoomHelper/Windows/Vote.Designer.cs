@@ -151,6 +151,7 @@
 			this.Controls.Add(this.titleLabel1);
 			this.Controls.Add(this.modernButton1);
 			this.Name = "Vote";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "班级投票";
 			this.ResumeLayout(false);
 			this.PerformLayout();

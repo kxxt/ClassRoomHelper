@@ -23,11 +23,18 @@ namespace ClassRoomHelper.Windows
 			EditStudentListWindow window = new EditStudentListWindow();
 			window.AsListEditor("编辑选项","编辑选项",data);
 			window.ShowDialog();
+			if (window.Canceled)
+			{
+				return;
+			}
 			if (data.Count <= 1)
 			{
 				MessageBox.Show("由于选项不足,投票已取消.","取消投票",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
 				return;
 			}
+			SingleVoteWindow sw = new SingleVoteWindow();
+			sw.LoadData(data.ToList<string>());
+			sw.ShowDialog();
 
 		}
 	}

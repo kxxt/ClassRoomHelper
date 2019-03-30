@@ -86,6 +86,7 @@ namespace ClassRoomHelper
 		private void SfButton4_Click(object sender, EventArgs e)
 		{
 			var x = new EditStudentListWindow();
+			x.InitilizeNames();
 			x.ShowDialog();
 			x.Dispose();
 		}
@@ -156,6 +157,11 @@ namespace ClassRoomHelper
 "  未测试过非 Microsoft 办公套件(如 Google Docs, 金山 WPS, LibreOffice)是否可行" + "\r\n" +
 "* 为了获得更好的使用体验, 请允许应用程序开机自启动" + "\r\n" +
 "* 建议在正版的 Windows 系统上运行程序, 并使用正版 Office(绿色版 / 绿化版 不行)", "运行条件");
+		}
+
+		private void DefaultButton10_Click(object sender, EventArgs e)
+		{
+			new Vote().ShowDialog();
 		}
 	}
 }

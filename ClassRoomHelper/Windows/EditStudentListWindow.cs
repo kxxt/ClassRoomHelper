@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 using Syncfusion.WinForms.Controls;
 
@@ -6,11 +7,14 @@ namespace ClassRoomHelper.Windows
 {
 	public partial class EditStudentListWindow : RsWork.UI.Windows.BasicNoneBorderWinForm
 	{
+		public bool Canceled = false;
+		bool WorkAsListEditor = false;
 		public void AsListEditor(string title,string hint, System.ComponentModel.BindingList<string> data)
 		{
 			listBox1.DataSource = data;
 			Text = title;
 			textLabel2.Text = hint;
+			WorkAsListEditor = true;
 		}
 		public EditStudentListWindow()
 		{
@@ -21,13 +25,21 @@ namespace ClassRoomHelper.Windows
 			//bs.DataSource = Program.NameSelector.Names;
 			//listBox1.DataBindings.Add = Program.NameSelector.Names;
 			//listBox1.DisplayMember;
-			listBox1.DataSource = Program.NameSelector.Names;
+			
 			//Update();
 		}
-
+		public void InitilizeNames()
+		{
+			listBox1.DataSource = Program.NameSelector.Names;
+		}
 		private void DefaultButton1_Click(object sender, EventArgs e)
 		{
 			//listBox1.Items.Add("未命名");
+			if (WorkAsListEditor)
+			{
+				(listBox1.DataSource as BindingList<string>).Add("未命名");
+				return;
+			}
 			Program.NameSelector.Names.Add("未命名");
 			//Update();
 		}
@@ -41,6 +53,11 @@ namespace ClassRoomHelper.Windows
 
 		private void DefaultButton2_Click(object sender, EventArgs e)
 		{
+			if (WorkAsListEditor)
+			{
+				(listBox1.DataSource as BindingList<string>).RemoveAt(listBox1.SelectedIndex);
+				return;
+			}
 			Program.NameSelector.Names.RemoveAt(listBox1.SelectedIndex);
 		}
 
@@ -50,16 +67,30 @@ namespace ClassRoomHelper.Windows
 			//MessageBox.Show(listBox1.SelectedIndex.ToString());
 			//MessageBox.Show(Program.NameSelector.Names.ToString());
 			if(textBox1.Text.Contains(",")){
-				MessageBox.Show("学生姓名不能含有逗号.");
-				textBox1.Text=Program.NameSelector.Names[listBox1.SelectedIndex];
+				MessageBox.Show("不能含有逗号.");
+				if (WorkAsListEditor)
+				{
+					textBox1.Text=(listBox1.DataSource as BindingList<string>)[listBox1.SelectedIndex];
+					
+				}
+				else textBox1.Text=Program.NameSelector.Names[listBox1.SelectedIndex];
 				return;
 				//todo
 			}
+			if (WorkAsListEditor)
+			{
+				(listBox1.DataSource as BindingList<string>)[listBox1.SelectedIndex] = textBox1.Text;
+			}
+			else 
 			Program.NameSelector.Names[listBox1.SelectedIndex] = textBox1.Text;
 		}
 
 		private void DefaultButton4_Click(object sender, EventArgs e)
 		{
+			if (WorkAsListEditor)
+			{
+				return;
+			}
 			try
 			{
 				Program.NameSelector.Save("stulist.txt");
@@ -85,6 +116,19 @@ namespace ClassRoomHelper.Windows
 
 		private void EditStudentListWindow_FormClosing(object sender, FormClosingEventArgs e)
 		{
+			if (WorkAsListEditor)
+			{
+				var ret = MessageBox.Show("确定要取消投票吗?","取消",MessageBoxButtons.OKCancel,MessageBoxIcon.Information);
+				switch (ret)
+				{
+					case DialogResult.OK:
+						return;
+					default:
+						e.Cancel = true;
+						Canceled = true;
+						return;
+				}
+			}
 			try
 			{
 				Program.NameSelector.Save("stulist.txt");

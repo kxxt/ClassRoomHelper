@@ -12,6 +12,11 @@ namespace ClassRoomHelper.Windows
 {
 	public partial class SingleVoteWindow : Form
 	{
+		//public List<string> data;
+		public void LoadData(List<string> data)
+		{
+			comboBox1.DataSource = data;
+		}
 		public SingleVoteWindow()
 		{
 			InitializeComponent();

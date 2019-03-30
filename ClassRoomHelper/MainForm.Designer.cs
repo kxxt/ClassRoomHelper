@@ -43,6 +43,7 @@
 			this.titleLabel1 = new ClassRoomHelper.Windows.Controls.TitleLabel();
 			this.sfButton2 = new ClassRoomHelper.Windows.Controls.DefaultButton();
 			this.defaultButton9 = new ClassRoomHelper.Windows.Controls.DefaultButton();
+			this.defaultButton10 = new ClassRoomHelper.Windows.Controls.DefaultButton();
 			this.SuspendLayout();
 			// 
 			// defaultButton8
@@ -52,7 +53,7 @@
 			this.defaultButton8.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
 			this.defaultButton8.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton8.Image")));
 			this.defaultButton8.ImageSize = new System.Drawing.Size(35, 35);
-			this.defaultButton8.Location = new System.Drawing.Point(200, 370);
+			this.defaultButton8.Location = new System.Drawing.Point(98, 370);
 			this.defaultButton8.Name = "defaultButton8";
 			this.defaultButton8.Size = new System.Drawing.Size(96, 73);
 			this.defaultButton8.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
@@ -84,7 +85,7 @@
 			this.defaultButton6.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
 			this.defaultButton6.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton6.Image")));
 			this.defaultButton6.ImageSize = new System.Drawing.Size(35, 35);
-			this.defaultButton6.Location = new System.Drawing.Point(302, 370);
+			this.defaultButton6.Location = new System.Drawing.Point(200, 370);
 			this.defaultButton6.Name = "defaultButton6";
 			this.defaultButton6.Size = new System.Drawing.Size(96, 73);
 			this.defaultButton6.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
@@ -183,7 +184,7 @@
 			this.sfButton6.Image = ((System.Drawing.Image)(resources.GetObject("sfButton6.Image")));
 			this.sfButton6.ImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.sfButton6.ImageSize = new System.Drawing.Size(35, 35);
-			this.sfButton6.Location = new System.Drawing.Point(34, 189);
+			this.sfButton6.Location = new System.Drawing.Point(302, 370);
 			this.sfButton6.Name = "sfButton6";
 			this.sfButton6.Size = new System.Drawing.Size(116, 72);
 			this.sfButton6.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image8")));
@@ -270,12 +271,29 @@
 			this.defaultButton9.UseMnemonic = false;
 			this.defaultButton9.Click += new System.EventHandler(this.DefaultButton9_Click);
 			// 
+			// defaultButton10
+			// 
+			this.defaultButton10.AccessibleName = "Button";
+			this.defaultButton10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.defaultButton10.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.defaultButton10.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton10.Image")));
+			this.defaultButton10.ImageSize = new System.Drawing.Size(35, 35);
+			this.defaultButton10.Location = new System.Drawing.Point(34, 188);
+			this.defaultButton10.Name = "defaultButton10";
+			this.defaultButton10.Size = new System.Drawing.Size(116, 72);
+			this.defaultButton10.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+			this.defaultButton10.TabIndex = 17;
+			this.defaultButton10.Text = "班级投票";
+			this.defaultButton10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+			this.defaultButton10.Click += new System.EventHandler(this.DefaultButton10_Click);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.ClientSize = new System.Drawing.Size(760, 455);
+			this.Controls.Add(this.defaultButton10);
 			this.Controls.Add(this.defaultButton9);
 			this.Controls.Add(this.defaultButton8);
 			this.Controls.Add(this.defaultButton7);
@@ -316,6 +334,7 @@
 		private Windows.Controls.DefaultButton defaultButton7;
 		private Windows.Controls.DefaultButton defaultButton8;
 		private Windows.Controls.DefaultButton defaultButton9;
+		private Windows.Controls.DefaultButton defaultButton10;
 	}
 }
 

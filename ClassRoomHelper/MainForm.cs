@@ -161,7 +161,8 @@ namespace ClassRoomHelper
 
 		private void DefaultButton10_Click(object sender, EventArgs e)
 		{
-			new Vote().ShowDialog();
+			MessageBox.Show("功能暂未开放,敬请期待","提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
+			//new Vote().ShowDialog();
 		}
 	}
 }

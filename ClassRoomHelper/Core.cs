@@ -153,17 +153,7 @@ namespace ClassRoomHelper
 		   }catch{
 
 		   }
-			if (Program.FirstUse)
-			{
-				try
-				{
-					File.Delete("FirstRun");
-				}
-				catch
-				{
-
-				}
-			}
+			
         }
 
         public static void SetSkipUAC()

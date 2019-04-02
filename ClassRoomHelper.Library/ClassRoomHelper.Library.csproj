@@ -43,7 +43,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminChecker.cs" />
-    <Compile Include="FreeMemory.cs" />
     <Compile Include="Poll\Idea.cs" />
     <Compile Include="Poll\PollManager.cs" />
     <Compile Include="ProcessEX.cs" />

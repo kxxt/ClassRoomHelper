@@ -14,6 +14,7 @@ namespace ClassRoomHelper.Windows
 	public partial class HelperWindow : Form
 	{
 		private bool mouseDown = false;
+		//private DateTime lastDrag = new DateTime(1900, 1, 1);
 		private bool mouseMove = false;
 		private Point lastLocation;
 		/*protected override void OnDragDrop(DragEventArgs drgevent)
@@ -37,7 +38,8 @@ namespace ClassRoomHelper.Windows
 				mouseMove = true;
 				this.Location = new Point(
 					(this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
-
+				//if(DateTime.Now-lastDrag>=new TimeSpan(0,0,5))
+				
 				this.Update();
 			}
 		}
@@ -46,6 +48,12 @@ namespace ClassRoomHelper.Windows
 		{
 			mouseDown = false;
 			mouseMove = false;
+			Point delta = new Point(Location.X - lastLocation.X, Location.Y - lastLocation.Y);
+			if (Math.Sqrt(delta.X * delta.X + delta.Y * delta.Y) <= 200)
+			{
+				HelperWindow_MouseClick(null, null);
+				
+			}
 		}
 		ActionSelectionWindow w;
 		public HelperWindow()
@@ -100,13 +108,18 @@ namespace ClassRoomHelper.Windows
 
 		private void HelperWindow_MouseClick(object sender, MouseEventArgs e)
 		{
-			if (mouseMove) return;
+			if (mouseMove&&sender!=null) return;
 			w.ShowDialog();
 		}
 
 		private void HelperWindow_Move(object sender, EventArgs e)
 		{
 			Program.Settings.HelperWindowLocation = this.Location;
+
+		}
+
+		private void ModernButton1_Click(object sender, EventArgs e)
+		{
 
 		}
 	}

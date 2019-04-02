@@ -67,6 +67,10 @@ namespace ClassRoomHelper
 			try
 			{
 				Program.FirstUse = File.Exists("FirstRun");
+				if (FirstUse)
+				{
+					File.Delete("FirstRun");
+				}
 			}
 			catch
 			{

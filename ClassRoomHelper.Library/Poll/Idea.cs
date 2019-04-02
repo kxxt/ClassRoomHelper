@@ -8,6 +8,15 @@ namespace ClassRoomHelper.Library.Poll
 {
 	public class Idea
 	{
+		public static List<Idea> CreateIdeasFromList(List<string> list)
+		{
+			var ret = new List<Idea>();
+			foreach(var s in list)
+			{
+				ret.Add(new Idea(s));
+			}
+			return ret;
+		} 
 		HashSet<string> people;
 		public bool Add(string student)
 		{
@@ -89,6 +98,11 @@ namespace ClassRoomHelper.Library.Poll
 				return people.Count;
 			} }
 		//int Votes;
+		public Idea(string desp) {
+			Desp = desp;
+			people = new HashSet<string>();
+
+		}
 		public Idea()
 		{
 			Desp = "未命名";

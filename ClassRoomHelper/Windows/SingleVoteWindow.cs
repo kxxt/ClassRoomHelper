@@ -15,7 +15,7 @@ namespace ClassRoomHelper.Windows
 		//public List<string> data;
 		public void LoadData(List<string> data)
 		{
-			comboBox1.DataSource = data;
+			choices.DataSource = data;
 		}
 		public SingleVoteWindow()
 		{

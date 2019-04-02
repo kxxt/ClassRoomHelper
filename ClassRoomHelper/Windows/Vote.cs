@@ -25,6 +25,7 @@ namespace ClassRoomHelper.Windows
 			window.ShowDialog();
 			if (window.Canceled)
 			{
+				window.Dispose();
 				return;
 			}
 			if (data.Count <= 1)
@@ -34,6 +35,16 @@ namespace ClassRoomHelper.Windows
 			}
 			SingleVoteWindow sw = new SingleVoteWindow();
 			sw.LoadData(data.ToList<string>());
+			sw.votebtn.Click += new EventHandler((_,__)=>
+			{
+				var ret=MessageBox.Show($"您已成功投票 给 \"{sw.choices.SelectedItem.ToString()}\" \r\n , 是否确认 ? \r\n, 这是您的最后修改机会 .", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Information); ;
+				if (ret == DialogResult.No) return;
+				else
+				{
+
+				}
+				// todo
+			});
 			sw.ShowDialog();
 
 		}

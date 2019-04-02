@@ -28,27 +28,25 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.comboBox1 = new System.Windows.Forms.ComboBox();
+			this.choices = new System.Windows.Forms.ComboBox();
 			this.modernButton2 = new RsWork.UI.Controls.ModernButton();
-			this.modernButton3 = new RsWork.UI.Controls.ModernButton();
+			this.votebtn = new RsWork.UI.Controls.ModernButton();
 			this.textLabel1 = new ClassRoomHelper.Windows.Controls.TextLabel();
 			this.titleLabel1 = new ClassRoomHelper.Windows.Controls.TitleLabel();
+			this.modernButton1 = new RsWork.UI.Controls.ModernButton();
 			this.SuspendLayout();
 			// 
-			// comboBox1
+			// choices
 			// 
-			this.comboBox1.Font = new System.Drawing.Font("黑体", 19F);
-			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Location = new System.Drawing.Point(72, 175);
-			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(376, 33);
-			this.comboBox1.TabIndex = 0;
+			this.choices.Font = new System.Drawing.Font("黑体", 19F);
+			this.choices.FormattingEnabled = true;
+			this.choices.Location = new System.Drawing.Point(72, 175);
+			this.choices.Name = "choices";
+			this.choices.Size = new System.Drawing.Size(376, 33);
+			this.choices.TabIndex = 0;
 			// 
 			// modernButton2
 			// 
-			this.modernButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
 			this.modernButton2.BackColor = System.Drawing.Color.Transparent;
 			this.modernButton2.BorderColor = System.Drawing.Color.White;
 			this.modernButton2.DisabledBorderColor = System.Drawing.Color.DarkGray;
@@ -60,7 +58,7 @@
 			this.modernButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.modernButton2.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
 			this.modernButton2.ForeColor = System.Drawing.Color.White;
-			this.modernButton2.Location = new System.Drawing.Point(262, 259);
+			this.modernButton2.Location = new System.Drawing.Point(342, 259);
 			this.modernButton2.Name = "modernButton2";
 			this.modernButton2.Size = new System.Drawing.Size(150, 42);
 			this.modernButton2.TabIndex = 4;
@@ -68,28 +66,25 @@
 			this.modernButton2.UseVisualStyleBackColor = false;
 			this.modernButton2.Click += new System.EventHandler(this.ModernButton2_Click);
 			// 
-			// modernButton3
+			// votebtn
 			// 
-			this.modernButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.modernButton3.BackColor = System.Drawing.Color.Transparent;
-			this.modernButton3.BorderColor = System.Drawing.Color.White;
-			this.modernButton3.DisabledBorderColor = System.Drawing.Color.DarkGray;
-			this.modernButton3.DisabledForeColor = System.Drawing.Color.DarkGray;
-			this.modernButton3.FlatAppearance.BorderColor = System.Drawing.Color.White;
-			this.modernButton3.FlatAppearance.BorderSize = 2;
-			this.modernButton3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-			this.modernButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.modernButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.modernButton3.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.modernButton3.ForeColor = System.Drawing.Color.White;
-			this.modernButton3.Location = new System.Drawing.Point(106, 259);
-			this.modernButton3.Name = "modernButton3";
-			this.modernButton3.Size = new System.Drawing.Size(150, 42);
-			this.modernButton3.TabIndex = 5;
-			this.modernButton3.Text = "投票";
-			this.modernButton3.UseVisualStyleBackColor = false;
+			this.votebtn.BackColor = System.Drawing.Color.Transparent;
+			this.votebtn.BorderColor = System.Drawing.Color.White;
+			this.votebtn.DisabledBorderColor = System.Drawing.Color.DarkGray;
+			this.votebtn.DisabledForeColor = System.Drawing.Color.DarkGray;
+			this.votebtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+			this.votebtn.FlatAppearance.BorderSize = 2;
+			this.votebtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+			this.votebtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.votebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.votebtn.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.votebtn.ForeColor = System.Drawing.Color.White;
+			this.votebtn.Location = new System.Drawing.Point(186, 259);
+			this.votebtn.Name = "votebtn";
+			this.votebtn.Size = new System.Drawing.Size(150, 42);
+			this.votebtn.TabIndex = 5;
+			this.votebtn.Text = "投票";
+			this.votebtn.UseVisualStyleBackColor = false;
 			// 
 			// textLabel1
 			// 
@@ -115,16 +110,37 @@
 			this.titleLabel1.TabIndex = 1;
 			this.titleLabel1.Text = "进行投票";
 			// 
+			// modernButton1
+			// 
+			this.modernButton1.BackColor = System.Drawing.Color.Transparent;
+			this.modernButton1.BorderColor = System.Drawing.Color.White;
+			this.modernButton1.DisabledBorderColor = System.Drawing.Color.DarkGray;
+			this.modernButton1.DisabledForeColor = System.Drawing.Color.DarkGray;
+			this.modernButton1.FlatAppearance.BorderColor = System.Drawing.Color.White;
+			this.modernButton1.FlatAppearance.BorderSize = 2;
+			this.modernButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+			this.modernButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.modernButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.modernButton1.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.modernButton1.ForeColor = System.Drawing.Color.White;
+			this.modernButton1.Location = new System.Drawing.Point(30, 259);
+			this.modernButton1.Name = "modernButton1";
+			this.modernButton1.Size = new System.Drawing.Size(150, 42);
+			this.modernButton1.TabIndex = 6;
+			this.modernButton1.Text = "弃权";
+			this.modernButton1.UseVisualStyleBackColor = false;
+			// 
 			// SingleVoteWindow
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
 			this.BackColor = System.Drawing.Color.DodgerBlue;
 			this.ClientSize = new System.Drawing.Size(529, 371);
-			this.Controls.Add(this.modernButton3);
+			this.Controls.Add(this.modernButton1);
+			this.Controls.Add(this.votebtn);
 			this.Controls.Add(this.modernButton2);
 			this.Controls.Add(this.textLabel1);
 			this.Controls.Add(this.titleLabel1);
-			this.Controls.Add(this.comboBox1);
+			this.Controls.Add(this.choices);
 			this.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
 			this.Margin = new System.Windows.Forms.Padding(5);
 			this.Name = "SingleVoteWindow";
@@ -136,11 +152,11 @@
 		}
 
 		#endregion
-
-		private System.Windows.Forms.ComboBox comboBox1;
 		private Controls.TitleLabel titleLabel1;
 		private Controls.TextLabel textLabel1;
 		private RsWork.UI.Controls.ModernButton modernButton2;
-		private RsWork.UI.Controls.ModernButton modernButton3;
+		public RsWork.UI.Controls.ModernButton votebtn;
+		public RsWork.UI.Controls.ModernButton modernButton1;
+		public System.Windows.Forms.ComboBox choices;
 	}
 }

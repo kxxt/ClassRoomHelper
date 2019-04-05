@@ -158,6 +158,7 @@
 			this.modernButton4.TabIndex = 7;
 			this.modernButton4.Text = "班级投票";
 			this.modernButton4.UseVisualStyleBackColor = false;
+			this.modernButton4.Click += new System.EventHandler(this.ModernButton4_Click_1);
 			// 
 			// Widget
 			// 

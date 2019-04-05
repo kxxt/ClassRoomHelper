@@ -68,6 +68,11 @@ namespace ClassRoomHelper.Windows
 			Program.Settings.DesktopToolLoc = this.Location;
 
 		}
+
+		private void ModernButton4_Click_1(object sender, EventArgs e)
+		{
+			new Vote().ShowDialog();
+		}
 	}
 	internal class User32
 	{

@@ -87,7 +87,7 @@
 			this.votebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.votebtn.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
 			this.votebtn.ForeColor = System.Drawing.Color.White;
-			this.votebtn.Location = new System.Drawing.Point(164, 0);
+			this.votebtn.Location = new System.Drawing.Point(164, 1);
 			this.votebtn.Margin = new System.Windows.Forms.Padding(2);
 			this.votebtn.Name = "votebtn";
 			this.votebtn.Size = new System.Drawing.Size(150, 42);
@@ -120,37 +120,37 @@
 			// 
 			// VoterLabel
 			// 
-			this.VoterLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.VoterLabel.AutoSize = true;
 			this.VoterLabel.BackColor = System.Drawing.Color.Transparent;
+			this.VoterLabel.Dock = System.Windows.Forms.DockStyle.Top;
 			this.VoterLabel.Font = new System.Drawing.Font("黑体", 20F);
 			this.VoterLabel.ForeColor = System.Drawing.Color.Yellow;
-			this.VoterLabel.Location = new System.Drawing.Point(174, 91);
+			this.VoterLabel.Location = new System.Drawing.Point(0, 67);
 			this.VoterLabel.Name = "VoterLabel";
-			this.VoterLabel.Size = new System.Drawing.Size(166, 27);
+			this.VoterLabel.Size = new System.Drawing.Size(529, 49);
 			this.VoterLabel.TabIndex = 2;
 			this.VoterLabel.Text = "当前投票人:";
+			this.VoterLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// titleLabel1
 			// 
-			this.titleLabel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.titleLabel1.AutoSize = true;
 			this.titleLabel1.BackColor = System.Drawing.Color.Transparent;
+			this.titleLabel1.Dock = System.Windows.Forms.DockStyle.Top;
 			this.titleLabel1.Font = new System.Drawing.Font("黑体", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
 			this.titleLabel1.ForeColor = System.Drawing.Color.White;
-			this.titleLabel1.Location = new System.Drawing.Point(151, 9);
+			this.titleLabel1.Location = new System.Drawing.Point(0, 0);
 			this.titleLabel1.Name = "titleLabel1";
-			this.titleLabel1.Size = new System.Drawing.Size(212, 48);
+			this.titleLabel1.Size = new System.Drawing.Size(529, 67);
 			this.titleLabel1.TabIndex = 1;
 			this.titleLabel1.Text = "进行投票";
+			this.titleLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.titleLabel1.Click += new System.EventHandler(this.TitleLabel1_Click);
 			// 
 			// panel1
 			// 
-			this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
 			this.panel1.Controls.Add(this.modernButton1);
 			this.panel1.Controls.Add(this.modernButton2);
 			this.panel1.Controls.Add(this.votebtn);
-			this.panel1.Location = new System.Drawing.Point(28, 227);
+			this.panel1.Location = new System.Drawing.Point(25, 252);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(477, 44);
 			this.panel1.TabIndex = 7;
@@ -159,7 +159,7 @@
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
 			this.BackColor = System.Drawing.Color.DodgerBlue;
-			this.ClientSize = new System.Drawing.Size(529, 371);
+			this.ClientSize = new System.Drawing.Size(529, 339);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.VoterLabel);
 			this.Controls.Add(this.titleLabel1);
@@ -173,10 +173,10 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "进行投票";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SingleVoteWindow_FormClosing);
+			this.Load += new System.EventHandler(this.SingleVoteWindow_Load);
 			this.Shown += new System.EventHandler(this.SingleVoteWindow_Shown);
 			this.panel1.ResumeLayout(false);
 			this.ResumeLayout(false);
-			this.PerformLayout();
 
 		}
 

@@ -52,7 +52,6 @@
     <Compile Include="Services\LateBindingOffice.cs" />
     <Compile Include="Services\TargetDirParser.cs" />
     <Compile Include="Services\WorkingState.cs" />
-    <Compile Include="VoteData.cs" />
     <Compile Include="Win32API.cs" />
     <Compile Include="DictionaryEx.cs" />
     <Compile Include="DebugLevel.cs" />

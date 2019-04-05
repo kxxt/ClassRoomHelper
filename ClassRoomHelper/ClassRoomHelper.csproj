@@ -40,6 +40,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -49,6 +50,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -69,6 +71,9 @@
     <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ChnCharInfo">
+      <HintPath>D:\VSIP\ChnCharInfo.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="RsWork.Functions">
       <HintPath>..\..\LessonDeliveryApp-InPratice\RsWork.Functions.dll</HintPath>
@@ -92,11 +97,13 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Speech" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Chinese.cs" />
     <Compile Include="Core.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -119,6 +126,12 @@
     </Compile>
     <Compile Include="Windows\BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ChoosingBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\ChoosingBoard.Designer.cs">
+      <DependentUpon>ChoosingBoard.cs</DependentUpon>
     </Compile>
     <Compile Include="Windows\Configuation.cs">
       <SubType>Form</SubType>
@@ -239,6 +252,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\ChoosingBoard.resx">
+      <DependentUpon>ChoosingBoard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\Configuation.resx">
       <DependentUpon>Configuation.cs</DependentUpon>

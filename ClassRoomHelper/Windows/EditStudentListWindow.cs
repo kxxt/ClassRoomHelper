@@ -10,12 +10,15 @@ namespace ClassRoomHelper.Windows
 		private bool ToCancel=true;
 		public bool Canceled = false;
 		bool WorkAsListEditor = false;
+		//int LastSelected=-1;
 		public void AsListEditor(string title,string hint, System.ComponentModel.BindingList<string> data)
 		{
 			listBox1.DataSource = data;
 			Text = title;
 			textLabel2.Text = hint;
 			WorkAsListEditor = true;
+			//BindingSource bs = new BindingSource();
+			//bs.
 		}
 		public EditStudentListWindow()
 		{
@@ -48,6 +51,10 @@ namespace ClassRoomHelper.Windows
 		private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			if (listBox1.SelectedIndex < 0) return;
+			//if(LastSelected>=0&&LastSelected<listBox1.Items.Count)
+			//(listBox1.DataSource as BindingList<string>)[LastSelected] = textBox1.Text;
+
+			//LastSelected = listBox1.SelectedIndex;
 			//if (listBox1.SelectedItem == null) MessageBox.Show("Fuck");
 			textBox1.Text = listBox1.Items[listBox1.SelectedIndex].ToString();
 		}
@@ -92,6 +99,7 @@ namespace ClassRoomHelper.Windows
 			{
 				if (DialogResult.Yes==MessageBox.Show("是否已编辑完毕 ?","提示",MessageBoxButtons.YesNo,MessageBoxIcon.Information))
 				{
+					//(listBox1.DataSource as BindingList<string>)[LastSelected] = textBox1.Text;
 					ToCancel = false;
 					this.Close();
 				}
@@ -149,6 +157,14 @@ namespace ClassRoomHelper.Windows
 				return;
 			}
 			MessageBox.Show("已保存","提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
+		}
+
+		private void TextBox1_TextChanged(object sender, EventArgs e)
+		{
+			/*if (LastSelected == listBox1.SelectedIndex)
+			{
+				listBox1.Text = textBox1.Text;
+			}*/
 		}
 	}
 }

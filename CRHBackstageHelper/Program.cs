@@ -34,6 +34,8 @@ namespace CRHBackstageHelper
 		/// <param name="args"></param>
 		public static int Main(string[] args)
 		{
+			AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(FatalError);
+
 			if (args.Length < 2)
 			{
 				Server();
@@ -127,10 +129,18 @@ namespace CRHBackstageHelper
 			{
 				Log.AppendException("Logs\\service.error",ex);
 			}
-			Console.ReadLine();
+			//Console.ReadLine();
 			return 0;
 			//
 		}
+
+		private static void FatalError(object sender, UnhandledExceptionEventArgs e)
+		{
+			Log.AppendException("service-fatal-error.log", (Exception)e.ExceptionObject);
+			//MessageBox.Show()
+			throw (Exception)e.ExceptionObject;
+		}
+
 		public static void init()
 		{
 			FileExistedSolution = FileExistedSolution.Copy;

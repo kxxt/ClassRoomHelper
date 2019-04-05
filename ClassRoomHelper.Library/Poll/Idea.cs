@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassRoomHelper.Library.Poll
 {
-	public class Idea
+	public class Idea:IComparable<Idea>
 	{
 		public static List<Idea> CreateIdeasFromList(List<string> list)
 		{
@@ -16,25 +16,41 @@ namespace ClassRoomHelper.Library.Poll
 				ret.Add(new Idea(s));
 			}
 			return ret;
-		} 
-		HashSet<string> people;
+		}
+		public static bool operator <(Idea i1,Idea i2)
+		{
+			return i1.Votes < i2.Votes;
+		}
+		public static bool operator ==(Idea i1, Idea i2)
+		{
+			return i1.Votes == i2.Votes;
+		}
+		public static bool operator !=(Idea i1, Idea i2)
+		{
+			return i1.Votes != i2.Votes;
+		}
+		public static bool operator >(Idea i1, Idea i2)
+		{
+			return i2.Votes < i1.Votes;
+		}
+		public HashSet<string> People;
 		public bool Add(string student)
 		{
-			if (people.Contains(student))
+			if (People.Contains(student))
 			{
 				return false;
 			}
 			else
 			{
-				people.Add(student);
+				People.Add(student);
 				return true;
 			}
 		}
 		public bool Remove(string student)
 		{
-			if (people.Contains(student))
+			if (People.Contains(student))
 			{
-				people.Remove(student);
+				People.Remove(student);
 				return true;
 			}
 			else
@@ -43,71 +59,85 @@ namespace ClassRoomHelper.Library.Poll
 				return false;
 			}
 		}
-		
+		public static string GetCSVHead()
+		{
+			return "选项,票数,投票人,";
+		}
 		public string GetCSVLine()
 		{
-			var ret=$"\"{Desp}\",{people.Count},";
-			foreach(var x in people)
+			var ret=$"\"{Desp}\",{People.Count},";
+			foreach(var x in People)
 			{
 				ret = ret + x+",";
 			}
-			return ret;
+			return ret+"\r\n";
 		}
-		/*
-		public bool UpVote(string student)
+
+		public int CompareTo(Idea other)
 		{
-			if (StudentInfo.ContainsKey(student))
-			{
-				if (StudentInfo[student])
-				{
-					return false;
-				}
-				else
-				{
-					StudentInfo[student] = true;
-					Votes++;
-					return true;
-				}
-			}
-			StudentInfo.Add(student, true);
+			if (this.Votes > other.Votes)
+				return -1;
+			else if (this.Votes == other.Votes)
+				return 0;
+			else
+				return 1;
+		}
+
+		/*
+public bool UpVote(string student)
+{
+	if (StudentInfo.ContainsKey(student))
+	{
+		if (StudentInfo[student])
+		{
+			return false;
+		}
+		else
+		{
+			StudentInfo[student] = true;
 			Votes++;
 			return true;
 		}
-		public bool DownVote(string student)
+	}
+	StudentInfo.Add(student, true);
+	Votes++;
+	return true;
+}
+public bool DownVote(string student)
+{
+	if (StudentInfo.ContainsKey(student))
+	{
+		if (StudentInfo[student])
 		{
-			if (StudentInfo.ContainsKey(student))
-			{
-				if (StudentInfo[student])
-				{
-					StudentInfo[student] = false;
-					Votes--;
-					return true;
-				}
-				else
-				{
-					
-					return false;
-				}
-			}
+			StudentInfo[student] = false;
+			Votes--;
+			return true;
+		}
+		else
+		{
+
 			return false;
 		}
-		Dictionary<string, bool> StudentInfo;*/
+	}
+	return false;
+}
+Dictionary<string, bool> StudentInfo;*/
 		public string Desp;
 		public int Votes { get
 			{
-				return people.Count;
+				return People.Count;
 			} }
 		//int Votes;
 		public Idea(string desp) {
 			Desp = desp;
-			people = new HashSet<string>();
+			People = new HashSet<string>();
 
 		}
 		public Idea()
 		{
 			Desp = "未命名";
 			//Votes = 0;
-			people = new HashSet<string>();
+			People = new HashSet<string>();
 			//StudentInfo = new Dictionary<string, bool>();
 		}
 	}

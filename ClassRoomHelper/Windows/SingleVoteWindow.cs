@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClassRoomHelper.Library.Poll;
 
 namespace ClassRoomHelper.Windows
 {
@@ -15,6 +16,8 @@ namespace ClassRoomHelper.Windows
 		private bool IsAlive = true;
 		NameSelectedWindow NameSelectedWindow;
 		public int CurrentVoterId;
+		public List<Idea> Ideas;
+		public List<string> GiveUppers;
 		public List<string> Voters;
 		Random random;
 
@@ -47,6 +50,7 @@ namespace ClassRoomHelper.Windows
 			if (Voters.Count > 0)
 			{
 				CurrentVoterId = random.Next(0, Voters.Count - 1);
+				choices.SelectedIndex = 0;
 				string str = "请"+Voters[CurrentVoterId]+"进行投票";
 				Service.Speak(str);
 				this.VoterLabel.Text = $"当前投票人: {Voters[CurrentVoterId]}";
@@ -61,6 +65,12 @@ namespace ClassRoomHelper.Windows
 		} 
 		public void LoadData(List<string> data,List<string> voters)
 		{
+			for(int i = 0; i < data.Count; i++)
+			{
+				Ideas.Add(new Idea(data[i]));
+			}
+			data.Insert(0, "未选择");
+
 			choices.DataSource = data;
 			Voters = voters;
 		}
@@ -69,6 +79,8 @@ namespace ClassRoomHelper.Windows
 			InitializeComponent();
 			random = new Random();
 			NameSelectedWindow = new NameSelectedWindow("请上台投票"," ");
+			Ideas = new List<Idea>();
+			GiveUppers = new List<string>();
 		}
 
 		private void ModernButton2_Click(object sender, EventArgs e)
@@ -83,10 +95,19 @@ namespace ClassRoomHelper.Windows
 
 		private void Votebtn_Click(object sender, EventArgs e)
 		{
+			if (choices.SelectedIndex == 0)
+			{
+				MessageBox.Show("请选择","提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
+				return;
+			}
 			if (ConfirmVote())
 			{
+				Ideas[choices.SelectedIndex - 1].Add(Voters[CurrentVoterId]);
 				RemoveCurrentVoter();
-				CallPersonToVote();
+				if (!CallPersonToVote())
+				{
+					EndVoting();
+				}
 			}
 		}
 
@@ -94,7 +115,9 @@ namespace ClassRoomHelper.Windows
 		{
 			if (ConfirmGivingUp())
 			{
+				GiveUppers.Add(Voters[CurrentVoterId]);
 				RemoveCurrentVoter();
+				
 				if (!CallPersonToVote())
 				{
 					EndVoting();
@@ -107,6 +130,14 @@ namespace ClassRoomHelper.Windows
 		{
 			//throw new NotImplementedException();
 			Service.Speak("投票顺利完成 , 请主办人员检查结果 .");
+			var x=new Idea("弃权");
+			GiveUppers.ForEach(i => x.Add(i));
+			Ideas.Add(x);
+			var w = new SingleVoteFinishedWindow();
+			w.LoadData(this.Ideas,this.Voters);
+			IsAlive = false;
+			this.Close();
+			w.ShowDialog();
 		}
 
 		private void SingleVoteWindow_Shown(object sender, EventArgs e)
@@ -124,6 +155,18 @@ namespace ClassRoomHelper.Windows
 					e.Cancel = true;
 				}
 			}
+		}
+
+		private void SingleVoteWindow_Load(object sender, EventArgs e)
+		{
+			Service.speech.SpeakAsyncCancelAll();
+			Service.Speak("投票活动开始 , 请投票人做好准备 .");
+
+		}
+
+		private void TitleLabel1_Click(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

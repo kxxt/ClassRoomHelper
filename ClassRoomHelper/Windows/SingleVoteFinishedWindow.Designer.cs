@@ -32,16 +32,19 @@
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SingleVoteFinishedWindow));
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.data = new System.Windows.Forms.DataGridView();
 			this.defaultButton1 = new ClassRoomHelper.Windows.Controls.DefaultButton();
 			this.defaultButton2 = new ClassRoomHelper.Windows.Controls.DefaultButton();
 			this.titleLabel1 = new ClassRoomHelper.Windows.Controls.TitleLabel();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			this.Option = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Result = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Voter = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			((System.ComponentModel.ISupportInitialize)(this.data)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// dataGridView1
+			// data
 			// 
-			this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+			this.data.BackgroundColor = System.Drawing.Color.White;
 			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
 			dataGridViewCellStyle1.Font = new System.Drawing.Font("黑体", 20F);
@@ -49,8 +52,12 @@
 			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
 			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
 			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.data.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			this.data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.data.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Option,
+            this.Result,
+            this.Voter});
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
 			dataGridViewCellStyle2.Font = new System.Drawing.Font("黑体", 20F);
@@ -58,10 +65,10 @@
 			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
 			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
 			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-			this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.dataGridView1.Location = new System.Drawing.Point(0, 48);
-			this.dataGridView1.Name = "dataGridView1";
+			this.data.DefaultCellStyle = dataGridViewCellStyle2;
+			this.data.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.data.Location = new System.Drawing.Point(0, 48);
+			this.data.Name = "data";
 			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
 			dataGridViewCellStyle3.Font = new System.Drawing.Font("黑体", 20F);
@@ -69,11 +76,11 @@
 			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
 			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
 			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-			this.dataGridView1.RowTemplate.Height = 23;
-			this.dataGridView1.Size = new System.Drawing.Size(800, 402);
-			this.dataGridView1.TabIndex = 0;
-			this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
+			this.data.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+			this.data.RowTemplate.Height = 35;
+			this.data.Size = new System.Drawing.Size(800, 402);
+			this.data.TabIndex = 0;
+			this.data.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
 			// 
 			// defaultButton1
 			// 
@@ -88,6 +95,7 @@
 			this.defaultButton1.TabIndex = 1;
 			this.defaultButton1.Text = "保存结果";
 			this.defaultButton1.UseVisualStyleBackColor = false;
+			this.defaultButton1.Click += new System.EventHandler(this.DefaultButton1_Click);
 			// 
 			// defaultButton2
 			// 
@@ -102,6 +110,7 @@
 			this.defaultButton2.TabIndex = 2;
 			this.defaultButton2.Text = "宣布结果";
 			this.defaultButton2.UseVisualStyleBackColor = false;
+			this.defaultButton2.Click += new System.EventHandler(this.DefaultButton2_Click);
 			// 
 			// titleLabel1
 			// 
@@ -116,6 +125,26 @@
 			this.titleLabel1.Text = "恭喜您 , 投票顺利结束";
 			this.titleLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
+			// Option
+			// 
+			this.Option.HeaderText = "选项";
+			this.Option.Name = "Option";
+			this.Option.ReadOnly = true;
+			this.Option.Width = 200;
+			// 
+			// Result
+			// 
+			this.Result.HeaderText = "计数";
+			this.Result.Name = "Result";
+			this.Result.ReadOnly = true;
+			// 
+			// Voter
+			// 
+			this.Voter.HeaderText = "投票人";
+			this.Voter.Name = "Voter";
+			this.Voter.ReadOnly = true;
+			this.Voter.Width = 1000;
+			// 
 			// SingleVoteFinishedWindow
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -125,7 +154,7 @@
 			this.Controls.Add(this.titleLabel1);
 			this.Controls.Add(this.defaultButton2);
 			this.Controls.Add(this.defaultButton1);
-			this.Controls.Add(this.dataGridView1);
+			this.Controls.Add(this.data);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
@@ -133,16 +162,19 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "投票结束";
 			this.TopMost = true;
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.data)).EndInit();
 			this.ResumeLayout(false);
 
 		}
 
 		#endregion
 
-		private System.Windows.Forms.DataGridView dataGridView1;
+		private System.Windows.Forms.DataGridView data;
 		private Controls.DefaultButton defaultButton1;
 		private Controls.DefaultButton defaultButton2;
 		private Controls.TitleLabel titleLabel1;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Option;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Result;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Voter;
 	}
 }

@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Vote));
 			this.modernButton1 = new RsWork.UI.Controls.ModernButton();
 			this.titleLabel1 = new ClassRoomHelper.Windows.Controls.TitleLabel();
 			this.modernButton2 = new RsWork.UI.Controls.ModernButton();
@@ -73,9 +74,7 @@
 			// 
 			// modernButton2
 			// 
-			this.modernButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.modernButton2.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.modernButton2.BackColor = System.Drawing.Color.Transparent;
 			this.modernButton2.BorderColor = System.Drawing.Color.White;
 			this.modernButton2.DisabledBorderColor = System.Drawing.Color.DarkGray;
@@ -91,14 +90,13 @@
 			this.modernButton2.Name = "modernButton2";
 			this.modernButton2.Size = new System.Drawing.Size(159, 319);
 			this.modernButton2.TabIndex = 2;
-			this.modernButton2.Text = "简单选人\r\n\r\n从班级的所有学生中经投票选出一名候选人";
+			this.modernButton2.Text = "简单选人\r\n\r\n每人限投一票";
 			this.modernButton2.UseVisualStyleBackColor = false;
+			this.modernButton2.Click += new System.EventHandler(this.ModernButton2_Click);
 			// 
 			// modernButton3
 			// 
-			this.modernButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.modernButton3.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.modernButton3.BackColor = System.Drawing.Color.Transparent;
 			this.modernButton3.BorderColor = System.Drawing.Color.White;
 			this.modernButton3.DisabledBorderColor = System.Drawing.Color.DarkGray;
@@ -114,14 +112,12 @@
 			this.modernButton3.Name = "modernButton3";
 			this.modernButton3.Size = new System.Drawing.Size(159, 319);
 			this.modernButton3.TabIndex = 3;
-			this.modernButton3.Text = "复杂选人\r\n\r\n从班级的所有学生中经投票选出多名候选人";
+			this.modernButton3.Text = "复杂选人\r\n\r\n每人可投多票";
 			this.modernButton3.UseVisualStyleBackColor = false;
 			// 
 			// modernButton4
 			// 
-			this.modernButton4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.modernButton4.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.modernButton4.BackColor = System.Drawing.Color.Transparent;
 			this.modernButton4.BorderColor = System.Drawing.Color.White;
 			this.modernButton4.DisabledBorderColor = System.Drawing.Color.DarkGray;
@@ -150,7 +146,11 @@
 			this.Controls.Add(this.modernButton2);
 			this.Controls.Add(this.titleLabel1);
 			this.Controls.Add(this.modernButton1);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "Vote";
+			this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "班级投票";
 			this.ResumeLayout(false);

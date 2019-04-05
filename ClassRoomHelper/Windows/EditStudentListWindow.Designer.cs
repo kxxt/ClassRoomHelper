@@ -69,16 +69,16 @@
 			// 
 			// textLabel2
 			// 
-			this.textLabel2.AutoSize = true;
 			this.textLabel2.BackColor = System.Drawing.Color.Transparent;
-			this.textLabel2.Dock = System.Windows.Forms.DockStyle.Top;
+			this.textLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.textLabel2.Font = new System.Drawing.Font("黑体", 16F);
 			this.textLabel2.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.textLabel2.Location = new System.Drawing.Point(0, 324);
 			this.textLabel2.Name = "textLabel2";
-			this.textLabel2.Size = new System.Drawing.Size(164, 154);
+			this.textLabel2.Size = new System.Drawing.Size(178, 188);
 			this.textLabel2.TabIndex = 7;
-			this.textLabel2.Text = "您也可以编辑\r\n程序目录下的\r\nstulist.txt\r\n文件来导入\r\n学生信息.\r\n( 文件格式:\r\n每行一个名字 )\r\n";
+			this.textLabel2.Text = "您也可以编辑程序目录下的stulist.txt文件来导入学生信息.\r\n( 文件格式:每行一个名字 )\r\n";
+			this.textLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// defaultButton4
 			// 
@@ -92,6 +92,7 @@
 			this.defaultButton4.Size = new System.Drawing.Size(178, 68);
 			this.defaultButton4.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
 			this.defaultButton4.TabIndex = 6;
+			this.defaultButton4.Text = "保存信息";
 			this.defaultButton4.Click += new System.EventHandler(this.DefaultButton4_Click);
 			// 
 			// defaultButton3
@@ -106,6 +107,7 @@
 			this.defaultButton3.Size = new System.Drawing.Size(178, 68);
 			this.defaultButton3.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
 			this.defaultButton3.TabIndex = 5;
+			this.defaultButton3.Text = "确定编辑";
 			this.defaultButton3.Click += new System.EventHandler(this.DefaultButton3_Click);
 			// 
 			// textBox1
@@ -116,6 +118,7 @@
 			this.textBox1.Name = "textBox1";
 			this.textBox1.Size = new System.Drawing.Size(178, 30);
 			this.textBox1.TabIndex = 4;
+			this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
 			// 
 			// textLabel1
 			// 
@@ -142,6 +145,7 @@
 			this.defaultButton2.Size = new System.Drawing.Size(178, 68);
 			this.defaultButton2.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
 			this.defaultButton2.TabIndex = 1;
+			this.defaultButton2.Text = "删除元素";
 			this.defaultButton2.Click += new System.EventHandler(this.DefaultButton2_Click);
 			// 
 			// defaultButton1
@@ -156,6 +160,7 @@
 			this.defaultButton1.Size = new System.Drawing.Size(178, 68);
 			this.defaultButton1.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
 			this.defaultButton1.TabIndex = 0;
+			this.defaultButton1.Text = "添加元素";
 			this.defaultButton1.Click += new System.EventHandler(this.DefaultButton1_Click);
 			// 
 			// listBox1

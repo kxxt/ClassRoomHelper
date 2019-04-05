@@ -222,7 +222,7 @@ namespace CRHBackstageHelper
 				x.Write(ref data, 0);
 				Thread.Sleep(1000);
 			}
-			return 0;
+			
 		}
 
 		static void Copy((string, string) info, string tdir)

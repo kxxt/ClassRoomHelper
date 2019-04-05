@@ -186,6 +186,12 @@
     <Compile Include="Windows\OpenUDiskWindow.Designer.cs">
       <DependentUpon>OpenUDiskWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Windows\SingleVoteFinishedWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\SingleVoteFinishedWindow.Designer.cs">
+      <DependentUpon>SingleVoteFinishedWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\SingleVoteWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -267,6 +273,9 @@
     <EmbeddedResource Include="Windows\OpenUDiskWindow.resx">
       <DependentUpon>OpenUDiskWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Windows\SingleVoteFinishedWindow.resx">
+      <DependentUpon>SingleVoteFinishedWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Windows\SingleVoteWindow.resx">
       <DependentUpon>SingleVoteWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -334,9 +343,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="FirstRun">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="FirstRun" />
     <Content Include="Intro.txt" />
     <Content Include="require.txt" />
     <Content Include="Resources\Pic-Big\0-big.png" />

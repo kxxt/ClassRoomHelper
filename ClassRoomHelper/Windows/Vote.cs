@@ -12,6 +12,30 @@ namespace ClassRoomHelper.Windows
 {
 	public partial class Vote : Form
 	{
+		private List<string> GatherVoterInfo()
+		{
+			//var ret = new List<string>();
+			BindingList<string> data = new BindingList<string>();
+			foreach(var x in Program.NameSelector.Names)
+			{
+				data.Add(x);
+			}
+			EditStudentListWindow window = new EditStudentListWindow();
+			window.AsListEditor("编辑投票人", "编辑投票人", data);
+			window.ShowDialog();
+			if (window.Canceled)
+			{
+				window.Dispose();
+				return null;
+			}
+			if (data.Count <= 1)
+			{
+				MessageBox.Show("由于选项不足,投票已取消.", "取消投票", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+				return null;
+			}
+			return data.ToList();
+
+		}
 		public Vote()
 		{
 			InitializeComponent();
@@ -21,31 +45,35 @@ namespace ClassRoomHelper.Windows
 		{
 			BindingList<string> data = new BindingList<string>();
 			EditStudentListWindow window = new EditStudentListWindow();
-			window.AsListEditor("编辑选项","编辑选项",data);
+			window.AsListEditor("编辑选项","编辑选项,\r\n请在编辑完成后点击保存按钮",data);
 			window.ShowDialog();
 			if (window.Canceled)
 			{
 				window.Dispose();
 				return;
 			}
-			if (data.Count <= 1)
+			else if (data.Count <= 1)
 			{
 				MessageBox.Show("由于选项不足,投票已取消.","取消投票",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
 				return;
 			}
-			SingleVoteWindow sw = new SingleVoteWindow();
-			sw.LoadData(data.ToList<string>());
-			sw.votebtn.Click += new EventHandler((_,__)=>
+			var voters = GatherVoterInfo();
+			if (voters==null)
 			{
-				var ret=MessageBox.Show($"您已成功投票 给 \"{sw.choices.SelectedItem.ToString()}\" \r\n , 是否确认 ? \r\n, 这是您的最后修改机会 .", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Information); ;
-				if (ret == DialogResult.No) return;
-				else
-				{
-
-				}
-				// todo
-			});
+				return;
+			}
+			else if (data.Count <= 1)
+			{
+				MessageBox.Show("由于投票人不足,投票已取消.", "取消投票", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+				return;
+			}
+			SingleVoteWindow sw = new SingleVoteWindow();
+			sw.LoadData(data.ToList<string>(),voters);
 			sw.ShowDialog();
+			if (sw.Canceled)
+			{
+				return;
+			}
 
 		}
 	}

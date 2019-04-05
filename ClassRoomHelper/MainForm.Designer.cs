@@ -281,7 +281,7 @@
 			this.defaultButton10.Location = new System.Drawing.Point(34, 188);
 			this.defaultButton10.Name = "defaultButton10";
 			this.defaultButton10.Size = new System.Drawing.Size(116, 72);
-			this.defaultButton10.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+			this.defaultButton10.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image13")));
 			this.defaultButton10.TabIndex = 17;
 			this.defaultButton10.Text = "班级投票";
 			this.defaultButton10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;

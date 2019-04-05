@@ -91,7 +91,7 @@
 			this.modernButton2.Name = "modernButton2";
 			this.modernButton2.Size = new System.Drawing.Size(159, 319);
 			this.modernButton2.TabIndex = 2;
-			this.modernButton2.Text = "简单选人\r\n\r\n从班级的所有学生中经投票为一项活动选出几名候选人";
+			this.modernButton2.Text = "简单选人\r\n\r\n从班级的所有学生中经投票选出一名候选人";
 			this.modernButton2.UseVisualStyleBackColor = false;
 			// 
 			// modernButton3
@@ -114,7 +114,7 @@
 			this.modernButton3.Name = "modernButton3";
 			this.modernButton3.Size = new System.Drawing.Size(159, 319);
 			this.modernButton3.TabIndex = 3;
-			this.modernButton3.Text = "复杂选人\r\n\r\n从班级的所有学生中经投票为多项项活动选出几名候选人";
+			this.modernButton3.Text = "复杂选人\r\n\r\n从班级的所有学生中经投票选出多名候选人";
 			this.modernButton3.UseVisualStyleBackColor = false;
 			// 
 			// modernButton4

@@ -7,6 +7,7 @@ namespace ClassRoomHelper.Windows
 {
 	public partial class EditStudentListWindow : RsWork.UI.Windows.BasicNoneBorderWinForm
 	{
+		private bool ToCancel=true;
 		public bool Canceled = false;
 		bool WorkAsListEditor = false;
 		public void AsListEditor(string title,string hint, System.ComponentModel.BindingList<string> data)
@@ -89,8 +90,14 @@ namespace ClassRoomHelper.Windows
 		{
 			if (WorkAsListEditor)
 			{
+				if (DialogResult.Yes==MessageBox.Show("是否已编辑完毕 ?","提示",MessageBoxButtons.YesNo,MessageBoxIcon.Information))
+				{
+					ToCancel = false;
+					this.Close();
+				}
 				return;
 			}
+				
 			try
 			{
 				Program.NameSelector.Save("stulist.txt");
@@ -118,14 +125,16 @@ namespace ClassRoomHelper.Windows
 		{
 			if (WorkAsListEditor)
 			{
+				if (!ToCancel) return;
 				var ret = MessageBox.Show("确定要取消投票吗?","取消",MessageBoxButtons.OKCancel,MessageBoxIcon.Information);
 				switch (ret)
 				{
 					case DialogResult.OK:
+						Canceled = true;
 						return;
 					default:
 						e.Cancel = true;
-						Canceled = true;
+						Canceled = false;
 						return;
 				}
 			}

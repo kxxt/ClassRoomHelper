@@ -20,6 +20,10 @@ namespace ClassRoomHelper
 		}
 		private static ProcessStartInfo explorer;
 		public static SpeechSynthesizer speech = new SpeechSynthesizer();
+		public static void Speak(string info)
+		{
+			speech.SpeakAsync(info);
+		}
 		public static void ChooseNameRandomly()
 		{
 			var t = Program.NameSelector.ChooseRandomly();
@@ -28,7 +32,7 @@ namespace ClassRoomHelper
 				MessageBox.Show("没有可用的学生信息");
 				return;
 			}
-			if (Properties.Settings.Default.VoiceNameCallOut)
+			if (Program.Settings.VoiceNameCallOut)
 			{
 				if (Program.Settings.NameCallOutPre == null) Program.Settings.NameCallOutPre = "";
 				if (Program.Settings.NameCallOutPost == null) Program.Settings.NameCallOutPost = "";

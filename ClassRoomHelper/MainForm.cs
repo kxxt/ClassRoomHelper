@@ -7,7 +7,7 @@ namespace ClassRoomHelper
 {
 	public partial class MainForm : RsWork.UI.Windows.BasicNoneBorderWinForm
 	{
-		Configuation configuation;
+		//Configuation configuation;
 		//public SpeechSynthesizer speech=new SpeechSynthesizer();
 		public MainForm()
 		{
@@ -51,7 +51,7 @@ namespace ClassRoomHelper
 				//configuationx = null;
 				//GC.Collect();
 			}
-			FreeMemory.ClearMemory();
+			//FreeMemory.ClearMemory();
 		}
 
 		private void DefaultButton3_Click(object sender, EventArgs e)
@@ -161,8 +161,8 @@ namespace ClassRoomHelper
 
 		private void DefaultButton10_Click(object sender, EventArgs e)
 		{
-			MessageBox.Show("功能暂未开放,敬请期待","提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
-			//new Vote().ShowDialog();
+			//MessageBox.Show("功能暂未开放,敬请期待","提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
+			new Vote().ShowDialog();
 		}
 	}
 }

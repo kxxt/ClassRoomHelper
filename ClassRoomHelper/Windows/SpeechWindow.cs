@@ -23,6 +23,7 @@ namespace ClassRoomHelper.Windows
 
 		private void DefaultButton1_Click(object sender, EventArgs e)
 		{
+			Service.speech.SpeakAsyncCancelAll();
 			Service.speech.SpeakStarted += new EventHandler<SpeakStartedEventArgs>((_,__)=>
 			{
 				defaultButton3.Enabled = false;
@@ -31,6 +32,7 @@ namespace ClassRoomHelper.Windows
 			{
 				defaultButton3.Enabled = true;
 			});
+			
 			Service.speech.SpeakAsync(textBox1.Text);
 		}
 

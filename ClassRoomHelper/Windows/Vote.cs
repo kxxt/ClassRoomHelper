@@ -126,5 +126,10 @@ namespace ClassRoomHelper.Windows
 				return;
 			}
 		}
+
+		private void ModernButton3_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

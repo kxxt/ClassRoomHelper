@@ -181,6 +181,12 @@
     <Compile Include="Windows\HelperWindow.Designer.cs">
       <DependentUpon>HelperWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Windows\MultiVoteSettingDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\MultiVoteSettingDialog.Designer.cs">
+      <DependentUpon>MultiVoteSettingDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\NameSelectedWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -279,6 +285,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\HelperWindow.resx">
       <DependentUpon>HelperWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\MultiVoteSettingDialog.resx">
+      <DependentUpon>MultiVoteSettingDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\NameSelectedWindow.resx">
       <DependentUpon>NameSelectedWindow.cs</DependentUpon>

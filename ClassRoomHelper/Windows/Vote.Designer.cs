@@ -114,6 +114,7 @@
 			this.modernButton3.TabIndex = 3;
 			this.modernButton3.Text = "复杂选人\r\n\r\n每人可投多票";
 			this.modernButton3.UseVisualStyleBackColor = false;
+			this.modernButton3.Click += new System.EventHandler(this.ModernButton3_Click);
 			// 
 			// modernButton4
 			// 

@@ -15,6 +15,10 @@ namespace ClassRoomHelper.Library.Services
 {
 	public static class ActiveFileController
 	{
+		public static void  ExtractPPTExternalDependencies(Powerpoint.Presentation ppt)
+		{
+			//ppt.Slides[0].
+		}
 		public static List<(string,string)> GetWord()
 		{
 			List<(string, string)> ret = new List<(string, string)>();

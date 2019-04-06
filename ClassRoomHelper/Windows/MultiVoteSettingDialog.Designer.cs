@@ -73,8 +73,9 @@
 			// 
 			// maskedTextBox1
 			// 
+			this.maskedTextBox1.AsciiOnly = true;
 			this.maskedTextBox1.Location = new System.Drawing.Point(155, 53);
-			this.maskedTextBox1.Mask = "99999";
+			this.maskedTextBox1.Mask = "9999999";
 			this.maskedTextBox1.Name = "maskedTextBox1";
 			this.maskedTextBox1.Size = new System.Drawing.Size(100, 35);
 			this.maskedTextBox1.TabIndex = 4;
@@ -111,6 +112,7 @@
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "投票设置";
+			this.Load += new System.EventHandler(this.MultiVoteSettingDialog_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

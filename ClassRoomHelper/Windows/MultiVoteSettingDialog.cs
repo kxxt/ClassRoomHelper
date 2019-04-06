@@ -24,7 +24,7 @@ namespace ClassRoomHelper.Windows
 		}
 		public (bool 弃权,bool 多选,int Max) Get()
 		{
-			return (checkBox2.Checked, checkBox1.Checked, Int32.Parse(maskedTextBox1.Text));
+			return (checkBox1.Checked, checkBox2.Checked, Int32.Parse(maskedTextBox1.Text));
 		}
 		private void DefaultButton1_Click(object sender, EventArgs e)
 		{
@@ -47,6 +47,11 @@ namespace ClassRoomHelper.Windows
 		}
 
 		private void MaskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+		{
+
+		}
+
+		private void MultiVoteSettingDialog_Load(object sender, EventArgs e)
 		{
 
 		}

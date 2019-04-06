@@ -105,8 +105,10 @@ namespace ClassRoomHelper.Windows
 			}
 			window = new EditStudentListWindow();
 			window.AsListEditor("编辑投票人", "编辑投票人,\r\n请在编辑完成后点击保存按钮",voters);
-			if (voters == null)
+			window.ShowDialog();
+			if (window.Canceled)
 			{
+				window.Dispose();
 				return;
 			}
 			else if (voters.Count <= 1)
@@ -152,8 +154,10 @@ namespace ClassRoomHelper.Windows
 			}
 			window = new EditStudentListWindow();
 			window.AsListEditor("编辑投票人", "编辑投票人,\r\n请在编辑完成后点击保存按钮", voters);
-			if (voters == null)
+			window.ShowDialog();
+			if (window.Canceled)
 			{
+				window.Dispose();
 				return;
 			}
 			else if (voters.Count <= 1)
@@ -165,10 +169,16 @@ namespace ClassRoomHelper.Windows
 			sw.count = data.Count;
 			sw.ShowDialog();
 			(enableGivingup,enableNEnough,max)=sw.Get();
-			ChoosingBoard cb = new ChoosingBoard();
+			var mw = new MultiVoteWindow();
+			mw.MaxLim = max;
+			mw.EnableNEnough = enableNEnough;
+			mw.LoadData(data.ToList(),voters.ToList());
+			if (!enableGivingup) mw.DisableGivingUp();
+			mw.ShowDialog();
+			/*ChoosingBoard cb = new ChoosingBoard();
 			cb.MaxCheckCnt = max;
 			cb.LoadData(data);
-			cb.ShowDialog();
+			cb.ShowDialog();*/
 		}
 	}
 }

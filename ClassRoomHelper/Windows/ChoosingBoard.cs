@@ -12,6 +12,8 @@ namespace ClassRoomHelper.Windows
 {
 	public partial class ChoosingBoard : Form
 	{
+		public bool Renewal=false;
+		public bool EnableNEnough;
 		public int MaxCheckCnt;
 		public int Checked;
 		public IList<string> data;
@@ -19,17 +21,22 @@ namespace ClassRoomHelper.Windows
 		{
 
 		}
-		public Dictionary<(char, int), (bool 选择,int 对应码,int 列表码)> Reflexs;
+		public Dictionary<(char, int), (bool 选择,int 对应码)> Reflexs;
 		public CheckedListBox[] CheckedListBoxes;
+
+		public bool Okey { get; private set; }
+
 		public void UncheckAll()
 		{
 			foreach(var x in CheckedListBoxes)
 			{
-
-				x.ClearSelected();
-				
+				foreach(int y in x.CheckedIndices)
+				{
+					x.SetItemChecked(y, false);
+				}
 			}
 		}
+		
 		public void LoadData(IList<string> data)
 		{
 			this.data = data;
@@ -43,7 +50,7 @@ namespace ClassRoomHelper.Windows
 					id= 0;
 				}
 				else id= CheckedListBoxes[init - 'A' + 1].Items.Add(x, false);
-				Reflexs.Add((init, id), (false,i,-1));
+				Reflexs.Add((init, id), (false,i));
 			}
 		
 		}
@@ -52,7 +59,7 @@ namespace ClassRoomHelper.Windows
 			InitializeComponent();
 			CheckedListBoxes = new CheckedListBox[27];
 			Checked= 0;
-			Reflexs = new Dictionary<(char, int), (bool,int,int)>();
+			Reflexs = new Dictionary<(char, int), (bool,int)>();
 			//var list = (System.Collections.IList);
 			for (int i = 0; i <= 26; i++)
 			{
@@ -81,11 +88,10 @@ namespace ClassRoomHelper.Windows
 							int x = listBox1.Items.Add(data[
 										Reflexs[((char)((char)(tmp - 1) + 'A'), e.Index)].对应码
 									]);
-							MessageBox.Show(x.ToString());
+							//MessageBox.Show(x.ToString());
 							Reflexs[((char)((char)(tmp - 1) + 'A'), e.Index)] = (
 								true,
-								Reflexs[((char)((char)(tmp - 1) + 'A'), e.Index)].对应码,
-									x
+								Reflexs[((char)((char)(tmp - 1) + 'A'), e.Index)].对应码
 							);
 							//textBox1.Text = FormatSet();
 							
@@ -94,11 +100,11 @@ namespace ClassRoomHelper.Windows
 						else
 						{
 							
-							var x = Reflexs[((char)((char)(tmp - 1) + 'A'), e.Index)].列表码;
-							MessageBox.Show(x.ToString());
-							if (x >= 0) listBox1.Items.RemoveAt(x);
+							var x = Reflexs[((char)((char)(tmp - 1) + 'A'), e.Index)].对应码;
+							//MessageBox.Show(x.ToString());
+							if (x >= 0) listBox1.Items.Remove(data[x]);
 							
-							Reflexs[((char)((char)(tmp - 1) + 'A'), e.Index)]= (false, Reflexs[((char)((char)(tmp - 1) + 'A'), e.Index)].对应码,-1);
+							Reflexs[((char)((char)(tmp - 1) + 'A'), e.Index)]= (false, Reflexs[((char)((char)(tmp - 1) + 'A'), e.Index)].对应码);
 							//textBox1.Text = FormatSet();
 							--Checked;
 						}
@@ -120,6 +126,59 @@ namespace ClassRoomHelper.Windows
 			if (ConfirmGivingUp())
 			{
 				throw new NotImplementedException();
+			}
+		}
+
+		private void ChoosingBoard_Load(object sender, EventArgs e)
+		{
+
+		}
+
+		private void ChoosingBoard_Shown(object sender, EventArgs e)
+		{
+			if (!Okey) return;
+			this.UncheckAll();
+			this.tabControl.SelectedIndex = 27;
+			Okey = false;
+		}
+
+		private void DefaultButton2_Click(object sender, EventArgs e)
+		{
+			this.UncheckAll();
+		}
+
+		private void DefaultButton1_Click(object sender, EventArgs e)
+		{
+			if (Checked < MaxCheckCnt)
+			{
+				if (EnableNEnough)
+				{
+					if (
+						DialogResult.Yes ==
+						MessageBox.Show(
+							$"您还有{MaxCheckCnt - Checked}次投票机会未使用,\r\n您确定要这样做吗 ?",
+							"问题",
+							MessageBoxButtons.YesNo,
+							MessageBoxIcon.Information
+					)) { this.Hide();Okey = true; };
+
+				}
+				else
+				{
+					MessageBox.Show($"您还没有投够{MaxCheckCnt}票 , 请返回投票 .","提示",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+
+				}
+			}
+			else
+			{
+				if (
+						DialogResult.Yes ==
+						MessageBox.Show(
+							$"您是否确认您的投票无误?\r\n这是您的最后修改机会 ?",
+							"问题",
+							MessageBoxButtons.YesNo,
+							MessageBoxIcon.Information
+					)) { this.Hide();Okey = true; }
 			}
 		}
 	}

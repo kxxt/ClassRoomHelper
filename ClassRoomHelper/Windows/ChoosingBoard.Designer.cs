@@ -101,15 +101,15 @@
 			this.tabControl.Multiline = true;
 			this.tabControl.Name = "tabControl";
 			this.tabControl.SelectedIndex = 0;
-			this.tabControl.Size = new System.Drawing.Size(851, 528);
+			this.tabControl.Size = new System.Drawing.Size(764, 591);
 			this.tabControl.TabIndex = 0;
 			// 
 			// tabPage28
 			// 
-			this.tabPage28.Location = new System.Drawing.Point(4, 94);
+			this.tabPage28.Location = new System.Drawing.Point(4, 124);
 			this.tabPage28.Name = "tabPage28";
 			this.tabPage28.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage28.Size = new System.Drawing.Size(843, 430);
+			this.tabPage28.Size = new System.Drawing.Size(756, 463);
 			this.tabPage28.TabIndex = 24;
 			this.tabPage28.Text = "其他";
 			this.tabPage28.UseVisualStyleBackColor = true;
@@ -117,30 +117,30 @@
 			// tabPage1
 			// 
 			this.tabPage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.tabPage1.Location = new System.Drawing.Point(4, 40);
+			this.tabPage1.Location = new System.Drawing.Point(4, 124);
 			this.tabPage1.Name = "tabPage1";
 			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage1.Size = new System.Drawing.Size(843, 484);
+			this.tabPage1.Size = new System.Drawing.Size(756, 463);
 			this.tabPage1.TabIndex = 0;
 			this.tabPage1.Text = "A";
 			this.tabPage1.UseVisualStyleBackColor = true;
 			// 
 			// tabPage2
 			// 
-			this.tabPage2.Location = new System.Drawing.Point(4, 40);
+			this.tabPage2.Location = new System.Drawing.Point(4, 124);
 			this.tabPage2.Name = "tabPage2";
 			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage2.Size = new System.Drawing.Size(843, 484);
+			this.tabPage2.Size = new System.Drawing.Size(756, 463);
 			this.tabPage2.TabIndex = 1;
 			this.tabPage2.Text = "B";
 			this.tabPage2.UseVisualStyleBackColor = true;
 			// 
 			// tabPage3
 			// 
-			this.tabPage3.Location = new System.Drawing.Point(4, 40);
+			this.tabPage3.Location = new System.Drawing.Point(4, 124);
 			this.tabPage3.Name = "tabPage3";
 			this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage3.Size = new System.Drawing.Size(843, 484);
+			this.tabPage3.Size = new System.Drawing.Size(756, 463);
 			this.tabPage3.TabIndex = 2;
 			this.tabPage3.Text = "C";
 			this.tabPage3.UseVisualStyleBackColor = true;
@@ -207,10 +207,10 @@
 			// 
 			// tabPage10
 			// 
-			this.tabPage10.Location = new System.Drawing.Point(4, 40);
+			this.tabPage10.Location = new System.Drawing.Point(4, 124);
 			this.tabPage10.Name = "tabPage10";
 			this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage10.Size = new System.Drawing.Size(843, 484);
+			this.tabPage10.Size = new System.Drawing.Size(756, 463);
 			this.tabPage10.TabIndex = 9;
 			this.tabPage10.Text = "J";
 			this.tabPage10.UseVisualStyleBackColor = true;
@@ -287,10 +287,10 @@
 			// 
 			// tabPage18
 			// 
-			this.tabPage18.Location = new System.Drawing.Point(4, 40);
+			this.tabPage18.Location = new System.Drawing.Point(4, 124);
 			this.tabPage18.Name = "tabPage18";
 			this.tabPage18.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage18.Size = new System.Drawing.Size(843, 484);
+			this.tabPage18.Size = new System.Drawing.Size(756, 463);
 			this.tabPage18.TabIndex = 17;
 			this.tabPage18.Text = "R";
 			this.tabPage18.UseVisualStyleBackColor = true;
@@ -379,29 +379,32 @@
 			this.tabPage27.Controls.Add(this.defaultButton2);
 			this.tabPage27.Controls.Add(this.defaultButton1);
 			this.tabPage27.Controls.Add(this.textLabel1);
-			this.tabPage27.Location = new System.Drawing.Point(4, 94);
+			this.tabPage27.Location = new System.Drawing.Point(4, 124);
 			this.tabPage27.Name = "tabPage27";
 			this.tabPage27.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage27.Size = new System.Drawing.Size(843, 430);
+			this.tabPage27.Size = new System.Drawing.Size(756, 463);
 			this.tabPage27.TabIndex = 23;
 			this.tabPage27.Text = "总览";
 			this.tabPage27.UseVisualStyleBackColor = true;
 			// 
 			// listBox1
 			// 
+			this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.listBox1.FormattingEnabled = true;
 			this.listBox1.ItemHeight = 24;
-			this.listBox1.Location = new System.Drawing.Point(6, 141);
+			this.listBox1.Location = new System.Drawing.Point(6, 174);
 			this.listBox1.Name = "listBox1";
-			this.listBox1.Size = new System.Drawing.Size(826, 220);
+			this.listBox1.Size = new System.Drawing.Size(739, 220);
 			this.listBox1.TabIndex = 5;
 			// 
 			// titleLabel1
 			// 
+			this.titleLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.titleLabel1.AutoSize = true;
 			this.titleLabel1.BackColor = System.Drawing.Color.Transparent;
 			this.titleLabel1.Font = new System.Drawing.Font("黑体", 18F);
-			this.titleLabel1.Location = new System.Drawing.Point(8, 110);
+			this.titleLabel1.Location = new System.Drawing.Point(8, 143);
 			this.titleLabel1.Name = "titleLabel1";
 			this.titleLabel1.Size = new System.Drawing.Size(130, 24);
 			this.titleLabel1.TabIndex = 4;
@@ -410,44 +413,51 @@
 			// defaultButton2
 			// 
 			this.defaultButton2.AccessibleName = "Button";
+			this.defaultButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.defaultButton2.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.defaultButton2.Location = new System.Drawing.Point(144, 368);
+			this.defaultButton2.Location = new System.Drawing.Point(144, 401);
 			this.defaultButton2.Name = "defaultButton2";
 			this.defaultButton2.Size = new System.Drawing.Size(131, 48);
 			this.defaultButton2.TabIndex = 2;
 			this.defaultButton2.Text = "清空选择";
+			this.defaultButton2.Click += new System.EventHandler(this.DefaultButton2_Click);
 			// 
 			// defaultButton1
 			// 
 			this.defaultButton1.AccessibleName = "Button";
+			this.defaultButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.defaultButton1.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.defaultButton1.Location = new System.Drawing.Point(7, 368);
+			this.defaultButton1.Location = new System.Drawing.Point(7, 401);
 			this.defaultButton1.Name = "defaultButton1";
 			this.defaultButton1.Size = new System.Drawing.Size(131, 48);
 			this.defaultButton1.TabIndex = 1;
 			this.defaultButton1.Text = "选择完成";
+			this.defaultButton1.Click += new System.EventHandler(this.DefaultButton1_Click);
 			// 
 			// textLabel1
 			// 
-			this.textLabel1.AutoSize = true;
 			this.textLabel1.BackColor = System.Drawing.Color.Transparent;
+			this.textLabel1.Dock = System.Windows.Forms.DockStyle.Top;
 			this.textLabel1.Font = new System.Drawing.Font("黑体", 16F);
 			this.textLabel1.Location = new System.Drawing.Point(3, 3);
 			this.textLabel1.Name = "textLabel1";
-			this.textLabel1.Size = new System.Drawing.Size(791, 88);
+			this.textLabel1.Size = new System.Drawing.Size(750, 128);
 			this.textLabel1.TabIndex = 0;
 			this.textLabel1.Text = "请您从候选项目中选出{X}个 , \r\n您可以通过选项卡来导航(按姓名拼音首字母索引,无法分类的放在\"其他\"选项卡)\r\n您总是可以回到本窗口查看已选择的项目 .\r\n" +
-    "如果您选择完成 , 请在本页中点击\"选择完成\"或关闭本窗口";
+    "如果您选择完成 , 请在本页中点击\"选择完成\"或关闭本窗口.\r\n如果您想要弃权 , 请关闭本窗口 , 回到上一窗口中点击\"弃权\".";
 			// 
 			// ChoosingBoard
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-			this.ClientSize = new System.Drawing.Size(851, 528);
+			this.ClientSize = new System.Drawing.Size(764, 591);
 			this.Controls.Add(this.tabControl);
 			this.Font = new System.Drawing.Font("黑体", 18F);
 			this.Margin = new System.Windows.Forms.Padding(6);
 			this.Name = "ChoosingBoard";
-			this.Text = "ChoosingBoard";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.Text = "投票板";
+			this.Load += new System.EventHandler(this.ChoosingBoard_Load);
+			this.Shown += new System.EventHandler(this.ChoosingBoard_Shown);
 			this.tabControl.ResumeLayout(false);
 			this.tabPage27.ResumeLayout(false);
 			this.tabPage27.PerformLayout();
@@ -490,6 +500,6 @@
 		private Controls.DefaultButton defaultButton2;
 		private Controls.TitleLabel titleLabel1;
 		private System.Windows.Forms.TabPage tabPage28;
-		private System.Windows.Forms.ListBox listBox1;
+		public System.Windows.Forms.ListBox listBox1;
 	}
 }

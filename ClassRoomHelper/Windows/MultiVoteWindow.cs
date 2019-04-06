@@ -13,6 +13,9 @@ namespace ClassRoomHelper.Windows
 {
 	public partial class MultiVoteWindow : Form
 	{
+		ChoosingBoard cb;
+		public bool EnableNEnough;
+		public int MaxLim;
 		private bool IsAlive = true;
 		NameSelectedWindow NameSelectedWindow;
 		public int CurrentVoterId;
@@ -69,7 +72,10 @@ namespace ClassRoomHelper.Windows
 			{
 				Ideas.Add(new Idea(data[i]));
 			}
-			data.Insert(0, "未选择");
+			cb.LoadData(data);
+			cb.EnableNEnough = EnableNEnough;
+			cb.MaxCheckCnt = MaxLim;
+			//data.Insert(0, "未选择");
 
 			//choices.DataSource = data;
 			Voters = voters;
@@ -81,6 +87,7 @@ namespace ClassRoomHelper.Windows
 			NameSelectedWindow = new NameSelectedWindow("请上台投票"," ");
 			Ideas = new List<Idea>();
 			GiveUppers = new List<string>();
+			cb = new ChoosingBoard();
 		}
 
 		private void ModernButton2_Click(object sender, EventArgs e)
@@ -95,16 +102,23 @@ namespace ClassRoomHelper.Windows
 
 		private void Votebtn_Click(object sender, EventArgs e)
 		{
-			
-			if (ConfirmVote())
+			cb.ShowDialog();
+			if (cb.Okey)
 			{
-				
+				foreach(string x in cb.listBox1.Items)
+				{
+					var q = Ideas.Where((ide) => ide.Desp == x).ToArray();
+					if (q.Length > 0)
+					{
+						q[0].Add(Voters[CurrentVoterId]);
+					}
+				}
 				RemoveCurrentVoter();
 				if (!CallPersonToVote())
 				{
 					EndVoting();
 				}
-			}
+			}	
 		}
 
 		private void ModernButton1_Click(object sender, EventArgs e)

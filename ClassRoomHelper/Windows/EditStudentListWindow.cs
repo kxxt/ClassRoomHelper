@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows.Forms;
 using Syncfusion.WinForms.Controls;
 
@@ -85,6 +88,17 @@ namespace ClassRoomHelper.Windows
 				return;
 				//todo
 			}
+			if (textBox1.Text == "")
+			{
+				MessageBox.Show("不能为空");
+				if (WorkAsListEditor)
+				{
+					textBox1.Text = (listBox1.DataSource as BindingList<string>)[listBox1.SelectedIndex];
+
+				}
+				else textBox1.Text = Program.NameSelector.Names[listBox1.SelectedIndex];
+				return;
+			}
 			if (WorkAsListEditor)
 			{
 				(listBox1.DataSource as BindingList<string>)[listBox1.SelectedIndex] = textBox1.Text;
@@ -95,6 +109,12 @@ namespace ClassRoomHelper.Windows
 
 		private void DefaultButton4_Click(object sender, EventArgs e)
 		{
+			var x=(listBox1.DataSource as BindingList<string>).Distinct();
+			if (x.Count() != listBox1.Items.Count)
+			{
+				MessageBox.Show("您的编辑中含有重复项 , 请去重 .");
+				return;
+			}
 			if (WorkAsListEditor)
 			{
 				if (DialogResult.Yes==MessageBox.Show("是否已编辑完毕 ?","提示",MessageBoxButtons.YesNo,MessageBoxIcon.Information))

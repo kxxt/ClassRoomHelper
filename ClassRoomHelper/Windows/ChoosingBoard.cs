@@ -12,20 +12,13 @@ namespace ClassRoomHelper.Windows
 {
 	public partial class ChoosingBoard : Form
 	{
-		public bool Renewal=false;
 		public bool EnableNEnough;
 		public int MaxCheckCnt;
 		public int Checked;
 		public IList<string> data;
-		private void ParseData()
-		{
-
-		}
 		public Dictionary<(char, int), (bool 选择,int 对应码)> Reflexs;
 		public CheckedListBox[] CheckedListBoxes;
-
 		public bool Okey { get; private set; }
-
 		public void UncheckAll()
 		{
 			foreach(var x in CheckedListBoxes)
@@ -36,7 +29,6 @@ namespace ClassRoomHelper.Windows
 				}
 			}
 		}
-		
 		public void LoadData(IList<string> data)
 		{
 			this.data = data;
@@ -66,6 +58,7 @@ namespace ClassRoomHelper.Windows
 				int tmp = i;
 				CheckedListBoxes[i] = new CheckedListBox();
 				CheckedListBoxes[i].Dock = DockStyle.Fill;
+				CheckedListBoxes[i].CheckOnClick = true;
 				var page = tabControl.TabPages[i];
 				if (page.Text == "总览")
 				{

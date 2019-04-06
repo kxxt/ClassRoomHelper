@@ -50,13 +50,16 @@
 			this.modernButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.modernButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.modernButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.modernButton1.Font = new System.Drawing.Font("黑体", 15F);
+			this.modernButton1.Font = new System.Drawing.Font("黑体", 18F);
 			this.modernButton1.ForeColor = System.Drawing.Color.White;
+			this.modernButton1.Image = ((System.Drawing.Image)(resources.GetObject("modernButton1.Image")));
 			this.modernButton1.Location = new System.Drawing.Point(26, 82);
 			this.modernButton1.Name = "modernButton1";
 			this.modernButton1.Size = new System.Drawing.Size(159, 319);
 			this.modernButton1.TabIndex = 0;
 			this.modernButton1.Text = "单选投票\r\n\r\n单选题";
+			this.modernButton1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+			this.modernButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
 			this.modernButton1.UseVisualStyleBackColor = false;
 			this.modernButton1.Click += new System.EventHandler(this.ModernButton1_Click);
 			// 
@@ -84,13 +87,16 @@
 			this.modernButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.modernButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.modernButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.modernButton2.Font = new System.Drawing.Font("黑体", 15F);
+			this.modernButton2.Font = new System.Drawing.Font("黑体", 18F);
 			this.modernButton2.ForeColor = System.Drawing.Color.White;
+			this.modernButton2.Image = ((System.Drawing.Image)(resources.GetObject("modernButton2.Image")));
 			this.modernButton2.Location = new System.Drawing.Point(374, 82);
 			this.modernButton2.Name = "modernButton2";
 			this.modernButton2.Size = new System.Drawing.Size(159, 319);
 			this.modernButton2.TabIndex = 2;
-			this.modernButton2.Text = "简单选人\r\n\r\n每人限投一票";
+			this.modernButton2.Text = "简单选人\r\n\r\n每人\r\n限投一票";
+			this.modernButton2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+			this.modernButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
 			this.modernButton2.UseVisualStyleBackColor = false;
 			this.modernButton2.Click += new System.EventHandler(this.ModernButton2_Click);
 			// 
@@ -106,13 +112,16 @@
 			this.modernButton3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.modernButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.modernButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.modernButton3.Font = new System.Drawing.Font("黑体", 15F);
+			this.modernButton3.Font = new System.Drawing.Font("黑体", 18F);
 			this.modernButton3.ForeColor = System.Drawing.Color.White;
+			this.modernButton3.Image = ((System.Drawing.Image)(resources.GetObject("modernButton3.Image")));
 			this.modernButton3.Location = new System.Drawing.Point(548, 82);
 			this.modernButton3.Name = "modernButton3";
 			this.modernButton3.Size = new System.Drawing.Size(159, 319);
 			this.modernButton3.TabIndex = 3;
-			this.modernButton3.Text = "复杂选人\r\n\r\n每人可投多票";
+			this.modernButton3.Text = "复杂选人\r\n\r\n每人\r\n可投多票";
+			this.modernButton3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+			this.modernButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
 			this.modernButton3.UseVisualStyleBackColor = false;
 			this.modernButton3.Click += new System.EventHandler(this.ModernButton3_Click);
 			// 
@@ -128,14 +137,18 @@
 			this.modernButton4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.modernButton4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.modernButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.modernButton4.Font = new System.Drawing.Font("黑体", 15F);
+			this.modernButton4.Font = new System.Drawing.Font("黑体", 18F);
 			this.modernButton4.ForeColor = System.Drawing.Color.White;
+			this.modernButton4.Image = ((System.Drawing.Image)(resources.GetObject("modernButton4.Image")));
 			this.modernButton4.Location = new System.Drawing.Point(200, 82);
 			this.modernButton4.Name = "modernButton4";
 			this.modernButton4.Size = new System.Drawing.Size(159, 319);
 			this.modernButton4.TabIndex = 4;
 			this.modernButton4.Text = "多选投票\r\n\r\n多选题";
+			this.modernButton4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+			this.modernButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
 			this.modernButton4.UseVisualStyleBackColor = false;
+			this.modernButton4.Click += new System.EventHandler(this.ModernButton4_Click);
 			// 
 			// Vote
 			// 
@@ -147,6 +160,7 @@
 			this.Controls.Add(this.modernButton2);
 			this.Controls.Add(this.titleLabel1);
 			this.Controls.Add(this.modernButton1);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;

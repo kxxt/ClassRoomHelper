@@ -71,7 +71,7 @@ namespace ClassRoomHelper.Windows
 
 		private void ModernButton4_Click_1(object sender, EventArgs e)
 		{
-			new Vote().ShowDialog();
+			Service.Vote();
 		}
 	}
 	internal class User32

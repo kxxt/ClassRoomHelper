@@ -21,7 +21,7 @@ namespace ClassRoomHelper.Windows
 				data.Add(x);
 			}
 			EditStudentListWindow window = new EditStudentListWindow();
-			window.AsListEditor("编辑投票人", "编辑投票人", data);
+			window.AsListEditor("编辑投票人", "编辑投票人\r\n请在编辑完成后点击[保存信息]", data);
 			window.ShowDialog();
 			if (window.Canceled)
 			{
@@ -179,6 +179,54 @@ namespace ClassRoomHelper.Windows
 			cb.MaxCheckCnt = max;
 			cb.LoadData(data);
 			cb.ShowDialog();*/
+		}
+
+		private void ModernButton4_Click(object sender, EventArgs e)
+		{
+			bool enableNEnough, enableGivingup; int max;
+			BindingList<string> data = new BindingList<string>();
+			var voters = new BindingList<string>();
+			foreach (var name in Program.NameSelector.Names)
+			{
+				//data.Add(name);
+				voters.Add(name);
+			}
+			EditStudentListWindow window = new EditStudentListWindow();
+			window.AsListEditor("编辑选项", "编辑选项,\r\n请在编辑完成后点击保存按钮", data);
+			window.ShowDialog();
+			if (window.Canceled)
+			{
+				window.Dispose();
+				return;
+			}
+			else if (data.Count <= 1)
+			{
+				MessageBox.Show("由于选项不足,投票已取消.", "取消投票", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+				return;
+			}
+			window = new EditStudentListWindow();
+			window.AsListEditor("编辑投票人", "编辑投票人,\r\n请在编辑完成后点击保存按钮", voters);
+			window.ShowDialog();
+			if (window.Canceled)
+			{
+				window.Dispose();
+				return;
+			}
+			else if (voters.Count <= 1)
+			{
+				MessageBox.Show("由于投票人不足,投票已取消.", "取消投票", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+				return;
+			}
+			var sw = new MultiVoteSettingDialog();
+			sw.count = data.Count;
+			sw.ShowDialog();
+			(enableGivingup, enableNEnough, max) = sw.Get();
+			var mw = new MultiVoteWindow();
+			mw.MaxLim = max;
+			mw.EnableNEnough = enableNEnough;
+			mw.LoadData(data.ToList(), voters.ToList());
+			if (!enableGivingup) mw.DisableGivingUp();
+			mw.ShowDialog();
 		}
 	}
 }

@@ -13,31 +13,52 @@ namespace ClassRoomHelper.Windows
 	public partial class ChoosingBoard : Form
 	{
 		public int MaxCheckCnt;
-		private HashSet<int> set;
+		public int Checked;
+		public IList<string> data;
 		private void ParseData()
 		{
 
 		}
-		public Dictionary<(char, int), int> Reflexs;
+		public Dictionary<(char, int), (bool 选择,int 对应码,int 列表码)> Reflexs;
 		public CheckedListBox[] CheckedListBoxes;
+		public void UncheckAll()
+		{
+			foreach(var x in CheckedListBoxes)
+			{
+
+				x.ClearSelected();
+				
+			}
+		}
 		public void LoadData(IList<string> data)
 		{
+			this.data = data;
 			for (int i = 0; i < data.Count; i++)
 			{
 				string x = (string)data[i];
 				char init = Chinese.GetPYFirstChar(x);
-				int id = CheckedListBoxes[init - 'A' + 1].Items.Add(x, false);
-				Reflexs.Add((init, id), i);
+				int id;
+				if (init == '?')
+				{
+					id= 0;
+				}
+				else id= CheckedListBoxes[init - 'A' + 1].Items.Add(x, false);
+				Reflexs.Add((init, id), (false,i,-1));
 			}
+		
 		}
 		public ChoosingBoard()
 		{
 			InitializeComponent();
-			CheckedListBoxes = new CheckedListBox[26];
-			Reflexs = new Dictionary<(char, int), int>();
+			CheckedListBoxes = new CheckedListBox[27];
+			Checked= 0;
+			Reflexs = new Dictionary<(char, int), (bool,int,int)>();
 			//var list = (System.Collections.IList);
 			for (int i = 0; i <= 26; i++)
 			{
+				int tmp = i;
+				CheckedListBoxes[i] = new CheckedListBox();
+				CheckedListBoxes[i].Dock = DockStyle.Fill;
 				var page = tabControl.TabPages[i];
 				if (page.Text == "总览")
 				{
@@ -45,26 +66,60 @@ namespace ClassRoomHelper.Windows
 				}
 				else
 				{
-					CheckedListBoxes[i].ItemCheck += (_, e) =>
+					CheckedListBoxes[tmp].ItemCheck += (_, e) =>
 					{
+
 						if (e.NewValue == CheckState.Checked)
 						{
-							if (set.Count == MaxCheckCnt)
+							if (Checked == MaxCheckCnt)
 							{
 								MessageBox.Show("所选项目数超过最大限制","警告",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
-								CheckedListBoxes[i].SetSelected(e.Index, false);
+								e.NewValue = CheckState.Unchecked;
+								//CheckedListBoxes[tmp].SetSelected(e.Index, false);
 								return;
 							}
-							set.Add(Reflexs[((char)((char)(i - 1) + 'A'), e.Index)]);
-
+							int x = listBox1.Items.Add(data[
+										Reflexs[((char)((char)(tmp - 1) + 'A'), e.Index)].对应码
+									]);
+							MessageBox.Show(x.ToString());
+							Reflexs[((char)((char)(tmp - 1) + 'A'), e.Index)] = (
+								true,
+								Reflexs[((char)((char)(tmp - 1) + 'A'), e.Index)].对应码,
+									x
+							);
+							//textBox1.Text = FormatSet();
+							
+							Checked++;
 						}
 						else
 						{
-							set.Remove(Reflexs[((char)((char)(i - 1) + 'A'), e.Index)]);
+							
+							var x = Reflexs[((char)((char)(tmp - 1) + 'A'), e.Index)].列表码;
+							MessageBox.Show(x.ToString());
+							if (x >= 0) listBox1.Items.RemoveAt(x);
+							
+							Reflexs[((char)((char)(tmp - 1) + 'A'), e.Index)]= (false, Reflexs[((char)((char)(tmp - 1) + 'A'), e.Index)].对应码,-1);
+							//textBox1.Text = FormatSet();
+							--Checked;
 						}
+
 					};
 					page.Controls.Add(CheckedListBoxes[i]);
 				}
+			}
+		}
+		public bool ConfirmGivingUp()
+		{
+			var ret = MessageBox.Show($"您是否要弃权 ? \r\n, 这是您的最后修改机会 .", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Information); ;
+			if (ret == DialogResult.No) return false;
+			return true;
+
+		}
+		private void DefaultButton3_Click(object sender, EventArgs e)
+		{
+			if (ConfirmGivingUp())
+			{
+				throw new NotImplementedException();
 			}
 		}
 	}

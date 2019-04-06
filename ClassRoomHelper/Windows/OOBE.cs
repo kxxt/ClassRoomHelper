@@ -19,13 +19,14 @@ namespace ClassRoomHelper.Windows
 		public OOBE()
 		{
 			InitializeComponent();
-			for(int i = 0; i <= 2; i++)
+			for(int i = 0; i <= 3; i++)
 			{
 				Images.Add( Image.FromFile("Resources\\Pic\\"+i+".png"));
 			}
-			desps.Add("欢迎使用班级助手 , 我相信我一定能为您提高课堂效率的 ,\r\n我们不妨继续吧 !");
+			desps.Add("欢迎使用班级助手 , 我相信我一定会成为您所钟爱的班级小助手的 ,\r\n我们不妨继续吧 !");
 			desps.Add("我能自动地为您整理最近使用过的课件 , 无论它是在U盘上还是在这台电脑上 ,\r\n我都能把它们整理的井井有序 , 让您的学生在课下仍然可以轻松使用 .");
 			desps.Add("点名可能是一个令人头疼的问题 ,\r\n 如何在老师对名字的记忆熟悉度不同的情况下 ,\r\n 让每一个学生都有均等的表现机会呢 ? 答案就在我身上 !");
+			desps.Add("在您的教室里还存在着写纸条统计投票的现象吗 ?\r\n该结束了 !");
 			//desps
 			NextPage();
 		}

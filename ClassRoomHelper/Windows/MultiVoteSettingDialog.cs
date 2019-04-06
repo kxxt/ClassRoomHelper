@@ -28,12 +28,21 @@ namespace ClassRoomHelper.Windows
 		}
 		private void DefaultButton1_Click(object sender, EventArgs e)
 		{
-			var x = int.Parse(maskedTextBox1.Text);
-			if (x <= 0||x>count)
+			try
 			{
-				MessageBox.Show($"请输入非负整数 , 且小于{count}","格式错误",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+				var x = int.Parse(maskedTextBox1.Text);
+				if (x <= 0 || x > count)
+				{
+					MessageBox.Show($"请输入非负整数 , 且小于{count}", "格式错误", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+					return;
+				}
+			}
+			catch
+			{
+				MessageBox.Show($"请输入非负整数 , 且小于{count}", "格式错误", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 				return;
 			}
+			
 			this.Hide();
 		}
 

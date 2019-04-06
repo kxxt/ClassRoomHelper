@@ -129,7 +129,46 @@ namespace ClassRoomHelper.Windows
 
 		private void ModernButton3_Click(object sender, EventArgs e)
 		{
-
+			bool enableNEnough, enableGivingup;int max;
+			BindingList<string> data = new BindingList<string>();
+			var voters = new BindingList<string>();
+			foreach (var name in Program.NameSelector.Names)
+			{
+				data.Add(name);
+				voters.Add(name);
+			}
+			EditStudentListWindow window = new EditStudentListWindow();
+			window.AsListEditor("编辑候选人", "编辑候选人,\r\n请在编辑完成后点击保存按钮", data);
+			window.ShowDialog();
+			if (window.Canceled)
+			{
+				window.Dispose();
+				return;
+			}
+			else if (data.Count <= 1)
+			{
+				MessageBox.Show("由于候选人不足,投票已取消.", "取消投票", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+				return;
+			}
+			window = new EditStudentListWindow();
+			window.AsListEditor("编辑投票人", "编辑投票人,\r\n请在编辑完成后点击保存按钮", voters);
+			if (voters == null)
+			{
+				return;
+			}
+			else if (voters.Count <= 1)
+			{
+				MessageBox.Show("由于投票人不足,投票已取消.", "取消投票", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+				return;
+			}
+			var sw=new MultiVoteSettingDialog();
+			sw.count = data.Count;
+			sw.ShowDialog();
+			(enableGivingup,enableNEnough,max)=sw.Get();
+			ChoosingBoard cb = new ChoosingBoard();
+			cb.MaxCheckCnt = max;
+			cb.LoadData(data);
+			cb.ShowDialog();
 		}
 	}
 }

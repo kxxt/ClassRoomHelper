@@ -211,6 +211,12 @@
     <Compile Include="Windows\SingleVoteFinishedWindow.Designer.cs">
       <DependentUpon>SingleVoteFinishedWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Windows\MultiVoteWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\MultiVoteWindow.Designer.cs">
+      <DependentUpon>MultiVoteWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\SingleVoteWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -300,6 +306,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\SingleVoteFinishedWindow.resx">
       <DependentUpon>SingleVoteFinishedWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\MultiVoteWindow.resx">
+      <DependentUpon>MultiVoteWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\SingleVoteWindow.resx">
       <DependentUpon>SingleVoteWindow.cs</DependentUpon>

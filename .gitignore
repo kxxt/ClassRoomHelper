@@ -343,3 +343,4 @@ healthchecksdb
 
 # Design  Time Images
 *.psd
+/bfg-1.12.16.jar

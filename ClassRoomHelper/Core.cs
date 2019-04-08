@@ -24,42 +24,22 @@ namespace ClassRoomHelper
 			{
 				try
 				{
-					Core.RemoveStartByTaskSch();
-					Core.RemoveStartByTaskSch();
-					Core.RemoveSkipUAC();
-				}
-				catch
-				{
-
-				}
-				try
-				{
 					Core.SetStartByTaskSchAdmin();
-
+					Program.Settings.StartAfterWindows = true;
 				}
 				catch
 				{
 					MessageBox.Show("失败", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+					Program.Settings.StartAfterWindows = false;
 				}
 			}
 			else
 			{
 				try
 				{
-					Core.RemoveStartByTaskSch();
-					Core.RemoveStartByTaskSch();
-					Core.RemoveSkipUAC();
-				}
-				catch
-				{
-
-				}
-				try
-				{
 					Core.SetSkipUAC();
 					Core.SetStartByTaskSch();
-
+					Program.Settings.StartAfterWindows = true;
 				}
 				catch
 				{
@@ -102,7 +82,7 @@ namespace ClassRoomHelper
 			var scheduler = new TaskScheduler.TaskScheduler();
 			scheduler.Connect(); //连接, 还有一些登录参数可选.
 			var task = scheduler.NewTask(0); //官方文档上, 这个参数后面加了注释reserved.
-			task.RegistrationInfo.Author = "Believers in Science Studio";
+			task.RegistrationInfo.Author = "班级助手";
 			task.RegistrationInfo.Description = "班级助手";
 			task.Settings.Enabled = true; //or false, 开关.
 										  //在启动的时候执行, 一开始只写了Logon, 不过发现开机的时候登录并没有触发.
@@ -127,7 +107,7 @@ namespace ClassRoomHelper
 			scheduler.Connect(); //连接, 还有一些登录参数可选.
 			//if(scheduler.GetFolder("\\").GetTask())
 			var task = scheduler.NewTask(0); //官方文档上, 这个参数后面加了注释reserved.
-			task.RegistrationInfo.Author = "Believers in Science Studio";
+			task.RegistrationInfo.Author = "班级助手";
 			task.RegistrationInfo.Description = "班级助手";
 			task.Settings.Enabled = true; //or false, 开关.
 										  //在启动的时候执行, 一开始只写了Logon, 不过发现开机的时候登录并没有触发.
@@ -141,7 +121,7 @@ namespace ClassRoomHelper
 			task.Principal.RunLevel = _TASK_RUNLEVEL.TASK_RUNLEVEL_HIGHEST;
 			action.Path = Environment.CurrentDirectory + "\\班级助手.exe"; //需要启动的程序路径.
 			action.WorkingDirectory = Environment.CurrentDirectory;
-			action.Arguments = "autorun"; //参数.
+			//action.Arguments = "autorun"; //参数.
 			var folder = scheduler.GetFolder(@"\"); //这里是Task的根文件夹, 还可以用folder.CreateFolder来创建自己的目录.
 													//注册任务. 这里的TASK_LOGON_INTERACTIVE_TOKEN就是说使用用户当前的登录信息(如果已经登录).
 			folder.RegisterTaskDefinition("ClassRoomHelperStartUp", task, (int)_TASK_CREATION.TASK_CREATE_OR_UPDATE, null, null, _TASK_LOGON_TYPE.TASK_LOGON_INTERACTIVE_TOKEN);
@@ -161,7 +141,7 @@ namespace ClassRoomHelper
 				var scheduler = new TaskScheduler.TaskScheduler();
 				scheduler.Connect(); //连接, 还有一些登录参数可选.
 				var task = scheduler.NewTask(0); //官方文档上, 这个参数后面加了注释reserved.
-				task.RegistrationInfo.Author = "Believers in Science Studio";
+				task.RegistrationInfo.Author = "班级助手";
 				task.RegistrationInfo.Description = "班级助手跳过UAC";
 				task.Settings.Enabled = true; //or false, 开关.
 											  //在启动的时候执行, 一开始只写了Logon, 不过发现开机的时候登录并没有触发.
@@ -184,7 +164,7 @@ namespace ClassRoomHelper
 		}
 		public static void RemoveStartup()
 		{
-			if (!CheckStartup()) { MessageBox.Show("Not Start Up"); return; };
+			//if (!CheckStartup()) { MessageBox.Show("Not Start Up"); return; };
 			File.Delete(Environment.GetFolderPath(Environment.SpecialFolder.Startup) + "\\" + "班级助手.lnk");
 		}
 		public static bool CheckStartup()
@@ -194,7 +174,7 @@ namespace ClassRoomHelper
 		}
 		public static void SetStartUp()
 		{
-			if (CheckStartup()) { MessageBox.Show("Start Up");return; };
+			//if (CheckStartup()) { MessageBox.Show("Start Up");return; };
 			var Startup = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
 			MessageBox.Show(Startup);
 			IWshRuntimeLibrary.WshShell wsh= new IWshRuntimeLibrary.WshShell();
@@ -378,7 +358,7 @@ namespace ClassRoomHelper
 		}
 		public static void ServiceHook(object sender,EventArrivedEventArgs e)
 		{
-			Thread.Sleep(2000);
+			Thread.Sleep(3000);
 			try
 			{
 				if (Program.Settings.CollectMode == CollectMode.PPT)
@@ -484,6 +464,17 @@ namespace ClassRoomHelper
 		{
 			ActionsBeforeAppExit();
 			Application.Exit();
+		}
+		public static void TryRemoveStartUpCompletely()
+		{
+			try { Core.RemoveStartByTaskSch(); }
+			catch { }
+			try { Core.RemoveAutoRun(); }
+			catch { }
+			try { Core.RemoveSkipUAC(); }
+			catch { }
+			try { Core.RemoveStartup(); }
+			catch { }
 		}
 	}
 }

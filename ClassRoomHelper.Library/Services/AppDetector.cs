@@ -18,8 +18,7 @@ namespace ClassRoomHelper.Library.Services
 		{
 			
 			WqlEventQuery q;
-			try
-			{
+			
 				q = new WqlEventQuery("SELECT * FROM Win32_ProcessStartTrace WHERE processname = 'powerpnt.exe' OR processname = 'winword.exe' OR processname = 'excel.exe' OR processname = 'wps.exe' OR processname = 'wpp.exe' OR processname = 'et.exe'");
 				//q.EventClassName = "Win32_ProcessStartTrace";
 				//q.
@@ -27,11 +26,7 @@ namespace ClassRoomHelper.Library.Services
 				w.EventArrived += new EventArrivedEventHandler(ProcessStartEventArrived);
 				//w.Start();
 				//Console.ReadLine(); // block main thread for test purposes
-			}
-			catch(Exception e)
-			{
-				//todo
-			}
+			
 		}
 		public static void ProcessStartEventArrived(object sender, EventArrivedEventArgs e)
 		{

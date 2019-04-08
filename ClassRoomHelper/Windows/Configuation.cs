@@ -6,11 +6,11 @@ namespace ClassRoomHelper.Windows
 {
 	public partial class Configuation : BasicNoneBorderWinForm
 	{
-		bool StartAfterWindows;
+		bool loading=true;
 		public Configuation()
 		{
 			InitializeComponent();
-			StartAfterWindows = Program.Settings.StartAfterWindows;
+			//StartAfterWindows = Program.Settings.StartAfterWindows;
 		}
 		
 
@@ -36,7 +36,18 @@ namespace ClassRoomHelper.Windows
 
 		private void CheckBox6_CheckedChanged(object sender, EventArgs e)
 		{
+			if (loading) return;
 			Program.Settings.StartAfterWindows = checkBox6.Checked;
+			
+			if (checkBox6.Checked)
+			{
+				Core.SetUp();
+			}
+			else
+			{
+				Core.TryRemoveStartUpCompletely();
+			}
+			MessageBox.Show("设置完成");
 		}
 
 		private void CheckBox5_CheckedChanged(object sender, EventArgs e)
@@ -189,6 +200,7 @@ namespace ClassRoomHelper.Windows
 
 					break;
 			}
+			loading = false;
 			//System.Speech.Synthesis.TtsEngine.
 		}
 

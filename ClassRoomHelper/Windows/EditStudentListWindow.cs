@@ -86,9 +86,9 @@ namespace ClassRoomHelper.Windows
 				}
 				else textBox1.Text=Program.NameSelector.Names[listBox1.SelectedIndex];
 				return;
-				//todo
+				
 			}
-			if (textBox1.Text == "")
+			if (string.IsNullOrWhiteSpace(textBox1.Text))
 			{
 				MessageBox.Show("不能为空");
 				if (WorkAsListEditor)

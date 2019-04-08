@@ -55,7 +55,15 @@ namespace 班级助手
 			if (args.Length==0)
 			if (AdminChecker.IsAdministrator())
 			{
-				File.Create("AdminMode");
+					try
+					{
+						File.Create("AdminMode");
+
+					}
+					catch
+					{
+
+					}
 					_ = Process.Start(main);
 				//MessageBox.Show("请不要以管理员权限启动此程序","提示",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
 				return;

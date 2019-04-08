@@ -47,58 +47,14 @@ namespace ClassRoomHelper.Windows
 								"来自班级助手的温馨提示",
 								MessageBoxButtons.YesNo,
 								MessageBoxIcon.Information);
+				Core.TryRemoveStartUpCompletely();
 				switch (x)
 				{
 					case DialogResult.Yes:
-						if (Program.WorkAsAdministrator)
-						{
-							try
-							{
-								Core.RemoveStartByTaskSch();
-								Core.RemoveStartByTaskSch();
-								Core.RemoveSkipUAC();
-							}
-							catch
-							{
-
-							}
-							try
-							{
-								Core.SetStartByTaskSchAdmin();
-								Program.Settings.StartAfterWindows = true;
-							}
-							catch
-							{
-								MessageBox.Show("失败", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-							}
-						}
-						else
-						{
-							Program.Settings.StartAfterWindows = false;
-							try
-							{
-								Core.RemoveStartByTaskSch();
-								Core.RemoveStartByTaskSch();
-								Core.RemoveSkipUAC();
-							}
-							catch
-							{
-
-							}
-							try
-							{
-								Core.SetSkipUAC();
-								Core.SetStartByTaskSch();
-								Program.Settings.StartAfterWindows = true;
-							}
-							catch
-							{
-								MessageBox.Show("失败", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-							}
-						}
+						Core.SetUp();
 						break;
 					default:
+						Program.Settings.StartAfterWindows = false;
 						break;
 				}
 				var ret=MessageBox.Show("您是否要进行一次详尽的个性化设置?\r\n选择\"取消\"以使用默认设置,您可以稍后在设置中更改.","为第一次使用做准备",MessageBoxButtons.OKCancel,MessageBoxIcon.Information);

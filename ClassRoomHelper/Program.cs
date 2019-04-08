@@ -83,6 +83,7 @@ namespace ClassRoomHelper
 			//bg.Show();
 			//Application.Run(new MainFrm());
 			manager.Run(new string[] { });
+			if (Program.Settings == null) return;
 			Program.Settings.Save();
 			Core.ActionsBeforeAppExit();
 		}

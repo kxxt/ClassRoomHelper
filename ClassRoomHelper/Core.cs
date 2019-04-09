@@ -20,17 +20,19 @@ namespace ClassRoomHelper
 	{
 		internal static void SetUp()
 		{
+			TryRemoveStartUpCompletely();
 			if (Program.WorkAsAdministrator)
 			{
 				try
 				{
-					Core.SetStartByTaskSchAdmin();
+					Core.SetStartUp();
 					Program.Settings.StartAfterWindows = true;
 				}
 				catch
 				{
 					MessageBox.Show("失败", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					Program.Settings.StartAfterWindows = false;
+					TryRemoveStartUpCompletely();
 				}
 			}
 			else
@@ -44,6 +46,7 @@ namespace ClassRoomHelper
 				catch
 				{
 					MessageBox.Show("失败", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					TryRemoveStartUpCompletely();
 				}
 			}
 		}

@@ -3,8 +3,6 @@ using System.IO;
 using System.Threading;
 using System.Collections;
 using System.Collections.Generic;
-using System.Xml;
-using System.Xml.Serialization;
 using System.ComponentModel;
 
 namespace ClassRoomHelper.Library.NameSelector{

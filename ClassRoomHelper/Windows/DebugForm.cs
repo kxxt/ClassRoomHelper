@@ -15,7 +15,7 @@ namespace ClassRoomHelper.Windows
 
 		private void DefaultButton1_Click(object sender, EventArgs e)
 		{
-			var x=ActiveFileController.GetWord();
+			var x=LateBindingOfficeDynamic.GetWord();
 			foreach(var a in x)
 			{
 				MessageBox.Show(a.Item1 + "\r\n" + a.Item2);
@@ -24,7 +24,7 @@ namespace ClassRoomHelper.Windows
 
 		private void DefaultButton3_Click(object sender, EventArgs e)
 		{
-			var x = ActiveFileController.GetExcel();
+			var x = LateBindingOfficeDynamic.GetExcel();
 			foreach (var a in x)
 			{
 				MessageBox.Show(a.Item1+"\r\n"+a.Item2);
@@ -33,7 +33,7 @@ namespace ClassRoomHelper.Windows
 
 		private void DefaultButton2_Click(object sender, EventArgs e)
 		{
-			var x = ActiveFileController.GetPowerpoint();
+			var x = LateBindingOfficeDynamic.GetPowerpoint();
 			foreach (var a in x)
 			{
 				MessageBox.Show(a.Item1 + "\r\n" + a.Item2);

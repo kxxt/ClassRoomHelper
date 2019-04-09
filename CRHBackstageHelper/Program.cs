@@ -6,7 +6,6 @@ using System.IO.Pipes;
 
 using System.Diagnostics;
 using System.Threading;
-using System.Windows.Forms;
 
 namespace CRHBackstageHelper
 {

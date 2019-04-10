@@ -122,10 +122,11 @@ namespace ClassRoomHelper.Windows
 			});
 			if (Program.FirstUse)
 			{
-				using (var oobe = new OOBE())
-				{
-					oobe.ShowDialog();
-				}
+				Program.OOBE = new OOBE();
+				
+					Program.OOBE.ShowDialog();
+					Program.OOBE.Dispose();
+				Program.OOBE = null;
 			}
 			await Task.Run(() =>
 			{
@@ -165,6 +166,11 @@ namespace ClassRoomHelper.Windows
 		}
 		public void Tray_MouseClick(object sender, MouseEventArgs e)
 		{
+			if (Program.OOBE != null)
+			{
+				Program.OOBE.Activate();
+				return;
+			}
 			if (Program.MainForm == null)
 			{
 				Program.MainForm = new MainForm();

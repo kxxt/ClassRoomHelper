@@ -17,7 +17,7 @@ namespace ClassRoomHelper
 		public static IWin32Window owner=null;
 		public static void Vote()
 		{
-			if (owner == null) owner = new WindowWrapper(Program.manager.app.Handle);
+			//if (owner == null) owner = new WindowWrapper(Program.manager.app.Handle);
 			new Vote().ShowDialog(owner);
 		}
 		static Service(){
@@ -47,7 +47,7 @@ namespace ClassRoomHelper
 				//speech.Dispose();
 				//GC.Collect();
 			}
-			if (owner == null) owner = new WindowWrapper(Program.manager.app.Handle);
+			//if (owner == null) owner = new WindowWrapper(Program.manager.app.Handle);
 			var x = new NameSelectedWindow(t);
 			x.ShowDialog(owner);
 			x.Dispose();

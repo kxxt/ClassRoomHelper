@@ -77,7 +77,7 @@
 			this.textLabel2.Name = "textLabel2";
 			this.textLabel2.Size = new System.Drawing.Size(178, 188);
 			this.textLabel2.TabIndex = 7;
-			this.textLabel2.Text = "您也可以编辑程序目录下的stulist.txt文件来导入学生信息.\r\n( 文件格式:每行一个名字 )\r\n";
+			this.textLabel2.Text = "您也可以编辑程序目录下的stulist.txt文件来导入学生信息.\r\n( 文件格式:每行一个名字 , UTF-8 编码 )\r\n";
 			this.textLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// defaultButton4

@@ -14,7 +14,7 @@ namespace ClassRoomHelper.Library.NameSelector{
 		}
 		public void Load(string file)
 		{
-			var re=File.ReadAllLines(file);
+			var re=File.ReadAllLines(file,System.Text.Encoding.UTF8);
 			foreach(var x in re)
 			{
 				names.Add(x);
@@ -22,7 +22,7 @@ namespace ClassRoomHelper.Library.NameSelector{
 		}
 		public void Save(string file)
 		{
-			File.WriteAllLines(file,names);
+			File.WriteAllLines(file,names, System.Text.Encoding.UTF8);
 		}
 		public BindingList<string> Names { get => this.names;
 			set {

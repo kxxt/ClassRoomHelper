@@ -46,7 +46,7 @@ namespace ClassRoomHelper
 		{
 			using (var configuationx = new Configuation())
 			{
-				configuationx.ShowDialog();
+				configuationx.ShowDialog(Service.owner);
 				configuationx.Dispose();
 				//configuationx = null;
 				//GC.Collect();
@@ -59,7 +59,7 @@ namespace ClassRoomHelper
 			if (!Program.ShowingDesktopTool)
 			{
 				Program.ShowingDesktopTool = true;
-				Program.Widget.Show();
+				Program.Widget.Show(Service.owner);
 			}
 			else
 			{
@@ -79,7 +79,7 @@ namespace ClassRoomHelper
 		private void DefaultButton7_Click(object sender, EventArgs e)
 		{
 			var x = new SpeechWindow();
-				x.Show();
+				x.Show(Service.owner);
 			
 		}
 
@@ -87,7 +87,7 @@ namespace ClassRoomHelper
 		{
 			var x = new EditStudentListWindow();
 			x.InitilizeNames();
-			x.ShowDialog();
+			x.ShowDialog(Service.owner);
 			x.Dispose();
 		}
 
@@ -122,7 +122,7 @@ namespace ClassRoomHelper
 			if (!Program.ShowingHelperWindow)
 			{
 				Program.ShowingHelperWindow= true;
-				Program.HelperWindow.Show();
+				Program.HelperWindow.Show(Service.owner);
 			}
 			else
 			{
@@ -162,7 +162,7 @@ namespace ClassRoomHelper
 		private void DefaultButton10_Click(object sender, EventArgs e)
 		{
 			//MessageBox.Show("功能暂未开放,敬请期待","提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
-			new Vote().ShowDialog();
+			new Vote().ShowDialog(Service.owner);
 		}
 	}
 }

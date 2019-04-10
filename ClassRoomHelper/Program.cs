@@ -34,6 +34,7 @@ namespace ClassRoomHelper
 	}
 	static class Program
 	{
+		public static OOBE OOBE;
 		public static SingleInstanceManager manager;
 		public static bool FirstUse=false;
 		public static bool ShowingDesktopTool;

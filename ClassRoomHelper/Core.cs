@@ -409,6 +409,7 @@ namespace ClassRoomHelper
 			Program.Widget = new Windows.Widget();
 			Program.ShowingHelperWindow = false;
 			Program.ShowingDesktopTool = false;
+			Service.owner = new WindowWrapper(Program.manager.app.Handle);
 		}
 		public static void LoadStudentList()
 		{

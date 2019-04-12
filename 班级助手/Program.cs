@@ -99,10 +99,10 @@ namespace 班级助手
 				else if (args[0] == "autorun")
 				{
 					Debug("AutoRun Mode");
-					bool Okey = false;int cnt = 0;
-					while (!Okey&&cnt<10)
+					bool Okey = false;//int cnt = 0;
+					while (!Okey)
 					{
-						cnt++;
+						//cnt++;
 						try
 						{
 							using (SharedMemory.SharedArray<IPCInfoStruct> x = new SharedMemory.SharedArray<IPCInfoStruct>("crh-ipc-skip-uac"))

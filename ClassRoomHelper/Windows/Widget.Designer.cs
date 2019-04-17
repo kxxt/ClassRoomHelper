@@ -67,7 +67,8 @@
 			this.modernButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.modernButton1.Font = new System.Drawing.Font("黑体", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
 			this.modernButton1.ForeColor = System.Drawing.Color.White;
-			this.modernButton1.Location = new System.Drawing.Point(7, 269);
+			this.modernButton1.Image = ((System.Drawing.Image)(resources.GetObject("modernButton1.Image")));
+			this.modernButton1.Location = new System.Drawing.Point(7, 265);
 			this.modernButton1.Name = "modernButton1";
 			this.modernButton1.Size = new System.Drawing.Size(192, 157);
 			this.modernButton1.TabIndex = 2;
@@ -91,7 +92,8 @@
 			this.modernButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.modernButton2.Font = new System.Drawing.Font("黑体", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
 			this.modernButton2.ForeColor = System.Drawing.Color.White;
-			this.modernButton2.Location = new System.Drawing.Point(205, 269);
+			this.modernButton2.Image = ((System.Drawing.Image)(resources.GetObject("modernButton2.Image")));
+			this.modernButton2.Location = new System.Drawing.Point(205, 265);
 			this.modernButton2.Name = "modernButton2";
 			this.modernButton2.Size = new System.Drawing.Size(192, 157);
 			this.modernButton2.TabIndex = 3;
@@ -115,11 +117,13 @@
 			this.modernButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.modernButton3.Font = new System.Drawing.Font("黑体", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
 			this.modernButton3.ForeColor = System.Drawing.Color.White;
-			this.modernButton3.Location = new System.Drawing.Point(7, 93);
+			this.modernButton3.Image = ((System.Drawing.Image)(resources.GetObject("modernButton3.Image")));
+			this.modernButton3.Location = new System.Drawing.Point(7, 99);
 			this.modernButton3.Name = "modernButton3";
 			this.modernButton3.Size = new System.Drawing.Size(192, 157);
 			this.modernButton3.TabIndex = 4;
 			this.modernButton3.Text = "随机点名";
+			this.modernButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
 			this.modernButton3.UseVisualStyleBackColor = false;
 			this.modernButton3.Click += new System.EventHandler(this.ModernButton3_Click);
 			// 
@@ -152,11 +156,13 @@
 			this.modernButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.modernButton4.Font = new System.Drawing.Font("黑体", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
 			this.modernButton4.ForeColor = System.Drawing.Color.White;
-			this.modernButton4.Location = new System.Drawing.Point(205, 93);
+			this.modernButton4.Image = ((System.Drawing.Image)(resources.GetObject("modernButton4.Image")));
+			this.modernButton4.Location = new System.Drawing.Point(205, 99);
 			this.modernButton4.Name = "modernButton4";
 			this.modernButton4.Size = new System.Drawing.Size(192, 157);
 			this.modernButton4.TabIndex = 7;
 			this.modernButton4.Text = "班级投票";
+			this.modernButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
 			this.modernButton4.UseVisualStyleBackColor = false;
 			this.modernButton4.Click += new System.EventHandler(this.ModernButton4_Click_1);
 			// 
@@ -181,7 +187,7 @@
 			this.Name = "Widget";
 			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
-			this.Text = "Widget";
+			this.Text = "桌面部件";
 			this.Paint += new System.Windows.Forms.PaintEventHandler(this.Widget_Paint);
 			this.Move += new System.EventHandler(this.Widget_Move);
 			this.ResumeLayout(false);

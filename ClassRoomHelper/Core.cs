@@ -188,7 +188,7 @@ namespace ClassRoomHelper
 			// not sure about what this is for
 			//shortcut.WindowStyle = 1;
 			shortcut.Description = "班级助手";
-			shortcut.Arguments = "autorun";
+			
 			shortcut.WindowStyle =(int) IWshRuntimeLibrary.WshWindowStyle.WshNormalFocus;
 			shortcut.WorkingDirectory = Environment.CurrentDirectory;
 			shortcut.Save();
@@ -290,7 +290,7 @@ namespace ClassRoomHelper
 			Program.Settings.Save();
 			try
 			{
-				File.WriteAllText(".config", Program.Settings.TargetDir);
+				File.WriteAllText(".config", Program.Settings.TargetDir,Encoding.UTF8);
 			}
 			catch(Exception ex)
 			{
@@ -409,7 +409,6 @@ namespace ClassRoomHelper
 			Program.Widget = new Windows.Widget();
 			Program.ShowingHelperWindow = false;
 			Program.ShowingDesktopTool = false;
-			Service.owner = new WindowWrapper(Program.manager.app.Handle);
 		}
 		public static void LoadStudentList()
 		{
@@ -419,16 +418,28 @@ namespace ClassRoomHelper
 				try
 				{
 					Program.NameSelector.Load("stulist.txt");
+					if (File.Exists(Program.TurnsFileName))
+					{
+						Program.NameSelector.ReadSequence(Program.TurnsFileName);
 
+					}
+					else
+					{
+						Program.NameSelector.GenerateSequence(Program.TurnsFileName);
+						Program.NameSelector.ReadSequence(Program.TurnsFileName);
+
+					}
 				}
 				catch 
 				{
 					MessageBox.Show("学生名单加载失败","错误",MessageBoxButtons.OK,MessageBoxIcon.Error);
+					throw;
 				}
 			}
 		}
 		public static void preLoad()
 		{
+			//AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
 			LoadProperties();
 			ConfigureSharedMemory();
 			LoadStudentList();
@@ -441,6 +452,14 @@ namespace ClassRoomHelper
 				Program.WorkAsAdministrator = false;
 			}
 		}
+
+		private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+		{
+			MessageBox.Show("班级助手发生严重错误 , 请尝试重启应用程序或重新安装 !","致命错误",MessageBoxButtons.OK,MessageBoxIcon.Error);
+			//throw new ExceptionW
+			Environment.Exit(-1);
+		}
+
 		public static  void postLoad()
 		{
 			

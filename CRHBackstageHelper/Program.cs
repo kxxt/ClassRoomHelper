@@ -188,7 +188,7 @@ namespace CRHBackstageHelper
 					string dir;
 					try
 					{
-						targetdp.Root = File.ReadAllText(".config");
+						targetdp.Root = File.ReadAllText(".config",System.Text.Encoding.UTF8);
 						dir = targetdp.Get();
 						if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);
 					}catch(Exception ex)

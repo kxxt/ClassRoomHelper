@@ -49,44 +49,20 @@ namespace ClassRoomHelper.Windows
 			mouseDown = false;
 			mouseMove = false;
 			Point delta = new Point(Location.X - lastLocation.X, Location.Y - lastLocation.Y);
-			if (Math.Sqrt(delta.X * delta.X + delta.Y * delta.Y) <= 200)
-			{
-				HelperWindow_MouseClick(null, null);
-				
-			}
+			Program.Settings.Save();
 		}
-		ActionSelectionWindow w;
+		//ActionSelectionWindow w;
 		public HelperWindow()
 		{
 			InitializeComponent();
-			Height = 60;
-			w = new ActionSelectionWindow();
-			Width = 60;
+			//Height = 60;
+			//w = new ActionSelectionWindow();
+			//Width = 60;
 			//Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
 		}
-		[DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-		private static extern IntPtr CreateRoundRectRgn
-		(
-			int nLeftRect,     // x-coordinate of upper-left corner
-			int nTopRect,      // y-coordinate of upper-left corner
-			int nRightRect,    // x-coordinate of lower-right corner
-			int nBottomRect,   // y-coordinate of lower-right corner
-			int nWidthEllipse, // height of ellipse
-			int nHeightEllipse // width of ellipse
-		);
-		[System.Runtime.InteropServices.DllImport("gdi32.dll", EntryPoint = "DeleteObject")]
-		private static extern bool DeleteObject(System.IntPtr hObject);
+		
 
-		private void HelperWindow_Paint(object sender, PaintEventArgs e)
-		{
-			/*System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
-			path.AddEllipse(0, 0, 100, 100);
-			this.Region = new Region(path);*/
-			
-			System.IntPtr ptr = CreateRoundRectRgn(0, 0, this.Width, this.Height, 20, 20);
-			this.Region = System.Drawing.Region.FromHrgn(ptr);
-			DeleteObject(ptr);
-		}
+		
 
 		private void Button1_Click(object sender, EventArgs e)
 		{
@@ -95,8 +71,8 @@ namespace ClassRoomHelper.Windows
 
 		private void HelperWindow_Load(object sender, EventArgs e)
 		{
-			Height = 60;
-			Width = 60;
+			//Height = 60;
+			//Width = 60;
 			//this.Left = (SystemInformation.PrimaryMonitorMaximizedWindowSize.Width - this.Width) / 2;
 			//this.Top = (SystemInformation.PrimaryMonitorMaximizedWindowSize.Height - this.Height) / 2;
 		}
@@ -109,7 +85,7 @@ namespace ClassRoomHelper.Windows
 		private void HelperWindow_MouseClick(object sender, MouseEventArgs e)
 		{
 			if (mouseMove&&sender!=null) return;
-			w.ShowDialog();
+			//w.ShowDialog();
 		}
 
 		private void HelperWindow_Move(object sender, EventArgs e)
@@ -121,6 +97,16 @@ namespace ClassRoomHelper.Windows
 		private void ModernButton1_Click(object sender, EventArgs e)
 		{
 
+		}
+
+		private void DefaultButton1_Click(object sender, EventArgs e)
+		{
+			Service.ChooseNameRandomly();
+		}
+
+		private void DefaultButton2_Click(object sender, EventArgs e)
+		{
+			this.Hide();
 		}
 	}
 }

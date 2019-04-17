@@ -34,6 +34,7 @@ namespace ClassRoomHelper
 	}
 	static class Program
 	{
+		public const string TurnsFileName="turns.txt";
 		public static OOBE OOBE;
 		public static SingleInstanceManager manager;
 		public static bool FirstUse=false;

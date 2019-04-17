@@ -24,20 +24,25 @@ namespace ClassRoomHelper
 			explorer=new ProcessStartInfo("explorer");
 
 		}
+		//static Dictionary<string, int> it = new Dictionary<string, int>();
 		private static ProcessStartInfo explorer;
 		public static SpeechSynthesizer speech = new SpeechSynthesizer();
 		public static void Speak(string info)
 		{
 			speech.SpeakAsync(info);
 		}
+
 		public static void ChooseNameRandomly()
 		{
-			var t = Program.NameSelector.ChooseRandomly();
+			
+			var t = Program.NameSelector.NextPerson(Program.TurnsFileName);
 			if (t == null)
 			{
 				MessageBox.Show("没有可用的学生信息");
 				return;
 			}
+			//if (it.ContainsKey(t)) it[t]++;
+			//else it.Add(t, 1);
 			if (Program.Settings.VoiceNameCallOut)
 			{
 				if (Program.Settings.NameCallOutPre == null) Program.Settings.NameCallOutPre = "";
@@ -52,8 +57,14 @@ namespace ClassRoomHelper
 			x.ShowDialog(owner);
 			x.Dispose();
 			x = null;
+			string ret="";
+			/*foreach(var xx in it)
+			{
+				ret += xx.Key + " " + xx.Value+"\r\n";
+			}
+			File.WriteAllText("test.txt",ret);
 			//GC.Collect();
-			
+			*/
 		}
 
 		internal static void OpenYesterDay()

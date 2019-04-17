@@ -27,7 +27,7 @@
 				Program.TargetDirParser.Root = Program.Settings.TargetDir;
 				try
 				{
-					System.IO.File.WriteAllText(".config", Program.Settings.TargetDir);
+					System.IO.File.WriteAllText(".config", Program.Settings.TargetDir,System.Text.Encoding.UTF8);
 				}
 				catch
 				{

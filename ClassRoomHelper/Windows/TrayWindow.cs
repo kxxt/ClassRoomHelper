@@ -115,6 +115,7 @@ namespace ClassRoomHelper.Windows
 				return true;
 			};*/
 			timer2.Start();
+			Service.owner = new WindowWrapper(Program.manager.app.Handle);
 			await Task.Run(() =>
 			{
 				Core.preLoad();
@@ -162,7 +163,7 @@ namespace ClassRoomHelper.Windows
 			Tray.BalloonTipText = text;
 			Tray.BalloonTipTitle = title;
 			Tray.BalloonTipIcon = ToolTipIcon.Info;
-			Tray.ShowBalloonTip(5);
+			Tray.ShowBalloonTip(20);
 		}
 		public void Tray_MouseClick(object sender, MouseEventArgs e)
 		{

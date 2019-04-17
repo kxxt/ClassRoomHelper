@@ -1,4 +1,5 @@
 del ClassRoomHelper\bin\Release\*.pdb
+del ClassRoomHelper\bin\Release\.config
 del ClassRoomHelper\bin\Release\*.xml
 del -Force ClassRoomHelper\bin\Release\Files\*
 del -Force ClassRoomHelper\bin\Release\Logs\*

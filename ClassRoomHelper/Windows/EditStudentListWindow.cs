@@ -129,7 +129,7 @@ namespace ClassRoomHelper.Windows
 			try
 			{
 				Program.NameSelector.Save("stulist.txt");
-
+				Program.NameSelector.GenerateSequence("turns.txt");
 			}
 			catch
 			{

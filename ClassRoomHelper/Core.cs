@@ -179,7 +179,7 @@ namespace ClassRoomHelper
 		{
 			//if (CheckStartup()) { MessageBox.Show("Start Up");return; };
 			var Startup = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
-			MessageBox.Show(Startup);
+			//MessageBox.Show(Startup);
 			IWshRuntimeLibrary.WshShell wsh= new IWshRuntimeLibrary.WshShell();
 			IWshRuntimeLibrary.IWshShortcut shortcut = wsh.CreateShortcut(
 			Startup + "\\班级助手.lnk") as IWshRuntimeLibrary.IWshShortcut;
@@ -405,7 +405,7 @@ namespace ClassRoomHelper
 			Program.Helper.WorkingDirectory = Environment.CurrentDirectory;
 			Program.Helper.WindowStyle = ProcessWindowStyle.Hidden;
 			Program.TargetDirParser = new TargetDirParser(Program.Settings.TargetDir, Program.Settings.ResortMode);
-			Program.HelperWindow = new Windows.HelperWindow();
+			Program.HelperWindow = new Windows.HelperIm();
 			Program.Widget = new Windows.Widget();
 			Program.ShowingHelperWindow = false;
 			Program.ShowingDesktopTool = false;
@@ -478,8 +478,9 @@ namespace ClassRoomHelper
 				Log.AppendException("Logs\\wmi.err", ex);
 				//MessageBox.Show(Log.GetExceptionInfo(ex));
 			}
+			Service.Speak("");
 			SystemEvents.SessionEnding += SystemEvents_SessionEnding;
-			Thread.Sleep(1500);
+			Thread.Sleep(1000);
 			
 		}
 

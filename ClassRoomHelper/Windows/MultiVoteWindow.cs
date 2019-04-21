@@ -75,6 +75,7 @@ namespace ClassRoomHelper.Windows
 			cb.LoadData(data);
 			cb.EnableNEnough = EnableNEnough;
 			cb.MaxCheckCnt = MaxLim;
+			cb.SetText();
 			//data.Insert(0, "未选择");
 
 			//choices.DataSource = data;
@@ -102,6 +103,7 @@ namespace ClassRoomHelper.Windows
 
 		private void Votebtn_Click(object sender, EventArgs e)
 		{
+			cb.tabControl.SelectedIndex = 27;
 			cb.ShowDialog();
 			if (cb.Okey)
 			{

@@ -44,7 +44,13 @@ namespace ClassRoomHelper.Windows
 				else id= CheckedListBoxes[init - 'A' + 1].Items.Add(x, false);
 				Reflexs.Add((init, id), (false,i));
 			}
-		
+			foreach(var x in CheckedListBoxes)
+			{
+				if (x.Items.Count != 0)
+				{
+					titleLabel1.Text += x.Parent.Text+',';
+				}
+			}
 		}
 		public ChoosingBoard()
 		{
@@ -107,6 +113,13 @@ namespace ClassRoomHelper.Windows
 				}
 			}
 		}
+
+		internal void SetText()
+		{
+			this.textLabel1.Text = String.Format(this.textLabel1.Text,EnableNEnough?$"至多{MaxCheckCnt}":$"{MaxCheckCnt}");
+			//throw new NotImplementedException();
+		}
+
 		public bool ConfirmGivingUp()
 		{
 			var ret = MessageBox.Show($"您是否要弃权 ? \r\n, 这是您的最后修改机会 .", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Information); ;
@@ -173,6 +186,11 @@ namespace ClassRoomHelper.Windows
 							MessageBoxIcon.Information
 					)) { this.Hide();Okey = true; }
 			}
+		}
+
+		private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

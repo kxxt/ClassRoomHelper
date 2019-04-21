@@ -41,7 +41,7 @@ namespace ClassRoomHelper
 		public static bool ShowingDesktopTool;
 		public static bool ShowingHelperWindow;
 		public static Widget Widget;
-		public static HelperWindow HelperWindow;
+		public static HelperIm HelperWindow;
 		public static NameSelector NameSelector;
 		public static TargetDirParser TargetDirParser;//= new TargetDirParser("", ResortMode.Daily);
 		public static SharedMemory.SharedArray<IPCInfoStruct> InfoPipe;

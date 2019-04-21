@@ -21,6 +21,7 @@ namespace ClassRoomHelper
 
 		private void SfButton2_Click(object sender, EventArgs e)
 		{
+			Program.HelperWindow.Close();
 			Application.Exit();
 			//Environment.Exit(0);
 		}

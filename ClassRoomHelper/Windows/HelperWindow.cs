@@ -55,9 +55,9 @@ namespace ClassRoomHelper.Windows
 		public HelperWindow()
 		{
 			InitializeComponent();
-			//Height = 60;
+			Height = 107;
 			//w = new ActionSelectionWindow();
-			//Width = 60;
+			Width = 96;
 			//Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
 		}
 		

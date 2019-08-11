@@ -49,6 +49,7 @@
 			this.defaultButton2 = new ClassRoomHelper.Windows.Controls.DefaultButton();
 			this.defaultButton1 = new ClassRoomHelper.Windows.Controls.DefaultButton();
 			this.actionLine1 = new ClassRoomHelper.Windows.Controls.ActionLine();
+			this.defaultButton21 = new ClassRoomHelper.Windows.Controls.DefaultButton();
 			this.SuspendLayout();
 			// 
 			// defaultButton20
@@ -279,12 +280,24 @@
 			this.actionLine1.Size = new System.Drawing.Size(413, 37);
 			this.actionLine1.TabIndex = 21;
 			// 
+			// defaultButton21
+			// 
+			this.defaultButton21.AccessibleName = "Button";
+			this.defaultButton21.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.defaultButton21.Location = new System.Drawing.Point(432, 319);
+			this.defaultButton21.Name = "defaultButton21";
+			this.defaultButton21.Size = new System.Drawing.Size(204, 28);
+			this.defaultButton21.TabIndex = 22;
+			this.defaultButton21.Text = "Eject H:";
+			this.defaultButton21.Click += new System.EventHandler(this.DefaultButton21_Click);
+			// 
 			// DebugForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.White;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.defaultButton21);
 			this.Controls.Add(this.actionLine1);
 			this.Controls.Add(this.defaultButton20);
 			this.Controls.Add(this.defaultButton17);
@@ -336,5 +349,6 @@
 		private Controls.DefaultButton defaultButton19;
 		private Controls.DefaultButton defaultButton20;
 		private Controls.ActionLine actionLine1;
+		private Controls.DefaultButton defaultButton21;
 	}
 }

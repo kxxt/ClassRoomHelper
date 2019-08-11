@@ -3,3 +3,13 @@
 ################################################################################
 
 /.vs
+/ClassRoomHelper/bin
+/ClassRoomHelper/obj
+*.user
+/ClassRoomHelper.Library/bin
+/ClassRoomHelper.Library/obj
+/CRHBackstageHelper/bin
+/CRHBackstageHelper/obj
+/班级助手/bin
+/班级助手/obj
+/~$程序文档.docx

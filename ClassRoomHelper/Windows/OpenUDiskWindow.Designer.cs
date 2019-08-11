@@ -31,8 +31,8 @@
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OpenUDiskWindow));
 			this.panel1 = new System.Windows.Forms.Panel();
-			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			this.titleLabel1 = new ClassRoomHelper.Windows.Controls.TitleLabel();
+			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			this.panel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -46,20 +46,22 @@
 			this.panel1.Size = new System.Drawing.Size(963, 500);
 			this.panel1.TabIndex = 1;
 			// 
+			// titleLabel1
+			// 
+			this.titleLabel1.BackColor = System.Drawing.Color.Transparent;
+			this.titleLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.titleLabel1.Font = new System.Drawing.Font("黑体", 75F);
+			this.titleLabel1.Location = new System.Drawing.Point(0, 0);
+			this.titleLabel1.Name = "titleLabel1";
+			this.titleLabel1.Size = new System.Drawing.Size(963, 500);
+			this.titleLabel1.TabIndex = 0;
+			this.titleLabel1.Text = "已自动为您打开U盘";
+			this.titleLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.titleLabel1.Click += new System.EventHandler(this.TitleLabel1_Click);
+			// 
 			// timer1
 			// 
 			this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
-			// 
-			// titleLabel1
-			// 
-			this.titleLabel1.AutoSize = true;
-			this.titleLabel1.BackColor = System.Drawing.Color.Transparent;
-			this.titleLabel1.Font = new System.Drawing.Font("黑体", 75F);
-			this.titleLabel1.Location = new System.Drawing.Point(35, 200);
-			this.titleLabel1.Name = "titleLabel1";
-			this.titleLabel1.Size = new System.Drawing.Size(892, 100);
-			this.titleLabel1.TabIndex = 0;
-			this.titleLabel1.Text = "已自动为您打开U盘";
 			// 
 			// OpenUDiskWindow
 			// 
@@ -78,7 +80,6 @@
 			this.TopMost = true;
 			this.Shown += new System.EventHandler(this.OpenUDiskWindow_Shown);
 			this.panel1.ResumeLayout(false);
-			this.panel1.PerformLayout();
 			this.ResumeLayout(false);
 
 		}

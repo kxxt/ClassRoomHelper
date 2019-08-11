@@ -17,7 +17,10 @@ namespace ClassRoomHelper.Windows
 		{
 			InitializeComponent();
 		}
-
+		public void EjectWindowSetup()
+		{
+			this.titleLabel1.Text = "U盘已安全弹出";
+		}
 		private void OpenUDiskWindow_Shown(object sender, EventArgs e)
 		{
 			timer1.Start();
@@ -27,13 +30,18 @@ namespace ClassRoomHelper.Windows
 		{
 			try
 			{
-				this.Opacity -= 0.05;
+				this.Opacity -= 0.058;
 			}
 			catch
 			{
 				this.Close();
 			}
 			
+
+		}
+
+		private void TitleLabel1_Click(object sender, EventArgs e)
+		{
 
 		}
 	}

@@ -37,6 +37,7 @@
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			this.timer2 = new System.Windows.Forms.Timer(this.components);
 			this.titleLabel4 = new ClassRoomHelper.Windows.Controls.TitleLabel();
+			this.titleLabel5 = new ClassRoomHelper.Windows.Controls.TitleLabel();
 			this.SuspendLayout();
 			// 
 			// titleLabel1
@@ -104,6 +105,18 @@
 			this.titleLabel4.TabIndex = 3;
 			this.titleLabel4.Text = "感谢由Unsplash.com提供的高质量免费图片";
 			// 
+			// titleLabel5
+			// 
+			this.titleLabel5.AutoSize = true;
+			this.titleLabel5.BackColor = System.Drawing.Color.Transparent;
+			this.titleLabel5.Font = new System.Drawing.Font("黑体", 20F);
+			this.titleLabel5.ForeColor = System.Drawing.Color.Gold;
+			this.titleLabel5.Location = new System.Drawing.Point(12, 376);
+			this.titleLabel5.Name = "titleLabel5";
+			this.titleLabel5.Size = new System.Drawing.Size(642, 54);
+			this.titleLabel5.TabIndex = 4;
+			this.titleLabel5.Text = "(C)Copyright 2019 Believers in Science Studio\r\nhttps://kxxt.github.io";
+			// 
 			// TrayWindow
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -111,6 +124,7 @@
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.ClientSize = new System.Drawing.Size(722, 474);
+			this.Controls.Add(this.titleLabel5);
 			this.Controls.Add(this.titleLabel4);
 			this.Controls.Add(this.titleLabel2);
 			this.Controls.Add(this.titleLabel3);
@@ -140,5 +154,6 @@
 		private System.Windows.Forms.Timer timer1;
 		private System.Windows.Forms.Timer timer2;
 		private Controls.TitleLabel titleLabel4;
+		private Controls.TitleLabel titleLabel5;
 	}
 }

@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminChecker.cs" />
+    <Compile Include="EjectUSB.cs" />
     <Compile Include="Poll\Idea.cs" />
     <Compile Include="Poll\PollManager.cs" />
     <Compile Include="ProcessEX.cs" />

@@ -6,6 +6,7 @@ using System.Diagnostics;
 using ClassRoomHelper.Library.Services;
 using ClassRoomHelper.Library.NameSelector;
 using System.IO;
+using System.Collections.Generic;
 
 namespace ClassRoomHelper
 {
@@ -49,6 +50,7 @@ namespace ClassRoomHelper
 		public static ProcessStartInfo Helper;
 		public static Properties.Settings Settings;
 		public static bool WorkAsAdministrator=false;
+		public static List<DriveInfo> UDisks=new List<DriveInfo>();
 		//public static bool IsCensorServiceRunning=false;
 		/// <summary>
 		/// 应用程序的主入口点。

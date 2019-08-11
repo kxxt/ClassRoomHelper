@@ -37,7 +37,7 @@ namespace ClassRoomHelper.Windows
 					case DBT_DEVICEARRIVAL:
 						try
 						{
-							if (!Program.Settings.UMgr_Enabled)break;
+							
 
 							DriveInfo[] s = DriveInfo.GetDrives();
 							foreach (DriveInfo drive in s)
@@ -46,11 +46,18 @@ namespace ClassRoomHelper.Windows
 								{
 									//MessageBox.Show(drive.DriveFormat);
 									string fs = drive.DriveFormat.ToLower();
+									
 									if (fs != "ntfs" && fs != "refs" && fs != "fat" && fs != "fat32" && fs != "exfat") continue;
+									Program.UDisks.Add(drive);								
 									/*if (drive.VolumeLabel == "")
 									{
 										drive.VolumeLabel = "U盘" + new Random().Next(1, 999).ToString();
 									}*/
+									if (!Program.Settings.UMgr_Enabled)
+									{
+										break;
+
+									}
 
 									Process.Start("explorer.exe", drive.RootDirectory.FullName);
 									if(Program.Settings.UMgr_ShowDialog)

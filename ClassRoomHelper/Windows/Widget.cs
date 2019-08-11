@@ -1,7 +1,9 @@
-﻿using System;
+﻿using ClassRoomHelper.Library;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -44,9 +46,25 @@ namespace ClassRoomHelper.Windows
 			Service.OpenYesterDay();
 		}
 
-		private void ModernButton3_Click(object sender, EventArgs e)
+		private async void ModernButton3_Click(object sender, EventArgs e)
 		{
-			Service.ChooseNameRandomly();
+			await Task.Run(() =>
+			{
+				var ej = new EjectUSB();
+
+				foreach (var disk in Program.UDisks)
+				{
+					bool stat = ej.Eject(ej.USBEject(disk.Name));
+					if (stat == true)
+					{
+						Program.UDisks.Remove(disk);
+						OpenUDiskWindow o = new OpenUDiskWindow();
+						o.EjectWindowSetup();
+						o.ShowDialog();
+					}
+				}
+			});
+			
 		}
 
 		private void ModernButton4_Click(object sender, EventArgs e)
@@ -72,6 +90,30 @@ namespace ClassRoomHelper.Windows
 		private void ModernButton4_Click_1(object sender, EventArgs e)
 		{
 			Service.Vote();
+		}
+
+		private void ModernButton5_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				Process.Start("http://www.sdei.edu.cn/");
+			}
+			catch
+			{
+				MessageBox.Show("失败", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+
+		private void ModernButton6_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				Process.Start("https://jinan.xueanquan.com/");
+			}
+			catch
+			{
+				MessageBox.Show("失败", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 		}
 	}
 	internal class User32

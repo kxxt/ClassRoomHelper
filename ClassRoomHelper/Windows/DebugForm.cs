@@ -161,5 +161,11 @@ namespace ClassRoomHelper.Windows
 		{
 			MessageBox.Show(score.ToString());
 		}
+
+		private void DefaultButton21_Click(object sender, EventArgs e)
+		{
+			EjectUSB eject = new EjectUSB();
+			MessageBox.Show(eject.Eject(eject.USBEject("H:")).ToString());
+		}
 	}
 }

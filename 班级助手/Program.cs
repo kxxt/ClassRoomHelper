@@ -32,7 +32,7 @@ namespace 班级助手
 			catch (Win32Exception ex)
 			{
 				//if(ex.HResult==)
-				var re = MessageBox.Show("程序启动失败 , 下次启动时 ,\r\n 请在弹出的窗口中允许程序以管理员身份运行\r\n单击\"确定\"以重启应用程序,单击\"取消\"退出程序.", "错误", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				var re = MessageBox.Show("程序启动失败 , 下次启动时 ,\r\n 请在弹出的窗口中允许程序以管理员身份运行\r\n单击\"确定\"以重启应用程序,单击\"取消\"退出程序.", "错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 				if (re == DialogResult.OK)
 				{
 					Main(null);
@@ -52,9 +52,10 @@ namespace 班级助手
 			ProcessStartInfo sub = new ProcessStartInfo();
 			sub.FileName = "CRHBackstageHelper.exe";
 			sub.Arguments = "serve";
-			if (args.Length==0)
-			if (AdminChecker.IsAdministrator())
+			if (args == null || args.Length == 0)
 			{
+				if (AdminChecker.IsAdministrator())
+				{
 					try
 					{
 						File.Create("AdminMode");
@@ -65,10 +66,11 @@ namespace 班级助手
 
 					}
 					_ = Process.Start(main);
-				//MessageBox.Show("请不要以管理员权限启动此程序","提示",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
-				return;
+					//MessageBox.Show("请不要以管理员权限启动此程序","提示",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
+					return;
+				}
 			}
-			if (args.Length == 1)
+			else if (args.Length == 1)
 			{
 				if (args[0] == "skipuac")
 				{

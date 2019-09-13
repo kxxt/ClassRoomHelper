@@ -65,5 +65,17 @@
     <Setting Name="DesktopToolLoc" Type="System.Drawing.Point" Scope="User">
       <Value Profile="(Default)">300, 300</Value>
     </Setting>
+    <Setting Name="Timer_EventName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">高考</Value>
+    </Setting>
+    <Setting Name="Timer_Enabled" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="Timer_Date" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)">2020-06-07</Value>
+    </Setting>
+    <Setting Name="WallpaperEngine_Enabled" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

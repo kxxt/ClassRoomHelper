@@ -19,6 +19,7 @@ namespace ClassRoomHelper.Windows
 		{
 			InitializeComponent();
 			this.Location = Program.Settings.DesktopToolLoc;
+			
 		}
 
 		private void Widget_Paint(object sender, PaintEventArgs e)
@@ -43,12 +44,12 @@ namespace ClassRoomHelper.Windows
 
 		private void ModernButton2_Click(object sender, EventArgs e)
 		{
-			Service.OpenYesterDay();
+			Service.OpenMonth();
 		}
 
-		private async void ModernButton3_Click(object sender, EventArgs e)
+		private /*async*/ void ModernButton3_Click(object sender, EventArgs e)
 		{
-			await Task.Run(() =>
+			/*await Task.Run(() =>
 			{
 				var ej = new EjectUSB();
 
@@ -63,8 +64,8 @@ namespace ClassRoomHelper.Windows
 						o.ShowDialog();
 					}
 				}
-			});
-			
+			});*/
+			Service.ChooseNameRandomly();
 		}
 
 		private void ModernButton4_Click(object sender, EventArgs e)

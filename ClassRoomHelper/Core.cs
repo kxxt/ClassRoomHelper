@@ -407,6 +407,10 @@ namespace ClassRoomHelper
 			Program.TargetDirParser = new TargetDirParser(Program.Settings.TargetDir, Program.Settings.ResortMode);
 			Program.HelperWindow = new Windows.HelperIm();
 			Program.Widget = new Windows.Widget();
+			if (Program.Settings.Timer_Enabled)
+			{
+				Program.Widget.Title.Text = Program.Widget.Title.Text = $"距 {Program.Settings.Timer_EventName} 还有 {(Program.Settings.Timer_Date - System.DateTime.Now).Days} 天";
+			}
 			Program.ShowingHelperWindow = false;
 			Program.ShowingDesktopTool = false;
 		}
@@ -460,7 +464,7 @@ namespace ClassRoomHelper
 			Environment.Exit(-1);
 		}
 
-		public static  void postLoad()
+		public static   void postLoad()
 		{
 			
 			
@@ -481,6 +485,7 @@ namespace ClassRoomHelper
 			Service.Speak("");
 			SystemEvents.SessionEnding += SystemEvents_SessionEnding;
 			Thread.Sleep(1000);
+			
 			
 		}
 

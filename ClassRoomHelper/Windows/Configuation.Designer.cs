@@ -32,6 +32,7 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Configuation));
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.checkBox3 = new System.Windows.Forms.CheckBox();
 			this.checkBox1 = new System.Windows.Forms.CheckBox();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.checkBox10 = new System.Windows.Forms.CheckBox();
@@ -71,6 +72,11 @@
 			this.radioButton8 = new System.Windows.Forms.RadioButton();
 			this.radioButton7 = new System.Windows.Forms.RadioButton();
 			this.groupBox9 = new System.Windows.Forms.GroupBox();
+			this.checkBox2 = new System.Windows.Forms.CheckBox();
+			this.textLabel8 = new ClassRoomHelper.Windows.Controls.TextLabel();
+			this.textBox4 = new System.Windows.Forms.TextBox();
+			this.textLabel7 = new ClassRoomHelper.Windows.Controls.TextLabel();
+			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
 			this.fb = new System.Windows.Forms.FolderBrowserDialog();
 			this.titleLabel1 = new ClassRoomHelper.Windows.Controls.TitleLabel();
 			this.defaultButton2 = new ClassRoomHelper.Windows.Controls.DefaultButton();
@@ -84,11 +90,13 @@
 			this.groupBox7.SuspendLayout();
 			this.groupBox8.SuspendLayout();
 			this.flowLayoutPanel1.SuspendLayout();
+			this.groupBox9.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// groupBox1
 			// 
 			this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+			this.groupBox1.Controls.Add(this.checkBox3);
 			this.groupBox1.Controls.Add(this.checkBox1);
 			this.groupBox1.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
 			this.groupBox1.Location = new System.Drawing.Point(14, 53);
@@ -97,6 +105,18 @@
 			this.groupBox1.TabIndex = 0;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "桌面部件";
+			this.groupBox1.Enter += new System.EventHandler(this.GroupBox1_Enter);
+			// 
+			// checkBox3
+			// 
+			this.checkBox3.AutoSize = true;
+			this.checkBox3.Location = new System.Drawing.Point(5, 58);
+			this.checkBox3.Name = "checkBox3";
+			this.checkBox3.Size = new System.Drawing.Size(158, 23);
+			this.checkBox3.TabIndex = 3;
+			this.checkBox3.Text = "Bing 每日壁纸";
+			this.checkBox3.UseVisualStyleBackColor = true;
+			this.checkBox3.CheckedChanged += new System.EventHandler(this.CheckBox3_CheckedChanged);
 			// 
 			// checkBox1
 			// 
@@ -289,7 +309,6 @@
 			// 
 			this.defaultButton1.AccessibleName = "Button";
 			this.defaultButton1.Font = new System.Drawing.Font("黑体", 13F, System.Drawing.FontStyle.Bold);
-			this.defaultButton1.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton1.Image")));
 			this.defaultButton1.ImageSize = new System.Drawing.Size(30, 30);
 			this.defaultButton1.Location = new System.Drawing.Point(576, 20);
 			this.defaultButton1.Name = "defaultButton1";
@@ -549,6 +568,11 @@
 			// groupBox9
 			// 
 			this.groupBox9.BackColor = System.Drawing.Color.Transparent;
+			this.groupBox9.Controls.Add(this.checkBox2);
+			this.groupBox9.Controls.Add(this.textLabel8);
+			this.groupBox9.Controls.Add(this.textBox4);
+			this.groupBox9.Controls.Add(this.textLabel7);
+			this.groupBox9.Controls.Add(this.dateTimePicker1);
 			this.groupBox9.Font = new System.Drawing.Font("黑体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
 			this.groupBox9.Location = new System.Drawing.Point(550, 452);
 			this.groupBox9.Name = "groupBox9";
@@ -556,6 +580,56 @@
 			this.groupBox9.TabIndex = 4;
 			this.groupBox9.TabStop = false;
 			this.groupBox9.Text = "杂项";
+			// 
+			// checkBox2
+			// 
+			this.checkBox2.AutoSize = true;
+			this.checkBox2.Location = new System.Drawing.Point(12, 92);
+			this.checkBox2.Name = "checkBox2";
+			this.checkBox2.Size = new System.Drawing.Size(68, 23);
+			this.checkBox2.TabIndex = 10;
+			this.checkBox2.Text = "启用";
+			this.checkBox2.UseVisualStyleBackColor = true;
+			this.checkBox2.CheckedChanged += new System.EventHandler(this.CheckBox2_CheckedChanged);
+			// 
+			// textLabel8
+			// 
+			this.textLabel8.AutoSize = true;
+			this.textLabel8.BackColor = System.Drawing.Color.Transparent;
+			this.textLabel8.Font = new System.Drawing.Font("黑体", 13F);
+			this.textLabel8.ForeColor = System.Drawing.Color.Black;
+			this.textLabel8.Location = new System.Drawing.Point(9, 60);
+			this.textLabel8.Name = "textLabel8";
+			this.textLabel8.Size = new System.Drawing.Size(80, 18);
+			this.textLabel8.TabIndex = 9;
+			this.textLabel8.Text = "事件名称";
+			// 
+			// textBox4
+			// 
+			this.textBox4.BackColor = System.Drawing.Color.White;
+			this.textBox4.Location = new System.Drawing.Point(95, 56);
+			this.textBox4.Name = "textBox4";
+			this.textBox4.Size = new System.Drawing.Size(187, 29);
+			this.textBox4.TabIndex = 8;
+			// 
+			// textLabel7
+			// 
+			this.textLabel7.AutoSize = true;
+			this.textLabel7.BackColor = System.Drawing.Color.Transparent;
+			this.textLabel7.Font = new System.Drawing.Font("黑体", 13F);
+			this.textLabel7.ForeColor = System.Drawing.Color.Black;
+			this.textLabel7.Location = new System.Drawing.Point(9, 25);
+			this.textLabel7.Name = "textLabel7";
+			this.textLabel7.Size = new System.Drawing.Size(62, 18);
+			this.textLabel7.TabIndex = 1;
+			this.textLabel7.Text = "倒计时";
+			// 
+			// dateTimePicker1
+			// 
+			this.dateTimePicker1.Location = new System.Drawing.Point(75, 21);
+			this.dateTimePicker1.Name = "dateTimePicker1";
+			this.dateTimePicker1.Size = new System.Drawing.Size(228, 29);
+			this.dateTimePicker1.TabIndex = 0;
 			// 
 			// titleLabel1
 			// 
@@ -623,6 +697,8 @@
 			this.groupBox8.PerformLayout();
 			this.flowLayoutPanel1.ResumeLayout(false);
 			this.flowLayoutPanel1.PerformLayout();
+			this.groupBox9.ResumeLayout(false);
+			this.groupBox9.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -673,5 +749,11 @@
 		private Controls.DefaultButton defaultButton2;
 		private System.Windows.Forms.GroupBox groupBox10;
 		private System.Windows.Forms.CheckBox checkBox12;
+		private Controls.TextLabel textLabel8;
+		private System.Windows.Forms.TextBox textBox4;
+		private Controls.TextLabel textLabel7;
+		private System.Windows.Forms.DateTimePicker dateTimePicker1;
+		private System.Windows.Forms.CheckBox checkBox2;
+		private System.Windows.Forms.CheckBox checkBox3;
 	}
 }

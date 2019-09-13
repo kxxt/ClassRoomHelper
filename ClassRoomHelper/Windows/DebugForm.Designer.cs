@@ -28,6 +28,10 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.defaultButton23 = new ClassRoomHelper.Windows.Controls.DefaultButton();
+			this.defaultButton22 = new ClassRoomHelper.Windows.Controls.DefaultButton();
+			this.defaultButton21 = new ClassRoomHelper.Windows.Controls.DefaultButton();
+			this.actionLine1 = new ClassRoomHelper.Windows.Controls.ActionLine();
 			this.defaultButton20 = new ClassRoomHelper.Windows.Controls.DefaultButton();
 			this.defaultButton17 = new ClassRoomHelper.Windows.Controls.DefaultButton();
 			this.defaultButton18 = new ClassRoomHelper.Windows.Controls.DefaultButton();
@@ -48,9 +52,48 @@
 			this.defaultButton3 = new ClassRoomHelper.Windows.Controls.DefaultButton();
 			this.defaultButton2 = new ClassRoomHelper.Windows.Controls.DefaultButton();
 			this.defaultButton1 = new ClassRoomHelper.Windows.Controls.DefaultButton();
-			this.actionLine1 = new ClassRoomHelper.Windows.Controls.ActionLine();
-			this.defaultButton21 = new ClassRoomHelper.Windows.Controls.DefaultButton();
 			this.SuspendLayout();
+			// 
+			// defaultButton23
+			// 
+			this.defaultButton23.AccessibleName = "Button";
+			this.defaultButton23.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.defaultButton23.Location = new System.Drawing.Point(432, 387);
+			this.defaultButton23.Name = "defaultButton23";
+			this.defaultButton23.Size = new System.Drawing.Size(204, 28);
+			this.defaultButton23.TabIndex = 24;
+			this.defaultButton23.Text = "Dl Bing Image";
+			this.defaultButton23.Click += new System.EventHandler(this.DefaultButton23_Click);
+			// 
+			// defaultButton22
+			// 
+			this.defaultButton22.AccessibleName = "Button";
+			this.defaultButton22.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.defaultButton22.Location = new System.Drawing.Point(432, 353);
+			this.defaultButton22.Name = "defaultButton22";
+			this.defaultButton22.Size = new System.Drawing.Size(204, 28);
+			this.defaultButton22.TabIndex = 23;
+			this.defaultButton22.Text = "Get Bing Url";
+			this.defaultButton22.Click += new System.EventHandler(this.DefaultButton22_Click);
+			// 
+			// defaultButton21
+			// 
+			this.defaultButton21.AccessibleName = "Button";
+			this.defaultButton21.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.defaultButton21.Location = new System.Drawing.Point(432, 319);
+			this.defaultButton21.Name = "defaultButton21";
+			this.defaultButton21.Size = new System.Drawing.Size(204, 28);
+			this.defaultButton21.TabIndex = 22;
+			this.defaultButton21.Text = "Eject H:";
+			this.defaultButton21.Click += new System.EventHandler(this.DefaultButton21_Click);
+			// 
+			// actionLine1
+			// 
+			this.actionLine1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+			this.actionLine1.Location = new System.Drawing.Point(160, 116);
+			this.actionLine1.Name = "actionLine1";
+			this.actionLine1.Size = new System.Drawing.Size(413, 37);
+			this.actionLine1.TabIndex = 21;
 			// 
 			// defaultButton20
 			// 
@@ -272,31 +315,14 @@
 			this.defaultButton1.Text = "Detect Word";
 			this.defaultButton1.Click += new System.EventHandler(this.DefaultButton1_Click);
 			// 
-			// actionLine1
-			// 
-			this.actionLine1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-			this.actionLine1.Location = new System.Drawing.Point(160, 116);
-			this.actionLine1.Name = "actionLine1";
-			this.actionLine1.Size = new System.Drawing.Size(413, 37);
-			this.actionLine1.TabIndex = 21;
-			// 
-			// defaultButton21
-			// 
-			this.defaultButton21.AccessibleName = "Button";
-			this.defaultButton21.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.defaultButton21.Location = new System.Drawing.Point(432, 319);
-			this.defaultButton21.Name = "defaultButton21";
-			this.defaultButton21.Size = new System.Drawing.Size(204, 28);
-			this.defaultButton21.TabIndex = 22;
-			this.defaultButton21.Text = "Eject H:";
-			this.defaultButton21.Click += new System.EventHandler(this.DefaultButton21_Click);
-			// 
 			// DebugForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.White;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.defaultButton23);
+			this.Controls.Add(this.defaultButton22);
 			this.Controls.Add(this.defaultButton21);
 			this.Controls.Add(this.actionLine1);
 			this.Controls.Add(this.defaultButton20);
@@ -350,5 +376,7 @@
 		private Controls.DefaultButton defaultButton20;
 		private Controls.ActionLine actionLine1;
 		private Controls.DefaultButton defaultButton21;
+		private Controls.DefaultButton defaultButton22;
+		private Controls.DefaultButton defaultButton23;
 	}
 }

@@ -35,7 +35,8 @@
 			this.modernButton4 = new RsWork.UI.Controls.ModernButton();
 			this.modernButton5 = new RsWork.UI.Controls.ModernButton();
 			this.modernButton6 = new RsWork.UI.Controls.ModernButton();
-			this.titleLabel1 = new ClassRoomHelper.Windows.Controls.TitleLabel();
+			this.Title = new ClassRoomHelper.Windows.Controls.TitleLabel();
+			this.textLabel1 = new ClassRoomHelper.Windows.Controls.TextLabel();
 			this.SuspendLayout();
 			// 
 			// modernButton1
@@ -80,7 +81,7 @@
 			this.modernButton2.Name = "modernButton2";
 			this.modernButton2.Size = new System.Drawing.Size(182, 161);
 			this.modernButton2.TabIndex = 3;
-			this.modernButton2.Text = "昨天使用过的课件";
+			this.modernButton2.Text = "本月使用过的课件";
 			this.modernButton2.UseVisualStyleBackColor = false;
 			this.modernButton2.Click += new System.EventHandler(this.ModernButton2_Click);
 			// 
@@ -103,7 +104,7 @@
 			this.modernButton3.Name = "modernButton3";
 			this.modernButton3.Size = new System.Drawing.Size(182, 161);
 			this.modernButton3.TabIndex = 4;
-			this.modernButton3.Text = "弹出U盘";
+			this.modernButton3.Text = "随机点名";
 			this.modernButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
 			this.modernButton3.UseVisualStyleBackColor = false;
 			this.modernButton3.Click += new System.EventHandler(this.ModernButton3_Click);
@@ -178,19 +179,30 @@
 			this.modernButton6.UseVisualStyleBackColor = false;
 			this.modernButton6.Click += new System.EventHandler(this.ModernButton6_Click);
 			// 
-			// titleLabel1
+			// Title
 			// 
-			this.titleLabel1.BackColor = System.Drawing.Color.Transparent;
-			this.titleLabel1.Dock = System.Windows.Forms.DockStyle.Top;
-			this.titleLabel1.Font = new System.Drawing.Font("黑体", 50F);
-			this.titleLabel1.ForeColor = System.Drawing.Color.Black;
-			this.titleLabel1.Location = new System.Drawing.Point(0, 0);
-			this.titleLabel1.Name = "titleLabel1";
-			this.titleLabel1.Size = new System.Drawing.Size(1165, 107);
-			this.titleLabel1.TabIndex = 1;
-			this.titleLabel1.Text = "快捷功能";
-			this.titleLabel1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-			this.titleLabel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TitleLabel1_MouseDown);
+			this.Title.BackColor = System.Drawing.Color.Transparent;
+			this.Title.Dock = System.Windows.Forms.DockStyle.Top;
+			this.Title.Font = new System.Drawing.Font("黑体", 50F);
+			this.Title.ForeColor = System.Drawing.Color.Black;
+			this.Title.Location = new System.Drawing.Point(0, 0);
+			this.Title.Name = "Title";
+			this.Title.Size = new System.Drawing.Size(1165, 107);
+			this.Title.TabIndex = 1;
+			this.Title.Text = "快捷功能";
+			this.Title.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+			this.Title.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TitleLabel1_MouseDown);
+			// 
+			// textLabel1
+			// 
+			this.textLabel1.AutoSize = true;
+			this.textLabel1.BackColor = System.Drawing.Color.Transparent;
+			this.textLabel1.Font = new System.Drawing.Font("黑体", 14F);
+			this.textLabel1.Location = new System.Drawing.Point(16, 341);
+			this.textLabel1.Name = "textLabel1";
+			this.textLabel1.Size = new System.Drawing.Size(569, 38);
+			this.textLabel1.TabIndex = 10;
+			this.textLabel1.Text = "*  单击\"随机点名\"或\"U盘助手\"弹出的窗口可以快速关闭该窗口\r\n** 我们将每天提供优质壁纸 , 除非您在设置中关闭此功能";
 			// 
 			// Widget
 			// 
@@ -198,13 +210,14 @@
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.ClientSize = new System.Drawing.Size(1165, 406);
+			this.Controls.Add(this.textLabel1);
 			this.Controls.Add(this.modernButton6);
 			this.Controls.Add(this.modernButton5);
 			this.Controls.Add(this.modernButton4);
 			this.Controls.Add(this.modernButton3);
 			this.Controls.Add(this.modernButton2);
 			this.Controls.Add(this.modernButton1);
-			this.Controls.Add(this.titleLabel1);
+			this.Controls.Add(this.Title);
 			this.DataBindings.Add(new System.Windows.Forms.Binding("Location", global::ClassRoomHelper.Properties.Settings.Default, "DesktopToolLoc", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
 			this.Font = new System.Drawing.Font("黑体", 14F);
 			this.Location = global::ClassRoomHelper.Properties.Settings.Default.DesktopToolLoc;
@@ -218,16 +231,18 @@
 			this.Paint += new System.Windows.Forms.PaintEventHandler(this.Widget_Paint);
 			this.Move += new System.EventHandler(this.Widget_Move);
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
 		#endregion
-		private Controls.TitleLabel titleLabel1;
 		private RsWork.UI.Controls.ModernButton modernButton1;
 		private RsWork.UI.Controls.ModernButton modernButton2;
 		private RsWork.UI.Controls.ModernButton modernButton3;
 		private RsWork.UI.Controls.ModernButton modernButton4;
 		private RsWork.UI.Controls.ModernButton modernButton5;
 		private RsWork.UI.Controls.ModernButton modernButton6;
+		public Controls.TitleLabel Title;
+		private Controls.TextLabel textLabel1;
 	}
 }

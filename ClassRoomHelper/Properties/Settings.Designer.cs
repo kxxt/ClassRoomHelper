@@ -12,7 +12,7 @@ namespace ClassRoomHelper.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.2.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -272,6 +272,54 @@ namespace ClassRoomHelper.Properties {
             }
             set {
                 this["DesktopToolLoc"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("高考")]
+        public string Timer_EventName {
+            get {
+                return ((string)(this["Timer_EventName"]));
+            }
+            set {
+                this["Timer_EventName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Timer_Enabled {
+            get {
+                return ((bool)(this["Timer_Enabled"]));
+            }
+            set {
+                this["Timer_Enabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2020-06-07")]
+        public global::System.DateTime Timer_Date {
+            get {
+                return ((global::System.DateTime)(this["Timer_Date"]));
+            }
+            set {
+                this["Timer_Date"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool WallpaperEngine_Enabled {
+            get {
+                return ((bool)(this["WallpaperEngine_Enabled"]));
+            }
+            set {
+                this["WallpaperEngine_Enabled"] = value;
             }
         }
     }

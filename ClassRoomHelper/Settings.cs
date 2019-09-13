@@ -20,26 +20,36 @@
 
 		private void Settings_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
 		{
-			if (e.PropertyName == "TargetDir")
+			switch (e.PropertyName)
 			{
+				case "TargetDir":
+					if (Program.TargetDirParser == null) return;
+					Program.TargetDirParser.Root = Program.Settings.TargetDir;
+					try
+					{
+						System.IO.File.WriteAllText(".config", Program.Settings.TargetDir, System.Text.Encoding.UTF8);
+					}
+					catch
+					{
 
-				if (Program.TargetDirParser == null) return;
-				Program.TargetDirParser.Root = Program.Settings.TargetDir;
-				try
-				{
-					System.IO.File.WriteAllText(".config", Program.Settings.TargetDir,System.Text.Encoding.UTF8);
-				}
-				catch
-				{
+					}
 
-				}
-			}else if (e.PropertyName == "CollectMode")
-			{
-				if (Program.TargetDirParser == null) return;
+					break;
+				case "CollectMode":
+					if (Program.TargetDirParser == null) return;
 
-				Program.TargetDirParser.Mode = Program.Settings.ResortMode;
+					Program.TargetDirParser.Mode = Program.Settings.ResortMode;
+					break;
+				case "Timer_Enabled":
+				case "Timer_EventName":
+				case "Timer_Date":
+					if (Program.Settings.Timer_Enabled)
+						Program.Widget.Title.Text = $"距 {Program.Settings.Timer_EventName} 还有 {(Program.Settings.Timer_Date-System.DateTime.Now).Days } 天";
+					else
+						Program.Widget.Title.Text = "快捷功能";
+					break;
 			}
-			
+
 			//throw new System.NotImplementedException();
 		}
 

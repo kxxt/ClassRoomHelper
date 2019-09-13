@@ -19,6 +19,8 @@ namespace ClassRoomHelper.Windows
 			Program.Settings.TargetDir = textBox1.Text;
 			Program.Settings.NameCallOutPre = textBox2.Text;
 			Program.Settings.NameCallOutPost = textBox3.Text;
+			Program.Settings.Timer_EventName = textBox4.Text;
+			Program.Settings.Timer_Date = dateTimePicker1.Value;
 			Program.Settings.Save();
 			Program.TargetDirParser.Root = Program.Settings.TargetDir;
 			Program.TargetDirParser.Mode = Program.Settings.ResortMode;
@@ -150,13 +152,17 @@ namespace ClassRoomHelper.Windows
 			textBox1.Text = Program.Settings.TargetDir;
 			textBox2.Text = Program.Settings.NameCallOutPre;
 			textBox3.Text = Program.Settings.NameCallOutPost;
+			textBox4.Text = Program.Settings.Timer_EventName;
+			dateTimePicker1.Value = Program.Settings.Timer_Date;
 		checkBox1.Checked=Program.Settings.DesktopTool_AutoShow  ;
 		checkBox6.Checked=Program.Settings.StartAfterWindows ;
 		checkBox5.Checked=Program.Settings.DebugEnabled ;
 		checkBox9.Checked=Program.Settings.VoiceNameCallOut ;
+			checkBox3.Checked = Program.Settings.WallpaperEngine_Enabled;
 		checkBox7.Checked=Program.Settings.UMgr_Enabled ;
 		checkBox4.Checked=Program.Settings.UMgr_ShowDialog;
 			checkBox12.Checked = Program.Settings.ShowHelperWindow;
+			checkBox2.Checked = Program.Settings.Timer_Enabled;
 		switch (Program.Settings.FileExistedSolution)
 		{
 				case Library.Services.FileExistedSolution.Copy:
@@ -245,6 +251,38 @@ namespace ClassRoomHelper.Windows
 			else
 			{
 				Program.Settings.ShowHelperWindow = false;
+
+			}
+		}
+
+		private void CheckBox2_CheckedChanged(object sender, EventArgs e)
+		{
+			if (checkBox2.Checked)
+			{
+				Program.Settings.Timer_Enabled= true;
+			}
+			else
+			{
+				Program.Settings.Timer_Enabled = false;
+
+			}
+		}
+
+		private void GroupBox1_Enter(object sender, EventArgs e)
+		{
+
+		}
+
+		private async void CheckBox3_CheckedChanged(object sender, EventArgs e)
+		{
+			if (checkBox3.Checked)
+			{
+				Program.Settings.WallpaperEngine_Enabled = true;
+				await Service.BingWallpaper();
+			}
+			else
+			{
+				Program.Settings.WallpaperEngine_Enabled = false;
 
 			}
 		}

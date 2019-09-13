@@ -118,28 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="defaultButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABGdBTUEAALGPC/xhBQAAA9NJREFUeF7t
-        nE1IVFEYhq9iVkQKQRFhUGZz5zpBLdoGbWpbtKpt27ZBm4I27fqjgmqTWVGiUJGhRT+CoXm9VgtT2kVB
-        ixCCfsRFQ6cz9k3pzHtmzr3eUei8Dzy0/I7P8Yf7pdcjhBBCCCGEEEIIIYQQQggpRV33ctqz2rfaKa1K
-        1U7vmIwic1FXvWU60EVtfl6wWshLmI/q9hp1mMdloWopL+EfOsjlskCLIS/h7/f82n/bMen6JegAF2CY
-        xbTDOynHcQ8dYLIsyFLo6leC/uC/l8VYKl38SoAh3Lbw7DOuPxnOqGteu2SqHSXD6Xzz+iLOF56RJFf6
-        gKG03P6aXQIYRrGXJFm6gEEUm1c3vECypQcYRM2ek2zpAYZQs+OSLT3AEGr2m2RLDzCEVlCypQcaQs1K
-        tvRAQ6hZyZYeaAg1K9nSAw1JZKf27mqlnrUo9XKrUiMZpUaz/6PTKgomVZjt0R5SA7sbJGUyYMy43m5U
-        anATOqwLvtYXsk1yxgcGjWPXij+f8fhwbhhlv6jQ3ylJ4wGj2nqzXqmhLfhQzul/VGOtzZLVHhjW1r61
-        4CBOe1qy2gPD2jrchg7hslNqItcoae2AYW28sxwdgIaZ7ZLWDhjXxntN+ACuGwb7Ja0dMK6N/evwAVw3
-        CvZIWjtgXBsHNuIDOG97TtLaAePayB/AyJnYT8YwbjVvNaDhdNR/I1ntgYGr2bMKDKf6ibhTstoDA1ez
-        dw0+AD0qWe2Bgav5ZAMaTkeyeyWrPTBwNV9sxgdw3tx6yWoPDFzJzjr9sOGD4c77WZLGA0auZBdXEFj/
-        qSSNB4xcyfvNYDjVF5Dsl7Zg5EpyBYGN/MOSNB4wciWfcwUBXbT/EeMKAplXwy0rJWk8YGSTXEGYfCc5
-        4wNDm+QKAhsF3ZIzPjC0Sa4gDAYnJGd8YGiTXEFgI3+f5IwPDG2SKwhslGmVnPGBoZFcQZj8qpRXJznj
-        A2MjuYIwOSQpkwFjI7mCwIbZK5IyGTA2kisIbBQckZTJgLGRXEFgw/ZdkjIZMDaSKwjkr0S/kDsXGLtU
-        riBMfpCMyYHBS+UKwmSvZEwODF7qQ64goGH2lGRMjg78oyx4qVxBYKPgoGRMjg5c/ZVlg1xBQMcyWcmY
-        nNkXEqHoRbmCMPlpQSuIIoXXcunQP8vCF+UKwqB/XBIuHB268K5ofAH8QwzkezXS1iT5Fs7se6M7vEfw
-        Avq4gihxSo3mdki69DC+vJt/iDHHIFSvcm2SrDbo6MXX109oZ5xfQYT+tP73gfaA/qFbL5kIIYQQQggh
-        hBBCCCGEEEIEz/sNCMdDyItXEvgAAAAASUVORK5CYII=
-</value>
-  </data>
   <data name="resource.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABGdBTUEAALGPC/xhBQAAA9NJREFUeF7t

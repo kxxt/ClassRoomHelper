@@ -32,7 +32,7 @@ namespace ClassRoomHelper.Windows
 		private void Timer2_Tick(object sender, EventArgs e)
 		{
 			if (Opacity >= 0.1)
-				this.Opacity -= 0.027;
+				this.Opacity -= 0.045;
 			else
 			{
 				//timer2.Dispose();

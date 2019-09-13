@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Drawing;
 using System.Windows.Forms;
 using ClassRoomHelper.Library;
 using ClassRoomHelper.Library.Services;
@@ -166,6 +167,22 @@ namespace ClassRoomHelper.Windows
 		{
 			EjectUSB eject = new EjectUSB();
 			MessageBox.Show(eject.Eject(eject.USBEject("H:")).ToString());
+		}
+
+		private async void DefaultButton22_Click(object sender, EventArgs e)
+		{
+			string xml = await (await Library.WallpaperEngine.GetInformation()).Content.ReadAsStringAsync();
+			MessageBox.Show(WallpaperEngine.GetImageUrl(xml)
+			);
+		}
+
+		private async void DefaultButton23_Click(object sender, EventArgs e)
+		{
+			string url = WallpaperEngine.GetImageUrl(await(await Library.WallpaperEngine.GetInformation()).Content.ReadAsStringAsync());
+			var path = Program.TargetDirParser.Get_Daily() + "\\" + DateTime.Now.ToString("yyyy-MM-dd") + ".jpg";
+			//WallpaperEngine.HttpDownloadFile(url,path);
+			//WallpaperEngine.Set(Image.FromFile(path), WallpaperEngine.Style.Stretched);
+
 		}
 	}
 }

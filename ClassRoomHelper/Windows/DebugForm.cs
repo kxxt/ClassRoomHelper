@@ -174,15 +174,16 @@ namespace ClassRoomHelper.Windows
 			string xml = await (await Library.WallpaperEngine.GetInformation()).Content.ReadAsStringAsync();
 			MessageBox.Show(WallpaperEngine.GetImageUrl(xml)
 			);
+			Clipboard.SetText(WallpaperEngine.GetImageUrl(xml));
 		}
 
 		private async void DefaultButton23_Click(object sender, EventArgs e)
 		{
 			string url = WallpaperEngine.GetImageUrl(await(await Library.WallpaperEngine.GetInformation()).Content.ReadAsStringAsync());
 			var path = Program.TargetDirParser.Get_Daily() + "\\" + DateTime.Now.ToString("yyyy-MM-dd") + ".jpg";
-			//WallpaperEngine.HttpDownloadFile(url,path);
-			//WallpaperEngine.Set(Image.FromFile(path), WallpaperEngine.Style.Stretched);
-
+			WallpaperEngine.HttpDownloadFile(url,path);
+			WallpaperEngine.Set(Image.FromFile(path), WallpaperEngine.Style.Stretched);
+			//await Service.BingWallpaper();
 		}
 	}
 }

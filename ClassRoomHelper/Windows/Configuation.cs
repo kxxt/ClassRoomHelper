@@ -154,17 +154,18 @@ namespace ClassRoomHelper.Windows
 			textBox3.Text = Program.Settings.NameCallOutPost;
 			textBox4.Text = Program.Settings.Timer_EventName;
 			dateTimePicker1.Value = Program.Settings.Timer_Date;
-		checkBox1.Checked=Program.Settings.DesktopTool_AutoShow  ;
-		checkBox6.Checked=Program.Settings.StartAfterWindows ;
-		checkBox5.Checked=Program.Settings.DebugEnabled ;
-		checkBox9.Checked=Program.Settings.VoiceNameCallOut ;
+			checkBox1.Checked=Program.Settings.DesktopTool_AutoShow  ;
+			checkBox6.Checked=Program.Settings.StartAfterWindows ;
+			checkBox5.Checked=Program.Settings.DebugEnabled ;
+			checkBox9.Checked=Program.Settings.VoiceNameCallOut ;
 			checkBox3.Checked = Program.Settings.WallpaperEngine_Enabled;
-		checkBox7.Checked=Program.Settings.UMgr_Enabled ;
-		checkBox4.Checked=Program.Settings.UMgr_ShowDialog;
+			checkBox7.Checked=Program.Settings.UMgr_Enabled ;
+			checkBox4.Checked=Program.Settings.UMgr_ShowDialog;
 			checkBox12.Checked = Program.Settings.ShowHelperWindow;
 			checkBox2.Checked = Program.Settings.Timer_Enabled;
-		switch (Program.Settings.FileExistedSolution)
-		{
+			checkBox8.Checked = Program.Settings.BugFixForSeewo;
+			switch (Program.Settings.FileExistedSolution)
+			{
 				case Library.Services.FileExistedSolution.Copy:
 					radioButton3.Checked = true;
 					break;
@@ -177,7 +178,7 @@ namespace ClassRoomHelper.Windows
 			default:
 					radioButton3.Select();
 					break;
-		}
+			}
 			switch (Program.Settings.ResortMode)
 			{
 				case Library.Services.ResortMode.AmPmSeparated:
@@ -283,6 +284,20 @@ namespace ClassRoomHelper.Windows
 			else
 			{
 				Program.Settings.WallpaperEngine_Enabled = false;
+
+			}
+		}
+
+		private void CheckBox8_CheckedChanged(object sender, EventArgs e)
+		{
+			if (checkBox3.Checked)
+			{
+				Program.Settings.BugFixForSeewo = true;
+				
+			}
+			else
+			{
+				Program.Settings.BugFixForSeewo = false;
 
 			}
 		}

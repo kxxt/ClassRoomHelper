@@ -40,11 +40,13 @@ namespace ClassRoomHelper.Windows
 		private void ModernButton1_Click(object sender, EventArgs e)
 		{
 			Service.OpenRecently();
+			if (Program.Settings.BugFixForSeewo) BugFixForSeewo();
 		}
 
 		private void ModernButton2_Click(object sender, EventArgs e)
 		{
 			Service.OpenMonth();
+			if (Program.Settings.BugFixForSeewo) BugFixForSeewo();
 		}
 
 		private /*async*/ void ModernButton3_Click(object sender, EventArgs e)
@@ -66,8 +68,16 @@ namespace ClassRoomHelper.Windows
 				}
 			});*/
 			Service.ChooseNameRandomly();
+			if(Program.Settings.BugFixForSeewo)BugFixForSeewo();
 		}
 
+		private void BugFixForSeewo()
+		{
+			SetCursorPos(Screen.PrimaryScreen.WorkingArea.Width/2,Screen.PrimaryScreen.WorkingArea.Height/2);
+		}
+		[DllImport("User32.dll")]
+		private static extern bool SetCursorPos(int x, int y);
+		
 		private void ModernButton4_Click(object sender, EventArgs e)
 		{
 			if (!Program.ShowingHelperWindow)
@@ -80,6 +90,7 @@ namespace ClassRoomHelper.Windows
 				Program.ShowingHelperWindow = false;
 				Program.HelperWindow.Hide();
 			}
+			if (Program.Settings.BugFixForSeewo) BugFixForSeewo();
 		}
 
 		private void Widget_Move(object sender, EventArgs e)
@@ -91,6 +102,7 @@ namespace ClassRoomHelper.Windows
 		private void ModernButton4_Click_1(object sender, EventArgs e)
 		{
 			Service.Vote();
+			if (Program.Settings.BugFixForSeewo) BugFixForSeewo();
 		}
 
 		private void ModernButton5_Click(object sender, EventArgs e)
@@ -103,6 +115,7 @@ namespace ClassRoomHelper.Windows
 			{
 				MessageBox.Show("失败", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
+			if (Program.Settings.BugFixForSeewo) BugFixForSeewo();
 		}
 
 		private void ModernButton6_Click(object sender, EventArgs e)
@@ -115,6 +128,22 @@ namespace ClassRoomHelper.Windows
 			{
 				MessageBox.Show("失败", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
+			if (Program.Settings.BugFixForSeewo) BugFixForSeewo();
+		}
+
+		private void Widget_Load(object sender, EventArgs e)
+		{
+			this.Title.Font = new Font(Program.Fonts.Families[0], 60);
+			this.textLabel1.Font=new Font(Program.Fonts.Families[0], 15);
+			var f= new Font(Program.Fonts.Families[0], 25);
+			modernButton1.Font = f;
+			modernButton2.Font = f;
+			modernButton3.Font = f;
+			modernButton4.Font = f;
+			modernButton5.Font = f;
+			modernButton6.Font = f;
+			//modernButton7.Font = f;
+
 		}
 	}
 	internal class User32

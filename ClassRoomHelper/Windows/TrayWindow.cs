@@ -107,10 +107,17 @@ namespace ClassRoomHelper.Windows
 				this.Tray.BalloonTipText = "您可以拖动悬浮球和桌面小工具,我们将记住它的位置\r\n班级助手仍在后台运行,单击托盘区的图标来打开主界面";
 				Tray.BalloonTipTitle = "班级助手";
 				Tray.BalloonTipIcon = ToolTipIcon.Info;
-				Tray.ShowBalloonTip(7);
+				Tray.ShowBalloonTip(5000);
 			}
+			//Service.BingWallpaper();
 		}
-
+		public void ShowBalloonTip(string text,string title,int time=5000,ToolTipIcon icon = ToolTipIcon.Info)
+		{
+			this.Tray.BalloonTipText = text;
+			this.Tray.BalloonTipTitle = title;
+			this.Tray.BalloonTipIcon = icon;
+			Tray.ShowBalloonTip(time);
+		}
 		private async void TrayWindow_Shown(object sender, EventArgs e)
 		{
 			/*delegate x=() =>
@@ -121,6 +128,7 @@ namespace ClassRoomHelper.Windows
 				Program.Helper.FileName = Environment.CurrentDirectory + "CRHBackstageHelper.exe";
 				return true;
 			};*/
+			
 			timer2.Start();
 			Service.owner = new WindowWrapper(Program.manager.app.Handle);
 			await Task.Run(() =>
@@ -141,6 +149,13 @@ namespace ClassRoomHelper.Windows
 				Core.postLoad();
 				//Program.Settings.
 			});
+			backgroundWorker1.DoWork += this.BackgroundWorker1_DoWork;
+			backgroundWorker1.RunWorkerAsync();
+			Timer1_Tick(null, null);
+			/*if (Program.Settings.WallpaperEngine_Enabled)
+			{
+				await Service.BingWallpaper();
+			}*/
 			if (Program.Settings.ShowHelperWindow)
 			{
 				Program.ShowingHelperWindow = true;
@@ -152,10 +167,18 @@ namespace ClassRoomHelper.Windows
 				Program.ShowingDesktopTool = true;
 				Program.Widget.Show();
 			}
-			Timer1_Tick(null, null);
+			
 			//timer1?.Start();
 		}
-		
+
+		private void BackgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+		{
+			if (Program.Settings.WallpaperEngine_Enabled)
+			{
+				Service.BingWallpaper();
+			}
+		}
+
 		/*private Task LoadApp()
 		{
 			return Task.Run(()=>
@@ -164,7 +187,7 @@ namespace ClassRoomHelper.Windows
 				//Program.Settings.
 			});
 		}*/
-		
+
 		public void Pop(string text,string title)
 		{
 			Tray.BalloonTipText = text;
@@ -213,7 +236,8 @@ namespace ClassRoomHelper.Windows
 
 		private void TrayWindow_Load(object sender, EventArgs e)
 		{
-
+			this.titleLabel1.Font =new System.Drawing.Font( Program.Fonts.Families[0],72);
+			this.titleLabel1.Left = (this.Width - titleLabel1.Width) / 2;
 		}
 	}
 }

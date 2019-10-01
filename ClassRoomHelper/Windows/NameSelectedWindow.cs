@@ -17,6 +17,7 @@ namespace ClassRoomHelper.Windows
 		public NameSelectedWindow()
 		{
 			InitializeComponent();
+			
 		}
 		public NameSelectedWindow(string name)
 		{
@@ -45,6 +46,9 @@ namespace ClassRoomHelper.Windows
 		}
 		private void NameSelectedWindow_Shown(object sender, EventArgs e)
 		{
+			this.titleLabel1.Font = new Font(Program.Fonts.Families[0], 90);
+			this.titleLabel2.Font = new Font(Program.Fonts.Families[0], 160);
+			this.titleLabel3.Font = new Font(Program.Fonts.Families[0], 90);
 			timer2.Start();
 			this.Opacity = 1;
 		}

@@ -18,7 +18,7 @@ namespace ClassRoomHelper.Library
 			}
 			catch
 			{
-
+				
 			}
 		}
 		public static void AppendException(string fn,Exception c)

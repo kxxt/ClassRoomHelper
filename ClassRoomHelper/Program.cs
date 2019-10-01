@@ -35,6 +35,8 @@ namespace ClassRoomHelper
 	}
 	static class Program
 	{
+		public static System.Drawing.Font DisplayFont;
+		public static System.Drawing.Text.PrivateFontCollection Fonts = new System.Drawing.Text.PrivateFontCollection();
 		public const string TurnsFileName="turns.txt";
 		public static OOBE OOBE;
 		public static SingleInstanceManager manager;
@@ -68,6 +70,8 @@ namespace ClassRoomHelper
 				MessageBox.Show("请启动班级助手程序,而不是此程序.", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
+			Fonts.AddFontFile(Environment.CurrentDirectory+"\\Fonts\\WenCangShuFang-2.ttf");
+			//DisplayFont=new System.Drawing.Font(Fonts[0],)
 			try
 			{
 				Program.FirstUse = File.Exists("FirstRun");

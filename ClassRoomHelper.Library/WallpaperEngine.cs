@@ -15,7 +15,7 @@ namespace ClassRoomHelper.Library
 {
 	public static class WallpaperEngine
 	{
-		private static string urlbase = "https://cn.bing.com";
+		private static string urlbase = "http://cn.bing.com";
 		private static string rawurl = "https://cn.bing.com/HPImageArchive.aspx?format=xml&idx=0&n=1";
 		public async static Task<HttpResponseMessage> GetInformation()
 		{
@@ -33,10 +33,14 @@ namespace ClassRoomHelper.Library
 		public static async Task DownLoadWallpaper(string path)
 		{
 			string url = GetImageUrl(await (await GetInformation()).Content.ReadAsStringAsync());
+			/*if (!Directory.Exists(path))
+			{
+				Directory.CreateDirectory(path);
+			}*/
 			HttpDownloadFile(url, path);
 		}
 		
-		private static string HttpDownloadFile(string url, string path)
+		public static string HttpDownloadFile(string url, string path)
 		{
 			// 设置参数
 			HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;

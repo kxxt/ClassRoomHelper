@@ -322,5 +322,17 @@ namespace ClassRoomHelper.Properties {
                 this["WallpaperEngine_Enabled"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool BugFixForSeewo {
+            get {
+                return ((bool)(this["BugFixForSeewo"]));
+            }
+            set {
+                this["BugFixForSeewo"] = value;
+            }
+        }
     }
 }

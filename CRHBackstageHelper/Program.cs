@@ -5,6 +5,9 @@ using System.IO;
 using System.IO.Pipes;
 using System.Diagnostics;
 using System.Threading;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace CRHBackstageHelper
 {
@@ -101,6 +104,8 @@ namespace CRHBackstageHelper
 					return 0;
 				}
 			}*/
+			int retrycnt = 3;
+			retry:
 			try
 			{
 				switch (args[0].Trim().ToLower())
@@ -125,6 +130,10 @@ namespace CRHBackstageHelper
 
 			}catch(Exception ex)
 			{
+				if (retrycnt > 0) {
+					retrycnt--;
+					goto retry;
+				}
 				Log.AppendException("Logs\\service.error",ex);
 			}
 			// 
@@ -172,7 +181,7 @@ namespace CRHBackstageHelper
 				if ((WorkingState)data.WorkingState == WorkingState.ToRun)
 				{
 					data.WorkingState = (int)WorkingState.Idle;
-					
+					//MessageBox.Show("M Rev ed");
 					Debug("Message Received");
 					Debug("- Raw Message -");
 					Debug(data.FileExistedSolution);
@@ -234,16 +243,57 @@ namespace CRHBackstageHelper
 			
 		}
 
-		static void Copy((string, string) info, string tdir)
+		static void Copy((string, string) info, string tdir,bool searchCommonFoldersIfFileNotFound=true)
 		{
+			//todo
+			//Log.Append("debug.log",$"File Found : {info.Item1 + "\\" + info.Item2}");
 			if (String.IsNullOrEmpty(tdir))
 			{
 				Debug("Empty Target Dir");
 				return;
 			}
-			if (!File.Exists(info.Item1+"\\"+info.Item2))
+			if (!File.Exists(info.Item1 + "\\" + info.Item2))
 			{
-				Debug("Unsaved File");
+				// 文件未保存或u盘已拔出
+				Debug("File Not Found");
+				if (!File.Exists("CommonFolders.txt")||!searchCommonFoldersIfFileNotFound)
+				{
+					return;
+				}
+				else
+				{
+					List<string> list;
+					try
+					{
+						list=File.ReadAllLines("CommonFolders.txt", System.Text.Encoding.UTF8).ToList();
+						list.ForEach(x => {
+							x.Trim();
+							if (!Directory.Exists(x))
+							{
+								Log.Append("Logs\\service.configerr", $"Folder \"{x}\" Not Found\n");
+								list.Remove(x);
+							}
+						});
+						
+					}
+					catch
+					{
+						Debug("COMMON Folders List Failed to load");
+						Log.Append("Logs\\service.configerr", "COMMON Folders List Failed to load");
+						return;
+					}
+					if (list != null)
+					{
+						list.ForEach(x =>
+						{
+							if (x.EndsWith("\\"))
+							{
+								x=x.Remove(x.Length - 1);
+							}
+							Copy((x, info.Item2), tdir, false);
+						});
+					}
+				}
 				return;
 			}
 			if (tdir[tdir.Length - 1] != '\\')

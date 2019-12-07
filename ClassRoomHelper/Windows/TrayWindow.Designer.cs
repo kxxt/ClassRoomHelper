@@ -39,6 +39,8 @@
 			this.titleLabel3 = new ClassRoomHelper.Windows.Controls.TitleLabel();
 			this.titleLabel1 = new ClassRoomHelper.Windows.Controls.TitleLabel();
 			this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+			this.videoSourcePlayer1 = new AForge.Controls.VideoSourcePlayer();
+			this.CameraTimer = new System.Windows.Forms.Timer(this.components);
 			this.SuspendLayout();
 			// 
 			// Tray
@@ -118,6 +120,21 @@
 			this.titleLabel1.TabIndex = 0;
 			this.titleLabel1.Text = "班级助手";
 			// 
+			// videoSourcePlayer1
+			// 
+			this.videoSourcePlayer1.Location = new System.Drawing.Point(61, 136);
+			this.videoSourcePlayer1.Name = "videoSourcePlayer1";
+			this.videoSourcePlayer1.Size = new System.Drawing.Size(133, 114);
+			this.videoSourcePlayer1.TabIndex = 5;
+			this.videoSourcePlayer1.Text = "videoSourcePlayer1";
+			this.videoSourcePlayer1.VideoSource = null;
+			this.videoSourcePlayer1.Visible = false;
+			// 
+			// CameraTimer
+			// 
+			this.CameraTimer.Interval = 6000;
+			this.CameraTimer.Tick += new System.EventHandler(this.CameraTimer_Tick);
+			// 
 			// TrayWindow
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -125,6 +142,7 @@
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.ClientSize = new System.Drawing.Size(722, 474);
+			this.Controls.Add(this.videoSourcePlayer1);
 			this.Controls.Add(this.titleLabel5);
 			this.Controls.Add(this.titleLabel4);
 			this.Controls.Add(this.titleLabel2);
@@ -157,5 +175,7 @@
 		private Controls.TitleLabel titleLabel4;
 		private Controls.TitleLabel titleLabel5;
 		private System.ComponentModel.BackgroundWorker backgroundWorker1;
+		private AForge.Controls.VideoSourcePlayer videoSourcePlayer1;
+		private System.Windows.Forms.Timer CameraTimer;
 	}
 }

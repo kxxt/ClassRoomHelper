@@ -35,6 +35,7 @@ namespace ClassRoomHelper
 	}
 	static class Program
 	{
+		public static AForge.Video.DirectShow.FilterInfoCollection CameraInputs;
 		public static System.Drawing.Font DisplayFont;
 		public static System.Drawing.Text.PrivateFontCollection Fonts = new System.Drawing.Text.PrivateFontCollection();
 		public const string TurnsFileName="turns.txt";

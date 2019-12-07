@@ -13,6 +13,7 @@ using System.Management;
 using Microsoft.Win32;
 using TaskScheduler;
 using ClassRoomHelper.Windows;
+using AForge.Video.DirectShow;
 
 namespace ClassRoomHelper
 {
@@ -414,7 +415,9 @@ namespace ClassRoomHelper
 			Program.Widget = new Windows.Widget();
 			if (Program.Settings.Timer_Enabled)
 			{
-				Program.Widget.Title.Text = Program.Widget.Title.Text = $"距 {Program.Settings.Timer_EventName} 还有 {(Program.Settings.Timer_Date - System.DateTime.Now).Days} 天";
+				TimeSpan timeSpan = (Program.Settings.Timer_Date - System.DateTime.Now.Date);
+
+				Program.Widget.Title.Text = Program.Widget.Title.Text = $"距 {Program.Settings.Timer_EventName} 还有 {(timeSpan.Hours>0?timeSpan.Days+1:timeSpan.Days)} 天";
 			}
 			Program.ShowingHelperWindow = false;
 			Program.ShowingDesktopTool = false;
@@ -452,6 +455,8 @@ namespace ClassRoomHelper
 			LoadProperties();
 			ConfigureSharedMemory();
 			LoadStudentList();
+			
+
 			try
 			{
 				Program.WorkAsAdministrator = File.Exists("AdminMode");
@@ -489,7 +494,7 @@ namespace ClassRoomHelper
 			}
 			Service.Speak("");
 			SystemEvents.SessionEnding += SystemEvents_SessionEnding;
-			Thread.Sleep(1000);
+			//Thread.Sleep(500);
 			
 			
 		}

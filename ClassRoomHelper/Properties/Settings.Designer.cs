@@ -12,7 +12,7 @@ namespace ClassRoomHelper.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.2.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.3.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -193,7 +193,7 @@ namespace ClassRoomHelper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("同学 , 请回答问题")]
+        [global::System.Configuration.DefaultSettingValueAttribute("同学")]
         public string NameCallOutPost {
             get {
                 return ((string)(this["NameCallOutPost"]));
@@ -253,7 +253,7 @@ namespace ClassRoomHelper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool ShowHelperWindow {
             get {
                 return ((bool)(this["ShowHelperWindow"]));
@@ -332,6 +332,54 @@ namespace ClassRoomHelper.Properties {
             }
             set {
                 this["BugFixForSeewo"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool CICEnabled {
+            get {
+                return ((bool)(this["CICEnabled"]));
+            }
+            set {
+                this["CICEnabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool CICEncryptedSave {
+            get {
+                return ((bool)(this["CICEncryptedSave"]));
+            }
+            set {
+                this["CICEncryptedSave"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int CICCamera {
+            get {
+                return ((int)(this["CICCamera"]));
+            }
+            set {
+                this["CICCamera"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool RecordData {
+            get {
+                return ((bool)(this["RecordData"]));
+            }
+            set {
+                this["RecordData"] = value;
             }
         }
     }

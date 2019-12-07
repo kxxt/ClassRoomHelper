@@ -7,6 +7,7 @@ namespace ClassRoomHelper.Windows
 	public partial class Configuation : BasicNoneBorderWinForm
 	{
 		bool loading=true;
+		bool loaded = false;
 		public Configuation()
 		{
 			InitializeComponent();
@@ -20,13 +21,14 @@ namespace ClassRoomHelper.Windows
 			Program.Settings.NameCallOutPre = textBox2.Text;
 			Program.Settings.NameCallOutPost = textBox3.Text;
 			Program.Settings.Timer_EventName = textBox4.Text;
+			Program.Settings.CICCamera = Int32.Parse(maskedTextBox1.Text);
 			Program.Settings.Timer_Date = dateTimePicker1.Value;
 			Program.Settings.Save();
 			Program.TargetDirParser.Root = Program.Settings.TargetDir;
 			Program.TargetDirParser.Mode = Program.Settings.ResortMode;
 			File.WriteAllText(".config",Program.Settings.TargetDir);
 			MessageBox.Show("设置已保存 .","提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
-			
+			loaded = false;
 		}
 
 		private void CheckBox1_CheckedChanged(object sender, EventArgs e)
@@ -153,6 +155,7 @@ namespace ClassRoomHelper.Windows
 			textBox2.Text = Program.Settings.NameCallOutPre;
 			textBox3.Text = Program.Settings.NameCallOutPost;
 			textBox4.Text = Program.Settings.Timer_EventName;
+			maskedTextBox1.Text = Program.Settings.CICCamera.ToString();
 			dateTimePicker1.Value = Program.Settings.Timer_Date;
 			checkBox1.Checked=Program.Settings.DesktopTool_AutoShow  ;
 			checkBox6.Checked=Program.Settings.StartAfterWindows ;
@@ -164,6 +167,9 @@ namespace ClassRoomHelper.Windows
 			checkBox12.Checked = Program.Settings.ShowHelperWindow;
 			checkBox2.Checked = Program.Settings.Timer_Enabled;
 			checkBox8.Checked = Program.Settings.BugFixForSeewo;
+			checkBox11.Checked = Program.Settings.CICEnabled;
+			checkBox13.Checked = Program.Settings.CICEncryptedSave;
+			checkBox14.Checked = Program.Settings.RecordData;
 			switch (Program.Settings.FileExistedSolution)
 			{
 				case Library.Services.FileExistedSolution.Copy:
@@ -208,6 +214,7 @@ namespace ClassRoomHelper.Windows
 					break;
 			}
 			loading = false;
+			loaded = true;
 			//System.Speech.Synthesis.TtsEngine.
 		}
 
@@ -279,7 +286,7 @@ namespace ClassRoomHelper.Windows
 			if (checkBox3.Checked)
 			{
 				Program.Settings.WallpaperEngine_Enabled = true;
-				await Service.BingWallpaper();
+				Service.BingWallpaper();
 			}
 			else
 			{
@@ -290,7 +297,7 @@ namespace ClassRoomHelper.Windows
 
 		private void CheckBox8_CheckedChanged(object sender, EventArgs e)
 		{
-			if (checkBox3.Checked)
+			if (checkBox8.Checked)
 			{
 				Program.Settings.BugFixForSeewo = true;
 				
@@ -300,6 +307,65 @@ namespace ClassRoomHelper.Windows
 				Program.Settings.BugFixForSeewo = false;
 
 			}
+		}
+
+		private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void checkBox11_CheckedChanged(object sender, EventArgs e)
+		{
+			if (checkBox11.Checked)
+			{
+				Program.Settings.CICEnabled = true;
+
+			}
+			else
+			{
+				Program.Settings.CICEnabled = false;
+
+			}
+			if(loaded)
+			MessageBox.Show("Please Restart Application to Apply Changes","Hint",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+		}
+
+		private void checkBox13_CheckedChanged(object sender, EventArgs e)
+		{
+			if (checkBox13.Checked)
+			{
+				Program.Settings.CICEncryptedSave = true;
+
+			}
+			else
+			{
+				Program.Settings.CICEncryptedSave = false;
+
+			}
+			if(loaded)
+			MessageBox.Show("Please Restart Application to Apply Changes", "Hint", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+		}
+
+		private void textLabel9_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void checkBox14_CheckedChanged(object sender, EventArgs e)
+		{
+			if (checkBox11.Checked)
+			{
+				Program.Settings.RecordData= true;
+
+			}
+			else
+			{
+				Program.Settings.RecordData = false;
+
+			}
+			if (loaded)
+				MessageBox.Show("Please Restart Application to Apply Changes", "Hint", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 		}
 	}
 }

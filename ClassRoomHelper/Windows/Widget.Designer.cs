@@ -203,11 +203,13 @@
 			this.Title.TabIndex = 1;
 			this.Title.Text = "快捷功能";
 			this.Title.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+			this.Title.Click += new System.EventHandler(this.Title_Click);
 			this.Title.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TitleLabel1_MouseDown);
 			// 
 			// Widget
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+			this.BackColor = System.Drawing.Color.Black;
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.ClientSize = new System.Drawing.Size(1158, 363);
@@ -226,6 +228,7 @@
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "Widget";
+			this.Opacity = 0.6D;
 			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
 			this.Text = "桌面部件";

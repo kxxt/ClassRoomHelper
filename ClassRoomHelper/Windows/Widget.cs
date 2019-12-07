@@ -145,6 +145,11 @@ namespace ClassRoomHelper.Windows
 			//modernButton7.Font = f;
 
 		}
+
+		private void Title_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 	internal class User32
 	{

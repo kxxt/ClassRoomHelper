@@ -45,7 +45,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="NameCallOutPost" Type="System.String" Scope="User">
-      <Value Profile="(Default)">同学 , 请回答问题</Value>
+      <Value Profile="(Default)">同学</Value>
     </Setting>
     <Setting Name="DesktopTool_ShowNameSelector" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
@@ -60,7 +60,7 @@
       <Value Profile="(Default)">200, 200</Value>
     </Setting>
     <Setting Name="ShowHelperWindow" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="DesktopToolLoc" Type="System.Drawing.Point" Scope="User">
       <Value Profile="(Default)">300, 300</Value>
@@ -79,6 +79,18 @@
     </Setting>
     <Setting Name="BugFixForSeewo" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="CICEnabled" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="CICEncryptedSave" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="CICCamera" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="RecordData" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

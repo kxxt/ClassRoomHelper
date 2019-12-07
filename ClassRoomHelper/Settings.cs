@@ -44,7 +44,12 @@
 				case "Timer_EventName":
 				case "Timer_Date":
 					if (Program.Settings.Timer_Enabled)
-						Program.Widget.Title.Text = $"距 {Program.Settings.Timer_EventName} 还有 {(Program.Settings.Timer_Date-System.DateTime.Now).Days } 天";
+					{
+						System.TimeSpan timeSpan = (Program.Settings.Timer_Date - System.DateTime.Now.Date);
+
+						Program.Widget.Title.Text = Program.Widget.Title.Text = $"距 {Program.Settings.Timer_EventName} 还有 {(timeSpan.Hours > 0 ? timeSpan.Days + 1 : timeSpan.Days)} 天";
+					}
+						//Program.Widget.Title.Text = $"距 {Program.Settings.Timer_EventName} 还有 {(Program.Settings.Timer_Date-System.DateTime.Now).Days } 天";
 					else
 						Program.Widget.Title.Text = "快捷功能";
 					break;

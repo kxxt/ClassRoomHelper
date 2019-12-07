@@ -8,6 +8,8 @@ using System.Threading;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using System.Threading.Tasks;
+using System.Drawing;
 
 namespace CRHBackstageHelper
 {
@@ -33,13 +35,16 @@ namespace CRHBackstageHelper
 		/// 
 		/// </summary>
 		/// <param name="args"></param>
-		public static int Main(string[] args)
+		public static async Task<int> Main(string[] args)
 		{
 			AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(FatalError);
 
 			if (args.Length < 2)
 			{
-				Server();
+				
+				{
+					Server();
+				}
 				return 0;
 				/*ProcessStartInfo main = new ProcessStartInfo();
 				main.Verb = "runas";
@@ -48,6 +53,12 @@ namespace CRHBackstageHelper
 				ret.WaitForExit();
 				return;*/
 			};
+			if (args.Length==2&&args[0].Trim() == "wallpaperengine")
+			{
+				await WallPaperEngine(args[1]);
+				return 0;
+			}
+			
 			if (args[0].Trim().ToLower() == "serve")
 			{
 				Server();
@@ -140,6 +151,61 @@ namespace CRHBackstageHelper
 			//Console.ReadLine();
 			return 0;
 			//
+		}
+
+		private async static Task<bool> WallPaperEngine(string v)
+		{
+			if (!Directory.Exists(v))
+			{
+				try
+				{
+					Directory.CreateDirectory(v);
+				}
+				catch
+				{
+					return false;
+				}
+			}
+			v=v+ "\\" + DateTime.Now.ToString("yyyy-MM-dd") + ".jpg";
+			if (File.Exists(v))
+			{
+				try
+				{
+					ClassRoomHelper.Library.WallpaperEngine.Set(Image.FromFile(v), ClassRoomHelper.Library.WallpaperEngine.Style.Stretched);
+					return true;
+				}
+				catch
+				{
+					return false;
+				}
+			}
+			
+			bool success = false;
+			for(int i = 0; i <= 10; i++)
+			{
+				try
+				{
+					await ClassRoomHelper.Library.WallpaperEngine.DownLoadWallpaper(v);
+					success = true;
+					break;
+				}
+				catch
+				{
+					Thread.Sleep(3000);
+				}
+			}
+			if(success)
+				try
+				{
+					ClassRoomHelper.Library.WallpaperEngine.Set(Image.FromFile(v), ClassRoomHelper.Library.WallpaperEngine.Style.Stretched);
+					return true;
+				}
+				catch
+				{
+					return false;
+				}
+
+			return success;
 		}
 
 		private static void FatalError(object sender, UnhandledExceptionEventArgs e)
@@ -243,7 +309,7 @@ namespace CRHBackstageHelper
 			
 		}
 
-		static void Copy((string, string) info, string tdir,bool searchCommonFoldersIfFileNotFound=true)
+		static void Copy((string, string) info, string tdir,bool searchCommonFoldersIfFileNotFound=true,string optionalPrefix="")
 		{
 			//todo
 			//Log.Append("debug.log",$"File Found : {info.Item1 + "\\" + info.Item2}");
@@ -290,7 +356,7 @@ namespace CRHBackstageHelper
 							{
 								x=x.Remove(x.Length - 1);
 							}
-							Copy((x, info.Item2), tdir, false);
+							Copy((x, info.Item2), tdir, false,"[已还原]");
 						});
 					}
 				}
@@ -300,7 +366,7 @@ namespace CRHBackstageHelper
 			{
 				tdir += '\\';
 			}
-			var tarf = tdir + info.Item2;
+			var tarf = tdir +optionalPrefix+ info.Item2;
 			var fi = new FileInfo(tarf);
 			var raw = new FileInfo(info.Item1 + "\\" + info.Item2);
 			var rdir= tdir + "文件历史 - " + info.Item2;
@@ -346,7 +412,7 @@ namespace CRHBackstageHelper
 						File.Copy(info.Item1 + "\\" + info.Item2, x.FullName + "\\" + (i + 1) + "-" + info.Item2);
 						break;
 					case FileExistedSolution.Cover:
-						File.Copy(info.Item1 + "\\" + info.Item2, tdir + info.Item2, true);
+						File.Copy(info.Item1 + "\\" + info.Item2, tarf, true);
 						break;
 					case FileExistedSolution.Skip:
 						break;
@@ -354,7 +420,7 @@ namespace CRHBackstageHelper
 			}
 			else
 			{
-				File.Copy(info.Item1 + "\\" + info.Item2, tdir + info.Item2, true);
+				File.Copy(info.Item1 + "\\" + info.Item2, tarf, true);
 			}
 		}
 		static void FetchALL(string sdir)

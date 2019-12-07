@@ -140,32 +140,16 @@ namespace ClassRoomHelper
 			}
 		}
 
-		public async static Task BingWallpaper()
+		public static void BingWallpaper()
 		{
-			var path = Program.TargetDirParser.Get_Daily() + "\\" + DateTime.Now.ToString("yyyy-MM-dd") + ".jpg";
-
-			if (File.Exists(path)) {
-				Library.WallpaperEngine.Set(Image.FromFile(path), Library.WallpaperEngine.Style.Stretched);
-
-				return;
-			}
-			
-			for(int i=0;i<=4;i++)
 			try
 			{
-				await Library.WallpaperEngine.DownLoadWallpaper(path);
-				break;
+				Process.Start("CRHBackstageHelper.exe", "wallpaperengine \"" + Program.TargetDirParser.Get_Daily() + "\"");
 			}
 			catch
 			{
-					Thread.Sleep(3000);
-					if (i == 4)
-					{
-						MessageBox.Show("网络连接异常 , 请检查网络连接", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-						return;
-					}
+				MessageBox.Show("操作失败");
 			}
-			Library.WallpaperEngine.Set(Image.FromFile(path), Library.WallpaperEngine.Style.Stretched);
 		}
 	}
 }

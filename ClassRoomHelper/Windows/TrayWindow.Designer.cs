@@ -107,6 +107,7 @@
 			this.titleLabel3.Size = new System.Drawing.Size(340, 38);
 			this.titleLabel3.TabIndex = 1;
 			this.titleLabel3.Text = "正在启动 , 请稍后";
+			this.titleLabel3.Click += new System.EventHandler(this.titleLabel3_Click);
 			// 
 			// titleLabel1
 			// 
@@ -119,6 +120,7 @@
 			this.titleLabel1.Size = new System.Drawing.Size(426, 97);
 			this.titleLabel1.TabIndex = 0;
 			this.titleLabel1.Text = "班级助手";
+			this.titleLabel1.Click += new System.EventHandler(this.titleLabel1_Click);
 			// 
 			// videoSourcePlayer1
 			// 

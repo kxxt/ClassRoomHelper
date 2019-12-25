@@ -110,11 +110,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>D:\NewPrograms\Syncfusion\Windows\17.2.0.34\Assemblies\4.0\Syncfusion.Core.WinForms.dll</HintPath>
     </Reference>
+    <Reference Include="Syncfusion.Edit.Windows, Version=17.2400.0.34, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
     <Reference Include="Syncfusion.SfInput.WinForms, Version=17.2460.0.34, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
     <Reference Include="Syncfusion.Shared.Base, Version=17.2460.0.34, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>D:\NewPrograms\Syncfusion\Windows\17.2.0.34\Assemblies\4.0\Syncfusion.Shared.Base.dll</HintPath>
     </Reference>
+    <Reference Include="Syncfusion.Tools.Windows, Version=17.2400.0.34, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
@@ -288,6 +290,7 @@
     <Compile Include="WindowWarpper.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -372,8 +375,11 @@
     </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="ClassRoomHelper_TemporaryKey.pfx" />
-    <None Include="Fonts\WenCangShuFang-2.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Include="Fonts\text.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fonts\title.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -388,6 +394,9 @@
     <None Include="Resources\Psd\1.psd" />
     <None Include="Resources\Psd\2.psd" />
     <None Include="Resources\Psd\welcome.psd" />
+    <Content Include="Tools\Everything.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Add_96px.png" />
     <Content Include="Images\app.ico" />
     <Content Include="Images\app_16.png" />
@@ -494,6 +503,9 @@
     <Content Include="Images\WAV_80px.png" />
     <Content Include="Images\workspace.svg" />
     <Content Include="Images\新建文本文档.txt" />
+    <Content Include="Tools\License.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\Pic\3.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

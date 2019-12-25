@@ -1,4 +1,7 @@
-﻿namespace ClassRoomHelper.Properties {
+﻿using System;
+using System.Drawing;
+
+namespace ClassRoomHelper.Properties {
     
     
     // 通过此类可以处理设置类的特定事件: 
@@ -45,9 +48,28 @@
 				case "Timer_Date":
 					if (Program.Settings.Timer_Enabled)
 					{
-						System.TimeSpan timeSpan = (Program.Settings.Timer_Date - System.DateTime.Now.Date);
+						TimeSpan timeSpan = (Program.Settings.Timer_Date - System.DateTime.Now.Date);
 
-						Program.Widget.Title.Text = Program.Widget.Title.Text = $"距 {Program.Settings.Timer_EventName} 还有 {(timeSpan.Hours > 0 ? timeSpan.Days + 1 : timeSpan.Days)} 天";
+						int days = (timeSpan.Hours > 0 ? timeSpan.Days + 1 : timeSpan.Days);
+						Program.Widget.Title.Text = Program.Widget.Title.Text = $"距 {Program.Settings.Timer_EventName} 还有 {days} 天";
+						if (days <= 10 || days % 10 == 0)
+						{
+							Program.Widget.Title.ForeColor = Color.Red;
+							Program.Widget.Title.Text += "！！！";
+							Program.Widget.BackColor = Color.Yellow;
+							Program.Widget.Opacity = 1;
+						}else if(days % 5 == 0)
+						{
+							Program.Widget.Title.ForeColor = Color.Purple;
+							Program.Widget.Title.Text += "！";
+							Program.Widget.Opacity = 0.6;
+						}
+						else
+						{
+							Program.Widget.Title.ForeColor = Color.Black;
+							Program.Widget.BackColor = Color.White;
+							Program.Widget.Opacity = 0.6;
+						}
 					}
 						//Program.Widget.Title.Text = $"距 {Program.Settings.Timer_EventName} 还有 {(Program.Settings.Timer_Date-System.DateTime.Now).Days } 天";
 					else

@@ -122,6 +122,26 @@ namespace ClassRoomHelper
 			}else 
 			OpenExplorer(Program.TargetDirParser.Get_Daily());
 		}
+
+		public static void EverythingSearch(string text)
+		{
+			if (!File.Exists("Tools\\Everything.exe"))
+			{
+				MessageBox.Show("没有找到Everything.\r\n请将Everything复制到程序目录的Tools文件夹下 , 然后重试 .","错误",MessageBoxButtons.OK,MessageBoxIcon.Error);
+			}
+			else
+			{
+				try
+				{
+					Process.Start("Tools\\Everything.exe",$"-filter document -s \"{text}\"");
+				}
+				catch
+				{
+					MessageBox.Show("操作失败");
+				}
+			}
+		}
+
 		public static void OpenExplorer(string dir){
 			
 			if(!Directory.Exists(dir)){

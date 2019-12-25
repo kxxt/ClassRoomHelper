@@ -146,6 +146,8 @@ namespace ClassRoomHelper.Windows
 		}
 		private void CapturePicture(object sender, EventArgs e)
 		{
+			if (!Program.Settings.CICEnabled) return;
+			Thread.Sleep(500);
 			Program.CameraInputs = new FilterInfoCollection(FilterCategory.VideoInputDevice);
 			if (Program.Settings.CICEnabled && Program.CameraInputs.Count > 0)
 			{
@@ -356,6 +358,16 @@ namespace ClassRoomHelper.Windows
 			videoSourcePlayer1.Dispose();
 			CameraTimer.Stop();
 			CameraTimer.Dispose();
+		}
+
+		private void titleLabel1_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void titleLabel3_Click(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

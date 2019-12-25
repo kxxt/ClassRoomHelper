@@ -361,6 +361,29 @@
   <metadata name="backgroundWorker1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="sfButton1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAA/dJREFUeF7t
+        mt1vTEEYxhvf4UZ9pvQfEBJXbXHV295ipe1uV6NVcSGCiIREKkG40mqFxB2RIMEFwp+hvpIiSOui6jsa
+        Shr83s17ZHassnrOzKnOkzzZdt/3zPO8c2bnzDlzKgICAgICAvygs7NzWnNzc202m90DL8K78K3JXC7X
+        x6fEJKdGjtHDJy8opJrCjvE5CL+XyUE5Np/PL9fmJg8425WwB46WKKwsahvdra2t87X5dAPDGQy/NIuI
+        iUOMiA0qkz50dHTMxOQZy7TJd/AcReT5rGlqalqqI6VS/pbv4GZ4Hr6HpdoQnhItlU0HWlpa5mHstmU0
+        4gOKbGEIz9H0P0JyOU4646HRjslboqnpflFfXz+Ds3qzhMmPcEcmk5muqWVD295JOyNGuxFvSFxT/QEj
+        vZYxmbj6OUMrNGXC4CeyknYf2TqwW1P8QCc829Qdil+iKbFB5glGg6wVivTwsF5T3AJDizDwyjSDwSdi
+        VFNiB+1XofPU0hxmrbBQU9yBnj9rGoEjnPlVGk4MFLwarU+W9mkNuwGC1fCLYUCG4i4NJw46Ya+lPdrY
+        2LhMw8kD0aOWgX6XM7KuOR6bHuBhDScLuawh9sIS36JhZ2AUtFseBpzcQDHJrbWEP3BG5mrYGXTxJWuN
+        n174rk7DyYGe32+Kwgsacg68XDa98FPcp6HkgNAVS7RNQ85BB2wzvUiHaCg5IHTfFIU1GnIOtNeYXuiA
+        Pg0lB4TemKJMios15Byy4jS90AHDGkoOCBVd/+mAWRpyjoaGhtmmF1kPaCg5IFTUAT7vzX11wGtTVO4J
+        NOQcvn4CU34SLLoMItquIedA28tl8IApCr0thNC+ZHpxshCil9eZojA1S2E6oFbDySEtN0NobrU8uLkZ
+        EiCWutthPBzRcPKQhw9yzbUMeHsgAj/zXZWG3YCCeywTPh+JndCwOzAXLMDMsGmE/50/FIVD3vYNGQW/
+        PBbHZJ+s0DQlNsguMe3fs/Xw4OexeARMXC9hql+GqqZMGHRoHe0OlNDp0hQ/wEQOjpmmImJOJsmD5ewJ
+        2tA9wkOw6AZMeVUuyZrqHhj4bfEWn9EZ1FLe5ijHtHHsc6utAoldkztBTXcPTJQqfoxhX2qTNGJhexzK
+        rm9he1zOoFD+pih5hUZikjPe9nhvGs/8GAVkJU4nbIJFV4eYKC9dbCyY8AUMjFt8BP6v5PuTfMbyigzs
+        4mfh9xUZzPxV8SaIT+glKXgcVmtz/oCJsos3Mc5rclFb6X1NDuPbMfQNmsV/xXB6X1iKC6H4UHwoPhQf
+        ig/F/+eQx1gU+8+LnP8CnOndRvFT48zboHBZgk7N4iNQfGyPsQICAgICAtKCioofY7YIL3U63RYAAAAA
+        SUVORK5CYII=
+</value>
+  </data>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAyAAAAJYCAYAAACadoJwAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO

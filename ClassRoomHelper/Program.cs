@@ -61,6 +61,9 @@ namespace ClassRoomHelper
 		[STAThread]
 		static void Main(string[] args)
 		{
+			Application.EnableVisualStyles();
+			Application.SetCompatibleTextRenderingDefault(false);
+			Core.LoadProperties();
 			if (args.Length == 0)
 			{
 				MessageBox.Show("请启动班级助手程序,而不是此程序.","提示",MessageBoxButtons.OK,MessageBoxIcon.Warning);
@@ -71,7 +74,8 @@ namespace ClassRoomHelper
 				MessageBox.Show("请启动班级助手程序,而不是此程序.", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
-			Fonts.AddFontFile(Environment.CurrentDirectory+"\\Fonts\\WenCangShuFang-2.ttf");
+			Fonts.AddFontFile(Environment.CurrentDirectory+"\\Fonts\\title.ttf");
+			Fonts.AddFontFile(Environment.CurrentDirectory + "\\Fonts\\text.ttf");
 			//DisplayFont=new System.Drawing.Font(Fonts[0],)
 			try
 			{
@@ -85,8 +89,7 @@ namespace ClassRoomHelper
 			{
 				Program.FirstUse = true;
 			}
-			Application.EnableVisualStyles();
-			Application.SetCompatibleTextRenderingDefault(false);
+			
 			manager = new SingleInstanceManager();
 			//bg = new BlackBackground();
 			//bg.Show();

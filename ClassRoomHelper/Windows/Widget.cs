@@ -133,9 +133,12 @@ namespace ClassRoomHelper.Windows
 
 		private void Widget_Load(object sender, EventArgs e)
 		{
-			this.Title.Font = new Font(Program.Fonts.Families[0], 60);
-			this.textLabel1.Font=new Font(Program.Fonts.Families[0], 15);
-			var f= new Font(Program.Fonts.Families[0], 25);
+			this.Title.Font = new Font(Program.Fonts.Families[0], 64);
+			var tl=new Font(Program.Fonts.Families[1], 15);
+			this.textLabel1.Font = tl;
+			textLabel2.Font = tl;
+			textBox1.Font = tl;
+			var f= new Font(Program.Fonts.Families[1], 25);
 			modernButton1.Font = f;
 			modernButton2.Font = f;
 			modernButton3.Font = f;
@@ -147,6 +150,16 @@ namespace ClassRoomHelper.Windows
 		}
 
 		private void Title_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void sfButton1_Click(object sender, EventArgs e)
+		{
+			Service.EverythingSearch(textBox1.Text);
+		}
+
+		private void button1_Click(object sender, EventArgs e)
 		{
 
 		}

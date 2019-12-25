@@ -14,6 +14,7 @@ using Microsoft.Win32;
 using TaskScheduler;
 using ClassRoomHelper.Windows;
 using AForge.Video.DirectShow;
+using System.Drawing;
 
 namespace ClassRoomHelper
 {
@@ -416,8 +417,28 @@ namespace ClassRoomHelper
 			if (Program.Settings.Timer_Enabled)
 			{
 				TimeSpan timeSpan = (Program.Settings.Timer_Date - System.DateTime.Now.Date);
-
-				Program.Widget.Title.Text = Program.Widget.Title.Text = $"距 {Program.Settings.Timer_EventName} 还有 {(timeSpan.Hours>0?timeSpan.Days+1:timeSpan.Days)} 天";
+				int days = (timeSpan.Hours > 0 ? timeSpan.Days + 1 : timeSpan.Days);
+				Program.Widget.Title.Text = Program.Widget.Title.Text = $"距 {Program.Settings.Timer_EventName} 还有 {days} 天";
+				if(days<=10||days % 10 == 0)
+				{
+					Program.Widget.Title.Text += "！！！";
+					Program.Widget.Title.ForeColor = Color.Red;
+					Program.Widget.BackColor = Color.Yellow;
+					Program.Widget.Opacity = 1;
+				}
+			
+			else if (days % 5 == 0)
+			{
+				Program.Widget.Title.ForeColor = Color.Purple;
+				Program.Widget.Title.Text += "！";
+				Program.Widget.Opacity = 0.6;
+			}
+			else
+				{
+					Program.Widget.Title.ForeColor = Color.Black;
+					Program.Widget.BackColor = Color.White;
+					Program.Widget.Opacity = 0.6;
+				}
 			}
 			Program.ShowingHelperWindow = false;
 			Program.ShowingDesktopTool = false;
@@ -452,7 +473,7 @@ namespace ClassRoomHelper
 		public static void preLoad()
 		{
 			//AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
-			LoadProperties();
+			//LoadProperties();
 			ConfigureSharedMemory();
 			LoadStudentList();
 			

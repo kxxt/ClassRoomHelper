@@ -1,0 +1,103 @@
+﻿<Window
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:prop="clr-namespace:ClassRoomHelper.Properties"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClassRoomHelper"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="ClassRoomHelper.MainWindow"
+        mc:Ignorable="d"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        AllowsTransparency="True"
+        Title="MainWindow" Height="363" Width="1158" Opacity="1" WindowStyle="None" Background="Transparent" DragLeave="Window_DragLeave">
+    <Window.Resources>
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid Margin="0,0,0,0" Width="1158">
+        <Grid.Background>
+            <ImageBrush/>
+        </Grid.Background>
+        <TextBlock FontFamily="./#HYShangWeiShouShuW" Style="{DynamicResource MaterialDesignTitleTextBlock}" HorizontalAlignment="Center" TextWrapping="Wrap" Text="快捷功能" VerticalAlignment="Center" Height="106" Width="1138" Foreground="Black" FontSize="75" TextAlignment="Center" Margin="10,2,10,255" Background="#99FFFFFF"/>
+        <StackPanel Margin="10,113,10,70" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button  HorizontalAlignment="Left" Height="180" VerticalAlignment="Top" Width="180" Margin="0,0,0,0" BorderBrush="{x:Null}" mah:ButtonHelper.CornerRadius="5" Background="#7F673AB7" Click="Button_Click_1">
+                <StackPanel>
+                    <Image Source="Resources/128@129-man-student-1.png" Width="128" />
+                    <TextBlock TextAlignment="Center" FontSize="25">随机点名</TextBlock>
+                </StackPanel>
+            </Button>
+            <!--<Button.Template>
+                    <ControlTemplate>
+
+                        <ContentControl>
+                            <Image Source="/WpfWidget;component/129-man-student-1.png"></Image>
+                        </ContentControl>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Button.IsFocused" Value="False">
+                                <Setter  Property="Content">
+                                    <Setter.Value>
+                                        <Image Source="/WpfWidget;component/icon_student_select.png" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                    
+                </Button.Template>-->
+
+
+            <!--  <Button.Content>
+                    <Image Source="129-man-student-1.png"/>
+                </Button.Content>-->
+
+
+            <Button  HorizontalAlignment="Left" Height="180" VerticalAlignment="Top" Width="180" Margin="10,0,0,0" BorderBrush="{x:Null}" mah:ButtonHelper.CornerRadius="5" Background="#7F673AB7" Click="Button_Click_2">
+                <StackPanel>
+                    <Image Source="Resources/128@vote.png" Width="128" />
+                    <TextBlock TextAlignment="Center" FontSize="25" Text="班级投票"/>
+                </StackPanel>
+            </Button>
+            <Button HorizontalAlignment="Left" Height="180" VerticalAlignment="Top" Width="180" Margin="10,0,0,0" BorderBrush="{x:Null}" mah:ButtonHelper.CornerRadius="5" Background="#7F673AB7" Click="Button_Click_3">
+                <StackPanel>
+                    <Image Source="Resources/128@office (1).png" Width="128" />
+                    <TextBlock TextAlignment="Center" FontSize="25" Text="最近课件"/>
+                </StackPanel>
+            </Button>
+
+            <Button  HorizontalAlignment="Left" Height="180" VerticalAlignment="Top" Width="180" Margin="10,0,0,0" BorderBrush="{x:Null}" mah:ButtonHelper.CornerRadius="5" Background="#7F673AB7" Click="Button_Click_6">
+                <StackPanel>
+                    <Image Source="Resources/128@office-方-f.png" Width="128" />
+                    <TextBlock TextAlignment="Center" FontSize="25" Text="本月课件"/>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Height="180" VerticalAlignment="Top" Width="180" Margin="10,0,0,0" BorderBrush="{x:Null}" mah:ButtonHelper.CornerRadius="5" Background="#7F673AB7" Click="Button_Click_4">
+                <StackPanel>
+                    <Image Source="Resources/128@safety (3).png" Width="128" />
+                    <TextBlock TextAlignment="Center" FontSize="25" Text="安全教育平台"/>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Height="180" VerticalAlignment="Top" Width="180" Margin="10,0,0,0" BorderBrush="{x:Null}" mah:ButtonHelper.CornerRadius="5" Background="#7F673AB7" Click="Button_Click_5">
+                <StackPanel>
+                    <Image Source="Resources/128@News.png" Width="128" />
+                    <TextBlock TextAlignment="Center" FontSize="25" Text="新闻周刊"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <Button Style="{DynamicResource MaterialDesignFloatingActionLightButton}" Content="{materialDesign:PackIcon Settings, Size=32}"  HorizontalAlignment="Left" Margin="1016,302,0,0" VerticalAlignment="Top" Width="56" Height="56"  FontSize="25" Background="#7FB39DDB" Click="Button_Click_8"/>
+        <Button Style="{DynamicResource MaterialDesignFloatingActionLightButton}" Content="{materialDesign:PackIcon Close, Size=32}"  HorizontalAlignment="Left" Margin="1080,302,0,0" VerticalAlignment="Top" Width="56" Height="56" Click="Button_Click"  FontSize="25" Background="#7FB39DDB"/>
+        <Button Style="{DynamicResource MaterialDesignFloatingActionDarkButton}" Content="{materialDesign:PackIcon Search, Size=32}"  HorizontalAlignment="Left" Margin="952,302,0,0" VerticalAlignment="Top" Width="56" Height="56"  FontSize="25" Click="Button_Click_7" Background="#7F512DA8"/>
+        <TextBlock HorizontalAlignment="Left" Margin="329,313,0,0" TextWrapping="Wrap" Text="搜索课件和文档" VerticalAlignment="Top" Height="40" Width="208" Foreground="White" FontSize="28" Background="#7F673AB7" TextAlignment="Center"/>
+        <TextBox x:Name="searchBox" HorizontalAlignment="Left" Height="40" Margin="553,313,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="378" Background="White" FontSize="27"/>
+
+
+    </Grid>
+</Window>

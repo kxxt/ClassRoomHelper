@@ -185,5 +185,10 @@ namespace ClassRoomHelper.Windows
 			WallpaperEngine.Set(Image.FromFile(path), WallpaperEngine.Style.Stretched);
 			//await Service.BingWallpaper();
 		}
+
+		private void defaultButton24_Click(object sender, EventArgs e)
+		{
+			new ClassRoomHelper.MainWindow().Show();
+		}
 	}
 }

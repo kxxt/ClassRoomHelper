@@ -52,6 +52,7 @@
 			this.defaultButton3 = new ClassRoomHelper.Windows.Controls.DefaultButton();
 			this.defaultButton2 = new ClassRoomHelper.Windows.Controls.DefaultButton();
 			this.defaultButton1 = new ClassRoomHelper.Windows.Controls.DefaultButton();
+			this.defaultButton24 = new ClassRoomHelper.Windows.Controls.DefaultButton();
 			this.SuspendLayout();
 			// 
 			// defaultButton23
@@ -315,12 +316,24 @@
 			this.defaultButton1.Text = "Detect Word";
 			this.defaultButton1.Click += new System.EventHandler(this.DefaultButton1_Click);
 			// 
+			// defaultButton24
+			// 
+			this.defaultButton24.AccessibleName = "Button";
+			this.defaultButton24.Font = new System.Drawing.Font("黑体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.defaultButton24.Location = new System.Drawing.Point(432, 285);
+			this.defaultButton24.Name = "defaultButton24";
+			this.defaultButton24.Size = new System.Drawing.Size(204, 28);
+			this.defaultButton24.TabIndex = 25;
+			this.defaultButton24.Text = "Show WPF Form";
+			this.defaultButton24.Click += new System.EventHandler(this.defaultButton24_Click);
+			// 
 			// DebugForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.White;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.defaultButton24);
 			this.Controls.Add(this.defaultButton23);
 			this.Controls.Add(this.defaultButton22);
 			this.Controls.Add(this.defaultButton21);
@@ -378,5 +391,6 @@
 		private Controls.DefaultButton defaultButton21;
 		private Controls.DefaultButton defaultButton22;
 		private Controls.DefaultButton defaultButton23;
+		private Controls.DefaultButton defaultButton24;
 	}
 }

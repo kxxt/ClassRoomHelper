@@ -18,7 +18,7 @@ using System.Drawing;
 
 namespace ClassRoomHelper
 {
-	public  class Core
+	public class Core
 	{
 		internal static void SetUp()
 		{
@@ -66,7 +66,7 @@ namespace ClassRoomHelper
 			{
 
 			}
-			
+
 		}
 		public static void RemoveStartByTaskSch()
 		{
@@ -104,13 +104,13 @@ namespace ClassRoomHelper
 			action.Arguments = "autorun"; //参数.
 			var folder = scheduler.GetFolder(@"\"); //这里是Task的根文件夹, 还可以用folder.CreateFolder来创建自己的目录.
 													//注册任务. 这里的TASK_LOGON_INTERACTIVE_TOKEN就是说使用用户当前的登录信息(如果已经登录).
-			folder.RegisterTaskDefinition("ClassRoomHelperStartUp", task, (int)_TASK_CREATION.TASK_CREATE_OR_UPDATE, null, null, _TASK_LOGON_TYPE.TASK_LOGON_INTERACTIVE_TOKEN);		
+			folder.RegisterTaskDefinition("ClassRoomHelperStartUp", task, (int)_TASK_CREATION.TASK_CREATE_OR_UPDATE, null, null, _TASK_LOGON_TYPE.TASK_LOGON_INTERACTIVE_TOKEN);
 		}
 		public static void SetStartByTaskSchAdmin()
 		{
 			var scheduler = new TaskScheduler.TaskScheduler();
 			scheduler.Connect(); //连接, 还有一些登录参数可选.
-			//if(scheduler.GetFolder("\\").GetTask())
+								 //if(scheduler.GetFolder("\\").GetTask())
 			var task = scheduler.NewTask(0); //官方文档上, 这个参数后面加了注释reserved.
 			task.RegistrationInfo.Author = "班级助手";
 			task.RegistrationInfo.Description = "班级助手";
@@ -132,40 +132,43 @@ namespace ClassRoomHelper
 			folder.RegisterTaskDefinition("ClassRoomHelperStartUp", task, (int)_TASK_CREATION.TASK_CREATE_OR_UPDATE, null, null, _TASK_LOGON_TYPE.TASK_LOGON_INTERACTIVE_TOKEN);
 		}
 		internal static void ActionsBeforeAppExit()
-        {
-           try{
-			   File.Delete("AdminMode");
-		   }catch{
-
-		   }
-			
-        }
-
-        public static void SetSkipUAC()
 		{
-				var scheduler = new TaskScheduler.TaskScheduler();
-				scheduler.Connect(); //连接, 还有一些登录参数可选.
-				var task = scheduler.NewTask(0); //官方文档上, 这个参数后面加了注释reserved.
-				task.RegistrationInfo.Author = "班级助手";
-				task.RegistrationInfo.Description = "班级助手跳过UAC";
-				task.Settings.Enabled = true; //or false, 开关.
-											  //在启动的时候执行, 一开始只写了Logon, 不过发现开机的时候登录并没有触发.
-											  //task.Triggers.Create(_TASK_TRIGGER_TYPE2.TASK_TRIGGER_BOOT);
-											  //注销后登录什么的.
-				task.Triggers.Create(_TASK_TRIGGER_TYPE2.TASK_TRIGGER_LOGON);
-				var action = task.Actions.Create(_TASK_ACTION_TYPE.TASK_ACTION_EXEC) as IExecAction;
-				//上面的Triggers.Create也会像Actions.Create一样分别返回类型为IBootTrigger, ILogonTrigger的对象(自己as或者强制转换一下).
-				//可以做更多设置.
-				//这里就是设置为用户能达到的最高权限.
-				task.Principal.RunLevel = _TASK_RUNLEVEL.TASK_RUNLEVEL_HIGHEST;
-				action.Path = Environment.CurrentDirectory + "\\班级助手.exe"; //需要启动的程序路径.
-				action.WorkingDirectory = Environment.CurrentDirectory;
-				action.Arguments = "skipuac"; //参数.
-				var folder = scheduler.GetFolder(@"\"); //这里是Task的根文件夹, 还可以用folder.CreateFolder来创建自己的目录.
-														//注册任务. 这里的TASK_LOGON_INTERACTIVE_TOKEN就是说使用用户当前的登录信息(如果已经登录).
-				folder.RegisterTaskDefinition("ClassRoomHelperSkipUAC", task, (int)_TASK_CREATION.TASK_CREATE_OR_UPDATE, null, null, _TASK_LOGON_TYPE.TASK_LOGON_INTERACTIVE_TOKEN);
-				//注册成功, 删除注册表内的启动项, 这里的SetRegister是我自己写的, 替换掉即可.
-				//SetRegistry(dir, “Pacgen”, null);
+			try
+			{
+				File.Delete("AdminMode");
+			}
+			catch
+			{
+
+			}
+
+		}
+
+		public static void SetSkipUAC()
+		{
+			var scheduler = new TaskScheduler.TaskScheduler();
+			scheduler.Connect(); //连接, 还有一些登录参数可选.
+			var task = scheduler.NewTask(0); //官方文档上, 这个参数后面加了注释reserved.
+			task.RegistrationInfo.Author = "班级助手";
+			task.RegistrationInfo.Description = "班级助手跳过UAC";
+			task.Settings.Enabled = true; //or false, 开关.
+										  //在启动的时候执行, 一开始只写了Logon, 不过发现开机的时候登录并没有触发.
+										  //task.Triggers.Create(_TASK_TRIGGER_TYPE2.TASK_TRIGGER_BOOT);
+										  //注销后登录什么的.
+			task.Triggers.Create(_TASK_TRIGGER_TYPE2.TASK_TRIGGER_LOGON);
+			var action = task.Actions.Create(_TASK_ACTION_TYPE.TASK_ACTION_EXEC) as IExecAction;
+			//上面的Triggers.Create也会像Actions.Create一样分别返回类型为IBootTrigger, ILogonTrigger的对象(自己as或者强制转换一下).
+			//可以做更多设置.
+			//这里就是设置为用户能达到的最高权限.
+			task.Principal.RunLevel = _TASK_RUNLEVEL.TASK_RUNLEVEL_HIGHEST;
+			action.Path = Environment.CurrentDirectory + "\\班级助手.exe"; //需要启动的程序路径.
+			action.WorkingDirectory = Environment.CurrentDirectory;
+			action.Arguments = "skipuac"; //参数.
+			var folder = scheduler.GetFolder(@"\"); //这里是Task的根文件夹, 还可以用folder.CreateFolder来创建自己的目录.
+													//注册任务. 这里的TASK_LOGON_INTERACTIVE_TOKEN就是说使用用户当前的登录信息(如果已经登录).
+			folder.RegisterTaskDefinition("ClassRoomHelperSkipUAC", task, (int)_TASK_CREATION.TASK_CREATE_OR_UPDATE, null, null, _TASK_LOGON_TYPE.TASK_LOGON_INTERACTIVE_TOKEN);
+			//注册成功, 删除注册表内的启动项, 这里的SetRegister是我自己写的, 替换掉即可.
+			//SetRegistry(dir, “Pacgen”, null);
 		}
 		public static void RemoveStartup()
 		{
@@ -182,16 +185,16 @@ namespace ClassRoomHelper
 			//if (CheckStartup()) { MessageBox.Show("Start Up");return; };
 			var Startup = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
 			//MessageBox.Show(Startup);
-			IWshRuntimeLibrary.WshShell wsh= new IWshRuntimeLibrary.WshShell();
+			IWshRuntimeLibrary.WshShell wsh = new IWshRuntimeLibrary.WshShell();
 			IWshRuntimeLibrary.IWshShortcut shortcut = wsh.CreateShortcut(
 			Startup + "\\班级助手.lnk") as IWshRuntimeLibrary.IWshShortcut;
 			shortcut.Arguments = "";
-			shortcut.TargetPath = Environment.CurrentDirectory+"\\班级助手.exe";
+			shortcut.TargetPath = Environment.CurrentDirectory + "\\班级助手.exe";
 			// not sure about what this is for
 			//shortcut.WindowStyle = 1;
 			shortcut.Description = "班级助手";
-			
-			shortcut.WindowStyle =(int) IWshRuntimeLibrary.WshWindowStyle.WshNormalFocus;
+
+			shortcut.WindowStyle = (int)IWshRuntimeLibrary.WshWindowStyle.WshNormalFocus;
 			shortcut.WorkingDirectory = Environment.CurrentDirectory;
 			shortcut.Save();
 		}
@@ -221,7 +224,7 @@ namespace ClassRoomHelper
 
 			if (!CheckAutoRun())
 				// Add the value in the registry so that the application runs at startup
-				rkApp.SetValue("ClassRoomHelper", Environment.CurrentDirectory+"\\"+"班级助手.exe");
+				rkApp.SetValue("ClassRoomHelper", Environment.CurrentDirectory + "\\" + "班级助手.exe");
 		}
 		#endregion
 		public static void StartService(CollectMode mode)
@@ -229,21 +232,21 @@ namespace ClassRoomHelper
 			if (!Directory.Exists(Program.Settings.TargetDir))
 			{
 				Program.Settings.TargetDir = new DirectoryInfo(Environment.CurrentDirectory).CreateSubdirectory("Files").FullName;
-				MessageBox.Show("您所指定的保存目录不存在,\r\n已自动为您将保存目录重置为程序目录下Files文件夹 .\r\n您可以到\"设置\"中更改 .","提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
+				MessageBox.Show("您所指定的保存目录不存在,\r\n已自动为您将保存目录重置为程序目录下Files文件夹 .\r\n您可以到\"设置\"中更改 .", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				Program.Settings.Save();
 			}
 			string modex = mode.ToArg();
 			string existedsl = Program.Settings.FileExistedSolution.ToArg();
-			Program.Helper.Arguments = modex+" \""+Program.TargetDirParser.Get()+"\" "+existedsl;
+			Program.Helper.Arguments = modex + " \"" + Program.TargetDirParser.Get() + "\" " + existedsl;
 			//if (Program.Settings.DebugEnabled) Program.Helper.WindowStyle = ProcessWindowStyle.Normal;
 			try
 			{
 				Process.Start(Program.Helper);
 
 			}
-			catch(Exception ex)
+			catch (Exception ex)
 			{
-				Log.AppendException("Logs\\bgservice.starterr",ex);
+				Log.AppendException("Logs\\bgservice.starterr", ex);
 			}
 			//Process.Start("explorer",Program.Settings.TargetDir);
 		}
@@ -251,7 +254,7 @@ namespace ClassRoomHelper
 		{
 			// 0 : Working State
 			// 1 :
-			Program.InfoPipe = new SharedMemory.SharedArray<IPCInfoStruct>("crh-ipc",1);
+			Program.InfoPipe = new SharedMemory.SharedArray<IPCInfoStruct>("crh-ipc", 1);
 		}
 		/// <summary>
 		/// With Admin
@@ -262,9 +265,9 @@ namespace ClassRoomHelper
 			//MessageBox.Show("WayOne");
 			StartService(mode);
 		}
-		static DateTime lastrun=new DateTime(1900,1,1);
+		static DateTime lastrun = new DateTime(1900, 1, 1);
 		static TimeSpan timeSpan = new TimeSpan(0, 0, 1);
-		public static void SendMessage(CollectMode collectMode,ResortMode? resortMode=null,FileExistedSolution? fileExistedSolution=null)
+		public static void SendMessage(CollectMode collectMode, ResortMode? resortMode = null, FileExistedSolution? fileExistedSolution = null)
 		{
 			if (fileExistedSolution == null) fileExistedSolution = Program.Settings.FileExistedSolution;
 			if (resortMode == null) resortMode = Program.Settings.ResortMode;
@@ -292,12 +295,12 @@ namespace ClassRoomHelper
 			Program.Settings.Save();
 			try
 			{
-				File.WriteAllText(".config", Program.Settings.TargetDir,Encoding.UTF8);
+				File.WriteAllText(".config", Program.Settings.TargetDir, Encoding.UTF8);
 			}
-			catch(Exception ex)
+			catch (Exception ex)
 			{
-				MessageBox.Show("重置失败","错误",MessageBoxButtons.OK,MessageBoxIcon.Error);
-				Log.AppendException("Logs\\workdir.reset.err",ex);
+				MessageBox.Show("重置失败", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Log.AppendException("Logs\\workdir.reset.err", ex);
 			}
 		}
 
@@ -361,19 +364,19 @@ namespace ClassRoomHelper
 			Program.Settings.DesktopTool_AutoShow = true;
 			Program.Settings.Save();
 		}
-		public static void ServiceHook(object sender,EventArrivedEventArgs e)
+		public static void ServiceHook(object sender, EventArrivedEventArgs e)
 		{
 			Thread.Sleep(3000);
 			try
 			{
 				if (Program.Settings.CollectMode == CollectMode.PPT)
 				{
-					if(Program.WorkAsAdministrator)ServiceWayOne(CollectMode.PPT);
+					if (Program.WorkAsAdministrator) ServiceWayOne(CollectMode.PPT);
 					ServiceWayTwo(CollectMode.PPT);
 				}
 				else
 				{
-					if(Program.WorkAsAdministrator)ServiceWayOne(CollectMode.ALL);
+					if (Program.WorkAsAdministrator) ServiceWayOne(CollectMode.ALL);
 					ServiceWayTwo(CollectMode.ALL);
 				}
 			}
@@ -409,35 +412,36 @@ namespace ClassRoomHelper
 			if (!Directory.Exists(Program.Settings.TargetDir))
 			{
 				Program.Settings.TargetDir = Environment.CurrentDirectory + "\\Files";
-				Program.manager.app.ShowBalloonTip("已重置目标目录 .如需修改 , 请转到设置 .","Hint");
+				Program.manager.app.ShowBalloonTip("已重置目标目录 .如需修改 , 请转到设置 .", "Hint");
 			}
 			Program.TargetDirParser = new TargetDirParser(Program.Settings.TargetDir, Program.Settings.ResortMode);
 			Program.HelperWindow = new Windows.HelperIm();
-			Program.Widget = new Windows.Widget();
+			Program.Widget = new MainWindow();
 			if (Program.Settings.Timer_Enabled)
 			{
 				TimeSpan timeSpan = (Program.Settings.Timer_Date - System.DateTime.Now.Date);
 				int days = (timeSpan.Hours > 0 ? timeSpan.Days + 1 : timeSpan.Days);
 				Program.Widget.Title.Text = Program.Widget.Title.Text = $"距 {Program.Settings.Timer_EventName} 还有 {days} 天";
-				if(days<=10||days % 10 == 0)
+				if (days <= 10 || days % 10 == 0)
 				{
 					Program.Widget.Title.Text += "！！！";
-					Program.Widget.Title.ForeColor = Color.Red;
-					Program.Widget.BackColor = Color.Yellow;
-					Program.Widget.Opacity = 1;
+					Program.Widget.Title.Foreground = System.Windows.Media.Brushes.Red;
+					Program.Widget.Title.Background = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(255, 255, 255));
+					//Program.Widget.Opacity = 1;
 				}
-			
-			else if (days % 5 == 0)
-			{
-				Program.Widget.Title.ForeColor = Color.Purple;
-				Program.Widget.Title.Text += "！";
-				Program.Widget.Opacity = 0.6;
-			}
-			else
+
+				else if (days % 5 == 0)
 				{
-					Program.Widget.Title.ForeColor = Color.Black;
-					Program.Widget.BackColor = Color.White;
-					Program.Widget.Opacity = 0.6;
+					Program.Widget.Title.Foreground = System.Windows.Media.Brushes.Yellow;
+					Program.Widget.Title.Background = System.Windows.Media.Brushes.Black;
+					Program.Widget.Title.Text += "！";
+					//Program.Widget.Opacity = 0.6;
+				}
+				else
+				{
+					Program.Widget.Title.Foreground = System.Windows.Media.Brushes.Black;
+					Program.Widget.Title.Background = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromArgb(51, 255, 255, 255));
+					//Program.Widget.Opacity = 0.6;
 				}
 			}
 			Program.ShowingHelperWindow = false;
@@ -463,9 +467,9 @@ namespace ClassRoomHelper
 
 					}
 				}
-				catch 
+				catch
 				{
-					MessageBox.Show("学生名单加载失败","错误",MessageBoxButtons.OK,MessageBoxIcon.Error);
+					MessageBox.Show("学生名单加载失败", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					throw;
 				}
 			}
@@ -476,7 +480,7 @@ namespace ClassRoomHelper
 			//LoadProperties();
 			ConfigureSharedMemory();
 			LoadStudentList();
-			
+
 
 			try
 			{
@@ -490,25 +494,26 @@ namespace ClassRoomHelper
 
 		private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
 		{
-			MessageBox.Show("班级助手发生严重错误 , 请尝试重启应用程序或重新安装 !","致命错误",MessageBoxButtons.OK,MessageBoxIcon.Error);
+			MessageBox.Show("班级助手发生严重错误 , 请尝试重启应用程序或重新安装 !", "致命错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			//throw new ExceptionW
 			Environment.Exit(-1);
 		}
 
-		public static   void postLoad()
+		public static void postLoad()
 		{
-			
-			
+
+
 			//Program.HelperWindow = new Windows.HelperWindow();
 			//Program.Widget = new Windows.Widget();
 			//Program.HelperWindow = new HelperWindow();
-			
-			
+
+
 			try
 			{
 				StartCensorService();
-				
-			}catch(System.Management.ManagementException ex)
+
+			}
+			catch (System.Management.ManagementException ex)
 			{
 				Log.AppendException("Logs\\wmi.err", ex);
 				//MessageBox.Show(Log.GetExceptionInfo(ex));
@@ -516,8 +521,8 @@ namespace ClassRoomHelper
 			Service.Speak("");
 			SystemEvents.SessionEnding += SystemEvents_SessionEnding;
 			//Thread.Sleep(500);
-			
-			
+
+
 		}
 
 		private static void SystemEvents_SessionEnding(object sender, SessionEndingEventArgs e)

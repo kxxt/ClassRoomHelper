@@ -49,29 +49,31 @@ namespace ClassRoomHelper.Properties {
 					if (Program.Settings.Timer_Enabled)
 					{
 						TimeSpan timeSpan = (Program.Settings.Timer_Date - System.DateTime.Now.Date);
-
 						int days = (timeSpan.Hours > 0 ? timeSpan.Days + 1 : timeSpan.Days);
 						Program.Widget.Title.Text = Program.Widget.Title.Text = $"距 {Program.Settings.Timer_EventName} 还有 {days} 天";
 						if (days <= 10 || days % 10 == 0)
 						{
-							Program.Widget.Title.ForeColor = Color.Red;
 							Program.Widget.Title.Text += "！！！";
-							Program.Widget.BackColor = Color.Yellow;
-							Program.Widget.Opacity = 1;
-						}else if(days % 5 == 0)
+							Program.Widget.Title.Foreground = System.Windows.Media.Brushes.Red;
+							Program.Widget.Title.Background = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(255, 255, 255));
+							//Program.Widget.Opacity = 1;
+						}
+
+						else if (days % 5 == 0)
 						{
-							Program.Widget.Title.ForeColor = Color.Purple;
+							Program.Widget.Title.Foreground = System.Windows.Media.Brushes.Yellow;
+							Program.Widget.Title.Background = System.Windows.Media.Brushes.Black;
 							Program.Widget.Title.Text += "！";
-							Program.Widget.Opacity = 0.6;
+							//Program.Widget.Opacity = 0.6;
 						}
 						else
 						{
-							Program.Widget.Title.ForeColor = Color.Black;
-							Program.Widget.BackColor = Color.White;
-							Program.Widget.Opacity = 0.6;
+							Program.Widget.Title.Foreground = System.Windows.Media.Brushes.Black;
+							Program.Widget.Title.Background = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromArgb(51, 255, 255, 255));
+							//Program.Widget.Opacity = 0.6;
 						}
 					}
-						//Program.Widget.Title.Text = $"距 {Program.Settings.Timer_EventName} 还有 {(Program.Settings.Timer_Date-System.DateTime.Now).Days } 天";
+					//Program.Widget.Title.Text = $"距 {Program.Settings.Timer_EventName} 还有 {(Program.Settings.Timer_Date-System.DateTime.Now).Days } 天";
 					else
 						Program.Widget.Title.Text = "快捷功能";
 					break;

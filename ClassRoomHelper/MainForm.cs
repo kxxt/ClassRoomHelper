@@ -21,9 +21,10 @@ namespace ClassRoomHelper
 
 		private void SfButton2_Click(object sender, EventArgs e)
 		{
-			Program.HelperWindow.Close();
+			//Program.HelperWindow.Close();
+			Program.Widget.Close();
 			Application.Exit();
-			//Environment.Exit(0);
+			Environment.Exit(0);
 		}
 
 		private void DefaultButton6_Click(object sender, EventArgs e)
@@ -60,7 +61,7 @@ namespace ClassRoomHelper
 			if (!Program.ShowingDesktopTool)
 			{
 				Program.ShowingDesktopTool = true;
-				Program.Widget.Show(Service.owner);
+				Program.Widget.Show();
 			}
 			else
 			{

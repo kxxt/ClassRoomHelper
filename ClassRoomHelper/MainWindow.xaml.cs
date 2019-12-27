@@ -11,6 +11,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Forms;
 using System.Windows.Input;
+using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -32,7 +33,8 @@ namespace ClassRoomHelper
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
 			if(System.Windows.MessageBox.Show("是否要关闭桌面小工具?","关闭",MessageBoxButton.YesNo,MessageBoxImage.Question)==MessageBoxResult.Yes)
-			this.Close();
+			this.Hide();
+			Program.ShowingDesktopTool = false;
 		}
 		private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
 		{
@@ -58,6 +60,7 @@ namespace ClassRoomHelper
 
 		private void Window_DragLeave(object sender, System.Windows.DragEventArgs e)
 		{
+			//System.Windows.MessageBox.Show("");
 			Program.Settings.DesktopToolLoc =new System.Drawing.Point( (int)this.Left,(int)this.Top);
 		}
 
@@ -117,7 +120,31 @@ namespace ClassRoomHelper
 
 		private void Button_Click_8(object sender, RoutedEventArgs e)
 		{
+			settingDialogHost.ShowDialog(settingDialogHost.DialogContent);
+			//System.Windows.MessageBox.Show($"{(int)this.Left},{(int)this.Top}");
+			//Program.Settings.DesktopToolLoc = new System.Drawing.Point((int)this.Left, (int)this.Top);
+			//Program.Settings.Save();
+		}
 
+		private void Window_LocationChanged(object sender, EventArgs e)
+		{
+			//Program.Settings.DesktopToolLoc = new System.Drawing.Point((int)this.Left, (int)this.Top);
+
+		}
+
+		private void Window_Loaded(object sender, RoutedEventArgs e)
+		{
+			//this.Move
+			//System.Windows.MessageBox.Show("");
+			//this.Left = Program.Settings.DesktopToolLoc.X;
+			//this.Top = Program.Settings.DesktopToolLoc.Y;
+			var handle=new WindowInteropHelper(this).Handle;
+			WindowWrapper.SetWindowPos(handle, 0, Program.Settings.DesktopToolLoc.X,Program.Settings.DesktopToolLoc.Y, (int)this.Width, (int)this.Height, WindowWrapper.SWP_NOZORDER | WindowWrapper.SWP_SHOWWINDOW);
+		}
+
+		private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			Program.Settings.DesktopToolLoc = new System.Drawing.Point((int)this.Left, (int)this.Top);
 		}
 	}
 }

@@ -44,7 +44,7 @@ namespace ClassRoomHelper
 		public static bool FirstUse=false;
 		public static bool ShowingDesktopTool;
 		public static bool ShowingHelperWindow;
-		public static Widget Widget;
+		public static MainWindow Widget;
 		public static HelperIm HelperWindow;
 		public static NameSelector NameSelector;
 		public static TargetDirParser TargetDirParser;//= new TargetDirParser("", ResortMode.Daily);

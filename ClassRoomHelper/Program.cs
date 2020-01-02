@@ -37,7 +37,6 @@ namespace ClassRoomHelper
 	static class Program
 	{
 		public static AForge.Video.DirectShow.FilterInfoCollection CameraInputs;
-		public static System.Drawing.Font DisplayFont;
 		public static System.Drawing.Text.PrivateFontCollection Fonts = new System.Drawing.Text.PrivateFontCollection();
 		public const string TurnsFileName="turns.txt";
 		public static OOBEWindow OOBE;
@@ -79,9 +78,7 @@ namespace ClassRoomHelper
 				MessageBox.Show("请启动班级助手程序,而不是此程序.", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
-			Fonts.AddFontFile(Environment.CurrentDirectory+"\\Fonts\\title.ttf");
-			Fonts.AddFontFile(Environment.CurrentDirectory + "\\Fonts\\text.ttf");
-			//DisplayFont=new System.Drawing.Font(Fonts[0],)
+			Fonts.AddFontFile(Environment.CurrentDirectory+ "\\Resources\\HYShangWeiShouShuW.ttf");
 			try
 			{
 				Program.FirstUse = File.Exists("FirstRun");

@@ -293,15 +293,9 @@
     <Compile Include="Windows\Vote.Designer.cs">
       <DependentUpon>Vote.cs</DependentUpon>
     </Compile>
-    <Compile Include="Windows\Widget.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Windows\Widget.Designer.cs">
-      <DependentUpon>Widget.cs</DependentUpon>
-    </Compile>
     <Compile Include="WindowWarpper.cs" />
     <Resource Include="Resources\WenCang.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\128%40bing_480px.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -379,19 +373,10 @@
     <EmbeddedResource Include="Windows\Vote.resx">
       <DependentUpon>Vote.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Windows\Widget.resx">
-      <DependentUpon>Widget.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="ClassRoomHelper_TemporaryKey.pfx" />
-    <None Include="Fonts\text.ttf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Fonts\title.ttf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <Resource Include="Resources\HYShangWeiShouShuW.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

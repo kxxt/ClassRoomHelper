@@ -123,7 +123,7 @@ namespace ClassRoomHelper.Windows
 
 		private void DefaultButton16_Click(object sender, EventArgs e)
 		{
-			new OOBE().ShowDialog();
+			new OOBEWindow().ShowDialog();
 		}
 
 		private void DefaultButton19_Click(object sender, EventArgs e)

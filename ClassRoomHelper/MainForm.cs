@@ -124,12 +124,12 @@ namespace ClassRoomHelper
 			if (!Program.ShowingHelperWindow)
 			{
 				Program.ShowingHelperWindow= true;
-				Program.HelperWindow.Show(Service.owner);
+				//Program.HelperWindow.Show(Service.owner);
 			}
 			else
 			{
 				Program.ShowingHelperWindow = false;
-				Program.HelperWindow.Hide();
+				//Program.HelperWindow.Hide();
 			}
 		}
 

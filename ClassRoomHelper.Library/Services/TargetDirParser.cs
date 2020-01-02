@@ -77,5 +77,10 @@ namespace ClassRoomHelper.Library.Services
 				default:return null;
 			}
 		}
+
+		public string GetYear()
+		{
+			return Root + "\\" + DateTime.Now.ToString("yyyy") + "年";
+		}
 	}
 }

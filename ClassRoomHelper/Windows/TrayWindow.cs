@@ -216,10 +216,10 @@ namespace ClassRoomHelper.Windows
 			});
 			if (Program.FirstUse)
 			{
-				Program.OOBE = new OOBE();
+				Program.OOBE = new OOBEWindow();
 				
-					Program.OOBE.ShowDialog();
-					Program.OOBE.Dispose();
+				Program.OOBE.ShowDialog();
+					//Program.OOBE.Dispose();
 				Program.OOBE = null;
 			}
 			await Task.Run(() =>
@@ -239,7 +239,7 @@ namespace ClassRoomHelper.Windows
 			if (Program.Settings.ShowHelperWindow)
 			{
 				Program.ShowingHelperWindow = true;
-				Program.HelperWindow.Show();
+				//Program.HelperWindow.Show();
 
 			}
 			if (Program.Settings.DesktopTool_AutoShow)

@@ -140,11 +140,69 @@ namespace ClassRoomHelper
 			//this.Top = Program.Settings.DesktopToolLoc.Y;
 			var handle=new WindowInteropHelper(this).Handle;
 			WindowWrapper.SetWindowPos(handle, 0, Program.Settings.DesktopToolLoc.X,Program.Settings.DesktopToolLoc.Y, (int)this.Width, (int)this.Height, WindowWrapper.SWP_NOZORDER | WindowWrapper.SWP_SHOWWINDOW);
+			WindowWrapper.DisableAltF4(this);
 		}
 
 		private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
 		{
 			Program.Settings.DesktopToolLoc = new System.Drawing.Point((int)this.Left, (int)this.Top);
+		}
+
+		private void Button_Click_9(object sender, RoutedEventArgs e)
+		{
+			//settingDialogHost.
+		}
+
+		private void Button_Click_10(object sender, RoutedEventArgs e)
+		{
+			new AboutWindow().ShowDialog();
+		}
+
+		private void Button_Click_11(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void Button_Click_12(object sender, RoutedEventArgs e)
+		{
+			System.Windows.MessageBox.Show("功能尚未实现 , 敬请期待 .", "Hint", MessageBoxButton.OK, MessageBoxImage.Information);
+		}
+
+		private void Button_Click_13(object sender, RoutedEventArgs e)
+		{
+			Service.OpenYear();
+			if (Program.Settings.BugFixForSeewo) BugFixForSeewo();
+		}
+
+		private void Button_Click_14(object sender, RoutedEventArgs e)
+		{
+			try
+			{
+				Process.Start("http://mail.163.com");
+			}
+			catch
+			{
+				System.Windows.MessageBox.Show("失败", "错误", MessageBoxButton.OK, MessageBoxImage.Error);
+			}
+			if (Program.Settings.BugFixForSeewo) BugFixForSeewo();
+		}
+
+		private void Button_Click_15(object sender, RoutedEventArgs e)
+		{
+			try
+			{
+				Process.Start("https://github.com/kxxt/ClassRoomHelper");
+			}
+			catch
+			{
+				System.Windows.MessageBox.Show("失败", "错误", MessageBoxButton.OK, MessageBoxImage.Error);
+			}
+			if (Program.Settings.BugFixForSeewo) BugFixForSeewo();
+		}
+
+		private void Button_Click_16(object sender, RoutedEventArgs e)
+		{
+			System.Windows.MessageBox.Show("功能尚未实现 , 敬请期待 .", "Hint", MessageBoxButton.OK, MessageBoxImage.Information);
 		}
 	}
 }

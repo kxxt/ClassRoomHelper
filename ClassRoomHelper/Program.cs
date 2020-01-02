@@ -29,6 +29,7 @@ namespace ClassRoomHelper
 
 		protected override void OnStartupNextInstance(StartupNextInstanceEventArgs eventArgs)
 		{
+			MessageBox.Show("班级助手已在运行中");
 			app.Tray_MouseClick(null,null);
 			base.OnStartupNextInstance(eventArgs);
 		}
@@ -39,13 +40,13 @@ namespace ClassRoomHelper
 		public static System.Drawing.Font DisplayFont;
 		public static System.Drawing.Text.PrivateFontCollection Fonts = new System.Drawing.Text.PrivateFontCollection();
 		public const string TurnsFileName="turns.txt";
-		public static OOBE OOBE;
+		public static OOBEWindow OOBE;
 		public static SingleInstanceManager manager;
 		public static bool FirstUse=false;
 		public static bool ShowingDesktopTool;
 		public static bool ShowingHelperWindow;
 		public static MainWindow Widget;
-		public static HelperIm HelperWindow;
+		//public static HelperIm HelperWindow;
 		public static NameSelector NameSelector;
 		public static TargetDirParser TargetDirParser;//= new TargetDirParser("", ResortMode.Daily);
 		public static SharedMemory.SharedArray<IPCInfoStruct> InfoPipe;
@@ -61,9 +62,13 @@ namespace ClassRoomHelper
 		[STAThread]
 		static void Main(string[] args)
 		{
+			Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTg4OTU2QDMxMzcyZTM0MmUzMEJJU2o1OXhOMFZBVFNGR2hxZXhDejZlbXFlV0ZYVlBwVHN1ak9iUjg5bkE9");
+			AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
+			//MessageBox.Show("Debug");
 			Core.LoadProperties();
+			//MessageBox.Show("Debug2");
 			if (args.Length == 0)
 			{
 				MessageBox.Show("请启动班级助手程序,而不是此程序.","提示",MessageBoxButtons.OK,MessageBoxIcon.Warning);
@@ -97,7 +102,13 @@ namespace ClassRoomHelper
 			manager.Run(new string[] { });
 			if (Program.Settings == null) return;
 			Program.Settings.Save();
+
 			Core.ActionsBeforeAppExit();
+		}
+
+		private static void CurrentDomain_UnhandledException(object sender, System.UnhandledExceptionEventArgs e)
+		{
+			MessageBox.Show(RsWork.Functions.Log.Logger.GetExceptionInfo((Exception)e.ExceptionObject));
 		}
 	}
 }

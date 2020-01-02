@@ -12,7 +12,7 @@ namespace ClassRoomHelper.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.3.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.4.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -44,30 +44,6 @@ namespace ClassRoomHelper.Properties {
             }
             set {
                 this["DesktopTool_AutoShow"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool DesktopTool_ShowCalc {
-            get {
-                return ((bool)(this["DesktopTool_ShowCalc"]));
-            }
-            set {
-                this["DesktopTool_ShowCalc"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool DesktopTool_ShowScissors {
-            get {
-                return ((bool)(this["DesktopTool_ShowScissors"]));
-            }
-            set {
-                this["DesktopTool_ShowScissors"] = value;
             }
         }
         
@@ -200,18 +176,6 @@ namespace ClassRoomHelper.Properties {
             }
             set {
                 this["NameCallOutPost"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool DesktopTool_ShowNameSelector {
-            get {
-                return ((bool)(this["DesktopTool_ShowNameSelector"]));
-            }
-            set {
-                this["DesktopTool_ShowNameSelector"] = value;
             }
         }
         

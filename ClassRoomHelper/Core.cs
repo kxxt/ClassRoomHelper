@@ -415,7 +415,7 @@ namespace ClassRoomHelper
 				Program.manager.app.ShowBalloonTip("已重置目标目录 .如需修改 , 请转到设置 .", "Hint");
 			}
 			Program.TargetDirParser = new TargetDirParser(Program.Settings.TargetDir, Program.Settings.ResortMode);
-			Program.HelperWindow = new Windows.HelperIm();
+			//Program.HelperWindow = new Windows.HelperIm();
 			Program.Widget = new MainWindow();
 			if (Program.Settings.Timer_Enabled)
 			{

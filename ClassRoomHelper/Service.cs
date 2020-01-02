@@ -171,6 +171,11 @@ namespace ClassRoomHelper
 				MessageBox.Show("操作失败");
 			}
 		}
-		
+
+		internal static void OpenYear()
+		{
+			OpenExplorer(Program.TargetDirParser.GetYear());
+			
+		}
 	}
 }

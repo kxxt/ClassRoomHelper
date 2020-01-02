@@ -8,12 +8,6 @@
     <Setting Name="DesktopTool_AutoShow" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="DesktopTool_ShowCalc" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
-    </Setting>
-    <Setting Name="DesktopTool_ShowScissors" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
     <Setting Name="UMgr_Enabled" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
@@ -46,9 +40,6 @@
     </Setting>
     <Setting Name="NameCallOutPost" Type="System.String" Scope="User">
       <Value Profile="(Default)">同学</Value>
-    </Setting>
-    <Setting Name="DesktopTool_ShowNameSelector" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="FileExistedSolution" Type="ClassRoomHelper.Library.Services.FileExistedSolution" Scope="User">
       <Value Profile="(Default)">Copy</Value>

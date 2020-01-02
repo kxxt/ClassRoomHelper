@@ -83,12 +83,12 @@ namespace ClassRoomHelper.Windows
 			if (!Program.ShowingHelperWindow)
 			{
 				Program.ShowingHelperWindow = true;
-				Program.HelperWindow.Show();
+				//Program.HelperWindow.Show();
 			}
 			else
 			{
 				Program.ShowingHelperWindow = false;
-				Program.HelperWindow.Hide();
+				//Program.HelperWindow.Hide();
 			}
 			if (Program.Settings.BugFixForSeewo) BugFixForSeewo();
 		}

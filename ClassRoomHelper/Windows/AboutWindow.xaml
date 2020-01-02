@@ -1,0 +1,163 @@
+﻿<Window x:Class="ClassRoomHelper.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClassRoomHelper"
+        mc:Ignorable="d"
+        
+        Title="关于&quot;班级助手&quot;应用程序及其作者" Height="1029.551" Width="800"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+       
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="#FFD4D4D4"
+        FontFamily="{DynamicResource MaterialDesignFont}" ResizeMode="CanMinimize" Icon="/ClassRoomHelper;component/Resources/KxxtIcon.png" WindowStartupLocation="CenterScreen"
+        >
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid Margin="0,0,0,16">
+        <materialDesign:Card Padding="8" Margin="16,24,16,0" Height="79" VerticalAlignment="Top">
+            <TextBlock Style="{DynamicResource MaterialDesignHeadline3TextBlock}" FontFamily="../Resources/#问藏书房" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">关于&quot;班级助手&quot;应用程序及其作者</TextBlock>
+        </materialDesign:Card>
+        <StackPanel Margin="32,120,32,10" CanVerticallyScroll="True">
+            <materialDesign:Card Background="{DynamicResource PrimaryHueLightBrush}"
+  Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
+  Padding="8" >
+                <TextBlock Style="{DynamicResource MaterialDesignHeadline5TextBlock}" FontFamily="../Resources/#问藏书房">
+                关于作者
+                </TextBlock>
+            </materialDesign:Card>
+            <WrapPanel Margin="8">
+                <materialDesign:Chip Margin="0,0,200,0" >
+                    <materialDesign:Chip.Icon>
+                        <Image Source="/Resources/Profile.jpg" />
+                    </materialDesign:Chip.Icon>
+                    <materialDesign:Chip.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="任鹏飞   " FontFamily="../Resources/#问藏书房"></TextBlock>
+                            <materialDesign:PackIcon Kind="CityVariantOutline" />
+                            <TextBlock Text="   中华人民共和国 , 山东省 , 济南市 , 济阳县 , 济北中学 , 2017级高三一班 学生" FontFamily="../Resources/#问藏书房"/>
+                        </StackPanel>
+
+                    </materialDesign:Chip.Content>
+                </materialDesign:Chip>
+                <materialDesign:Chip Margin="0,8,200,0" IconBackground="White" FontFamily="../Resources/#问藏书房" >
+                    <materialDesign:Chip.Icon>
+                        <Image Source="../Resources/KxxtIcon.png" />
+                    </materialDesign:Chip.Icon>
+                    科学信徒工作室
+
+                </materialDesign:Chip>
+                <TextBlock Style="{DynamicResource MaterialDesignCaptionTextBlock}" Text="联系方式" FontFamily="../Resources/#问藏书房" FontSize="18" Margin="0,0,600,0"></TextBlock>
+                <materialDesign:Chip
+  Content="Telegram  @rsworktech"
+  IconBackground="{DynamicResource PrimaryHueDarkBrush}"
+  IconForeground="{DynamicResource PrimaryHueDarkForegroundBrush}" FontFamily="../Resources/#问藏书房" Margin="0,5">
+                    <materialDesign:Chip.Icon>
+                        <materialDesign:PackIcon
+      Kind="Telegram"></materialDesign:PackIcon>
+                    </materialDesign:Chip.Icon>
+                </materialDesign:Chip>
+                <materialDesign:Chip
+                    Content="Wire  @rsworktech"
+                    IconBackground="{DynamicResource PrimaryHueDarkBrush}"
+                    IconForeground="{DynamicResource PrimaryHueDarkForegroundBrush}" FontFamily="../Resources/#问藏书房" Margin="0,5">
+                    <materialDesign:Chip.Icon>
+                        W
+                    </materialDesign:Chip.Icon>
+                </materialDesign:Chip>
+                <materialDesign:Chip
+                    Content="QQ  @1482619741"
+                    IconBackground="{DynamicResource PrimaryHueDarkBrush}"
+                    IconForeground="{DynamicResource PrimaryHueDarkForegroundBrush}" FontFamily="../Resources/#问藏书房" Margin="0,5">
+                    <materialDesign:Chip.Icon>
+                        <materialDesign:PackIcon
+                            Kind="Qqchat"/>
+                    </materialDesign:Chip.Icon>
+                </materialDesign:Chip>
+                <materialDesign:Chip
+                    Content="Email: rsworktech@outlook.com"
+                    IconBackground="{DynamicResource PrimaryHueDarkBrush}"
+                    IconForeground="{DynamicResource PrimaryHueDarkForegroundBrush}" Click="Chip_Click" FontFamily="../Resources/#问藏书房" Margin="0,5">
+                    <materialDesign:Chip.Icon>
+                        <materialDesign:PackIcon
+                            Kind="Email"/>
+                    </materialDesign:Chip.Icon>
+                </materialDesign:Chip>
+                <materialDesign:Chip
+                    Content="github.com/kxxt"
+                    IconBackground="{DynamicResource PrimaryHueDarkBrush}"
+                    IconForeground="{DynamicResource PrimaryHueDarkForegroundBrush}" Click="Chip_Click" FontFamily="../Resources/#问藏书房" Margin="0,5">
+                    <materialDesign:Chip.Icon>
+                        <materialDesign:PackIcon
+                            Kind="GithubCircle"/>
+                    </materialDesign:Chip.Icon>
+                </materialDesign:Chip>
+            </WrapPanel>
+            <materialDesign:Card Background="{DynamicResource PrimaryHueLightBrush}"
+                Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
+                Padding="8" >
+                <TextBlock Style="{DynamicResource MaterialDesignHeadline5TextBlock}" FontFamily="../Resources/#问藏书房" Text="关于此程序"/>
+            </materialDesign:Card>
+
+            <WrapPanel Margin="8,8,8,6" HorizontalAlignment="Center">
+                <GroupBox
+  Header="班级助手"
+  Style="{DynamicResource MaterialDesignGroupBox}"
+  Margin="16"
+  materialDesign:ShadowAssist.ShadowDepth="Depth3"
+  BorderThickness="0">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../Resources/icon.png" Width="200" Height="200" HorizontalAlignment="Center" VerticalAlignment="Center" ></Image>
+
+                        <Expander  Header="应用程序属性" Height="200" IsExpanded="True" >
+                            <Expander.Content>
+                                <StackPanel>
+                                    <TextBlock Style="{DynamicResource MaterialDesignCaptionTextBlock}" Text="版本号 : 你猜 ??" Margin="5,0"></TextBlock>
+                                    <TextBlock Style="{DynamicResource MaterialDesignCaptionTextBlock}" Text="此班级助手具有超级牛力 ." Margin="5,0"></TextBlock>
+                                    <TextBlock Style="{DynamicResource MaterialDesignCaptionTextBlock}" Text="This ClassroomHelper has Super Cow Powers ." Margin="5,0"></TextBlock>
+                                </StackPanel>
+                            </Expander.Content>
+                        </Expander>
+
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox
+                    Header="Everything"
+                    Style="{DynamicResource MaterialDesignGroupBox}"
+                    Margin="16"
+                    materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                    BorderThickness="0">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/ClassRoomHelper;component/Resources/Everything.png" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+                        <Expander  Header="介绍" Height="190" IsExpanded="True" Width="556" >
+                            <StackPanel Height="173">
+                                <TextBlock Style="{DynamicResource MaterialDesignCaptionTextBlock}" Text="班级助手的搜索功能由Everything强力驱动" Margin="5,0,0,0"/>
+                                <ScrollViewer Height="114" Width="547" Margin="5,0">
+                                    <TextBlock Style="{DynamicResource MaterialDesignCaptionTextBlock}" TextWrapping="Wrap" Height="404" Width="535" Margin="0" FontSize="15"><Span Foreground="Black"><Run Text="Everything"/></Span><LineBreak/><LineBreak/><Span Foreground="Black"><Run Text="Copyright (c) 2005-2017 David Carpenter"/></Span><LineBreak/><LineBreak/><Span Foreground="Black"><Run Text="Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:"/></Span><LineBreak/><LineBreak/><Span Foreground="Black"><Run Text="The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software."/></Span><LineBreak/><LineBreak/><Span Foreground="Black"><Run Text="THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."/></Span><LineBreak/><LineBreak/><Span Foreground="Black"><Run Text="Perl-Compatible Regular Expressions"/></Span><LineBreak/><LineBreak/><Span Foreground="Black"><Run Text="Copyright (c) 1997-2012 University of Cambridge"/></Span><LineBreak/><LineBreak/><Span Foreground="Black"><Run Text="Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:"/></Span><LineBreak/><LineBreak/><Span Foreground="Black"><Run Text="* Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer."/></Span><LineBreak/><LineBreak/><Span Foreground="Black"><Run Text="* Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution."/></Span><LineBreak/><LineBreak/><Span Foreground="Black"><Run Text="* Neither the name of the University of Cambridge nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission."/></Span><LineBreak/><LineBreak/><Span Foreground="Black"><Run Text="THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE."/></Span></TextBlock>
+                                </ScrollViewer>
+                            </StackPanel>
+                        </Expander>
+
+                    </StackPanel>
+                </GroupBox>
+            </WrapPanel>
+
+        </StackPanel>
+
+
+    </Grid>
+</Window>

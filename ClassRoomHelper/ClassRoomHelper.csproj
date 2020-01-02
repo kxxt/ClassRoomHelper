@@ -120,17 +120,15 @@
     <Reference Include="SharedMemory, Version=2.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SharedMemory.2.1.1\lib\net47\SharedMemory.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.Core.WinForms, Version=17.2460.0.34, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\NewPrograms\Syncfusion\Windows\17.2.0.34\Assemblies\4.0\Syncfusion.Core.WinForms.dll</HintPath>
+    <Reference Include="Syncfusion.Core.WinForms, Version=17.4460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Core.WinForms.17.4.0.40\lib\net46\Syncfusion.Core.WinForms.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.Edit.Windows, Version=17.2400.0.34, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
-    <Reference Include="Syncfusion.SfInput.WinForms, Version=17.2460.0.34, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
-    <Reference Include="Syncfusion.Shared.Base, Version=17.2460.0.34, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\NewPrograms\Syncfusion\Windows\17.2.0.34\Assemblies\4.0\Syncfusion.Shared.Base.dll</HintPath>
+    <Reference Include="Syncfusion.Licensing, Version=17.4460.0.40, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Licensing.17.4.0.40\lib\net46\Syncfusion.Licensing.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.Tools.Windows, Version=17.2400.0.34, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Shared.Base, Version=17.4460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Shared.Base.17.4.0.40\lib\net46\Syncfusion.Shared.Base.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
@@ -146,6 +144,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Chinese.cs" />
     <Compile Include="Core.cs" />
     <Compile Include="MainForm.cs">
@@ -166,11 +167,8 @@
     </Compile>
     <Compile Include="Service.cs" />
     <Compile Include="Settings.cs" />
-    <Compile Include="Windows\ActionSelectionWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Windows\ActionSelectionWindow.Designer.cs">
-      <DependentUpon>ActionSelectionWindow.cs</DependentUpon>
+    <Compile Include="Windows\AboutWindow.xaml.cs">
+      <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\BaseForm.cs">
       <SubType>Form</SubType>
@@ -232,12 +230,6 @@
     <Compile Include="Windows\EditStudentListWindow.Designer.cs">
       <DependentUpon>EditStudentListWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Windows\HelperIm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Windows\HelperIm.Designer.cs">
-      <DependentUpon>HelperIm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Windows\HelperWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -256,11 +248,8 @@
     <Compile Include="Windows\NameSelectedWindow.Designer.cs">
       <DependentUpon>NameSelectedWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Windows\OOBE.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Windows\OOBE.Designer.cs">
-      <DependentUpon>OOBE.cs</DependentUpon>
+    <Compile Include="Windows\OOBEWindow.xaml.cs">
+      <DependentUpon>OOBEWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\OpenUDiskWindow.cs">
       <SubType>Form</SubType>
@@ -311,6 +300,16 @@
       <DependentUpon>Widget.cs</DependentUpon>
     </Compile>
     <Compile Include="WindowWarpper.cs" />
+    <Resource Include="Resources\WenCang.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\128%40bing_480px.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\app_64.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Content Include="Resources\bing_480px.png" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -319,9 +318,6 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Windows\ActionSelectionWindow.resx">
-      <DependentUpon>ActionSelectionWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
@@ -353,9 +349,6 @@
     <EmbeddedResource Include="Windows\EditStudentListWindow.resx">
       <DependentUpon>EditStudentListWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Windows\HelperIm.resx">
-      <DependentUpon>HelperIm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Windows\HelperWindow.resx">
       <DependentUpon>HelperWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -364,9 +357,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\NameSelectedWindow.resx">
       <DependentUpon>NameSelectedWindow.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Windows\OOBE.resx">
-      <DependentUpon>OOBE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\OpenUDiskWindow.resx">
       <DependentUpon>OpenUDiskWindow.cs</DependentUpon>
@@ -400,7 +390,9 @@
     <None Include="Fonts\title.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <Resource Include="HYShangWeiShouShuW.ttf" />
+    <Resource Include="Resources\HYShangWeiShouShuW.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -432,11 +424,25 @@
     <Resource Include="Resources\128%40vote.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Resources\Icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\KxxtIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Profile.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Everything.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Content Include="Tools\Everything.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Add_96px.png" />
-    <Content Include="Images\app.ico" />
+    <Resource Include="Images\app.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Content Include="Images\app_16.png" />
     <Content Include="Images\app_32.png" />
     <Content Include="Images\app_48.png" />
@@ -618,7 +624,19 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\AboutWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\OOBEWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

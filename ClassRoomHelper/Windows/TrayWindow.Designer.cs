@@ -134,7 +134,7 @@
 			// 
 			// CameraTimer
 			// 
-			this.CameraTimer.Interval = 6000;
+			this.CameraTimer.Interval = 10000;
 			this.CameraTimer.Tick += new System.EventHandler(this.CameraTimer_Tick);
 			// 
 			// TrayWindow

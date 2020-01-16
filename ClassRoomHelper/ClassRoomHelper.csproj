@@ -110,12 +110,10 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="RsWork.Functions">
-      <HintPath>..\..\LessonDeliveryApp-InPratice\RsWork.Functions.dll</HintPath>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>Referred Assemblies\RsWork.Functions.dll</HintPath>
     </Reference>
     <Reference Include="RsWork.UI">
-      <HintPath>..\..\LessonDeliveryApp-InPratice\RsWork.UI.dll</HintPath>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>Referred Assemblies\RsWork.UI.dll</HintPath>
     </Reference>
     <Reference Include="SharedMemory, Version=2.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SharedMemory.2.1.1\lib\net47\SharedMemory.dll</HintPath>
@@ -294,13 +292,16 @@
       <DependentUpon>Vote.cs</DependentUpon>
     </Compile>
     <Compile Include="WindowWarpper.cs" />
-    <Resource Include="Resources\WenCang.ttf">
+    <Content Include="Resources\WenCang.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    </Content>
     <Resource Include="Resources\128%40bing_480px.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\app_64.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\128%40office_365_480px.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Content Include="Resources\bing_480px.png" />
@@ -375,9 +376,9 @@
     </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="ClassRoomHelper_TemporaryKey.pfx" />
-    <Resource Include="Resources\HYShangWeiShouShuW.ttf">
+    <Content Include="Resources\HYShangWeiShouShuW.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    </Content>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -388,9 +389,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Resources\Psd\1.psd" />
-    <None Include="Resources\Psd\2.psd" />
-    <None Include="Resources\Psd\welcome.psd" />
     <Resource Include="Resources\128%40129-man-student-1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
@@ -398,9 +396,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\128%40office %281%29.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\128%40office-方-f.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\128%40safety %283%29.png">
@@ -535,9 +530,6 @@
     <Content Include="Tools\License.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\Pic\3.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="stulist.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -578,20 +570,6 @@
     <None Include="FirstRun" />
     <Resource Include="Intro.txt" />
     <Content Include="require.txt" />
-    <Content Include="Resources\Pic-Big\0-big.png" />
-    <Content Include="Resources\Pic\0.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Pic\1.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Pic-Big\2-big.png" />
-    <Content Include="Resources\Pic\2.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Raw\1.jpg" />
-    <Content Include="Resources\Raw\2.jpg" />
-    <Content Include="Resources\Raw\welcome.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7">

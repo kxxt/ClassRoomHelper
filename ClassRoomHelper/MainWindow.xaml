@@ -53,7 +53,7 @@
 
                 <Button HorizontalAlignment="Left" Height="180" VerticalAlignment="Top" Width="180" Margin="10,0,0,0" BorderBrush="{x:Null}"  Background="#0C673AB7" Click="Button_Click_6">
                     <StackPanel>
-                        <Image Source="Resources/../Resources/128@office-方-f.png" Width="128" />
+                        <Image Source="Resources/128@office_365_480px.png" Width="128" />
                         <TextBlock TextAlignment="Center" FontSize="25" Text="本月课件" Background="#66000000" FontFamily="Resources/#问藏书房"/>
                     </StackPanel>
                 </Button>
@@ -90,7 +90,7 @@
             <StackPanel Orientation="Vertical" Margin="5">
                 <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" Margin="5">班级助手设置</TextBlock>
                 <materialDesign:Card Background="{DynamicResource PrimaryHueDarkBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="8" UniformCornerRadius="10">
-                    功能尚未实现 , 请打开主程序转到应用程序设置!
+                    功能尚未实现 , 请转到托盘图标区打开主程序转到应用程序设置!
                 </materialDesign:Card>
                 <TextBlock Style="{StaticResource MaterialDesignSubtitle1TextBlock}" Margin="5">倒计时设置</TextBlock>
                 <TextBox VerticalAlignment="Center"  materialDesign:TextFieldAssist.HasClearButton="True" materialDesign:HintAssist.Hint="事件名称" Style="{StaticResource MaterialDesignFloatingHintTextBox}" x:Name="eventName" HorizontalAlignment="Left" Height="42"  TextWrapping="Wrap"   Background="#33FFFFFF" Margin="5" />

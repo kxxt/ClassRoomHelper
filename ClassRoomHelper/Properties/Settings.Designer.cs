@@ -346,5 +346,17 @@ namespace ClassRoomHelper.Properties {
                 this["RecordData"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Timer_AutoRenew {
+            get {
+                return ((bool)(this["Timer_AutoRenew"]));
+            }
+            set {
+                this["Timer_AutoRenew"] = value;
+            }
+        }
     }
 }

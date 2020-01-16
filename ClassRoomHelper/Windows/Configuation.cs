@@ -170,6 +170,7 @@ namespace ClassRoomHelper.Windows
 			checkBox11.Checked = Program.Settings.CICEnabled;
 			checkBox13.Checked = Program.Settings.CICEncryptedSave;
 			checkBox14.Checked = Program.Settings.RecordData;
+			checkBox15.Checked = Program.Settings.Timer_AutoRenew;
 			switch (Program.Settings.FileExistedSolution)
 			{
 				case Library.Services.FileExistedSolution.Copy:
@@ -366,6 +367,22 @@ namespace ClassRoomHelper.Windows
 			}
 			if (loaded)
 				MessageBox.Show("Please Restart Application to Apply Changes", "Hint", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+		}
+
+		private void checkBox15_CheckedChanged(object sender, EventArgs e)
+		{
+			if (checkBox15.Checked)
+			{
+				Program.Settings.Timer_AutoRenew= true;
+
+			}
+			else
+			{
+				Program.Settings.Timer_AutoRenew = false;
+
+			}
+			if (loaded)
+				MessageBox.Show("请重新启动应用程序来应用设置", "Hint", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 		}
 	}
 }

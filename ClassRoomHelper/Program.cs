@@ -106,6 +106,9 @@ namespace ClassRoomHelper
 		private static void CurrentDomain_UnhandledException(object sender, System.UnhandledExceptionEventArgs e)
 		{
 			MessageBox.Show(RsWork.Functions.Log.Logger.GetExceptionInfo((Exception)e.ExceptionObject));
+#if DEBUG
+			throw (Exception)e.ExceptionObject;
+#endif
 		}
 	}
 }

@@ -348,14 +348,15 @@ namespace ClassRoomHelper.Windows
 				{
 					pE.Save(stream);
 				}
+				videoSourcePlayer1.SignalToStop();
+				videoSourcePlayer1.WaitForStop();
+				videoSourcePlayer1.Dispose();
 			}
 			catch
 			{
 				System.Windows.Forms.MessageBox.Show("Camera not ready.\r\nPlease check your camera.", "Internal Application Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
-			videoSourcePlayer1.SignalToStop();
-			videoSourcePlayer1.WaitForStop();
-			videoSourcePlayer1.Dispose();
+			
 			CameraTimer.Stop();
 			CameraTimer.Dispose();
 		}

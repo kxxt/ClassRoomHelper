@@ -412,16 +412,32 @@ namespace ClassRoomHelper
 			if (!Directory.Exists(Program.Settings.TargetDir))
 			{
 				Program.Settings.TargetDir = Environment.CurrentDirectory + "\\Files";
-				Program.manager.app.ShowBalloonTip("已重置目标目录 .如需修改 , 请转到设置 .", "Hint");
+				MessageBox.Show("原始目标目录无效 , 已重置目标目录 .\r\n如需修改 , 请转到设置 .", "班级助手");
 			}
 			Program.TargetDirParser = new TargetDirParser(Program.Settings.TargetDir, Program.Settings.ResortMode);
 			//Program.HelperWindow = new Windows.HelperIm();
 			Program.Widget = new MainWindow();
+			if(( Program.Settings.Timer_Date - System.DateTime.Now.Date)< new TimeSpan())
+			{
+				Program.Settings.Timer_Date = Program.Settings.Timer_Date.AddYears(1);
+
+				if (Program.Settings.Timer_AutoRenew)
+				{
+					MessageBox.Show($"{Program.Settings.Timer_EventName}倒计时已结束 , 已为您自动更新 .\r\n如需调整 , 请转到程序设置 .", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+				}
+				else
+				{
+					MessageBox.Show($"{Program.Settings.Timer_EventName}倒计时已结束 , 如有需要 , 请转到程序设置重新设置 .", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					Program.Settings.Timer_Enabled = false;
+				}
+				Program.Settings.Save();
+			}
 			if (Program.Settings.Timer_Enabled)
 			{
 				TimeSpan timeSpan = (Program.Settings.Timer_Date - System.DateTime.Now.Date);
 				int days = (timeSpan.Hours > 0 ? timeSpan.Days + 1 : timeSpan.Days);
-				Program.Widget.Title.Text = Program.Widget.Title.Text = $"距 {Program.Settings.Timer_EventName} 还有 {days} 天";
+				Program.Widget.Title.Text = Program.Widget.Title.Text = $"距 {Program.Settings.Timer_EventName} 仅剩 {days} 天";
 				if (days <= 10 || days % 10 == 0)
 				{
 					Program.Widget.Title.Text += "！！！";

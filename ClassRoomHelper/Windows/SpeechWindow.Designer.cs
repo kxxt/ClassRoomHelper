@@ -94,7 +94,6 @@
 			this.defaultButton2.AccessibleName = "Button";
 			this.defaultButton2.Dock = System.Windows.Forms.DockStyle.Left;
 			this.defaultButton2.Font = new System.Drawing.Font("黑体", 17F);
-			this.defaultButton2.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton2.Image")));
 			this.defaultButton2.ImageSize = new System.Drawing.Size(35, 35);
 			this.defaultButton2.Location = new System.Drawing.Point(463, 0);
 			this.defaultButton2.Name = "defaultButton2";
@@ -109,7 +108,6 @@
 			this.defaultButton1.AccessibleName = "Button";
 			this.defaultButton1.Dock = System.Windows.Forms.DockStyle.Left;
 			this.defaultButton1.Font = new System.Drawing.Font("黑体", 17F);
-			this.defaultButton1.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton1.Image")));
 			this.defaultButton1.ImageSize = new System.Drawing.Size(35, 35);
 			this.defaultButton1.Location = new System.Drawing.Point(338, 0);
 			this.defaultButton1.Name = "defaultButton1";
@@ -124,7 +122,6 @@
 			this.defaultButton4.AccessibleName = "Button";
 			this.defaultButton4.Dock = System.Windows.Forms.DockStyle.Left;
 			this.defaultButton4.Font = new System.Drawing.Font("黑体", 17F);
-			this.defaultButton4.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton4.Image")));
 			this.defaultButton4.ImageSize = new System.Drawing.Size(35, 35);
 			this.defaultButton4.Location = new System.Drawing.Point(138, 0);
 			this.defaultButton4.Name = "defaultButton4";
@@ -139,7 +136,6 @@
 			this.defaultButton3.AccessibleName = "Button";
 			this.defaultButton3.Dock = System.Windows.Forms.DockStyle.Left;
 			this.defaultButton3.Font = new System.Drawing.Font("黑体", 17F);
-			this.defaultButton3.Image = ((System.Drawing.Image)(resources.GetObject("defaultButton3.Image")));
 			this.defaultButton3.ImageSize = new System.Drawing.Size(35, 35);
 			this.defaultButton3.Location = new System.Drawing.Point(0, 0);
 			this.defaultButton3.Name = "defaultButton3";

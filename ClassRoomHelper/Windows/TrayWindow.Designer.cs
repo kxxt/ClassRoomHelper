@@ -94,7 +94,8 @@
 			this.titleLabel2.Name = "titleLabel2";
 			this.titleLabel2.Size = new System.Drawing.Size(82, 27);
 			this.titleLabel2.TabIndex = 2;
-			this.titleLabel2.Text = "V 1.0";
+			this.titleLabel2.Text = "V 2.0";
+			this.titleLabel2.Click += new System.EventHandler(this.titleLabel2_Click);
 			// 
 			// titleLabel3
 			// 

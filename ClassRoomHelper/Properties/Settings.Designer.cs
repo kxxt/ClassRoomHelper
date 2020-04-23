@@ -358,5 +358,29 @@ namespace ClassRoomHelper.Properties {
                 this["Timer_AutoRenew"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool WallpaperEngine_SavePicture {
+            get {
+                return ((bool)(this["WallpaperEngine_SavePicture"]));
+            }
+            set {
+                this["WallpaperEngine_SavePicture"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("128, 128, 255")]
+        public global::System.Drawing.Color ThemeColor {
+            get {
+                return ((global::System.Drawing.Color)(this["ThemeColor"]));
+            }
+            set {
+                this["ThemeColor"] = value;
+            }
+        }
     }
 }

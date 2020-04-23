@@ -370,5 +370,10 @@ namespace ClassRoomHelper.Windows
 		{
 
 		}
+
+		private void titleLabel2_Click(object sender, EventArgs e)
+		{
+			System.Windows.Forms.MessageBox.Show(":)\n你触发了彩蛋!!!");
+		}
 	}
 }

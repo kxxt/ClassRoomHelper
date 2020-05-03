@@ -246,6 +246,13 @@ namespace ClassRoomHelper.Windows
 			{
 				Program.ShowingDesktopTool = true;
 				Program.Widget.Show();
+				if (Program.Settings.Timer_Enabled)
+				{
+					if (CountdownInfoProvider.Mod10||CountdownInfoProvider.LessThan10)
+					{
+						Service.ShowFullScreenCountDownNotification();
+					}
+				}
 			}
 			
 			//timer1?.Start();

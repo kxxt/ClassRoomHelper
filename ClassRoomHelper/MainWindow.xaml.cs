@@ -62,6 +62,7 @@ namespace ClassRoomHelper
 		{
 			//System.Windows.MessageBox.Show("");
 			Program.Settings.DesktopToolLoc =new System.Drawing.Point( (int)this.Left,(int)this.Top);
+			Program.Settings.Save();
 		}
 
 		private void Button_Click_3(object sender, RoutedEventArgs e)
@@ -120,7 +121,8 @@ namespace ClassRoomHelper
 
 		private void Button_Click_8(object sender, RoutedEventArgs e)
 		{
-			settingDialogHost.ShowDialog(settingDialogHost.DialogContent);
+			//settingDialogHost.ShowDialog(settingDialogHost.DialogContent);
+			new SettingsWindow().ShowDialog();
 			//System.Windows.MessageBox.Show($"{(int)this.Left},{(int)this.Top}");
 			//Program.Settings.DesktopToolLoc = new System.Drawing.Point((int)this.Left, (int)this.Top);
 			//Program.Settings.Save();
@@ -146,6 +148,7 @@ namespace ClassRoomHelper
 		private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
 		{
 			Program.Settings.DesktopToolLoc = new System.Drawing.Point((int)this.Left, (int)this.Top);
+			Program.Settings.Save();
 		}
 
 		private void Button_Click_9(object sender, RoutedEventArgs e)
@@ -189,6 +192,8 @@ namespace ClassRoomHelper
 
 		private void Button_Click_15(object sender, RoutedEventArgs e)
 		{
+			Service.ShowFullScreenCountDownNotification();
+			return;
 			try
 			{
 				Process.Start("https://github.com/kxxt/ClassRoomHelper");

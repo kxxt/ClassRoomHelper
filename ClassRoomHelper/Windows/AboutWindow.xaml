@@ -102,7 +102,7 @@
                     IconForeground="{DynamicResource PrimaryHueDarkForegroundBrush}" Click="Chip_Click" FontFamily="../Resources/#问藏书房" Margin="0,5">
                     <materialDesign:Chip.Icon>
                         <materialDesign:PackIcon
-                            Kind="GithubCircle"/>
+                            Kind="MicrosoftGithub"/>
                     </materialDesign:Chip.Icon>
                 </materialDesign:Chip>
             </WrapPanel>

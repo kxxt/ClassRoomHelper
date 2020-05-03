@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="AdminChecker.cs" />
     <Compile Include="EjectUSB.cs" />
+    <Compile Include="ExamInfo.cs" />
     <Compile Include="Poll\Idea.cs" />
     <Compile Include="Poll\PollManager.cs" />
     <Compile Include="ProcessEX.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="Services\LateBindingOffice.cs" />
     <Compile Include="Services\TargetDirParser.cs" />
     <Compile Include="Services\WorkingState.cs" />
+    <Compile Include="SpecialMomentInfo.cs" />
     <Compile Include="WallpaperEngine.cs" />
     <Compile Include="Win32API.cs" />
     <Compile Include="DebugLevel.cs" />

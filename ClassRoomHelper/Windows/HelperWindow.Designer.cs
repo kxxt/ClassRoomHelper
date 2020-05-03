@@ -75,11 +75,9 @@
 			this.ControlBox = false;
 			this.Controls.Add(this.defaultButton2);
 			this.Controls.Add(this.defaultButton1);
-			this.DataBindings.Add(new System.Windows.Forms.Binding("Location", global::ClassRoomHelper.Properties.Settings.Default, "HelperWindowLocation", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
 			this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.Location = global::ClassRoomHelper.Properties.Settings.Default.HelperWindowLocation;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "HelperWindow";

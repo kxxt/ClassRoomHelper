@@ -22,7 +22,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-    <materialDesign:DialogHost  x:Name="settingDialogHost">
+    <!--<materialDesign:DialogHost  x:Name="settingDialogHost">-->
         <Grid Margin="0,0,0,0" Width="1158">
 
             <Grid.Background>
@@ -71,7 +71,7 @@
                 </Button>
             </StackPanel>
             <StackPanel Margin="667,302,22,0" Orientation="Horizontal">
-                <Button  Style="{DynamicResource MaterialDesignFloatingActionLightButton}" Content="{materialDesign:PackIcon GithubCircle, Size=32}" VerticalAlignment="Top" Width="56" Height="56"  FontSize="25" Background="#7FB39DDB" Margin="10,0,0,0" HorizontalAlignment="Right" Click="Button_Click_15"/>
+                <Button  Style="{DynamicResource MaterialDesignFloatingActionLightButton}" Content="{materialDesign:PackIcon Timer, Size=32}" VerticalAlignment="Top" Width="56" Height="56"  FontSize="25" Background="#7FB39DDB" Margin="10,0,0,0" HorizontalAlignment="Right" Click="Button_Click_15"/>
                 <Button  Style="{DynamicResource MaterialDesignFloatingActionLightButton}" Content="{materialDesign:PackIcon Email, Size=32}" VerticalAlignment="Top" Width="56" Height="56"  FontSize="25" Background="#7FB39DDB" Margin="10,0,0,0" HorizontalAlignment="Right" Click="Button_Click_14"/>
                 <Button  Style="{DynamicResource MaterialDesignFloatingActionLightButton}" Content="{materialDesign:PackIcon FileDocument, Size=32}" VerticalAlignment="Top" Width="56" Height="56"  FontSize="25" Background="#7FB39DDB" Margin="10,0,0,0" HorizontalAlignment="Right" Click="Button_Click_13"/>
                 <Button  Style="{DynamicResource MaterialDesignFloatingActionLightButton}" Content="{materialDesign:PackIcon HelpCircle, Size=32}" VerticalAlignment="Top" Width="56" Height="56"  FontSize="25" Background="#7FB39DDB" Margin="10,0,0,0" HorizontalAlignment="Right" Click="Button_Click_12"/>
@@ -86,7 +86,7 @@
 
 
         </Grid>
-        <materialDesign:DialogHost.DialogContent>
+        <!--<materialDesign:DialogHost.DialogContent>
             <StackPanel Orientation="Vertical" Margin="5">
                 <TextBlock Style="{StaticResource MaterialDesignHeadline6TextBlock}" Margin="5">班级助手设置</TextBlock>
                 <materialDesign:Card Background="{DynamicResource PrimaryHueDarkBrush}" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="8" UniformCornerRadius="10">
@@ -121,5 +121,5 @@
             </StackPanel>
         </materialDesign:DialogHost.DialogContent>
 
-    </materialDesign:DialogHost>
+    </materialDesign:DialogHost>-->
 </Window>

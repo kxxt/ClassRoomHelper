@@ -188,7 +188,7 @@ namespace ClassRoomHelper.Windows
 
 		private void defaultButton24_Click(object sender, EventArgs e)
 		{
-			new ClassRoomHelper.MainWindow().Show();
+			new ClassRoomHelper.SettingsWindow().Show();
 		}
 	}
 }

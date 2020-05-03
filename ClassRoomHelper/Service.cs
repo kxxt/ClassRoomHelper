@@ -177,5 +177,18 @@ namespace ClassRoomHelper
 			OpenExplorer(Program.TargetDirParser.GetYear());
 			
 		}
+
+		public static void ShowFullScreenCountDownNotification()
+		{
+			var x = new NotificationWindow();
+			x.textPre.Text = $"距 {Program.Settings.Timer_EventName} 仅剩";
+			TimeSpan timeSpan = (Program.Settings.Timer_Date - System.DateTime.Now.Date);
+			int days = CountdownInfoProvider.DaysRemaining;
+			x.textMid.Text = $"{days}";
+			x.textPost.Text = "天";
+			x.img.Source = WinAPI.CaptureWallpaper();
+			x.ShowDialog();
+			return;
+		}
 	}
 }

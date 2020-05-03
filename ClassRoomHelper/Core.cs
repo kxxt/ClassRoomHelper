@@ -348,20 +348,7 @@ namespace ClassRoomHelper
 		}
 		public static void RecoverDefaultSettings()
 		{
-			Program.Settings.FirstUse = true;
-			Program.Settings.DebugEnabled = false;
-			Program.Settings.CollectMode = CollectMode.ALL;
-			Program.Settings.TargetDir = Environment.CurrentDirectory + "\\Files";
-			Program.Settings.ResortMode = ResortMode.Daily;
-			Program.Settings.FileExistedSolution = FileExistedSolution.Copy;
-			Program.Settings.ShowHelperWindow = true;
-			Program.Settings.UMgr_Enabled = true;
-			Program.Settings.UMgr_ShowDialog = true;
-			Program.Settings.VoiceNameCallOut = true;
-			Program.Settings.NameCallOutPre = "";
-			Program.Settings.NameCallOutPost = "同学,请回答问题";
-			Program.Settings.HelperWindowLocation = new System.Drawing.Point(200, 200);
-			Program.Settings.DesktopTool_AutoShow = true;
+			Program.Settings = new AppConfig();
 			Program.Settings.Save();
 		}
 		public static void ServiceHook(object sender, EventArrivedEventArgs e)
@@ -397,7 +384,24 @@ namespace ClassRoomHelper
 		{
 			string s = Application.ExecutablePath;
 			Environment.CurrentDirectory = s.Substring(0, s.Length - 19);
-			Program.Settings = new Properties.Settings();
+			if (!File.Exists("crh.config")){
+				Program.Settings = new AppConfig();
+				Program.Settings.Save();
+			}
+			else
+			{
+				try
+				{
+					Program.Settings = AppConfig.Load();
+				}
+				catch
+				{
+					MessageBox.Show("Configuration File Error !\r\nWe've reset it.");
+					Program.Settings = new AppConfig();
+					Program.Settings.Save();
+				}
+			}
+			Program.Settings.SetInitialized();
 			if (Program.FirstUse)
 			{
 				//MessageBox.Show("HI");
@@ -417,14 +421,14 @@ namespace ClassRoomHelper
 			Program.TargetDirParser = new TargetDirParser(Program.Settings.TargetDir, Program.Settings.ResortMode);
 			//Program.HelperWindow = new Windows.HelperIm();
 			Program.Widget = new MainWindow();
-			if(( Program.Settings.Timer_Date - System.DateTime.Now.Date)< new TimeSpan())
+			Program.Settings.Ready = true;
+			if(!CountdownInfoProvider.IsCountdownCorrect)
 			{
 				Program.Settings.Timer_Date = Program.Settings.Timer_Date.AddYears(1);
 
 				if (Program.Settings.Timer_AutoRenew)
 				{
 					MessageBox.Show($"{Program.Settings.Timer_EventName}倒计时已结束 , 已为您自动更新 .\r\n如需调整 , 请转到程序设置 .", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
 				}
 				else
 				{
@@ -435,9 +439,8 @@ namespace ClassRoomHelper
 			}
 			if (Program.Settings.Timer_Enabled)
 			{
-				TimeSpan timeSpan = (Program.Settings.Timer_Date - System.DateTime.Now.Date);
-				int days = (timeSpan.Hours > 0 ? timeSpan.Days + 1 : timeSpan.Days);
-				Program.Widget.Title.Text = Program.Widget.Title.Text = $"距 {Program.Settings.Timer_EventName} 仅剩 {days} 天";
+				int days = CountdownInfoProvider.DaysRemaining;
+				Program.Widget.Title.Text = CountdownInfoProvider.CountdownString;
 				if (days <= 10 || days % 10 == 0)
 				{
 					Program.Widget.Title.Text += "！！！";

@@ -51,7 +51,7 @@ namespace ClassRoomHelper
 		public static SharedMemory.SharedArray<IPCInfoStruct> InfoPipe;
 		public static MainForm MainForm;
 		public static ProcessStartInfo Helper;
-		public static Properties.Settings Settings;
+		public static AppConfig Settings;
 		public static bool WorkAsAdministrator=false;
 		public static List<DriveInfo> UDisks=new List<DriveInfo>();
 		//public static bool IsCensorServiceRunning=false;
@@ -61,7 +61,7 @@ namespace ClassRoomHelper
 		[STAThread]
 		static void Main(string[] args)
 		{
-			Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTg4OTU2QDMxMzcyZTM0MmUzMEJJU2o1OXhOMFZBVFNGR2hxZXhDejZlbXFlV0ZYVlBwVHN1ak9iUjg5bkE9");
+			Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MjQ1ODQyQDMxMzgyZTMxMmUzMEVndVBVcVEycGV6UTN6L282bHkzanZlWUZPMFhEd3JOekY3aGxISHhBWlk9;MjQ1ODQzQDMxMzgyZTMxMmUzMGNTUklMNWR0UElveVVtVFpzdWJqVm0zTytpWU83dEEzMzhjSXVDVmhTc289;MjQ1ODQ0QDMxMzgyZTMxMmUzMERITU5JZkRDRUpGVmFBRVhCYjM2dks3b2Vweko1eUQrYkVwZXZzdUdqcHc9;MjQ1ODQ1QDMxMzgyZTMxMmUzMGhGaWxZRkF1SmVXcDg3YnpvK3VOTXA2MC9pMC93VU1Tc2V0R0k5bkg2VFU9;MjQ1ODQ2QDMxMzgyZTMxMmUzMGVVYzF0VFpIemgyYkwzWTVucTNzdHd5alI2RVhGeEJZWW01a1BzM2dGQm89;MjQ1ODQ3QDMxMzgyZTMxMmUzMEZBVFlPb3F2eVlYYmZRL0s3RkNscFNsb0dHL3hmRWs4MnZxSWp5c0hWcmc9;MjQ1ODQ4QDMxMzgyZTMxMmUzMG9Jekt3MmZ2citkcnlTZlBCdFpwTEpLaFlaYmhFV1JKOE95WHF4SHdNcjA9;MjQ1ODQ5QDMxMzgyZTMxMmUzMEpZN3NTSWd1MEZ0aXJmUVJhRlJiRm9XME5yUjVpQ0FBc0RHa0daUlV0QXM9;MjQ1ODUwQDMxMzgyZTMxMmUzMEQwZlhlTmQycll3aHFoenBsVUJyY2lWS2NVcjBnWmNBNGdhd0ZBaW5RaTA9;NT8mJyc2IWhia31ifWN9Z2ZoYmF8YGJ8ampqanNiYmlmamlmanMDHmghICQ8ITgnNjA7EzwmJz88PDh9MDw+;MjQ1ODUxQDMxMzgyZTMxMmUzMERkSHZpL25mMlprWjl2c3ZxYTlPRVowTy96b2hwZUNoUWFXZGJxeDQyRTA9");
 			AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);

@@ -3,7 +3,9 @@ using ClassRoomHelper.Library.Services;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Security.Authentication;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -11,14 +13,18 @@ using Westwind.Utilities.Configuration;
 
 namespace ClassRoomHelper
 {
-	class AppConfig : AppConfiguration
+	public class AppConfig : AppConfiguration
 	{
 		private string targetDir;
 		private CollectMode collectMode;
 		private string timer_EventName;
 		private bool timer_Enabled;
 		private DateTime timer_Date;
-
+		public bool Ready = false;
+		public void SetInitialized()
+		{
+			InitializeCalled = true;
+		}
 		public AppConfig()
 		{
 			TargetDir = "";
@@ -52,13 +58,26 @@ namespace ClassRoomHelper
 			Timer_AutoRenew = true;
 			ThemeColor = Color.FromArgb(128, 128, 255);
 		}
-
+		public static void Save(AppConfig config,string fileName="crh.config")
+		{
+			File.WriteAllText(fileName, config.WriteAsString(),Encoding.UTF8);
+		}
+		public void Save(string fileName = "crh.config")
+		{
+			File.WriteAllText(fileName, this.WriteAsString(), Encoding.UTF8);
+		}
+		public static AppConfig Load(string fileName = "crh.config")
+		{
+			var conf = new AppConfig();
+			conf.Read(File.ReadAllText(fileName, Encoding.UTF8));
+			return conf;
+		}
 		#region Properties
-		public String TargetDir { get { OnTargetDirChanged(); return targetDir; } set => targetDir = value; }
+		public String TargetDir { get {  return targetDir; } set { targetDir = value; OnTargetDirChanged(); } }
 
 		private void OnTargetDirChanged()
 		{
-			if (!InitializeCalled) return;
+			if (!InitializeCalled||!Ready) return;
 			if (Program.TargetDirParser == null) return;
 			Program.TargetDirParser.Root = this.TargetDir;
 			try
@@ -84,11 +103,11 @@ namespace ClassRoomHelper
 		public string NameCallOutPre { get; set; }
 		public string NameCallOutPost { get; set; }
 		public FileExistedSolution FileExistedSolution { get; set; }
-		public CollectMode CollectMode { get { OnCollectModeChanged(); return collectMode; } set => collectMode = value; }
+		public CollectMode CollectMode { get {  return collectMode; } set { collectMode = value; OnCollectModeChanged(); } }
 
 		private void OnCollectModeChanged()
 		{
-			if (!InitializeCalled) return;
+			if (!InitializeCalled||!Ready) return;
 			if (Program.TargetDirParser == null) return;
 			Program.TargetDirParser.Mode = this.ResortMode;
 		}
@@ -96,16 +115,15 @@ namespace ClassRoomHelper
 		public Point HelperWindowLocation { get; set; }
 		public bool ShowHelperWindow { get; set; }
 		public Point DesktopToolLoc { get; set; }
-		public string Timer_EventName { get { OnTimerChanged(); return timer_EventName; } set => timer_EventName = value; }
+		public string Timer_EventName { get {  return timer_EventName; } set { timer_EventName = value; OnTimerChanged(); } }
 
 		private void OnTimerChanged()
 		{
-			if (!InitializeCalled) return;
+			if (!InitializeCalled||!Ready) return;
 			if (this.Timer_Enabled)
 			{
-				TimeSpan timeSpan = (this.Timer_Date - System.DateTime.Now.Date);
-				int days = (timeSpan.Hours > 0 ? timeSpan.Days + 1 : timeSpan.Days);
-				Program.Widget.Title.Text = Program.Widget.Title.Text = $"距 {this.Timer_EventName} 还有 {days} 天";
+				int days = CountdownInfoProvider.DaysRemaining;
+				Program.Widget.Title.Text = CountdownInfoProvider.CountdownString;
 				if (days <= 10 || days % 10 == 0)
 				{
 					Program.Widget.Title.Text += "！！！";
@@ -133,8 +151,8 @@ namespace ClassRoomHelper
 				Program.Widget.Title.Text = "快捷功能";
 		}
 
-		public bool Timer_Enabled { get { OnTimerChanged(); return timer_Enabled; } set => timer_Enabled = value; }
-		public DateTime Timer_Date { get {OnTimerChanged(); return timer_Date; } set => timer_Date = value; }
+		public bool Timer_Enabled { get {  return timer_Enabled; } set { timer_Enabled = value; OnTimerChanged(); } }
+		public DateTime Timer_Date { get { return timer_Date; } set { timer_Date = value; OnTimerChanged(); } }
 		public bool WallpaperEngine_Enabled { get; set; }
 		public bool BugFixForSeewo { get; set; }
 		public bool CICEnabled { get; set; }
